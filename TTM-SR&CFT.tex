@@ -1,0 +1,1035 @@
+\documentclass{article}
+
+\usepackage{amsmath,mathtools}
+\usepackage{bm,extarrows,ulem}
+\usepackage{mathrsfs}
+\usepackage{geometry,graphicx,color}
+\geometry{centering,scale=0.8}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bs}{\be\begin{split}}
+
+\newcommand{\dif}{\,\mathrm{d}}
+\newcommand{\p}{\partial}
+\newcommand{\1}{\left}
+\newcommand{\2}{\right}
+\newcommand{\ma}{\mathcal}
+
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+
+\title{Notes on The Theoretical Minimum\\
+--- Special Relativity and Classical Field Theory}
+\author{Gui-Rong Liang}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Special Relativity}
+\subsection{Derivation of the Lorentz transformation}
+
+To establish the Lorentz transformation, we need five small steps, or properties.\\
+
+1.\textsl{Synchronization by light}\\
+
+Suppose a primed Inertial Reference Frame is moving right relative to an unprimed IRF by a velocity $v$. Everyone will agree that $x'=0$ corresponds to $x=vt$, but what's the expression of $t'=0$ in terms of $x$ and $t$? $t'=0$ means every event on $x'$-axis happens at the same time. We use light to synchronize two points and then we can determine the $x'$-aixs.
+
+Imagine in the primed IRF there're three observers $A$, $B$, and $C$, who are expressed in the unprimed IRF as $x=vt$, $x-vt=1$, $x-vt=2$, if the observer $B$ in the middle simultaneously receives two signals from both sides, we can say that $A$ and $C$ are synchronized. The two light signals are represented by $x=t$ and $x+t=a$, where we have set the speed of light as $c=1$ and $a$ is a parameter to be determined.
+
+We first combine $x=t$ and $x-vt=1$ to give the coordinate of the event $B$ receives the signal, it's $(x_B, t_B)=(\frac1{1-v},\frac1{1-v})$. And then we plug in this coordinate to give the parameter in the second signal $a=\frac2{1-v}$. Next we combine the second signal $x+t=\frac2{1-v}$ and observer $C$'s world line $x-vt=2$ to give the event $C$ sent the signal, it's $(x_C, t_C)= (\frac{2v}{1-v^2}, \frac{2}{1-v^2})$. Thus by connecting $(x_C, t_C)$ and the origin,  we have the synchronization line as $t=vx$. Note that it is symmetric to $x=vt$ with respect to the light ray $x=t$.
+
+We conclude the corresponding relationship as follow,
+\be\begin{split}
+x'=0 &\quad\Longleftrightarrow\quad x-vt=0\\
+t'=0 &\quad\Longleftrightarrow\quad t-vx=0,
+\end{split}\ee
+then we may write the general form of the transformation between primed and unprimed coordinates as
+\bs
+x'=f(x-vt), &\quad\text{with}\quad f(0)=0,\\
+t'=\,g(t-vx), &\quad\text{with}\quad g(0)=0.
+\end{split}\ee
+
+2.\textsl{Linearity property}\\
+
+To proceed, we impose some physical considerations. \\
+
+Firstly, if two meter-sticks have the same length in unprimed RF, they will still have the same length in the primed RF. If we join them head to tail, the coordinate relationship will be
+\bs
+x_1-x_0=x_2-x_1 &\implies x'_1-x'_0=x'_2-x'_1 \\
+\quad\text{or}\qquad\quad \Delta x_1=\Delta x_2 &\implies \Delta x'_1=\Delta x'_2.
+\end{split}\ee
+If the coordinate difference is infinitesimal, the relation can be re-expressed as
+\bs
+\dif x_1=\dif x_2 &\implies \dif x'_1=\dif x'_2 \\
+\text{or}\qquad\quad \frac{\p x'}{\p x}\bigg |_{x_1}&=\frac{\p x'}{\p x}\bigg |_{x_2},
+\end{split}\ee
+where in the second equation the $x_1$ and $x_2$ are arbitrary adjacent points in $x$-axis, so we conclude that the derivative must be a constant,
+\be
+\frac{\p x'}{\p x}=\text{const}(v),
+\ee
+where we should note that the constant may depend on   the relative velocity $v$. This is the linearity property of $x'$ with respect to $x$.
+
+Secondly, imagine you are standing in a train station, and three trains pass you by the same time interval, then you will agree in the train RF, they are evenly spaced. By formulas, we have
+\bs
+t_1-t_0=t_2-t_1 &\implies x'_1-x'_0=x'_2-x'_1 \\
+\quad\text{or}\qquad\quad \frac{\p x'}{\p t}&=\text{const}(v).
+\end{split}\ee
+This is the linearity property of $x'$ with respect to $t$.
+To conclude the above two considerations, we my write the first transformation relation as,
+\be
+x'=f(v)(x-vt),
+\ee
+where we have taken $f(0)=0$ into account, thus the two constant are the same, and $x-vt$ always appears as a whole.
+
+Thirdly, if two time intervals are the same in one RF, they will be the same in another, so
+\be
+\frac{\p t'}{\p t}=\text{const}(v).
+\ee
+
+Fourthly, if two distance are the same in the unprimed RF, observers in the primed RF will feel the same time interval when passing by them, so
+\be
+\frac{\p t'}{\p x}=\text{const}(v).
+\ee
+
+To conclude the above two linearities, considering $g(0)=0$, we have
+\be
+t'=g(v)(t-vx).
+\ee
+
+3.\textsl{Invariance of light speed}\\
+
+Next we use the fact that the speed of light is the same in every RFs, 
+\be
+x=t \implies x'=t',
+\ee
+we can easily find that 
+\be
+f(v)=g(v).
+\ee
+
+4.\textsl{Reflection symmetry}\\
+
+Note that we have chosen the right-oriented coordinate system so that the equation describes the primed RF moving right relative to the unprimed RF, manifestly, we write the equation as
+\be
+x_R'=f(v)(x_R-vt).
+\ee
+But the same equation can refer to a left-moving primed RF relative to the unprimed RF in a left-oriented coordinate system,
+\be
+x_L'=f(v)(x_L-vt).
+\ee
+Then how do we describe a right-moving RF in a left-oriented coordinate system? We change the sign of the speed,
+\be
+x_L'=f(-v)(x_L+vt).
+\ee
+Note that coordinates in left-oriented coordinate system differs from those in right-oriented coordinate system by a minus sign, $x_L=-x_R$ and $x'_L=-x'_R$. So we change the above equation back to the right-oriented coordinate system,
+\bs
+-x_R'&=f(-v)(-x_R+vt)\\
+\text{or} \qquad x_R'&=f(-v)(x_R-vt).
+\end{split}\ee
+So we have two equations describing the same phenomenon,
+\be\1\{\begin{split}
+x_R'&=f(v)(x_R-vt)\\
+x_R'&=f(-v)(x_R-vt).
+\end{split}\2.\ee
+Thus there must be
+\be
+f(v)=f(-v).
+\ee
+Actually the $v$ in $f(v)$ can point to any directions in $2$ or $3$ dimensions, so $f(v)$ can only depend on the magnitude of $v$, not direction. At the end we will find it as $f(v^2)$.\\
+
+5.\textsl{Equivalence of reference frames}\\
+
+When looking at the primed RF in unprimed RF, we have
+\be\1\{\begin{split}
+x'&=f(v)(x-vt)\\
+t'&=f(v)(t-vx).
+\end{split}\2.\ee
+
+Relatively, when looking at the unprimed RF in primed RF, it's moving to the opposite direction, so we have
+\be\1\{\begin{split}
+x&=f(-v)(x'+vt')=f(v)(x'+vt')\\
+t&=f(-v)(t'+vx')=f(v)(t'+vx').
+\end{split}\2.\ee
+Joining the above two sets of equations, we have
+\be\begin{split}
+x'&=f(v)(x-vt)\\
+&=f(v)^2[(x'+vt')-v(t'+vx')]\\
+&=f(v)^2(1-v^2)x',
+\end{split}\ee
+thus we find out the form of $f(v)$,
+\be
+f(v)=\frac1{\sqrt{1-v^2}}.
+\ee
+So the Lorentz transformation is given by
+\be\1\{\begin{split}
+x'&=\frac{x-vt}{\sqrt{1-v^2}}\\
+t'&=\frac{t-vx}{\sqrt{1-v^2}}.
+\end{split}\2.\ee
+Recovering the normal units, we have
+\be\1\{\begin{split}
+x'&=\frac{x-vt}{\sqrt{1-\frac{v^2}{c^2}}}\\
+t'&=\frac{t-\frac v{c^2}x}{\sqrt{1-\frac{v^2}{c^2}}}.
+\end{split}\2.\ee
+We see that when $v/c<<1$, we recover the Galilieo's transformation,
+\be\1\{\begin{split}
+x'&=x-vt\\
+t'&=t.
+\end{split}\2.\ee
+Moreover, the positivity of $1-\frac{v^2}{c^2}$ gives the famous conclusion: nothing's moving faster than light.\\
+
+\subsection{Inferences from LT and relativistic effects}
+
+1.\textsl{Addition of the velocity}\\
+
+Lorentz transformations can be done twice, through which we could find the rule of addition velocity. Now let's say the double-primed RF is moving relative to the primed RF with speed $u$, and primed to the rest $v$, so we have
+\be
+x''=\frac{x'-ut'}{\sqrt{1-u^2}}=\frac{\frac{x-vt}{\sqrt{1-v^2}}-u\frac{t-vx}{\sqrt{1-v^2}}}{\sqrt{1-u^2}}
+=\frac{(1+uv)x-(u+v)t}{\sqrt{1-u^2}\sqrt{1-v^2}}.
+\ee
+By analysis the numerator, we know that $x''=0$ is the world line the double-primed observer, its equation in the rest RF is $x=\frac{u+v}{1+uv} t$, so we conclude the total velocity $w$ is $\frac{u+v}{1+uv}$. But more specifically, we want to verify it in explicit transformation between $x''$ and $x$, $t$, by dividing both the numerator and the denominator the factor $1+uv$, we have the denominator as,
+\be
+\sqrt{\frac{1+u^2v^2(+2uv-2uv)-u^2-v^2}{(1+uv)^2}}=\sqrt{1-\1(\frac{u+v}{1+uv}\2)^2},
+\ee
+so, to conclude,
+\be
+x''=\frac{x-wt}{\sqrt{1-w^2}}, \quad\text{where}\quad w=\frac{u+v}{1+uv}.
+\ee
+The extreme example of the velocity addition rule is that both $u$ and $v$ are equal to the speed of light $1$, we see that the resulting $w$ is also $1$. Nothing's faster than light.\\
+
+2.\textsl{Length contraction and time dilation}\\
+
+Next we're going to explore some of the relativistic effects simply from Lorentz transformations.
+
+If a stick with length $L$ is at rest in the unprimed RF, what's its length measured in the primed RF?
+The point here is, in the primed RF, we must measure it's both ends at same time. To convert it mathematically, we want to find the $x'$ coordinate of the cross point of $x=L$ and $t'=0\,(t=vx)$.
+Using the Lorentz transformation, we soon get
+\be
+L'=x'=\frac{x-vt}{\sqrt{1-v^2}}=\frac{L-v^2 L}{\sqrt{1-v^2}}=\sqrt{1-v^2} L<L,
+\ee
+thus the length is contracted in the moving RF. This is the \textit{length contraction}. \\
+
+If a clock at the origin runs time $T$ at unprimed RF, how long does the observer feel in the primed RF?
+Mathematically, we want to find the $t'$ coordinate of the point $(0, t)$.
+Very soon by Lorentz transformation we get
+\be
+t'=\frac{t-vx}{\sqrt{1-v^2}}=\frac{T}{\sqrt{1-v^2}}>T,
+\ee
+which says time dilates in the moving RF. This is the \textit{time dilation}.\\
+
+3.\textsl{Spacetime intervals and 4-velocity}\\
+
+By a simple calculation, we could find an invariant quantity under Lorentz transformations.
+\be
+t'^2-x'^2=\frac{t^2+v^2x^2-2vtx}{1-v^2}-\frac{x^2+v^2t^2-2vtx}{1-v^2}=t^2-x^2\equiv\tau^2,
+\ee
+where $\tau$ is called the proper time. Its physical meaning is shown as follows, on the $t'$-axis of the primed RF, $x'=0$, the $t'$ coordinate is nothing but $\tau$, so $\tau$ represents time of a moving body. In $4$ dimensions, the spacetime interval is represented as,
+\be
+s^2=-\tau^2=-t^2+x^2+y^2+z^2,
+\ee
+which also includes rotation symmetries. And more generally it's represented in terms of infinitesimal intervals,
+\be
+\dif s^2=-\dif \tau^2=-\dif t^2+\dif x^2+\dif y^2+\dif z^2.
+\ee
+When $\dif s^2<0$, it's called a timelike separation; when $\dif s^2>0$, spacelike; and $\dif s^2=0$, lightlike.\\
+
+We denote $(t,x,y,z)$ by $(x^0, x^1,x^2,x^3)$, or $x^\m$, where $\m$ runs from $0$ to $4$. The 4-velocity is defined as,
+\be
+U^\m:=\frac{\dif x^\m}{\dif\tau}.
+\ee
+The zeroth component is
+\be
+U^0=\frac{\dif t}{\dif\tau}=\frac{\dif t}{\sqrt{\dif t^2-\dif x^2}}=\frac{1}{\sqrt{1-v^2}},
+\ee
+and the spatial components are
+\be
+U^i=\frac{\dif x^i}{\dif \tau}=\frac{\dif x^i}{\dif t} \frac{\dif t}{\dif\tau}=\frac{V^i}{\sqrt{1-v^2}},
+\ee
+where $V^i$ is the 3-velocity.
+The 4 components of the 4-velocity are not independent, they are constraint by
+\be
+\dif\tau^2=\dif t^2-\sum_i(\dif x^i)^2 \implies 1=(U^0)^2-(\vec U)^2
+\ee
+
+\subsection{Particle mechanics}
+
+The \textbf{Least Action Principle} serves as one of the fundamental rules of physics, and will be our starting point.
+
+To make sure the laws of motion are the same in every RF, the action should be invariant. There's really only one thing that's invariant when a particle moves from some position to a neighboring position --- the proper time separating the two. If the particle moves from spacetime $A$ to spacetime $B$, the invariant should be the integral of the proper time, or multiplying an arbitrary constant.
+\be
+\ma A=-m\int_a^b \dif \tau,
+\ee
+where the minus sign is just due to convention, and $m$ just a parameter but eventually we will find it's the mass of the particle.\\
+To go back to our familiar form of action, we rewrite it as
+\be
+\ma A=-m\int_a^b \sqrt{1-v^2} \dif t,
+\ee
+thus we can extract the Lagrangian as
+\be
+L=-m \sqrt{1-v^2},
+\ee
+or to recover the normal units as
+\be
+L=-mc^2\sqrt{1-\frac{v^2}{c^2}}.
+\ee
+When taking the low speed limit we have
+\be
+L=-mc^2 \1(1-\frac{v^2}{2c^2}\2)=\frac1 2 mv^2-mc^2.
+\ee
+We see the good old Lagrangian of a free particle $\frac1 2mv^2$, and adding or subtracting a constant doesn't affect the motion of the particle.\\
+
+Let's come back to our relativistic version and derive its canonical momentum,
+\be
+P^i=\frac{\p L}{\p \dot x^i} = \frac{m\dot x^i}{\sqrt{1-v^2}}=\frac{m\dif x^i}{\dif t\sqrt{1-v^2}}=m\frac{\dif x^i}{\dif\tau}=mU^i,
+\ee
+where we can see that it's just mass times the spatial component of the 4-velocity.
+
+The most important quantity the Hamiltonian is given by
+\be
+H = \sum_i P^i \dot x^i -L= \frac{m v^2}{\sqrt{1-v^2}}+m \sqrt{1-v^2}=\frac{m}{\sqrt{1-v^2}}=mU^0\equiv P^0,
+\ee
+which shows that the energy is just the zeroth component of the 4-momentum $P^\m$. Thus the conservation of energy and momentum can be expressed in a single equation,
+\be
+\frac{\dif P^\m}{\dif t}=0.
+\ee
+Now we recover the energy expression in normal units and take slow speed limit,
+\be
+E=\frac{mc^2}{\sqrt{1-\frac{v^2}{c^2}}} \sim mc^2+\frac1 2 mv^2,
+\ee
+where the second term is the kinetic energy, and the first term is the rest energy contained in the mass.
+This is the origin of the famous Einstein's mass-energy relation,
+\be
+E_0=mc^2.
+\ee
+
+Then what's the energy of a massless particle? Since the speed of a massless particle is the light speed $1$, the numerator and the denominator in the Hamiltonian tends to be the $0/0$ type, which is undetermined. The knob here is to represent the energy not through the velocity (every massless particle has the same velocity --- the speed of light), but through the momentum (and energies of massive particles can also be expressed in terms of momentum).\\
+We multiply the normalization relationship of the 4-velocity by mass squared,
+\be
+m^2=m^2(U^0)^2-m^2(\vec U)^2=E^2-P^2,
+\ee
+thus we have the energy in terms of momentum
+\be
+E=\sqrt{P^2+m^2} \longrightarrow \sqrt{P^2 c^2 +m^2c^4}.
+\ee
+Now we can see when the mass is zero, the energy would be
+\be
+E=c\,P,
+\ee
+where $P$ is the magnitude of the momentum.
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section{Scalar field theory}
+
+\subsection{The field Euler-Lagrangian equation and generalized harmonic oscillator}
+
+From the basics of classical mechanics, an action for a non-relativistic particle moving along one dimensional space is given by,
+\be 
+\ma A = \int_a^b L(q,\dot q) \dif t,
+\ee
+in which $q(t)$ denotes the spatial coordinate varying with time.\\
+The Lagrangian $L$ is has the form of kinetic energy minus potential energy,
+\be
+L = \frac 1 2 \1(\frac{\dif q}{\dif t}\2)^2 - V(q),
+\ee
+where the mass $m$ is set to $1$.\\
+The Euler-Lagrange equation tell us how to minimize the action and provide the equation of motion,
+\be
+\frac \dif {\dif t} \frac{\p L}{\p \dot q} = \frac{\p L}{\p q},
+\ee
+by solving which we have the Newton's equation,
+\be 
+\frac{\dif^2 q}{\dif t^2} = -\frac{\p V(q)}{\p q}.
+\ee
+Note that  here $q$ is the spatial coordinate, but it can be any scalar quantity which depends only on $t$, for example, the temperature T(t) at some place. So we may give this kind of quantity a general name $\phi$, and treat it a field theory in $(0+1)$ dimension.\\
+
+\textit{A particle theory in one dimension of space has the same mathematical structure as a scalar field theory in zero dimension of space.}\\
+
+Now we want to generalize it to $(d+1)$ dimensions, but firstly focus on the case in $d=1$.
+Parallel to the above case, the action is constructed by summing Lagrangian over tiny spacetime cells, 
+\be
+\ma A = \int\int \ma L \dif t \dif x,
+\ee
+with boundary value fixed.
+
+Then we see from the above that the particle Lagrangian depends only on the position and the velocity. We may expect the field Lagrangian also depends on the field values and its first-order derivatives (including its spatial derivatives), which is the minimum requirement of \textbf{Locality}. \textit{Locality means that things happening at one place only directly affect conditions nearby in space and time.} Higher derivatives are ruled out because they're ``less local' than first derivatives.\\
+Then we may write our field Lagrangian as
+\be
+\ma L = \ma L(\phi, \frac{\p\phi}{\p t}, \frac{\p\phi}{\p x}).
+\ee
+In multi-dimensional case, the Euler-Lagrangian equation is generalized by incorporating contributions from all spacetime direction, thus it would be
+\be
+\frac \dif {\dif t} \frac{\p\ma L}{\p \1(\frac{\p\phi}{\p t}\2)} + \frac \dif {\dif x} \frac{\p\ma L}{\p \1(\frac{\p\phi}{\p x}\2)} = \frac{\p\ma L}{\p \phi}.
+\ee
+We proceed to modify the kinetic term of the original Lagrangian by accounting the effect of the $x$ component,
+\be
+\ma L = \frac 1 2 \1[\1(\frac{\p \phi}{\p t}\2)^2 - \1(\frac{\p \phi}{\p x}\2)^2\2]- V(\phi),
+\ee
+where the minus sign before the quadratic term arises as a must of \textbf{Lorentz Invariance}. This will be the Lagrangian for our field theory, and we view it as a prototype.
+
+The resulting EOM is,
+\be
+\frac{\dif^2 \phi}{\dif t^2} - \frac{\dif^2 \phi}{\dif x^2}+\frac{\p V}{\p \phi} =0.
+\ee
+If we go back to the conventional units by restoring the factor of $c$, and consider the case without the source term by setting $V(\phi)=0$, we get the familiar wave equation,
+\be
+\frac 1 {c^2} \frac{\dif^2 \phi}{\dif t^2} - \frac{\dif^2 \phi}{\dif x^2}=0,
+\ee
+and any function of the form $F(x+ct)$ or $F(x-ct)$ will be its solution.
+
+Another basic example is to choose $V(\phi) = \frac{\mu^2}{2} \phi^2$, where $\mu^2$ resembles the spring constant $k$,
+\be
+\frac{\dif^2 \phi}{\dif t^2} - \frac{\dif^2 \phi}{\dif x^2}+\mu^2 \phi =0,
+\ee
+and this is the analog version of the Simple Harmonic Oscillator, called Klein-Gordon equation.
+
+Its general solution is linear combination of the form $\phi=e^{-i \omega t} e^{i k x}$, taking which into the equation gives the constraint relation $\omega=\pm\sqrt{k^2+\mu^2}$, a solution is given when $k$ is determined.
+
+Then it's easy to generalize all the above set to $(3+1)$ dimensions, where we will use the metric $\eta_{\m\n} = \text{diag}\{-1,1,1,1\}$ to raise and lower indices, 
+\be
+\begin{split}
+\ma A = \int \ma L(\phi, \p_\mu \phi) \dif^4 x &= \int \1[\frac1 2 \p_\mu\phi \p^\mu \phi - V(\phi)\2] \dif^4 x,\\
+\p_\mu \frac{\p \ma L}{\p (\p_\mu \phi)} - \frac{\p\ma L}{\p \phi} &= 0,\\
+\p_\mu\p^\mu \phi+ \frac{\p V}{\p \phi} &= 0.
+\end{split}
+\ee
+
+Above formalisms are just simple extensions of non-relativistic particle motion. 
+Generally, due to the fact that an action should be invariant in any reference frame, the Lagrangian must be a scalar. Constructed out of the field $\phi$ and its first-time derivative $\p_\mu \phi$, there are many applicants for the Lagrangian, such as: any functions of $\phi$, $\p_\mu\phi \p^\mu \phi$, and any combinations of them (eg. $\ma L = \phi^2 (\p_\mu\phi \p^\mu \phi)$).
+
+\subsection{The canonical momentum, the Hamiltonian density, and the Noether theorem}
+The canonical quantities are deduced from classical mechanics. Firstly we treat the field $\phi$ as a coordinate as compared with $q$, and the variable $x$ a degree of freedom as compared with the label $i$, which means at a given point in $x$, the field value $\phi_x$ is free to change, without any influence from values at other points $\phi_y$s. Then the action of a field can be rewrite in the classical form,
+\bs
+\ma A&=\int\int \ma L(\phi(x,t), \frac{\p\phi(x,t)}{\p t}, \frac{\p\phi(x,t)}{\p x}) \,\dif x \dif t \\
+&=\int\int \ma L(\phi_x, \dot \phi_x) \,\dif x \dif t \\
+&=\int L(\phi_{x_0},\phi_{...}, \dot \phi_{x_0}, \dot \phi_{...}) \dif t, \quad (x_0,...\in \{x\})
+\end{split}\ee
+where $L=\int \ma L \dif x$, so we call the $\ma L$ the \textit{Lagrangian density}.
+Note here the derivative of the field with respect to space is nothing but a function of the field $\phi(x)$s,
+\be
+\frac{\p\phi}{\p x}=\frac{\phi(x+\epsilon)-\phi(x)}{\epsilon}
+\ee
+where $\epsilon$ is a small quantity. So it's absorbed in the $\phi_x$ in $\ma L(\phi_x, \dot \phi_x)$.
+From the classical definition of canonical momentum, we construct the field canonical momentum,
+\be
+p^i=\frac{\p L}{\p \dot q_i} \quad\rightarrow\quad p^y=\frac{\p L}{\p \dot \phi_y}= \frac{\p \int\ma L(\phi_x, \dot \phi_x)\dif x}{\p \dot \phi_y} = \frac{\p \ma L(\phi_y, \dot \phi_y)}{\p \dot \phi_y} \equiv \pi^y,
+\ee
+where $y$ is a specific number in $x$, and $\pi^y=\frac{\p \ma L}{\p \dot \phi_y}$ is the $y$th component of the field canonical momentum. One can treat the integral in the numerator as a sum over the dummy index $x$, thus the derivative of $L$ with respect to the specific label $y$ is just the derivative of the term corresponding to that specific label. Since this $y$ is free to change, we recover the normal variable $x$ to give its definition,
+\be
+\pi(x):=\frac{\p \ma L}{\p \dot \phi}(x).
+\ee
+We proceed to construct the field Hamiltonian still from the classical definition,
+\be
+H=\sum_i \frac{\p L}{\p \dot q_i} \,\dot q_i -L \quad\rightarrow\quad 
+H=\int \frac{\p \ma L}{\p \dot \phi_x} \dot \phi_x \dif x - L 
+=\int \1(\frac{\p \ma L}{\p \dot \phi_x} \dot \phi_x - \ma L \2)\dif x
+\equiv \int \ma H \dif x,
+\ee
+where we have use the fact that $\frac{\p L}{\p \dot \phi}=\frac{\p\ma L}{\p\dot \phi}$. Thus we have the definition of a \textit{Hamiltonian density},
+\be
+\ma H := \pi(x) \,\dot\phi(x) - \ma L = \frac{\p \ma L}{\p \dot \phi}(x) \,\dot \phi(x) - \ma L.
+\ee
+Next we try the simplest Lagrangian $\ma L = \frac 1 2 \dot \phi^{\,2} - \frac1 2\phi_{,x}^{\,2}- V(\phi)$, and explore its canonical quantities. The canonical momentum is just
+\be
+\pi=\dot\phi,
+\ee
+and the Hamiltonian density, (or the energy density,) is
+\be
+\ma H=\frac 1 2 \dot \phi^{2} + \frac1 2\1(\frac{\p\phi}{\p x}\2)^{2}+ V(\phi)\equiv \frac 1 2 \dot \phi^{2} + V_{eff}(\phi),
+\ee
+where the $V_{eff}$ plays the role of potential energy rather than the field potential $V(\phi)$.\\
+
+We can see from its form that apart from $V(\phi)$, the energy is always positive. Further if the field potential  $V(\phi)$ is bounded form below (,which is a desired assumption), we can easily change the zero point by adding a constant. This is our first artificial requirement --- \textit{the positivity of energy}.\\
+
+We previously treat $\phi(t,x)$ as an independent degree of freedom for each value of $x$. If it is really so, the difference of fields at two adjacent point changing rapidly will cause the spatial derivative to be huge, or even infinite, let alone the square of it --- the energy. Definitely we want a finite energy, so this must be a constraint to the ``independence of degree'', telling $\phi(t,x)$ to be smooth, and putting the brakes on how wildly $\phi$ can vary from point to point. This will be the second artificial requirement --- \textit{the finiteness of energy}.\\
+
+Now let's recall the Noether Theorem in classical mechanics, which says,\\
+
+\textit{If the Lagrangian is invariant under the change of $\delta q_i=f_i(q)\epsilon$, the corresponding charge $Q=\sum_i p_i f_i(q)$ will be a conserved quantiy.}\\
+
+As a review, we prove it in the regime of classical field theory, where we treat the variable $x$ as a degree of freedom.
+If the Lagrangian is invariant under the transformation $\delta\phi_x=f_x(\phi)\epsilon$, we have
+\bs
+0=\delta L&= \delta\int\ma L(\phi_x, \dot \phi_x)\dif x\\
+&=\int\1( \frac{\p\ma L}{\p\dot\phi_x}\delta\dot\phi_x+\frac{\p\ma L}{\p\phi_x}\delta\phi_x\2)\dif x \\
+&=\int\1( \pi^x\delta\dot\phi_x+\dot\pi^x\delta\phi_x\2)\dif x\\
+&=\frac{\dif}{\dif t}\int\pi^x\delta\phi_x\dif x\\
+&=\epsilon\frac{\dif}{\dif t}\int \pi^x f_x(\phi) \dif x,
+\end{split}\ee
+thus we have the conserved quantity
+\be
+Q=\int \pi(x) f(\phi) \dif x.
+\ee
+But in field theory, the change of the field is generally due to the change in the coordinate, which is 
+\be
+\delta\phi=\phi(x-\epsilon)-\phi(x)=-\epsilon\frac{\p\phi}{\p x},
+\ee
+where we take an \textit{active view} of change --- translating the real field from coordinate $x$ to coordinate $x+\epsilon$. Here $f(\phi)=-\frac{\p\phi}{\p x}$, thus the conserved charge is
+\be
+Q=-\int \pi(x) \frac{\p\phi(x)}{\p x} \dif x.
+\ee
+To conclude Noether theorem in classical field theory, we state that\\
+
+\textit{If a physical system has the symmetry under transformation $\delta x=-\epsilon$, the corresponding quantity $Q=-\int \pi(x) \p_x\phi(x) \dif x$ is conserved.}
+
+
+\subsection{Interactions between a particle and the scalar field}
+
+The action of  a free particle, which is Lorentz invariant, is given by,
+\be 
+\ma A_{par} = -m \int \dif \tau = -m \int \sqrt{\dif t^2 - \dif x^2} = -m \int \sqrt{1-\dot x^2} \dif t,
+\ee
+where the minus sign is just a convention.
+
+We can immediately recognize the Lagrangian as $-m \sqrt{1-\dot x^2}$ and found that it matches the familiar classical Lagrangian at low velocities when expanded. \\
+
+Now we impose a scalar field into this Lagrangian, the simplest way is by adding a term which indicates integrating the field along the trajectory of the moving particle, thus making the field variables $t$ and $x$ to be the same with the particle's variables,
+\be
+\begin{split}
+\ma A_{par-field} &=-m\int\dif\tau-\int\phi(t,x)\dif\tau\\
+&= -\int [m+\phi(t,x)] \dif \tau \\
+&=- \int [m+\phi(t,x)] \sqrt{1-\dot x^2} \dif t
+\end{split}
+\ee
+
+\textsl{1. Higgs Mechanism}\\
+
+From the action we will discover an interesting property of the effect acted on the particle by the field --- if the field $\phi(t,x)$ somehow in some region approaches a non-zero constant, the motion of the particle would be like a particle moves with a mass $m+\phi$; and what's more, if a massless particle is coupled to this field, this coupling can effectively shift the particle's mass to a non-zero value! This is much like the case when Higgs field gives a particle its mass!
+
+
+To make this simplified Higgs Mechanism clear again, we extract the Lagrangian as
+\be
+\ma L = -[m+\phi(t,x)]\sqrt{1-\dot x^2},
+\ee
+and take its derivative with respect to $x$ to get the canonical momentum,
+\be
+\frac{\p\ma L}{\p \dot x} = \frac{[m+\phi(t,x)] \dot x}{\sqrt{1-\dot x^2}},
+\ee
+which supports the notion that the expression $[m+\phi(t,x)]$ behaves like a position-dependent mass.\\
+
+\textsl{2. Low-speed expansion and potential term}\\
+
+Now we recover the normal units and expand the Lagrangian in the low speed limit,
+\be
+\begin{split}
+\ma L &= -[m c^2+ g\phi(t,x)]\sqrt{1-\frac{\dot x}{c}^2}\\
+&\approx -[m c^2+ g\phi(t,x)] \1(1-\frac{\dot x^2}{2c^2}\2)\\
+&\sim \frac1 2 m \dot x^2 - g \phi(t,x),
+\end{split}
+\ee
+where $g$ is coupling constant, telling us how strong the effect the field acts on the particle (the most familiar coupling constant being the electric charge $e$). In the last step we dropped the constant term $mc^2$ and the infinitesimal term $g\phi(t,x) \frac{\dot x^2}{2c^2}$.
+
+We readily recognize this form as $\ma L= T-V$ in our classical mechanism class, with $g\phi(t,x)$ serves as the potential energy term. At this point, we clearly see the fact that \emph{\textit{interaction gives rise to potential}}.\\
+
+\textsl{3. The interaction term when the particle is at rest}\\
+
+Suppose the particle is at rest with $x=0$ (and $\dot x=0$), so its world line is just a vertical line.
+In this case, the Lagrangian is only left with an interaction term,
+\be
+\begin{split}
+\ma L_{int} &= -g \phi(t,0)\\
+&=\int -g\phi(t,x)\delta(x)\dif x.
+\end{split}
+\ee
+
+So that the interaction action will be
+\be
+\ma A_{int} =\int \ma L_{int} \dif t= \int\int -g\phi(t,x)\delta(x)\dif x \dif t.
+\ee
+
+We claim that \emph{\textit{this interaction term is shared both by the particle action and the field action}}.\\
+
+%We can further obtain the EOM using the Euler-Lagrange equation,
+%\be
+%\frac\dif{\dif t}\frac{[m+\phi(t,x)] \dot x}{\sqrt{1-\dot x^2}} = -\frac{\p\phi}{\p x} \sqrt{1-\dot x^2}.
+%\ee
+%We will leave its detail to future discussions.
+
+\textsl{4.The back-reaction to the field by the particle}\\
+
+The action of a field, when taking into account the interaction by the rest particle, is given by
+\be
+\begin{split}
+\ma A_{field-par} &= \ma A_{field} + \ma A_{int} \\
+&= \int\int \1\lbrace \frac 1 2 \1[\1(\frac{\p \phi}{\p t}\2)^2 - \1(\frac{\p \phi}{\p x}\2)^2\2] -g\phi(t,x)\delta(x) \2\rbrace \dif x \dif t.
+\end{split}
+\ee
+Note that this is also the total action of the ``field and particle", where the the action of the rest particle $\ma A_{par}(rest)=\int\int \frac1 2 m \dot x^2 \dif x \dif t = 0$. We extract its Lagrangian,
+\be
+\ma L_{field-par} =  \frac 1 2 \1[\1(\frac{\p \phi}{\p t}\2)^2 - \1(\frac{\p \phi}{\p x}\2)^2\2] -g\phi(t,x)\delta(x),
+\ee
+and get its EOM through the Euler-Lagrangian equation,
+\be
+\frac{\dif^2 \phi}{\dif t^2} - \frac{\dif^2 \phi}{\dif x^2} = -g\delta(x).
+\ee
+When generalizing to $d=3$ case, and consider a dynamic field resulting from a moving particle with its positon $a(t)$, we have
+\be
+\p_\mu\p^\mu\phi(t,x)=g\,\delta^3(x-a(t)),
+\ee
+or consider a static field $\phi(x)$ with a rest particle in it, we have
+\be
+\nabla^2 \phi(x) = g\,\delta^3(x),
+\ee
+which is nothing but the \textit{Poisson's equation}.
+
+\newpage
+\section{Vector field theory --- the electro-magnetic field}
+\subsection{A particle moving in the electro-magnetic field and the Lorentz force law}
+The electric and magnetic field can be derived from a more intrinsic field -- \textit{the vector potential} $A_\mu (x,t)$ (note here $x$ represents for all spatial coordinates); the simplest scalar quantity constructed from the vector potential and the particle's local coordinates is $A_\mu(x,t) \dif x^\mu$ (another less simple scalar is $A_\mu A^\mu \dif\tau$, which however violates the gauge invariance we will mention later), thus we integrate it along the trajectory of the particle to get the action, which is much similar to the case of the scalar field,
+\be
+\begin{split}
+\ma A &= -m\int\dif\tau + e\int A_\mu(x,t) \dif x^\mu \\
+&=\int \1(-m\sqrt{1-\dot x^2} + e A_\mu(x,t)\dot x^\mu \2) \dif t.
+\end{split}
+\ee
+where $e$ is the coupling constant, which we will later recognize it as the electric charge. \\
+
+1.\textsl{Equation of Motion, the electro-magnetic tensor}\\
+
+We extract its Lagrangian as,
+\be
+\ma L=-m\sqrt{1-\dot x^2} + e A_\mu(x,t)\dot x^\mu,
+\ee
+and take its derivative with respect to the $i$-component of the velocity to get the canonical momentum,
+\bs
+\m P^i = \frac{\p\ma L}{\p\dot x^i} &= \frac{m\dot x_i}{\sqrt{1-\dot x^2} } + e A_i(x,t) \\
+&= \frac{m\dif x_i}{\sqrt{1-\dot x^2} \dif t} + e A_i(x,t) \\
+&= m\frac{\dif x_i}{\dif \tau } + e A_i(x,t) \\
+&\equiv m U_i + e A_i(x,t),
+\end{split}\ee
+where $U_i$ is the 4-velocity of the particle. We proceed to take its time derivative to get prepared for the EOM,
+\be
+\frac\dif{\dif t} \1(\frac{\p\ma L}{\p\dot x^i}\2) = \frac\dif{\dif t} \1(\frac{m\dot x_i}{\sqrt{1-\dot x^2} }\2)
+ + e \frac{\p A_i(x,t)}{\p x^j} \dot x^j + e\frac{\p A_i(x,t)}{\p t},
+\ee
+where $A_i(x,t)$ not only depends directly on $t$, but also through $x$.
+We expand the right-hand side of the EOM as,
+\be
+\frac{\p\ma L}{\p x^i} = e \frac{\p A_\mu(x,t)}{\p x^i} \dot x^\mu = e \frac{\p A_0(x,t)}{\p x^i} + e \frac{\p A_j(x,t)}{\p x^i} \dot x^j.
+\ee
+We equate the LHS and the RHS and collect terms with and without the velocity $\dot x^j$,
+\be\label{eom}
+m\frac\dif{\dif t} \1(\frac{\dot x_i}{\sqrt{1-\dot x^2} }\2)
+= e\1(\frac{\p A_0}{\p x^i}-\frac{\p A_i}{\p x^0}\2) +e\1(\frac{\p A_j}{\p x^i} - \frac{\p A_i}{\p x^j}\2)\dot x^j.
+\ee
+In the low-speed limit the LHS of the above is nothing but ``mass times acceleration". We will assign the 1st term of the RHS as the electric field,
+\be
+E_i\equiv  \frac{\p A_0}{\p x^i} - \frac{\p A_i}{\p x^0}
+\ee
+and manipulate the 2nd term of the RHS to recognize it as $e\,\vec v \times (\vec\nabla\times\vec A)$. Thus equation \eqref{eom} is nothing but the Lonrentz force law,
+\be
+m\vec a =e\,(\vec E+\vec v\times\vec B).
+\ee
+
+To make it a nice neat form and manifestly Lorentz invariant, we proceed to simplify it, firstly multiplying the whole equation \eqref{eom} by a factor of $\frac{\dif t}{\dif \tau}$ to get
+\bs
+m \frac{\dif^2 x_i}{\dif\tau^2} = m \frac{\dif t}{\dif\tau} \frac\dif{\dif t} \1(\frac{\dif x_i}{\dif\tau}\2)
+&= e \frac{\dif x^0}{\dif\tau} \1(  \frac{\p A_0}{\p x^i}-\frac{\p A_i}{\p x^0}\2) +e\frac{\dif x^j}{\dif\tau}\1(  \frac{\p A_j}{\p x^i} -\frac{\p A_i}{\p x^j}\2) \\
+&=e \frac{\dif x^\nu}{\dif\tau} \1(  \frac{\p A_\nu}{\p x^i}-\frac{\p A_i}{\p x^\nu}\2).
+\end{split}\ee
+Observing it we find there's a free downstairs spatial index $i$ on each side. If we can replace it by the spacetime index $\mu$, we will have a covariant equation,
+\be
+m \frac{\dif^2 x_\mu}{\dif\tau^2} =e \frac{\dif x^\nu}{\dif\tau} \1(\frac{\p A_\nu}{\p x^\mu}-\frac{\p A_\mu}{\p x^\nu}\2).
+\ee
+Actually doing this is allowable. By making sure at the beginning that the action was a scalar, we guaranteed that our EOM would be Lorentz invariant. \\
+
+\textit{If the equations are Lorentz invariant, and the three space components of a certain 4-vector are equal to the three space components of some other 4-vector, then we know automatically that their zeroth components (the time components) must also match.}\\
+
+Yet, we still want to explore the meaning of the 0th component of the equation, we put it here,
+\bs
+m \frac{\dif^2 x_0}{\dif\tau^2} &=e \frac{\dif x^\nu}{\dif\tau} \1(\frac{\p A_\nu}{\p x^0}-\frac{\p A_0}{\p x^\nu}\2) \\
+&= e \frac{\dif x^0}{\dif\tau} \1(  \frac{\p A_0}{\p x^0}-\frac{\p A_0}{\p x^0}\2) +e\frac{\dif x^j}{\dif\tau}\1(  \frac{\p A_j}{\p x^0} -\frac{\p A_0}{\p x^j}\2) \\
+&= e\frac{\dif x^j}{\dif\tau}\1(  \frac{\p A_j}{\p x^0} -\frac{\p A_0}{\p x^j}\2),
+\end{split}\ee
+restoring the $\frac{\dif\tau}{\dif t}$ factor we rewrite it as,
+\be
+\frac\dif{\dif t} \,(mU_0) = e\frac{\dif x^j}{\dif t}\1(  \frac{\p A_j}{\p x^0} -\frac{\p A_0}{\p x^j}\2),
+\ee
+where the LHS is the time derivative of such a quantity
+\be
+mU_0 = -mU^0 = -m \frac{\dif t}{\dif\tau} = -\frac m {\sqrt{1-v^2}} \sim -\frac {mc^2} {\sqrt{1-v^2/c^2}},
+\ee
+which represents minus kinetic energy. 
+The RHS of the 0-component EOM is nothing but $-e\vec E \cdot \vec v$, or $- \vec F_{elec}\cdot \vec v$, the minus work power. To conclude, the 0th-component EOM can be reduced as,
+\be
+\frac{\dif E_{kin}}{\dif t} = \vec F_{elec}\cdot \vec v,
+\ee
+which is just the energy balance equation, expressing the fact that the change of kinetic energy is the work done on a system. Note here magnetic force doesn't contribute, because magnetic force always does no work.
+
+To further simplify the EOM, we introduce an anti-symmetric tensor,
+\be
+F_{\mu\nu} \equiv \p_\mu A_\nu - \p_\nu A_\mu \equiv \frac{\p A_\nu}{\p x^\mu}-\frac{\p A_\mu}{\p x^\nu}.
+\ee
+It is easy to check that
+\be\1\{\begin{split}
+E_i &= F_{i0} \\
+B_i &= \epsilon_i^{\phantom{i}jk} F_{jk}
+\end{split}\2.\ee
+then the manifestly Lorentz invariant equation has the form,
+\be
+m \textbf{A}_\mu = e \,F_{\mu\nu}\, U^\nu, \quad\text{or}\quad m \textbf{A}^\mu = e \,F^\mu_{\phantom{\mu}\nu}\, U^\nu,
+\ee
+where $\textbf{A}_\mu$ is the covariant 4-acceleration, not to confuse with the vector potential $A_\mu$.\\
+Here we see the fact that $\vec E$ and $\vec B$ are frame-dependent quantities, which are just components of the tensor $F_{\mu\nu}$. The transformation rule for $F_{\mu\nu}$ is,
+\be
+(F^{\m\n})' = L^\m_{\ \rho} L^\n_{\ \sigma} F^{\rho\sigma},
+\ee
+where $L^\m_{\ \rho}$ is the Lorentz transformation matrix (supposing two frames moving relatively along $x$-axis),
+\be
+(L^\m_{\ \rho}) = \1(\ba{cccc} \frac 1 {\sqrt{1-v^2}} & \frac{-v}{\sqrt{1-v^2}} &0&0\\ \frac{-v}{\sqrt{1-v^2}} &\frac 1 {\sqrt{1-v^2}}&0&0 \\ 0&0&1&0\\ 0&0&0&1  \ea\2).
+\ee
+Then we will find that,
+\be
+(E')^y = (F')^{0y} = L^0_{\ x} L^y_{\ y} F^{xy} = \frac{-vB_z}{\sqrt{1-v^2}},
+\ee
+which indicates the Lorentz force of a moving particle along $x$-axis in the $B_z$ field is just the electric force exerted on the particle in its own rest frame with the $B_z$ field moving along the negative $x$-axis. (magnitude is to be matched.) (Einstein's paper)\\
+
+2.\textsl{Gauge invariance}\\
+
+Suppose we make a change to the vector potential by adding a total derivative of an arbitrary scalar field,
+\be
+A_\mu \rightarrow A_\mu' = A_\mu + \p_\mu S(x),
+\ee
+where $x$ represents all 4 spacetime components. The new interaction action to the particle would become
+\be
+\ma A_{int}'=\int_a^b A' \dif x^\mu = \int_a^b A_\mu \dif x^\mu+\int_a^b \p_\mu S(x) \dif x^\mu=\ma A_{int} +S(b)-S(a).
+\ee
+When we wiggle the vector field and the trajectory, the end points $a$ and $b$ are kept fixed, so $S(b)-S(a)$ remains a constant, meaning that if $\ma A$ is minimized, $\ma A'$ is also minimized, thus the change does not have any effect on the EOM of the particle. This change is called a \textit{gauge transformation}.\\
+Further if we see the new electro-magnetic tensor with this change, we'll find it's also invariant,
+\be
+F_{\mu\nu}'=\p_\mu(A_\nu+\p_\nu S)-\p_\nu(A_\mu+\p_\mu S)=\p_\mu A_\nu-\p_\nu A_\mu +\p_\mu\p_\nu S-\p_\nu\p_\mu S=F_{\mu\nu}.
+\ee
+
+As an interesting special case, if $A_\mu$ itself is a total derivative of some scalar field, i.e, $A_\mu(x)=\p_\mu S(x)$, there would be not any effect on the particle, and we see that the $F_{\mu\nu}=0$, no electro-magnetic field at all.
+
+Since such a change to $A_\mu$ doesn't change any physics, $A_\mu$ is not a measurable physical quantity, it's just an auxiliary field, which has certain freedom called gauge choice. With this freedom we could simplify equations in some cases. Choosing different gauges can illustrate different properties of a theory, and by choosing all possible choices we know all properties of a theory.\\
+
+Here we recall that when we construct the scalar for the Lagrangian, we didn't use $\int A^\m A_\m \dif\tau$, because it violates gauge invariant,
+\be
+A'^\m A'_\m = (A^\m + \p^\m S) (A_\m + \p_\m S) = A^\m A_\m +2 A_\m \p^\m S +  \p^\m S  \p_\m S 
+\ne A^\m A_\m.
+\ee
+\\
+
+3.\textsl{Bianchi identity --- the first half of Maxwell's equations}\\
+
+An identity is a mathematical fact that follows from a definition. Due to the fact that $\vec E$ and $\vec B$ are defined as,
+\be
+\1\{\begin{split}
+\vec E &= \vec \nabla A_0 -\frac{\p\vec A}{\p t} \\
+\vec B &= \vec \nabla \times \vec A
+\end{split}\2.,
+\ee
+it's easy to verify with vector analysis that
+\be
+\1\{\begin{split}
+&\vec \nabla \times \vec E + \frac{\p \vec B}{\p t} = 0 \\
+&\vec \nabla \cdot \vec B = 0
+\end{split}\2.,
+\ee
+which are called homogenous Maxwell equations.
+In terms of electro-magnetic tensor, it's rephrased as,
+\be
+\p_\sigma F_{\m\n} +\p_\m F_{\n\sigma} +\p_\n F_{\sigma\m} = 0,
+\ee
+or
+\be
+\p_{[\sigma} F_{\m\n]} = 0,
+\ee
+with its components containing 1-time coordinate representing the 1st equation, and its all-spatial components representing the 2nd. This is the so-called \textit{Bianchi identity}.\\
+
+To conclude this subsection, when a vector potential field $A_\mu$ is given, we could define $\vec E$ and $\vec B$, we can derive the EOM, and we naturally have the Bianchi identity which are homogenous Maxwell equations. Meanwhile, all of the above can parallel be expressed in terms of the electro-magnetic tensor $F_{\mu\nu}$. Furthermore, with the principle of gauge invariance, we exclude some possibilities of the scalar Lagrangian .
+
+\subsection{The Lagrangian of the Maxwell's equations and the effect by a charged particle}
+
+Now we are ready to construct the theory of the free EM field, on the basis of the 4 principles:\\ \textbf{Least action}, \textbf{Locality}, \textbf{Lorentz invariance}, and \textbf{Gauge invariance}.\\
+
+1.\textsl{EOM of the e-m field --- the second half of free Maxwell equations}\\
+
+We can use the components $F_{\m\n}$ in any way we like without worrying about gauge invariance. And locality is also guaranteed since $F_{\m\n}$ contains first derivatives of the vector potential, $\p_\m A_\n$. The only thing we have to do is to make out a Lagrangian which is a scalar.
+
+The simplest scalar out of $F_{\m\n}$ we can think of is to contract with itself, as $F_\m^{\ \m}$; but we know that this is a trivial quantity since $F_\m^{\ \m} = 0$. Then, we could try something that's non-linear, which would be the quadratic term $F_{\m\n} F^{\m\n}$. First, we are going to figure out what it is. We expand it as,
+\bs
+F_{\m\n} F^{\m\n} &= F_{i0} F^{i0} + F_{0i} F^{0i} + F_{jk}F^{jk} +F_{kj}F^{kj}\\
+&= 2(F_{i0} F^{i0}+F_{jk}F^{jk})\\
+&=-2(\vec E^2 - \vec B^2).
+\end{split}\ee
+We find the familiar result in classical electrodynamics that $\vec E^2 - \vec B^2$ is a Lorentz invariant quantity.\\
+By convention, we choose the Lagrangian to be
+\be
+\ma L =-\frac1 4 F_{\m\n} F^{\m\n} \ \1(=\frac1 2 (\vec E^2 - \vec B^2)\2).
+\ee
+The Euler-Lagrangian equation is given by
+\be
+\p_\m \frac{\p\ma L}{\p(\p_\m A_\n)} - \frac{\p\ma L}{\p A_\n} = 0.
+\ee
+To proceed, we rephrase the Lagrangian as,
+\be
+\ma L =-\frac1 4 (\p_\m A_\n-\p_\n A_\m)(\p^\m A^\n-\p^\n A^\m).
+\ee
+Take derivatives of each four terms with respect to $\p_\m A_\n$, we get
+\be
+\frac{\p\ma L}{\p(\p_\m A_\n)} = -\frac1 4 [(\p^\m A^\n-\p^\n A^\m) - (\p^\n A^\m-\p^\m A^\n) + (\p^\m A^\n-\p^\n A^\m) - (\p^\n A^\m-\p^\m A^\n)] = -F^{\m\n},
+\ee
+and the 2nd term of the E-L equation is zero, so we have a neat form of the EOM of the e-m field as,
+\be
+\p_\m F^{\m\n}=0.
+\ee
+To recover the second half of Maxwell equation, we extract its time-contained and all-spatial components,
+\be\1\{\begin{split}
+\p_0 F^{00}+\p_i F^{i0}=0 &\implies \vec\nabla\cdot\vec E=0\\
+\p_0 F^{0j}+\p_i F^{ij}=0  &\implies \vec\nabla\times\vec B - \frac{\p\vec E}{\p t}=0
+\end{split}\2.\ee
+To conclude the free Maxwell equations, we list the tensor form,
+\be\1\{\begin{split}
+\p_{[\sigma} F_{\m\n]} &= 0\\
+\p_\m F^{\m\n}  &=0,
+\end{split}\2.\ee
+and the vector form,
+\be 
+\1\{
+\begin{split}
+\vec \nabla \times \vec E &=- \frac{\p \vec B}{\p t}  \\
+\vec \nabla \cdot \vec B &= 0 \\
+\vec\nabla\cdot\vec E&=0\\
+\vec\nabla\times\vec B &= \frac{\p\vec E}{\p t}.
+\end{split}
+\2.
+\ee
+At this point, it's time to have an interlude to present the plane wave solution to the free Maxwell equations.(to be updated)\\
+
+
+
+
+2.\textsl{The charged particle's effect on the e-m field --- Lagrangian with a source term}\\
+
+The charge density and current can compose a 4-component current as, $J^\m=(\rho,\vec j)$ (transformation property to be updated). The local conservation law gives the continuity equation,
+\be
+\frac{\p\rho}{\p t}+\vec\nabla\cdot\vec j=0,\quad \text{or} \quad \p_\m J^\m=0.
+\ee
+The simplest scalar we can constrict out of the charge source and the vector field is $J^\m A_\m$. Now we check its gauge invariance, by changing $A_\m\rightarrow A'_\m=A_\m+\frac{\p S}{\p x^\m}$, and integrate it over the spacetime volume to get the interaction action,
+\be
+\ma A'_{int} = \int J^\m A'_\m \dif^4 x = \int J^\m A_\m \dif^4 x + \int J^\m \frac{\p S}{\p x^\m} \dif^4 x
+=\ma A_{int} + J^\m S|_{boundary} - \int S\, \p_\m J^\m \dif^4 x =\ma A_{int}.
+\ee
+The boundary term vanishes because the current is localized and it's zero at infinity; the second new term vanishes due to the continuity equation. Thus the scalar we made obeys gauge invariance.\\
+We may write the Lagrangian as,
+\be
+\ma L= -\frac1 4 F^{\m\n}F_{\m\n} - J^\m A_\m,
+\ee
+where the minus sign is due to convention. When taking it into the E-L equation, the only change is the non-zero term,
+\be
+\frac{\p \ma L}{\p A_\n}=-J^\n.
+\ee
+By combining it with the other part of the E-L equation, we get the EOM of the e-m field with a source term,
+\be
+\p_\m F^{\m\n} = J^\n.
+\ee
+Note that in other papers there may be a minus before the 4-current term, which may be due three possible conventions: the sign of $\eta_{\m\n}$, the definition of $E_i$, and the sign in the Lagrangian. But one can always make it consistent.
+Then we could recover the second half of Maxwell equation with the source term, which is called the \textit{inhomogeneous Maxwell equations},
+\be 
+\1\{
+\begin{split}
+\vec\nabla\cdot\vec E&=\rho\\
+\vec\nabla\times\vec B &- \frac{\p\vec E}{\p t}=\vec j.
+\end{split}
+\2.
+\ee
+There's minor thing to mention, if someone happened to, (or probably truly in history,) discover the above equations without knowing the continuity equation, he could also derive it naturally from the inhomogeneous equations,
+\be
+\frac{\p\rho}{\p t}+\vec\nabla\cdot\vec j=\frac\p{\p t}(\vec\nabla\cdot\vec E)+\vec\nabla\times(\vec\nabla\times\vec B - \frac{\p\vec E}{\p t})=0, 
+\ee
+or simply,
+\be
+\p_\n J^\n=\p_\n\p_\m F^{\m\n} = \p_{(\n}\p_{\m)} F^{[\m\n]}= 0,
+\ee
+which says the Maxwell equations and the continuity equation are consistent. Also, gauge invariance is consistent with the above two.
+
+\subsection{The energy and momentum of the electro-magnetic field}
+To apply the idea of canonical momentum and energy, we treat the four components of the vector potential $A_\m$ as four independent fields (,which are not scalar field but coordinate-dependent).
+
+Note that we can take advantage of the gauge choice to make the vector potential simpler, without affecting any physics. Our choice is to make the zeroth component of $A_\m$ vanish, in other words, we'd like to choose an $S$ such that
+\be
+A_0+\frac{\p S}{\p t}=0 \quad \text{or} \quad\, \frac{\p S}{\p t}=-A_0,
+\ee
+which means our new vector potential will be
+\be
+A'_\m=A_\m+\frac{\p S}{\p t} =(0,A'_i).
+\ee
+This is called \textit{gauge fixing}. With this gauge, our electro and magnetic field are expressed as,
+\be\1\{\begin{split}
+\vec E&=\vec\nabla A_0-\frac{\p\vec A}{\p t}=-\frac{\p\vec A}{\p t}\\
+\vec B&=\vec\nabla\times\vec A.
+\end{split}\2.\ee
+Thus the Lagrangian density will be
+\be
+\ma L =\frac1 2 (\vec E^2 - \vec B^2)=\frac1 2  \1(\frac{\p\vec A}{\p t}\2)^2 -  \1(\vec\nabla\times\vec A\2)^2,
+\ee
+which has the structure of ``squares of time derivatives minus squares of space derivatives", much similar with the case in free scalar field,
+\be
+\ma L = \frac 1 2 \1(\frac{\p \phi}{\p t}\2)^2 - \frac 1 2\1(\frac{\p \phi}{\p x}\2)^2.
+\ee
+The canonical momentum conjugate to $A_i$ is given by
+\be
+\vec \pi_A=\frac{\p\ma L}{\p(\p_t \vec A)}=\frac{\p\vec A}{\p t}=-\vec E.
+\ee
+By observing the Lagrangian density, we  see that it has the form of a ``kinetic energy" term that depends on squares of time derivatives, minus a ``potential energy" term that has no time derivatives at all. We may immediately write the Hamiltonian density as
+\be
+\ma H = \frac1 2 (\vec E^2 + \vec B^2),
+\ee
+which is the electromagnetic energy. We can see that it's positive and both $\vec E$ and $\vec B$ contribute same amounts to the total energy.\\
+
+Using the Noether Theorem we constructed in scalar field theory, the $x$ component of the momentum carried by the e-m field is given by
+\be
+P_x=\int E_i \frac{\p A_i}{\p x} \dif^3 x.
+\ee
+It is straightforward to generalize in any other directions,
+\be
+P_i=\int E_j \frac{\p A_j}{\p x^i} \dif^3 x.
+\ee
+Now we have the momentum density in the form of $E_j \p_i A_j$, which is however gauge-dependent.
+We make it a gauge-independent form by adding a term, which actually turns to be zero,
+\be
+-\int E_j \frac{\p A_i}{\p x^j} \dif^3 x = \int \frac{\p E_j}{\p x^j} A_i \dif^3 x =\int (\vec\nabla\cdot\vec E) A_i \dif^3 x=0,
+\ee
+where we assume the fields go to zero beyond a certain distance, therefore there are no boundary terms.
+Thus we rewrite the momentum as
+\be
+P_i=\int E_j \1(\frac{\p A_j}{\p x^i}-\frac{\p A_i}{\p x^j}\2) \dif^3 x,
+\ee
+which is nothing but
+\be
+\vec P=\int\vec E\times\vec B \dif^3 x.
+\ee
+The momentum density is called the \textit{Poynting vector}, pointing to the direction of the momentum,
+\be
+\vec S:=\vec E\times\vec B.
+\ee
+
+\subsection{Energy and momentum in four dimensions}
+
+Recall that in the particle mechanics in the 1st chapter, the energy and the momentum are not Lorentz invariant, but they form a Lorentz covariant 4-vector $P^\m$. Global conservation law tells us that the each of the four components of the vector is time-independent,
+\be
+\frac{\dif P^\m} {\dif t}=0.
+\ee
+This suggests that each component has a local conservation law, there's a density and a flux correspondingly, which satisfy the continuity equation. 
+
+For the 0th component, a change of energy within some region of space is always accompanied by a flow of energy through the boundaries of the region. What we're going to do is to find the energy flux corresponding to the energy density. First we write the continuity equation below,
+\be
+\frac{\p \ma H}{\p t} +\vec\nabla\cdot\vec J_{\ma H}=0.
+\ee
+We rearrange the equation and plug in the expression of Hamiltonian density to give,
+\bs
+\vec\nabla\cdot\vec J_{\ma H}= -\frac{\p \ma H}{\p t}&=- \frac1 2 \frac{\p}{\p t}(\vec E^2 + \vec B^2)\\
+&=-(\vec E\cdot\dot{\vec E}+ \vec B\cdot\dot{\vec B})\\
+&=\vec B\cdot(\vec\nabla\times\vec E)-\vec E\cdot(\vec\nabla\times\vec B)\\
+&=\vec\nabla\cdot(\vec E\times\vec B),
+\end{split}\ee
+where we have make use of the Maxwell equation. So it is natural to define the energy flux as,
+\be
+\vec J_{\ma H}:=\vec E\times\vec B,
+\ee
+which is nothing but the Poynting vector.\\
+
+\textit{The Poynting vector has two meanings: We can think of it as either an \emph{energy flow} or a \uline{momentum density}.}\\
+
+Now we develop a new set of symbol, $T^{\m\n}$, called the energy-momentum temsor. \textit{The first index tells us which of the four quantities the element refers; the second index tells us whether we're talking about a density or flow.}
+
+For example, the following equation
+\be
+P^\m=\int T^{\m 0} \dif^3 x
+\ee
+combines the fact that the total energy $P^0$ is the integral of the energy density $T^{00}$ over space, and the total momentum $P^i$ is the integral of the momentum density $T^{i0}$ over space. And the continuity equation of energy density we constructed above can be re-expressed as
+\be
+\frac{\p \ma H}{\p t} +\vec\nabla\cdot\vec J_{\ma H}=0 \quad\implies\quad \p_0 T^{00}+\p_i T^{0i} =0, \quad\text{or}\quad \p_\n T^{0\n} =0.
+\ee
+Still, we have the continuity equation of the momentum density and its flux,
+\be
+\p_0 T^{i0}+\p_j T^{ij} =0, \quad\text{or}\quad \p_\n T^{i\n} =0.
+\ee
+Combining them we have
+\be
+\p_\n T^{\m\n} =0.
+\ee
+This is the unified relativistic form of the local conservation law of all the four components.\\
+
+To proceed, we construct $T^{\m\n}$ of the e-m fields by taking considerations on symmetries. The energy-momentum tensor is constituted of densities and fluxes of energy and momentum, which are physical quantities, so gauge invariance tells us they should depend only on the observable fields $\vec E$ and $\vec B$, not on the vector potential $A_\m$. The Lorentz invariance tells us it's a rank two tensor.
+
+Now that we have already know what $T^{00}$ is, we can make use of this significant information,
+\be
+T^{00}=\frac1 2(E^2+B^2).
+\ee
+It tells us two pieces of information.
+
+First, from its form we are suggested that $T^{\m\n}$ is quadratic in the components of the field tensor; in other words, it is formed from products of two components of $F^{\m\n}$. There are only two ways to construct a tensor from the product of two copies of $F^{\m\n}$: contract itself once, and twice. So it must be a sum of two terms of the form
+\be
+T^{\m\n}=a\, F^{\m\sigma}F^\n_{\phantom{\n}\sigma} + b\, \eta^{\m\n} F^{\sigma\tau}F_{\sigma\tau},
+\ee
+where $a$ and $b$ are numerical constants to be determined.
+
+Second, the form of $T^{00}$ just tells us what $a$ and $b$ is. Simply by plugging it in, we have
+\bs
+\frac1 2(E^2+B^2)=T^{00}&=a\, F^{0\sigma}F^0_{\phantom{0}\sigma} + b\, \eta^{00} F^{\sigma\tau}F_{\sigma\tau}\\
+&=a\, E^2+2b\,( E^2- B^2),
+\end{split}\ee
+and find that $a=1$ and $b=-1/4$. Thus our energy-momentum tensor is constructed as
+\be
+T^{\m\n}=F^{\m\sigma}F^\n_{\phantom{\n}\sigma} -\frac1 4\eta^{\m\n} F^{\sigma\tau}F_{\sigma\tau}.
+\ee
+We can see that it's a symmetric tensor, and we can compute all its various components through this equation. We display the the form of the tensor matrix below,
+\be
+(T^{\m\n}) = \1(\ba{cccc}\frac1 2(E^2+B^2)& S_x & S_y& S_z\\  S_x &-\sigma_{xx}&-\sigma_{xy}&-\sigma_{xz} \\ S_y&-\sigma_{yx}&-\sigma_{yy}&-\sigma_{zz}\\ S_z&-\sigma_{zx}&-\sigma_{zy}&-\sigma_{zz}  \ea\2),
+\ee
+where $S_i$ are components of the Poynting vector, and $\sigma_{ij}$ are components of the tensor $T^{ij}$ called the \textit{electromagnetic stress tensor}.
+
+However, $T^{\m\n}$ does not directly appear in the Maxwell equations for $\vec E$ and $\vec B$, it's only in the theory of General Relatvity that energy-momentum tensor take its rightful role as the source of the gravitational field.\\
+
+Finally, what we left is an interesting subtlety. If we restore the factor of the speed of light $c$, we would find that the energy flux and momentum density differ by a factor of $c^2$.\\ 
+
+\textit{For an electromagnetic wave, the density of momentum is equal to the flux of energy divided by the speed of light squared. Both are proportional to the Poynting vector.}\\
+
+Now we can see why on the one had sunlight warms us when it's absorbed, but on the other hand it exerts such a feeble force. The reason is that the energy density is $c^2$ times the momentum density, and $c^2$ is a very big number. And this is a very good way to memorize the relationship between the energy flux and momentum density.\\
+
+
+Figures to be added: synchronization by light,
+scalar field and particle trajectory,
+vector field and particle trajectory.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}

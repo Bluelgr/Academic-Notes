@@ -1,0 +1,102 @@
+\documentclass{article}
+
+\usepackage{amsmath,mathtools}
+\usepackage{bm,extarrows,ulem}
+\usepackage{mathrsfs}
+\usepackage{geometry,graphicx,color}
+\geometry{centering,scale=0.8}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bs}{\be\begin{split}}
+
+\newcommand{\dif}{\,\mathrm{d}}
+\newcommand{\p}{\partial}
+\newcommand{\1}{\left}
+\newcommand{\2}{\right}
+\newcommand{\ma}{\mathcal}
+\newcommand{\br}{\langle}
+\newcommand{\ke}{\rangle}
+
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\al}{\alpha}
+\newcommand{\bet}{\beta}
+\newcommand{\lam}{\lambda}
+\newcommand{\sig}{\sigma}
+\newcommand{\ep}{\epsilon}
+\newcommand{\del}{\delta}
+
+
+\title{Notes on The Theoretical Minimum\\
+--- Classical Mechanics}
+\author{Gui-Rong Liang}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+The Euler-Lagrangian equation is given by
+\be
+\frac \dif {\dif t} \frac{\p L}{\p \dot q_i} = \frac{\p L}{\p q_i}.
+\ee
+
+If the Lagragian $L$ remains invariant under the infinitesimal change of  coordinates,
+\be
+q_i\rightarrow q_i'=q_i+\ep f_i(q) \quad\text{or}\quad \delta q_i=\ep f_i(q),
+\ee
+we have
+\bs
+0=\delta L(q_i,\dot q_i)&= \sum_i \1[\frac{\p L}{\p q_i}\delta q_i+\frac{\p L}{\p \dot q_i}\delta q_i\2]\\
+&= \sum_i \1[\frac{\dif}{\dif t}\1(\frac{\p L}{\p \dot q_i}\2)\delta q+ \frac{\p L}{\p\dot q_i} \frac\dif{\dif t} \bigg(\delta q_i \bigg)\2]\\
+&=\sum_i \frac\dif{\dif t} \1[\frac{\p L}{\p \dot q_i}\delta q_i\2]\\
+&=\ep \frac\dif{\dif t} \bigg[\sum_i  p_i f_i(q)\bigg] \\
+&\equiv \ep \frac{\dif Q}{\dif t},
+\end{split}\ee
+where in the second row we used the Euler-Lagrangian equation, and thus the quantity $Q\equiv\sum_i  p_i f_i(q)$ is conserved. This is the Noether's Theorem, and we restate the mathematical form as follows:\\
+
+\textit{If the Lagrangian is invariant $(\del L=0)$ under the transformations $\del q_i =\ep f_i(q)$, then the charge $Q=\sum_i  p_i f_i(q)$ is a conserved quantity.}\\
+
+The Hamiltonian is defined as
+\be
+H:=\sum_i p_i \dot q_i -L=\sum_i \frac{\p L}{\p \dot q_i} \dot q_i -L,
+\ee
+and the Hamiltonian equations are given by
+\be\1\{\begin{split}
+\dot p_i&=-\frac{\p H}{\p q_i}\\
+\dot q_i&=\frac{\p H}{\p p_i}.
+\end{split}\2.\ee
+
+The time derivative of a quantity $F(q_i, p_i)$ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
