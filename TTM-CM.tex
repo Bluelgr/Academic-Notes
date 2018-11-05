@@ -42,13 +42,17 @@
 
 \newpage
 
-Change.
-
+\subsection{The Euler-Lagrangian equation}
 The Euler-Lagrangian equation is given by
 \be
-\frac \dif {\dif t} \frac{\p L}{\p \dot q_i} = \frac{\p L}{\p q_i}.
+\frac \dif {\dif t} \frac{\p L}{\p \dot q_i} = \frac{\p L}{\p q_i},
+\ee
+and the canonical momentum is defined as
+\be
+p_i:=\frac{\p L}{\p \dot q_i}.
 \ee
 
+\subsection{The Noether Theorom}
 If the Lagragian $L$ remains invariant under the infinitesimal change of  coordinates,
 \be
 q_i\rightarrow q_i'=q_i+\ep f_i(q) \quad\text{or}\quad \delta q_i=\ep f_i(q),
@@ -65,19 +69,60 @@ where in the second row we used the Euler-Lagrangian equation, and thus the quan
 
 \textit{If the Lagrangian is invariant $(\del L=0)$ under the transformations $\del q_i =\ep f_i(q)$, then the charge $Q=\sum_i  p_i f_i(q)$ is a conserved quantity.}\\
 
-The Hamiltonian is defined as
+\subsection{The Hamiltonian mechanics}
+The time derivative of the most general Lagrangian $L(q_i,\dot q_i,t)$is
+\bs
+\frac\dif{\dif t} L(q,\dot q,t)&=\sum_i \1[\frac{\p L}{\p q_i}\dot q_i+\frac{\p L}{\p \dot q_i}\ddot q_i\2]+\frac{\p L}{\p t}\\
+&=\sum_i \1[\frac{\p L}{\p q_i}\dot q_i+\frac\dif{\dif t} \1(\frac{\p L}{\p \dot q_i}\dot q_i\2)-\frac\dif{\dif t} \1(\frac{\p L}{\p \dot q_i}\2)\dot q_i\2]+\frac{\p L}{\p t}\\
+&=\frac\dif{\dif t}\sum_i  \1(\frac{\p L}{\p \dot q_i}\dot q_i\2)+\frac{\p L}{\p t}\\
+&=\frac\dif{\dif t}\sum_i  p_i\dot q_i+\frac{\p L}{\p t},
+\end{split}\ee
+where in the second line we used the Leibniz rule for derivatives, and in the third line we used the Euler-Lagrange equation, and in the fourth line the definition of the canonical momentum. Thus we have
 \be
-H:=\sum_i p_i \dot q_i -L=\sum_i \frac{\p L}{\p \dot q_i} \dot q_i -L,
+-\frac{\p L}{\p t}=\frac \dif{\dif t}\1(\sum_i  p_i\dot q_i-L\2)\equiv \frac{\dif H}{\dif t},
 \ee
-and the Hamiltonian equations are given by
+which says that if the Lagrangian does not explicitly contains time, the new quantity $H$, called the Hamiltonian, is conserved.\\
+
+We rewrite the definition of the Hamiltonian as
+\be
+H:=\sum_i p_i \dot q_i -L=\sum_i \frac{\p L}{\p \dot q_i} \dot q_i - L.
+\ee
+The change in the Hamiltonian is
+\bs
+\del H&=\sum_i \1(\del p_i \dot q_i+p_i \del\dot q_i -\frac{\p L}{\p q_i}\del q_i-\frac{\p L}{\p \dot q_i}\del \dot q_i\2)\\
+&=\sum_i \1(\dot q_i\del p_i -\frac{\p L}{\p q_i}\del q_i\2)\\
+&=\sum_i \1(\dot q_i\del p_i -\dot p_i \del q_i\2),
+\end{split}\ee
+where the second and the fourth term cancel due to the definition of the canonical momentum, and the third row is due to the Euler-Lagrangian equation.\\
+Generally, the change in the Hamiltonian, treated as a function of multiple variables, is given by
+\be
+\del H(p_i,q_i)=\sum_i\1(\frac{\p H}{\p p_i} \del p_i+\frac{\p H}{\p q_i} \del q_i\2),
+\ee
+by matching the terms in the above two equations, we arrive at
 \be\1\{\begin{split}
-\dot p_i&=-\frac{\p H}{\p q_i}\\
-\dot q_i&=\frac{\p H}{\p p_i}.
+\dot q_i&=\frac{\p H}{\p p_i}\\
+\dot p_i&=-\frac{\p H}{\p q_i},
 \end{split}\2.\ee
+this is the Hamilton equaitons.\\
 
-The time derivative of a quantity $F(q_i, p_i)$ 
-
-
+\subsection{The Poisson Brackets}
+The time derivative of a quantity $F(q_i, p_i)$ is given by
+\bs
+\dot F(q_i, p_i)&=\sum_i \1(\frac{\p F}{\p q_i} \dot q_i+\frac{\p F}{\p p_i} \dot p_i\2)\\
+&=\sum_i \1(\frac{\p F}{\p q_i} \frac{\p H}{\p p_i}-\frac{\p F}{\p p_i} \frac{\p H}{\p q_i}\2)\\
+&\equiv \{F,H\},
+\end{split}\ee
+where in the second row we used the Hamiltonian equations, and the notation in the third row is called the Poisson bracket.\\
+The amazing thing about the above equation is that it summarizes so much. The time derivative of anything is given by the Poisson bracket of that thing with the Hamiltonian.\\
+Firstly it even contains Hamilton's equations themselves,
+\be\1\{\begin{split}
+\dot q_i&=\{q_i,H\}\\
+\dot p_i&=\{p_i,H\},
+\end{split}\2.\ee
+Secondly it contains the energy conservation law, only by letting $F$ to be $H$,
+\be
+\dot H=\{H,H\}=0.
+\ee
 
 
 

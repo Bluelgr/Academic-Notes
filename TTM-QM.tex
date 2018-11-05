@@ -231,10 +231,31 @@ that's why we use the notation $\br L\ke$ to denote the average. Let's see how t
 \end{split}\ee
 where in the second row we used the Schrodinger equation, and the notation for a commutator. Note that the $i$ before the commutator is important, since the commutator itself is not Hermitian.\\
 Equivalently we rewrite it in a shorthand form:
-\be
+\be\label{dl}
 \frac{\dif L}{\dif t}=-\frac i \hbar [L,H],
 \ee
-where letters denote their average value. This is a very interesting and important equation. It relates the time derivative of the expectation value of an observable $L$ to the expectation value of another observable $[L,H]$. If we assume that the probabilities are nice, narrow, bell-shaped curves, this equation tells us how the peaks of the curves move with time. Equations like this are the closest thing in quantum mechanics to the equations of classical physics.
+where letters denote their average value. This is a very interesting and important equation. It relates the time derivative of the expectation value of an observable $L$ to the expectation value of another observable $[L,H]$. If we assume that the probabilities are nice, narrow, bell-shaped curves, this equation tells us how the peaks of the curves move with time. Equations like this are the closest thing in quantum mechanics to the equations of classical physics.\\
+Recall that in classical mechanics, the time derivative of a physical quantity is given by its Poisson Bracket with the Hamiltonian,
+\be
+\frac{\dif L}{\dif t}=\{L,H\}.
+\ee
+Due to their similarity, we may identify a correspondence between the commutators and the Poisson Brackets,
+\be
+[L,H] \iff i\hbar\{L,H\}.
+\ee
+{\color{blue}Actually they have the same mathematical structures (like anti-symmetric, Bianchi identity) called the Lie Algebra, which would be explored later if we have time.}\\
+In classical physics, commutators between ordinary observables are zero. But if we want to apply \eqref{dl} to classical physics, we must assume the commutators are not zero but a very small value of the order of $\hbar$. Vice versa, the classical limit is the limit at which $\hbar$ is negligibly small, thus the $i\hbar\{L,H\}$ goes back to the vanishing commutator.\\
+
+Similar to classical mechanics, the equation tells us the expectation value of an observable $\br Q\ke$  does not change with time if it commutes with the Hamiltonian,
+\be
+\frac{\dif\bar Q}{\dif t}=\overline{[Q,H]} =0.
+\ee
+Moreover if $Q$ commutes with the Hamiltonian, the expectation values of all powers of $Q$, and even all functions of $Q$ are conserved.\\
+Just like in classical mechanics, the most obvious conserved quantity is the Hamiltonian itself, since it commutes with itself,
+\be
+\frac{\dif\bar H}{\dif t}=\overline{[H,H]}=0,
+\ee
+which says energy is conserved in quantum mechanics.
 
 \subsection{Spin states, spin operators, and Pauli Matrices}
 \textit{All possible spin states can be represented in a two dimensional vector space.}
