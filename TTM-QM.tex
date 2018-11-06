@@ -19,8 +19,8 @@
 \newcommand{\1}{\left}
 \newcommand{\2}{\right}
 \newcommand{\ma}{\mathcal}
-\newcommand{\br}{\langle}
-\newcommand{\ke}{\rangle}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
 
 \newcommand{\m}{\mu}
 \newcommand{\n}{\nu}
@@ -29,6 +29,7 @@
 \newcommand{\lam}{\lambda}
 \newcommand{\sig}{\sigma}
 \newcommand{\ep}{\epsilon}
+\newcommand{\om}{\omega}
 
 
 \title{Notes on The Theoretical Minimum\\
@@ -45,39 +46,39 @@
 \subsection{Quantum states, operators, and Hermitian properties}
 A quantum state is represented by a ket vector that can be decomposed using the orthogonal basis vectors,
 \be
-|A\ke=\sum_j \al_j|j\ke, \quad\text{with} \quad \al_j=\br j|A\ke,
+|A\ra=\sum_j \al_j|j\ra, \quad\text{with} \quad \al_j=\la j|A\ra,
 \ee
 where the coefficient $\al_j$ is a complex number. Thus
 \be
-|A\ke=\sum_j |j\ke \br j|A\ke \implies  \sum_j |j\ke \br j|=1.
+|A\ra=\sum_j |j\ra \la j|A\ra \implies  \sum_j |j\ra \la j|=1.
 \ee
 The probability of measuring a state corresponding to a certain basis is given by
 \be
-P_j=\al_j^*\al_j=\br A |j\ke \br j|A\ke,
+P_j=\al_j^*\al_j=\la A |j\ra \la j|A\ra,
 \ee
 then the normalization of probability gives to 
 \be
-1=\sum_j P_j=\sum_j\br A |j\ke \br j|A\ke=\br A|A\ke.
+1=\sum_j P_j=\sum_j\la A |j\ra \la j|A\ra=\la A|A\ra.
 \ee
 So the general principle is the state of a system is represented by a unit vector.\\
 
 Now we introduce the matrix representation of an operator, which turn a vector to another vector,
 \be
-M|A\ke=|B\ke.
+M|A\ra=|B\ra.
 \ee
 If we decompose A and B into components on basis vectors, we can represent the above equation as,
 \be
-\sum_j M |j\ke \al_j=\sum_j \bet_j|j\ke,
+\sum_j M |j\ra \al_j=\sum_j \bet_j|j\ra,
 \ee
 multiplying the above by a basis bra, we have
 \be
-\sum_j \br k| M |j\ke \al_j=\sum_j \bet_j \br k|j\ke = \bet_k,
+\sum_j \la k| M |j\ra \al_j=\sum_j \bet_j \la k|j\ra = \bet_k,
 \ee
 which is denoted by 
 \be
 \sum_j M_{kj} \al_j = \bet_k,
 \ee
-where $M_{ij}\equiv \br k|M|j\ke$ is matrix element of the operator.\\
+where $M_{ij}\equiv \la k|M|j\ra$ is matrix element of the operator.\\
 We write the above as explicit matrix form (taking 2 dimension as an example) as
 \be
 \1(\ba{cc}M_{11}&M_{12}\\M_{21}&M_{22}\ea\2)\1(\ba{c}\al_1\\\al_2\ea\2)=\1(\ba{c}\bet_1\\\bet_2\ea\2).
@@ -88,7 +89,7 @@ Now we take its complex conjugate and make it a equation of row vectors,
 \ee
 which can be represented by the bras notation,
 \be
-\br A|M^\dagger =\br B|,
+\la A|M^\dagger =\la B|,
 \ee
 where $M^\dagger$ is called the \textit{Hermitian conjugate} of $M$, with the elements of $M^\dagger$ is given by
 \be
@@ -101,20 +102,20 @@ M=M^\dagger.
 Physical observable quantities are represented by Hermitian operators, due to the fact that the eigenvalues of Hermitian operators are real. And further, eigenvectors of an Hermitian operator corresponding to different eigenvalues are orthogonal. Next we will prove this.\\
 If
 \be
-L|\lam\ke=\lam|\lam\ke,
+L|\lam\ra=\lam|\lam\ra,
 \ee
 where $L$ is Hermitian, we have
 \be
-\lam^*\br\lam|\lam\ke=\br\lam|L^\dagger|\lam\ke=\br\lam|L|\lam\ke=\lam\br\lam|\lam\ke \implies \lam^*=\lam,
+\lam^*\la\lam|\lam\ra=\la\lam|L^\dagger|\lam\ra=\la\lam|L|\lam\ra=\lam\la\lam|\lam\ra \implies \lam^*=\lam,
 \ee
 Thus $\lam$ is real. Then if
 \be\1\{\begin{split}
-L|\lam_1\ke&=\lam_1|\lam_1\ke \\
-L|\lam_2\ke&=\lam_2|\lam_2\ke,
+L|\lam_1\ra&=\lam_1|\lam_1\ra \\
+L|\lam_2\ra&=\lam_2|\lam_2\ra,
 \end{split}\2.\ee
 we have
 \be
-\lam_1\br\lam_1|\lam_2\ke=\br\lam_1|L|\lam_2\ke=\lam_2\br\lam_1|\lam_2\ke \implies (\lam_1-\lam_2)\br\lam_1|\lam_2\ke=0 \implies \br\lam_1|\lam_2\ke=0.
+\lam_1\la\lam_1|\lam_2\ra=\la\lam_1|L|\lam_2\ra=\lam_2\la\lam_1|\lam_2\ra \implies (\lam_1-\lam_2)\la\lam_1|\lam_2\ra=0 \implies \la\lam_1|\lam_2\ra=0.
 \ee
 Even if eigenvectors of the same eigenvalue are not orthogonal, we can make it orthogonal by Gram-Schmidt procedure. Finally we can make all eigenvectors of an Hermitian operator orthogonal, thus they can be used as a basis for the vector space.\\
 
@@ -122,19 +123,19 @@ Even if eigenvectors of the same eigenvalue are not orthogonal, we can make it o
 
 In classical mechanics, if two identical isolated systems start out in different states, they stay in different states. It underlies the fact that information is never lost. The same is true in quantum mechanics, and even much stronger. The direct manifestation is that if two states are initially orthogonal, they remain orthogonal throughout the evolution, or \textit{conservation of orthogonality}.
 
-We denote a state at time $t$ as $|\Psi(t)\ke$, which originates from the state at time $t=0$, $|\Psi(0)\ke$, by acting an \textit{time-evolution operator} $\hat U(t)$ on it,
+We denote a state at time $t$ as $|\Psi(t)\ra$, which originates from the state at time $t=0$, $|\Psi(0)\ra$, by acting an \textit{time-evolution operator} $\hat U(t)$ on it,
 \be
-|\Psi(t)\ke=\hat U(t) |\Psi(0)\ke.
+|\Psi(t)\ra=\hat U(t) |\Psi(0)\ra.
 \ee
 This equation reflects the fact that quantum evolution of states allows us to compute the probabilities of the outcomes of later experiments, in contract to the case in classical mechanics, classical determinism allows us to predict the results of experiments. 
 
 Mathematically, the conservation of orthogonality tells us
 \be
-\br \Psi(0)|\Phi(0)\ke=0 \implies \br \Psi(t)|\Phi(t)\ke=\br \Psi(0)|\hat U^\dagger(t) \hat U(t)|\Phi(0)\ke=0,
+\la \Psi(0)|\Phi(0)\ra=0 \implies \la \Psi(t)|\Phi(t)\ra=\la \Psi(0)|\hat U^\dagger(t) \hat U(t)|\Phi(0)\ra=0,
 \ee
-if we choose $|\Psi(0)\ke$ and $|\Phi(0)\ke$ to be any two orthonormal basis of vectors $|i\ke$ and $|j\ke$, we could obtain a property of the evolution operator,
+if we choose $|\Psi(0)\ra$ and $|\Phi(0)\ra$ to be any two orthonormal basis of vectors $|i\ra$ and $|j\ra$, we could obtain a property of the evolution operator,
 \be
-\br i|j\ke =\delta_{ij} = \br i|\hat U^\dagger(t) \hat U(t)|j\ke \implies \hat U^\dagger(t) \hat U(t)=I,
+\la i|j\ra =\delta_{ij} = \la i|\hat U^\dagger(t) \hat U(t)|j\ra \implies \hat U^\dagger(t) \hat U(t)=I,
 \ee
 with which the evolution operator satisfies is called \textit{unitary}.\\
 
@@ -142,9 +143,9 @@ with which the evolution operator satisfies is called \textit{unitary}.\\
 
 A direct consequence of the unitarity leads to a much stronger version of conservation of orthogonality --- \textit{conservation of overlaps},
 \be
-\br A(t)|B(t)\ke = \br A(0) |\hat U^\dagger(t)\hat U(t)|B(0)\ke = \br A(0)|B(0)\ke,
+\la A(t)|B(t)\ra = \la A(0) |\hat U^\dagger(t)\hat U(t)|B(0)\ra = \la A(0)|B(0)\ra,
 \ee
-which says the inner product of $|A\ke$ and $|B\ke$ does not change with time, or the inner product is conserved.\\
+which says the inner product of $|A\ra$ and $|B\ra$ does not change with time, or the inner product is conserved.\\
 
 Time evolution is led by incremental changes, so it would be inspiring to study the evolution operator of an infinitesimal time interval $\epsilon$. Another property besides unitarity that an evolution operator should have is \textit{continuity}, which means that the state-vector changes smoothly, or to be more explicitly, when $\epsilon$ is very small, $\hat U(\epsilon)$ is close to the unit operator, only differing from it by something of order $\epsilon$, and when $\ep$ is taken to be zero, the state does not change. 
 \be
@@ -167,11 +168,11 @@ This Hermitian property of  $H$ has the great significance that $H$ is an observ
 {\color{blue}Here I want to explain the above ansatz in more detail, which is due to my own understanding and I think is more natural.\\
 The most general form of a state obtained by acting the infinitesimal evolution operator on the initial state, considering continuity, takes the form as
 \be
-U(\ep)|\Psi\ke=|\Psi\ke+\ep|\Theta\ke,
+U(\ep)|\Psi\ra=|\Psi\ra+\ep|\Theta\ra,
 \ee
-where $|\Theta\ke$ is some unknown state though, it can be obtained by acting some operator to the original state $|\Theta\ke\equiv A|\Psi\ke$, so we have
+where $|\Theta\ra$ is some unknown state though, it can be obtained by acting some operator to the original state $|\Theta\ra\equiv A|\Psi\ra$, so we have
 \be
-U(\ep)|\Psi\ke=|\Psi\ke+\ep A|\Psi\ke =(I+\ep A)|\Psi\ke,
+U(\ep)|\Psi\ra=|\Psi\ra+\ep A|\Psi\ra =(I+\ep A)|\Psi\ra,
 \ee
 then we have a form of $U(\ep)$ as
 \be
@@ -194,42 +195,42 @@ and due to the Hermitian property of $H$, it should be some kind of observable.\
 
 Now we're going to explore more on the evolution of states at an infinitesimal time interval $\epsilon$, we write
 \be
-|\Psi(\ep)\ke=\hat U(\ep) |\Psi(0)\ke = |\Psi(0)\ke-i\ep|\Psi(0)\ke,
+|\Psi(\ep)\ra=\hat U(\ep) |\Psi(0)\ra = |\Psi(0)\ra-i\ep|\Psi(0)\ra,
 \ee
 and rearranging this we have
 \be
-\frac{|\Psi(\ep)\ke-|\Psi(0)\ke}{\ep}=-iH|\Psi(0)\ke,
+\frac{|\Psi(\ep)\ra-|\Psi(0)\ra}{\ep}=-iH|\Psi(0)\ra,
 \ee
-where the LHS is nothing but the time derivative of the state $|\Psi\ke$ at time $t=0$, but since the evolution is assumed to be linear, this should hold at any time $t$, so we may write
+where the LHS is nothing but the time derivative of the state $|\Psi\ra$ at time $t=0$, but since the evolution is assumed to be linear, this should hold at any time $t$, so we may write
 \be
-\frac{\p |\Psi\ke}{\p t}=-i H|\Psi\ke,
+\frac{\p |\Psi\ra}{\p t}=-i H|\Psi\ra,
 \ee
 where we wrote partial or total derivative make no difference. This equation tells us how an isolated (not contact with apparatus) state evolves with time, and it is called the \textit{generalized Schrodinger equation}.
 
 As we proceed, we would discover that $H$ is nothing but the Hamiltonian operator, thus it has the dimension of energy. By checking the dimensionality of the time-dependent Schrodinger equation, we may fix it by a factor of $\hbar$, the Planck constant,
 \be
-i\hbar\frac{\p |\Psi\ke}{\p t}= H|\Psi\ke.
+i\hbar\frac{\p |\Psi\ra}{\p t}= H|\Psi\ra.
 \ee
 This is the standard form of the \textit{time-dependent Schrodinger equation}.\\
 
 The average, or expectation value, of an observable is the closest thing in quantum mechanics to a classical value. From a mathematical point of view, an average is defined by the equation
 \be
-\br\lam \ke = \sum_i \lam_i P(\lam_i).
+\la\lam \ra = \sum_i \lam_i P(\lam_i).
 \ee
-If we expand a quantum state $|\Psi\ke$ in the orthonormal basis of eigenvectors of $L$,
+If we expand a quantum state $|\Psi\ra$ in the orthonormal basis of eigenvectors of $L$,
 \be
-|\Psi\ke=\sum_i\al_i|\lam_i\ke,
+|\Psi\ra=\sum_i\al_i|\lam_i\ra,
 \ee
 we try to compute the following quantity,
 \be
-\br L \ke\equiv\br \Psi|L|\Psi\ke=\sum_i\sum_{j}\br \lam_j| \al^*_j \lam_i \al_i|\lam_i\ke=\sum_i  \lam_i (\al^*_i\al_i)= \sum_i \lam_i P(\lam_i)=\br \lam \ke,
+\la L \ra\equiv\la \Psi|L|\Psi\ra=\sum_i\sum_{j}\la \lam_j| \al^*_j \lam_i \al_i|\lam_i\ra=\sum_i  \lam_i (\al^*_i\al_i)= \sum_i \lam_i P(\lam_i)=\la \lam \ra,
 \ee
-that's why we use the notation $\br L\ke$ to denote the average. Let's see how this changes with time,
+that's why we use the notation $\la L\ra$ to denote the average. Let's see how this changes with time,
 \bs
-\frac\dif{\dif t}\br L \ke=\frac\dif{\dif t}\br \Psi(t)|L|\Psi(t)\ke&=\br \dot\Psi(t)|L|\Psi(t)\ke+\br \Psi(t)|L|\dot\Psi(t)\ke\\
-&=\frac i \hbar \br \Psi(t)|(HL-LH)|\Psi(t)\ke=\frac i \hbar\br [H,L]\ke,
+\frac\dif{\dif t}\la L \ra=\frac\dif{\dif t}\la \Psi(t)|L|\Psi(t)\ra&=\la \dot\Psi(t)|L|\Psi(t)\ra+\la \Psi(t)|L|\dot\Psi(t)\ra\\
+&=\frac i \hbar \la \Psi(t)|(HL-LH)|\Psi(t)\ra=\frac i \hbar\la [H,L]\ra,
 \end{split}\ee
-where in the second row we used the Schrodinger equation, and the notation for a commutator. Note that the $i$ before the commutator is important, since the commutator itself is not Hermitian.\\
+where in the second row we used the Schrodinger equation, and the notation for a commutator. Note that the $i$ before the commutator is important, since the commutator itself is always imaginary.\\
 Equivalently we rewrite it in a shorthand form:
 \be\label{dl}
 \frac{\dif L}{\dif t}=-\frac i \hbar [L,H],
@@ -246,7 +247,7 @@ Due to their similarity, we may identify a correspondence between the commutator
 {\color{blue}Actually they have the same mathematical structures (like anti-symmetric, Bianchi identity) called the Lie Algebra, which would be explored later if we have time.}\\
 In classical physics, commutators between ordinary observables are zero. But if we want to apply \eqref{dl} to classical physics, we must assume the commutators are not zero but a very small value of the order of $\hbar$. Vice versa, the classical limit is the limit at which $\hbar$ is negligibly small, thus the $i\hbar\{L,H\}$ goes back to the vanishing commutator.\\
 
-Similar to classical mechanics, the equation tells us the expectation value of an observable $\br Q\ke$  does not change with time if it commutes with the Hamiltonian,
+Similar to classical mechanics, the equation tells us the expectation value of an observable $\la Q\ra$  does not change with time if it commutes with the Hamiltonian,
 \be
 \frac{\dif\bar Q}{\dif t}=-\frac i \hbar\overline{[Q,H]} =0.
 \ee
@@ -261,49 +262,53 @@ which says energy is conserved in quantum mechanics.
 \textit{All possible spin states can be represented in a two dimensional vector space.}
 
 \be
-|A\ke=\al_u|u\ke+\al_k|d\ke,
+|A\ra=\al_u|u\ra+\al_k|d\ra,
 \ee
 where the $u$ and $d$ represents for pointing up and down when we measure spin along z-axis, and the orthogonality means if we get up we never get down, vice versa.\\
 Now we choose A to be pointing left and right, considering that they're orthonormal, and it is equally likely to be up and down when measured along z, we write them as
 \be\1\{\begin{split}
-|r\ke&=\frac1 {\sqrt{2}}|u\ke+\frac1 {\sqrt{2}}|d\ke\\
-|l\ke&=\frac1 {\sqrt{2}}|u\ke- \frac1 {\sqrt{2}}|d\ke.
+|r\ra&=\frac1 {\sqrt{2}}|u\ra+\frac1 {\sqrt{2}}|d\ra\\
+|l\ra&=\frac1 {\sqrt{2}}|u\ra- \frac1 {\sqrt{2}}|d\ra.
 \end{split}\2.\ee
 And when we represent forward and backward, we must further take into account the equal likelihood of left and right when measured along x-axis, so we take the following form,
 \be\1\{\begin{split}
-|f\ke&=\frac1 {\sqrt{2}}|u\ke+\frac i {\sqrt{2}}|d\ke\\
-|b\ke&=\frac1 {\sqrt{2}}|u\ke- \frac i {\sqrt{2}}|d\ke.
+|f\ra&=\frac1 {\sqrt{2}}|u\ra+\frac i {\sqrt{2}}|d\ra\\
+|b\ra&=\frac1 {\sqrt{2}}|u\ra- \frac i {\sqrt{2}}|d\ra.
 \end{split}\2.\ee
 Notice that all the above choices have the same freedom by a phase factor $e^{i\theta}$.
 
 We will use $\sig$ to denote spin operator. Measuring along z-axis gives us
 \be\1\{\begin{split}
-\sig_z |u\ke&=|u\ke\\
-\sig_z |d\ke&=-|d\ke,
+\sig_z |u\ra&=|u\ra\\
+\sig_z |d\ra&=-|d\ra,
 \end{split}\2.\ee
-if we denote $|u\ke$ and $|d\ke$ as unit vectors as $\1(\ba{c}1\\0\ea\2)$ and $\1(\ba{c}0\\1\ea\2)$, we may figure out that
+if we denote $|u\ra$ and $|d\ra$ as unit vectors as $\1(\ba{c}1\\0\ea\2)$ and $\1(\ba{c}0\\1\ea\2)$, we may figure out that
 \be
 \sig_z=\1(\ba{cc}1&0\\0&-1\ea\2).
 \ee
 Measuring along x-axis gives us
 \be\1\{\begin{split}
-\sig_x |r\ke&=|r\ke\\
-\sig_x |l\ke&=-|l\ke,
+\sig_x |r\ra&=|r\ra\\
+\sig_x |l\ra&=-|l\ra,
 \end{split}\2.\ee
-if we denote $|r\ke$ and $|l\ke$ as unit vectors as $\1(\ba{c}\frac1{\sqrt{2}}\\\frac1{\sqrt{2}}\ea\2)$ and $\1(\ba{c}\frac1{\sqrt{2}}\\-\frac1{\sqrt{2}}\ea\2)$, we may figure out that
+if we denote $|r\ra$ and $|l\ra$ as unit vectors as $\1(\ba{c}\frac1{\sqrt{2}}\\\frac1{\sqrt{2}}\ea\2)$ and $\1(\ba{c}\frac1{\sqrt{2}}\\-\frac1{\sqrt{2}}\ea\2)$, we may figure out that
 \be
 \sig_x=\1(\ba{cc}0&1\\1&0\ea\2).
 \ee
 Measuring along y-axis gives us
 \be\1\{\begin{split}
-\sig_y |f\ke&=|f\ke\\
-\sig_y |b\ke&=-|b\ke,
+\sig_y |f\ra&=|f\ra\\
+\sig_y |b\ra&=-|b\ra,
 \end{split}\2.\ee
-if we denote $|f\ke$ and $|b\ke$ as unit vectors as $\1(\ba{c}\frac1{\sqrt{2}}\\\frac i{\sqrt{2}}\ea\2)$ and $\1(\ba{c}\frac1{\sqrt{2}}\\-\frac i{\sqrt{2}}\ea\2)$, we may figure out that
+if we denote $|f\ra$ and $|b\ra$ as unit vectors as $\1(\ba{c}\frac1{\sqrt{2}}\\\frac i{\sqrt{2}}\ea\2)$ and $\1(\ba{c}\frac1{\sqrt{2}}\\-\frac i{\sqrt{2}}\ea\2)$, we may figure out that
 \be
 \sig_x=\1(\ba{cc}0&-i\\i&0\ea\2).
 \ee
 The matrix representations of $\sig_x$, $\sig_y$ and $\sig_z$ are called the \textit{Pauli Matrices}.\\
+It is easy and useful to verify the commutation relations of components of spins,
+\be
+[\sig_j,\sig_k]=2i\ep_{jkl}\sig_l.
+\ee
 
 Now we may treat $\sig_x$, $\sig_y$ and $\sig_z$ as three components of $\sig$, thus $\sig$ can be viewed as a general vector, and it can be projected onto a unit vector $\hat n$ point any direction in space, so as to measure spin along that direction.
 \be
@@ -322,17 +327,17 @@ thus
 \ee
 its eigenvalues and corresponding eigenvectors are given by
 \be\1\{\begin{split}
-\lam_1=1, &\quad|\lam_1\ke=\1(\ba{c}\cos{\frac\theta 2}\\\sin{\frac\theta 2}\ea\2)\\
-\lam_2=-1, &\quad|\lam_1\ke=\1(\ba{c}-\sin{\frac\theta 2}\\\cos{\frac\theta 2}\ea\2).
+\lam_1=1, &\quad|\lam_1\ra=\1(\ba{c}\cos{\frac\theta 2}\\\sin{\frac\theta 2}\ea\2)\\
+\lam_2=-1, &\quad|\lam_1\ra=\1(\ba{c}-\sin{\frac\theta 2}\\\cos{\frac\theta 2}\ea\2).
 \end{split}\2.\ee
-Now suppose we prepare a $|u\ke$ state, and we measure the probabilities of $+1$ and $-1$ along the $\hat n$ direction, we get
+Now suppose we prepare a $|u\ra$ state, and we measure the probabilities of $+1$ and $-1$ along the $\hat n$ direction, we get
 \be\1\{\begin{split}
-P(+1)=&\br u|\lam_1\ke\br\lam_1|u\ke=\cos^2{\frac{\theta}{2}}\\
-P(-1)=&\br u|\lam_2\ke\br\lam_2|u\ke=\sin^2{\frac{\theta}{2}}
+P(+1)=&\la u|\lam_1\ra\la\lam_1|u\ra=\cos^2{\frac{\theta}{2}}\\
+P(-1)=&\la u|\lam_2\ra\la\lam_2|u\ra=\sin^2{\frac{\theta}{2}}
 \end{split}\2.\ee
 Now we're ready to compute the average value of spin along the $n$ direction,
 \be
-\br \sig_n\ke=\sum_j \lam_j P(\lam_j)=\cos^2{\frac{\theta}{2}}-\sin^2{\frac{\theta}{2}}=\cos{\theta},
+\la \sig_n\ra=\sum_j \lam_j P(\lam_j)=\cos^2{\frac{\theta}{2}}-\sin^2{\frac{\theta}{2}}=\cos{\theta},
 \ee
 which agrees perfectly with our expectation.\\
 
@@ -342,19 +347,33 @@ To proceed, we come to an important theorem,\\
 
 In other words, given any state
 \be
-|A\ke=\al_u|u\ke+\al_d|d\ke,
+|A\ra=\al_u|u\ra+\al_d|d\ra,
 \ee
 there exists some direction $\hat n$, such that
 \be
-\vec\sig\cdot\vec n|A\ke= |A\ke.
+\vec\sig\cdot\vec n|A\ra= |A\ra.
 \ee
 In physics language, we say that the states of a spin are characterized by a \textit{polarization vector}, and along that polarization vector the component of spin is predictably $+1$, assuming of course that you know the state-vector.\\ It follows that the expectation value of the spin along the direction $\hat n$ can be expressed as
 \be
-\br\sig_n\ke=\br \vec\sig\cdot\vec n\ke=1.
+\la\sig_n\ra=\la \vec\sig\cdot\vec n\ra=1.
 \ee
 
-
-
+The energy of a spin in a magnetic field is given by
+\be
+H\sim \vec\sig\cdot\vec B=\sig_x B_x+\sig_y B_y+\sig_z B_z.
+\ee
+If the magnetic field lies along the z-axis, the Hamiltonian is proportional to $\sig_z$, in the following expression we'll absorb all the irrelevant numerical constants into a single constant $\omega$, so
+\be 
+H=\frac{\hbar\omega}{2} \sig_z,
+\ee
+where we kept $\frac\hbar 2$ for later convenience.\\
+Now we want to find out how the expectation value of the spin varies with time, we can get
+\be\begin{split}
+\dot{\la\sig_x\ra}&=-\frac i \hbar \la[\sig_x,H]\ra=-\frac{i\omega} 2\la[\sig_x,\sig_z]\ra=-\om\la\sig_y\ra\\
+\dot{\la\sig_y\ra}&=-\frac i \hbar \la[\sig_y,H]\ra=-\frac{i\omega} 2\la[\sig_y,\sig_z]\ra=\om\la\sig_x\ra\\
+\dot{\la\sig_z\ra}&=-\frac i \hbar \la[\sig_z,H]\ra=-\frac{i\omega} 2\la[\sig_z,\sig_z]\ra=0
+\end{split}\ee
+This result implies that the 3-vector-operator $\vec\sig$ precesses like a gyroscope around the direction of the magnetic field. The precession is uniform, with angular velocity $\om$. To be specific, the expectation value for a $\sig_z$ measurement does not change with time, but the other two expectation values do change.
 
 
 

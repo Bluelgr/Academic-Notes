@@ -1,0 +1,84 @@
+\documentclass{article}
+
+\usepackage{amsmath,mathtools}
+\usepackage{bm,extarrows,ulem}
+\usepackage{mathrsfs}
+\usepackage{geometry,graphicx,color}
+\geometry{centering,scale=0.8}
+
+\newcommand{\sect}{\section}
+\newcommand{\subsec}{\subsection}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bs}{\be\begin{split}}
+
+\newcommand{\dif}{\,\mathrm{d}}
+\newcommand{\p}{\partial}
+\newcommand{\1}{\left}
+\newcommand{\2}{\right}
+\newcommand{\ma}{\mathcal}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\del}{\delta}
+
+\title{Notes on Statistical Field Theory}
+\author{Gui-Rong Liang}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+\sect{Thermodynamics \& Statistical Mechanics}
+Closed system, Volume $V$, in thermodynamic equilibrium\\
+Conserved quantities:\begin{enumerate} \item energy $E$
+\item particle no. $N$
+\end{enumerate}
+
+\sect{Quantum mechanics \& Quantum Field Theory}
+completeness relation:
+\be
+\int \prod_{\vec x} \dif \phi_0(\vec x) |\phi_0\ra\la\phi_0|=1
+\ee
+orthogonality:
+\be
+\la\phi_a|\phi_b\ra=\prod_{\vec x} \del(\phi_a(\vec x)-\phi_b(\vec x))\equiv\del[\phi_a-\phi_b],
+\ee
+where the new delta notation is called the ``functional $\del$-function".
+\sect{Fundamental Integral Representation of the Partition Function}
+\subsec{The Partition Function as Fundamental Integral}
+\subsec{Neutral Scalar Fields}
+\subsec{Charged Scalar Fields: Bose-Einstein Condensation}
+\subsec{Fermion Fields}
+\subsec{Massive Vector Fields}
+\subsec{The Electro-magnetic Fields}
+
+\sect{The Partition Function in Perturbation Theory}
+\subsec{Expansion in Powers of the Interaction}
+\subsec{$\phi^4$ Theory}
+\subsec{Yukawa Theory}
+\subsec{QED}
+\subsec{QCD}
+
+\sect{Resummation Techniques}
+\subsec{IR Divergences \& Breakdown of Naive Perturbation Series}
+ \subsec{1PI Effective Action}
+ \subsec{2PI Effective Action (C-J-T Formalism)}
+ \subsec{Restoration of Spontanously ?? Symmetries}
+ \subsec{Symmetry Restoration in H\&H-F Approximation}
+ \subsec{Fermions: the N-J-L Model}
+ \subsec{Superfluidity \& Superconductivity}
+ \subsec{Gauge Theories: Hard Thermal Loop \& Hard Dense Loop (Random Phase Approximation)}
+ \subsec{The Function Renormalization Group}
+
+
+\end{document}

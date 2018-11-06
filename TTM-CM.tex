@@ -113,6 +113,7 @@ The time derivative of a quantity $F(q_i, p_i)$ is given by
 &\equiv \{F,H\},
 \end{split}\ee
 where in the second row we used the Hamiltonian equations, and the notation in the third row is called the Poisson bracket.\\
+
 The amazing thing about the above equation is that it summarizes so much. The time derivative of anything is given by the Poisson bracket of that thing with the Hamiltonian.\\
 Firstly it even contains Hamilton's equations themselves,
 \be\1\{\begin{split}
@@ -124,14 +125,43 @@ Secondly it contains the energy conservation law, only by letting $F$ to be $H$,
 \dot H=\{H,H\}=0.
 \ee
 
+Now let's abstract a set of rules that enable one to manipulate PB(Poisson Brackets) without all the effort of explicitly calculating them.\\
+The first property is antisymmetry,
+\be
+\{A,C\}=-\{C,A\}.
+\ee
+Second is linearity,
+\be
+\{aA+bB,C\}=a\{A,C\}+b\{B,C\}.
+\ee
+Next is a little similar to Leibniz's rule,
+\be
+\{AB,C\}=A\{B,C\}+\{A,C\}B.
+\ee
+Finally some specific PBs,
+\bs
+\{q_i,q_j\}&=0\\
+\{p_i,p_j\}&=0\\
+\{q_i,p_j\}&=\del_{ij}.
+\end{split}\ee\\
 
-
-
-
-
-
-
-
+Then it's easy by mathematical induction to derive an equation,
+\be
+\{q^n,p\}=nq^{n-1}=\frac{\dif (q^n)}{\dif q},
+\ee
+so that any polynomial P(q) of $q$ will have the following result,
+\be
+\{P(q),p\}=\frac{\dif P(q)}{\dif q},
+\ee
+and due to any smooth function can be arbitrarily approximated by a polynomial, the above applies to any function $F(q)$ of $q$. In fact, it even goes further, for any function of $q$ and $p$, we have
+\be
+\{F(q,p),p_i\}=\frac{\dif F(q,p)}{\dif q_i},
+\ee
+which is easy to prove by the definition of PB. Thus we have discovered a new fact: \textit{Taking the PB of any function with $p_i$ has the effect of differentiating the function with respect to $q_i$.}\\
+The same goes with PB with $q$, except for a minus sign,
+\be
+\{F(q,p),q_i\}=-\frac{\dif F(q,p)}{\dif p_i}.
+\ee
 
 
 
