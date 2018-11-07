@@ -1,0 +1,80 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{bm}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+
+\newcommand{\dif}{\,\mathrm{d}}
+
+\title{Variation}
+
+\begin{document}
+\maketitle
+
+\section{The principle of least action}
+Let the system occupy positions defined by two sets of values of the coordinates, $q_1$ and $q_2$, at the instants $t_1$ and $t_2$. The \emph{action} of the system takes the form of integral of its \emph{Lagrangian} as
+\be
+S=\int_{t_1}^{t_2}L(q,\dot{q},t) \dif t
+\ee
+The necessary condition for $S$ to have an extremum is that the variation $\delta S$ should be zero:
+\be 
+\begin{split}
+0=\delta S &=\delta \int_{t_1}^{t_2}L(q,\dot{q},t) \dif t \\
+&=\delta \int_{t_1}^{t_2} (\frac{\partial L}{\partial q} \delta q + \frac{\partial L}{\partial \dot{q}} \delta \dot{q}) \dif t
+\end{split}
+\ee
+Since $\delta \dot{q}= \dif \delta q/ \dif t$, we obtain, on integrating the second term by parts,
+\be 
+\label{a}
+\delta S =\left[\frac{\partial L}{\partial \dot{q}} \delta q\right]_{t_1}^{t_2} + \int_{t_1}^{t_2} (\frac{\partial L}{\partial q} - \frac{\dif}{\dif t} \frac{\partial L}{\partial \dot{q}}) \delta q \dif t = 0
+\ee
+For $t=t_1$ and $t=t_2$, the values of $q(t)$ should be fixed, i.e. 
+\be 
+\delta q(t_1)=\delta q(t_2)=0
+\ee
+Thus the first term in \eqref{a} vanishes, so we have
+\be 
+\label{l}
+\frac{\dif}{\dif t} \frac{\partial L}{\partial \dot{q}} - \frac{\partial L}{\partial q}=0
+\ee
+Considering the degrees of the system, we then obtain $s$ equations of the form
+\be 
+\frac{\dif}{\dif t} \frac{\partial L}{\partial \dot{q}_i} - \frac{\partial L}{\partial q_i}=0 \qquad(i=1,2,...,s).
+\ee
+These are called \emph{Euler-Lagrange's equations} in mechanics.
+
+\section{Gauge invariance}
+Considering two functions $L^\prime(q,\dot{q},t)$ and $L(q,\dot{q},t)$, differing by the total derivative with respect to time of some function $f(q,t)$ as
+\be 
+L^\prime(q,\dot{q},t)=L(q,\dot{q},t)+\frac{\dif}{\dif t}f(q,t)
+\ee
+The integrals are
+\[ 
+S^\prime=\int_{t_1}^{t_2}L^\prime(q,\dot{q},t) \dif t=\int_{t_1}^{t_2}L(q,\dot{q},t) \dif t+\int_{t_1}^{t_2}\frac{\dif f}{\dif t} \dif t=S+f(q_2,t_2)-f(q_1,t_1)
+\]
+Where $f(q_2,t_2)$ and $f(q_1,t_1)$ are fixed values, i.e. $\delta f(q_2,t_2)=\delta f(q_1,t_1)=0$. This leads to
+\be 
+\delta S^\prime=\delta S
+\ee
+So the conditions $\delta S^\prime=0$ and $\delta S=0$ are equivalent.
+
+\section{Law of inertia}
+A frame of reference in which space is homogeneous and isotropic and time is homogeneous is called an \emph{inertial frame}.
+
+Considering a particle moving freely in such a frame. The homogeneity of space and time implies that the Lagrangian cannot contain explicitly either the radius vecter $\bm{r}$ or the time $t$, i.e. $L$ must be a function of the velocity $\bm{v}$ only; Since space is isotropic, the Lagrangian must also be independent of the direction of $\bm{v}$, and is therefore a function only of its magnitude, i.e. of $\bm{v}^2=v^2$:
+\be 
+L=L(v^2)
+\ee
+Bringing $\partial L/\partial \bm{r}=0$ into Lagrange's equation \eqref{l}, we have
+\be 
+0=\frac{\dif}{\dif t}\left(\frac{\partial L}{\partial \bm{v}}\right)=\frac{\dif \bm v}{\dif t}\frac{\dif}{\dif \bm{v}}\left(\frac{\partial L}{\partial \bm{v}}\right)
+\ee
+whence $\partial L/\partial \bm{v}$ =constant. Since $\partial L/\partial \bm v$ is a function of the velocity only, it follows that 
+\be 
+\frac{\dif \bm v}{\dif t}=0, \quad\mbox{or} \quad\bm v=\mbox{constant}.
+\ee
+Thus we conclude that, in an inertial frame, any free motion takes place with a velocity which is constant in both magnitude and direction. This is the \emph{law of inertia}.
+
+\end{document}

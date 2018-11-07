@@ -1,0 +1,59 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{bm}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+
+\newcommand{\dif}{\,\mathrm{d}}
+
+\title{Landau's clock synchronization}
+
+\begin{document}
+\maketitle
+Let us write the interval, separating the space and time coordinates:
+\be
+\dif s^2=g_{00}\dif t^2+2g_{0i}\dif t\dif x^i+g_{ij}\d x^i\d x^j
+\ee
+For null signals, $ds^2=0$:
+\be
+0=g_{00}\dif t^2+2g_{0i}\dif t\dif x^i+g_{ij}\dif x^i\dif x^j
+\ee
+Solving the quadratic equation for $\dif t$:
+\be
+\dif t=\frac{-g_{0i}\dif x^i\pm\sqrt{(g_{0i}g_{0j}-g_{00}g_{ij})\dif x^i\dif x^j}}{g_{00}}
+\ee
+The two roots are:
+\be
+\label{t} 
+\begin{split}
+\dif t_1=\frac{-g_{0i}\dif x^i+\sqrt{(g_{0i}g_{0j}-g_{00}g_{ij})\dif x^i\dif x^j}}{g_{00}},\\
+\dif t_2=\frac{-g_{0i}\dif x^i-\sqrt{(g_{0i}g_{0j}-g_{00}g_{ij})\dif x^i\dif x^j}}{g_{00}}
+\end{split}
+\ee
+We should regard as simultaneous with the moment $t$ at the point A that thereading of the clock at B which is halfway between the moments of departure and return of the signal to that point, i.e. the moment
+\be 
+t+\dif t=t+\frac{1}{2}(\dif t_1+\dif t_2).
+\ee
+Substituting \eqref{t}, we thus find that the difference in the values of the ``time'' $t$ for two simultaneous events occurring at infinitely near points is given by
+\be 
+\dif t=\frac{-g_{0i}\dif x^i}{g_{00}}
+\ee
+And this is equivalent of saying that ``the `covariant differential' $\dif x_0$ between two infinitely near simultaneous events must be zero":
+\be 
+g_{00}\dif x^0+g_{0i}\dif x^i\equiv\dif x_0=0
+\ee
+This relation enables us to synchronize clocks in any infinitesimal region of space.\\
+
+However, sychronization of clocks along a closed contour turns out to be impossible unless the following relation can be satisfied:
+\be 
+\oint \dif t=\oint \left(-\frac{g_{0i}}{g_{00}}\right) \dif x^i=0
+\ee
+or its sufficient condition is found:
+\be 
+g_{0i}=0
+\ee
+This is Landau's theory of clock synchronization.
+
+\end{document}

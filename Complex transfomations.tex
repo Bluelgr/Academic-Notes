@@ -1,0 +1,291 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{extarrows}
+\usepackage{bm}
+\usepackage{geometry}
+\geometry{centering,scale=0.8}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+
+\newcommand{\dif}{\,\mathrm{d}}
+\newcommand{\p}{\partial}
+\newcommand{\1}{\left}
+\newcommand{\2}{\right}
+
+\title{Complex transformations}
+
+\begin{document}
+\maketitle
+
+\section{Transformation from EF coordinate system}
+\subsection{Ingoing coordinates with $``-"$ sign}
+\be 
+\begin{split}
+\dif s^2&=-f\dif t^2-2\dif t\dif r+r^2\dif\Omega^2\\
+&=-(1-\frac{2M}{r})\dif t^2-2\dif t\dif r+r^2\dif\Omega^2
+\end{split}
+\ee
+
+
+\be
+(g_{\mu\nu})=\left[\ba{cccc}-f&-1&0&0\\-1&0&0&0\\0&0&r^2&0\\0&0&0&r^2\sin^2\theta\ea\right]=\left[\ba{cccc}-(1-\frac{2M}{r})&-1&0&0\\-1&0&0&0\\0&0&r^2&0\\0&0&0&r^2\sin^2\theta\ea\right]
+\ee
+
+\be
+(g^{\mu\nu})=\left[\ba{cccc}0&-1&0&0\\-1&f&0&0\\0&0&\frac 1 {r^2}&0\\0&0&0&\frac 1 {r^2\sin^2\theta}\ea\right]=\left[\ba{cccc}0&-1&0&0\\-1&(1-\frac{2M}{r})&0&0\\0&0&\frac 1 {r^2}&0\\0&0&0&\frac 1 {r^2\sin^2\theta}\ea\right]
+\ee
+
+\be
+\begin{split}
+g^{ab} =& g^{\mu\nu}\1(\frac \p {\p x^\mu}\2)^a\1(\frac \p {\p x^\nu}\2)^b\\
+=& -\1(\frac \p {\p t}\2)^a\1(\frac \p {\p r}\2)^b-\1(\frac \p {\p r}\2)^a\1(\frac \p {\p t}\2)^b+\1(1-\frac{2M}{r}\2)\1(\frac \p {\p r}\2)^a\1(\frac \p {\p r}\2)^b \\
+ & +\frac 1 {r^2} \1[\1(\frac \p {\p\theta}\2)^a \1(\frac \p {\p\theta}\2)^b+\frac 1 {\sin^2 \theta} \1(\frac \p {\p\phi}\2)^a \1(\frac \p {\p\phi}\2)^b \2] 
+\end{split}
+\ee
+
+\be
+\1\{
+\begin{split}
+l^a&\equiv \1(\frac \p {\p r}\2)^a\\
+k^a&\equiv \1(\frac \p {\p t}\2)^a-\frac 1 2 \1(1-\frac{2M}{r}\2)\1(\frac \p {\p r}\2)^a\\
+m^a&\equiv \frac 1 {\sqrt 2 r}\1[\1(\frac \p {\p\theta}\2)^a+\frac i {\sin\theta} \1(\frac \p {\p\phi}\2)^a\2]
+\end{split}
+\2.
+\ee
+
+\be
+g^{ab}=-l^ak^b-l^bk^a+m^a{\bar m}^b+m^b{\bar m}^a
+\ee
+
+Assume $r$ and $t$ to be complex so that they can be divided into real and imaginary part, (while $\theta$ and $\phi$ remains real,)
+\be
+\1\{
+\begin{split}
+r&=R+iacos\Theta\\
+t&=T-iacos\Theta\\
+\theta&=\Theta\\
+\phi&=\Phi
+\end{split}
+\2.
+\ee
+
+\be
+\1\{
+\begin{split}
+\1(\frac \p {\p R}\2)^a&=\1(\frac \p {\p r}\2)^a\\
+\1(\frac \p {\p T}\2)^a&=\1(\frac \p {\p t}\2)^a\\
+\1(\frac \p {\p \Theta}\2)^a&=\1(\frac \p {\p \theta}\2)^a-ia\sin\theta\1(\frac \p {\p r}\2)^a+ia\sin\theta\1(\frac \p {\p t}\2)^a\\
+\1(\frac \p {\p \Phi}\2)^a&=\1(\frac \p {\p \phi}\2)^a
+\end{split}
+\2.
+\ee
+
+\be
+\begin{split}
+\frac 2 r \rightarrow Re\1(\frac 2 r\2)&=\frac 1 r+\frac 1 {\bar r}\\
+&=\frac 1 {R+iacos\Theta}+\frac 1 {R-iacos\Theta}\\
+&=\frac{2R}{{R}^2+a^2 cos^2 \Theta}\\
+&\equiv \frac{2R}{\rho^2}
+\end{split}
+\ee
+
+\be
+\frac 1 {r^2} \rightarrow \frac 1 {r \bar r}=\frac{1}{(R+iacos\Theta)(R-iacos\Theta)}=\frac{1}{{R}^2+a^2 cos^2 \Theta}=\frac{1}{\rho^2}
+\ee
+
+So, in $(t,R,\theta,\phi)$:
+\be
+\1\{
+\begin{split}
+{l^\prime}^a&\equiv \1(\frac \p {\p R}\2)^a\\
+{k^\prime}^a&\equiv \1(\frac \p {\p T}\2)^a-\frac 1 2 \1(1-\frac{2MR}{\rho^2}\2)\1(\frac \p {\p R}\2)^a\\
+&=\1(\frac \p {\p t}\2)^a-\frac 1 2 \1(1-\frac{2MR}{\rho^2}\2)\1(\frac \p {\p R}\2)^a\\
+{m^\prime}^a&\equiv \frac 1 {\sqrt 2 \bar r}\1[\1(\frac \p {\p\Theta}\2)^a+\frac i {\sin\Theta} \1(\frac \p {\p\Phi}\2)^a\2]\\
+&=\frac 1 {\sqrt 2 \bar r}\1[\1(\frac \p {\p \theta}\2)^a-ia\sin\theta\1(\frac \p {\p r}\2)^a+ia\sin\theta\1(\frac \p {\p t}\2)^a+\frac i {\sin\theta} \1(\frac \p {\p\phi}\2)^a\2]\\
+&=\frac 1 {\sqrt 2 \bar r}\1[\1(\frac \p {\p \theta}\2)^a-ia\sin\theta\1(\frac \p {\p R}\2)^a+ia\sin\theta\1(\frac \p {\p t}\2)^a+\frac i {\sin\theta} \1(\frac \p {\p\phi}\2)^a\2]\\
+{\bar m}^{\prime a}
+&=\frac 1 {\sqrt 2 r}\1[\1(\frac \p {\p \theta}\2)^a+ia\sin\theta\1(\frac \p {\p R}\2)^a-ia\sin\theta\1(\frac \p {\p t}\2)^a-\frac i {\sin\theta} \1(\frac \p {\p\phi}\2)^a\2]
+\end{split}
+\2.
+\ee
+
+\be
+g^{\prime ab}=-l^{\prime a}k^{\prime b}-l^{\prime b}k^{\prime a}+m^{\prime a}{\bar m}^{\prime b}+m^{\prime b}{\bar m}^{\prime a}
+\ee
+
+\newpage
+
+\be 
+-l^{\prime a}k^{\prime b}-l^{\prime b}k^{\prime a}
+=-\1(\frac \p {\p t}\2)^a\1(\frac \p {\p r}\2)^b-\1(\frac \p {\p r}\2)^a\1(\frac \p {\p t}\2)^b+\1(1-\frac{2MR}{\rho^2}\2)\1(\frac \p {\p R}\2)^a\1(\frac \p {\p R}\2)^b
+\ee
+
+\be 
+m^{\prime a}{\bar m}^{\prime b}+m^{\prime b}{\bar m}^{\prime a}=\frac{1}{\rho^2}
+\1\{
+\begin{split}
+& \1(\frac \p {\p \theta}\2)^a\1(\frac \p {\p \theta}\2)^b+a^2\sin^2\theta\1(\frac \p {\p R}\2)^a\1(\frac \p {\p R}\2)^b+a^2\sin^2\theta\1(\frac \p {\p t}\2)^a\1(\frac \p {\p t}\2)^b+\frac{1}{\sin^2\theta}\1(\frac \p {\p \phi}\2)^a\1(\frac \p {\p \phi}\2)^b\\
+&-a^2\sin^2\theta\1(\frac \p {\p t}\2)^a\1(\frac \p {\p R}\2)^b-a^2\sin^2\theta\1(\frac \p {\p R}\2)^a\1(\frac \p {\p t}\2)^b\\
+&+a\1(\frac \p {\p t}\2)^a\1(\frac \p {\p \phi}\2)^b+a\1(\frac \p {\p \phi}\2)^a\1(\frac \p {\p t}\2)^b \\
+&-a\1(\frac \p {\p R}\2)^a\1(\frac \p {\p \phi}\2)^b-a\1(\frac \p {\p \phi}\2)^a\1(\frac \p {\p R}\2)^b
+\end{split}
+\2.
+\ee
+
+\be 
+\1\{
+\begin{split}
+g^{tt}&=\frac{a^2\sin^2\theta}{\rho^2}\\
+g^{R R}&=1-\frac{2MR}{\rho^2}+\frac{a^2\sin^2\theta}{\rho^2}=\frac{R^2+a^2-2MR}{\rho^2}\\
+g^{\theta\theta}&=\frac{1}{\rho^2}\\
+g^{\phi\phi}&=\frac{1}{\rho^2 \sin^2\theta}
+\end{split}
+\2.
+\ee
+
+\be 
+\1\{
+\begin{split}
+g^{tR}&=g^{Rt}=-1-\frac{a^2\sin^2\theta}{\rho^2}=-\frac{(R^2+a^2)}{\rho^2}\\
+g^{t\phi}&=g^{\phi T}=\frac{a}{\rho^2}\\
+g^{R\phi}&=g^{\phi R}=-\frac{a}{\rho^2}\\
+\end{split}
+\2.
+\ee
+
+\be
+(g^{\prime\mu\nu})=\frac{1}{\rho^2}\left[\ba{cccc}a^2\sin^2\theta&-(R^2+a^2)&0&a\\ \noalign{\medskip}-(R^2+a^2)&R^2+a^2-2MR&0&-a\\ \noalign{\medskip}0&0&1&0\\ \noalign{\medskip}a&-a&0&\frac 1 {\sin^2\theta}\ea\right]
+\ee
+
+\be 
+(g^\prime_{\mu\nu})=\left[ \begin {array}{cccc} -(1-\,{\frac {2MR}{{\rho}^{2}}})&-1&0&-\,{
+\frac {2MRa{\sin}^{2}\theta}{{\rho}^{2}}}\\ \noalign{\medskip}-1&0&0&
+a\,{\sin}^{2}\theta\\ \noalign{\medskip}0&0&{\rho}^{2}&0
+\\ \noalign{\medskip}-\,{\frac {2MRa{\sin}^{2}\theta}{{\rho}^{2}}}&
+a\,{\sin}^{2}\theta&0& \left( {R}^{2}+{a}^{2} \right) {\sin}^{2}\theta
++\,{\frac {2MR{a}^{2}{\sin}^{4}\theta}{{\rho}^{2}}}\end {array}
+ \right] 
+\ee
+
+\be 
+\dif s^2=-(1-\,{\frac {2MR}{{\rho}^{2}}})\dif t^2-2\dif t \dif R-\,{
+\frac {2MR}{{\rho}^{2}}}(2a{\sin}^{2}\theta)\dif t\dif\phi +2a\sin^2\theta \dif R\dif\phi+\rho^2\dif \theta^2+\1[(R^2+a^2)\sin^2\theta+\frac{2MR}{\rho^2}(a^2\sin^4\theta)\2]\dif\phi^2
+\ee
+
+\subsection{Outgoing coordinates with $``+"$ sign}
+
+\newpage
+\section{transformation from PG coordinate system}
+\subsection{Ingoing coordinates}
+
+\be
+\begin{split}
+\mathrm ds^2&=-f\mathrm dt^2-2\sqrt{1-f}\mathrm dt\mathrm dr+\mathrm dr^2+r^2\mathrm d\Omega^2\\
+&=- \mathrm dt^2+(\mathrm dr- \sqrt{1-f}\mathrm dt)^2+r^2\mathrm d\Omega^2,
+\end{split}
+\ee
+
+\be
+\begin{split}
+\mathrm ds^2&=-(1-\frac{2M}{r})\mathrm dt^2-2\sqrt{\frac{2M}{r}}\mathrm dt\mathrm dr+\mathrm dr^2+r^2\mathrm d\Omega^2\\
+&=- \mathrm dt^2+(\mathrm dr- \sqrt{\frac{2M}{r}}\mathrm dt)^2+r^2\mathrm d\Omega^2,
+\end{split}
+\ee
+
+\be
+(g_{\mu\nu})=\left[\ba{cccc}-f&-\sqrt{1-f}&0&0\\-\sqrt{1-f}&1&0&0\\0&0&r^2&0\\0&0&0&r^2\sin^2\theta\ea\right]=\left[\ba{cccc}-(1-\frac{2M}{r})&-\sqrt{\frac{2M}{r}}&0&0\\-\sqrt{\frac{2M}{r}}&1&0&0\\0&0&r^2&0\\0&0&0&r^2\sin^2\theta\ea\right]
+\ee
+
+\be
+(g^{\mu\nu})=\left[\ba{cccc}-1&-\sqrt{1-f}&0&0\\-\sqrt{1-f}&f&0&0\\0&0&\frac 1 {r^2}&0\\0&0&0&\frac 1 {r^2\sin^2\theta}\ea\right]=\left[\ba{cccc}-1&-\sqrt{\frac{2M}{r}}&0&0\\-\sqrt{\frac{2M}{r}}&(1-\frac{2M}{r})&0&0\\0&0&\frac 1 {r^2}&0\\0&0&0&\frac 1 {r^2\sin^2\theta}\ea\right]
+\ee
+
+\be
+\begin{split}
+g^{ab} =& g^{\mu\nu}\1(\frac \p {\p x^\mu}\2)^a\1(\frac \p {\p x^\nu}\2)^b\\
+=& -\1(\frac \p {\p t}\2)^a\1(\frac \p {\p t}\2)^b-\sqrt{1-f}\1(\frac \p {\p t}\2)^a\1(\frac \p {\p r}\2)^b-\sqrt{1-f}\1(\frac \p {\p r}\2)^a\1(\frac \p {\p t}\2)^b+f\1(\frac \p {\p r}\2)^a\1(\frac \p {\p r}\2)^b \\
+ & +\frac 1 {r^2} \1[\1(\frac \p {\p\theta}\2)^a \1(\frac \p {\p\theta}\2)^b+\frac 1 {\sin^2 \theta} \1(\frac \p {\p\phi}\2)^a \1(\frac \p {\p\phi}\2)^b \2] \\
+=& -\1(\frac \p {\p t}\2)^a\1(\frac \p {\p t}\2)^b-\sqrt{\frac{2M}{r}}\1(\frac \p {\p t}\2)^a\1(\frac \p {\p r}\2)^b-\sqrt{\frac{2M}{r}}\1(\frac \p {\p r}\2)^a\1(\frac \p {\p t}\2)^b+\1(1-\frac{2M}{r}\2)\1(\frac \p {\p r}\2)^a\1(\frac \p {\p r}\2)^b \\
+ & +\frac 1 {r^2} \1[\1(\frac \p {\p\theta}\2)^a \1(\frac \p {\p\theta}\2)^b+\frac 1 {\sin^2 \theta} \1(\frac \p {\p\phi}\2)^a \1(\frac \p {\p\phi}\2)^b \2]
+\end{split}
+\ee 
+
+After complexifying,
+
+\be
+\1\{ 
+\begin{split}
+g^{tt}&=-1+\frac{a^2\sin^2\theta}{\rho^2}=\frac{1}{\rho^2}(a^2\sin^2\theta-\rho^2)\\
+g^{tR}&=g^{Rt}=-\sqrt{\frac{2Mr}{\rho^2}}-\frac{a^2\sin^2\theta}{\rho^2}=-\frac{1}{\rho^2}(a^2\sin^2\theta+\sqrt{2Mr\rho^2})
+\end{split}
+\2.
+\ee
+
+\be
+(g^{\prime\mu\nu})=\frac{1}{\rho^2}\left[\ba{cccc}a^2\sin^2\theta-\rho^2&-(a^2\sin^2\theta+\sqrt{2Mr\rho^2})&0&a\\ \noalign{\medskip}-(a^2\sin^2\theta+\sqrt{2Mr\rho^2})&R^2+a^2-2Mr&0&-a\\ \noalign{\medskip}0&0&1&0\\ \noalign{\medskip}a&-a&0&\frac 1 {\sin^2\theta}\ea\right]
+\ee
+
+\be 
+(g^\prime_{\mu\nu})=\left[ \begin {array}{cccc} -\1(1-\,{\frac {2Mr}{{\rho}^{2}}}\2)&-\sqrt{\frac{2Mr}{\rho^2}}&0&\1(1-\frac{2Mr}{\rho^2}-\sqrt{\frac{2Mr}{\rho^2}}\2)a\sin^2\theta\\ \noalign{\medskip}-\sqrt{\frac{2Mr}{\rho^2}}&1&0&
+\1(1+\sqrt{\frac{2Mr}{\rho^2}}\2)a\,{\sin}^{2}\theta\\ \noalign{\medskip}0&0&{\rho}^{2}&0
+\\ \noalign{\medskip}\1(1-\frac{2Mr}{\rho^2}-\sqrt{\frac{2Mr}{\rho^2}}\2)a\sin^2\theta&
+\1(1+\sqrt{\frac{2Mr}{\rho^2}}\2)a\,{\sin}^{2}\theta&0& \left( {r}^{2}+{a}^{2} \right) {\sin}^{2}\theta
+-\1(1-\frac{2Mr}{\rho^2}-\sqrt{\frac{2Mr}{\rho^2}}\2)a^2\sin^4\theta\end {array}
+ \right] 
+\ee
+
+\subsection{Outgoing coordinates}
+
+
+\newpage
+\section{transformation from PG-like coordinate system}
+\subsection{Ingoing coordinates}
+
+\be
+\begin{split}
+\mathrm ds^2&=-f\mathrm dt^2-2\sqrt{1-pf}\mathrm dt\mathrm dr+p\mathrm dr^2+r^2\mathrm d\Omega^2\\
+&=-\frac 1 p \mathrm dt^2+p(\mathrm dr-\frac 1 p \sqrt{1-pf}\mathrm dt)^2+r^2\mathrm d\Omega^2,
+\end{split}
+\ee
+
+\be
+(g_{\mu\nu})=\left[\ba{cccc}-f&-\sqrt{1-pf}&0&0\\-\sqrt{1-pf}&p&0&0\\0&0&r^2&0\\0&0&0&r^2\sin^2\theta\ea\right]
+\ee
+
+\be
+(g^{\mu\nu})=\left[\ba{cccc}-p&-\sqrt{1-pf}&0&0\\-\sqrt{1-pf}&f&0&0\\0&0&\frac 1 {r^2}&0\\0&0&0&\frac 1 {r^2\sin^2\theta}\ea\right]
+\ee
+
+\be
+\begin{split}
+g^{ab} =& g^{\mu\nu}\1(\frac \p {\p x^\mu}\2)^a\1(\frac \p {\p x^\nu}\2)^b\\
+=& -p\1(\frac \p {\p t}\2)^a\1(\frac \p {\p t}\2)^b-\sqrt{1-pf}\1(\frac \p {\p t}\2)^a\1(\frac \p {\p r}\2)^b-\sqrt{1-pf}\1(\frac \p {\p r}\2)^a\1(\frac \p {\p t}\2)^b+f\1(\frac \p {\p r}\2)^a\1(\frac \p {\p r}\2)^b \\
+ & +\frac 1 {r^2} \1[\1(\frac \p {\p\theta}\2)^a \1(\frac \p {\p\theta}\2)^b+\frac 1 {\sin^2 \theta} \1(\frac \p {\p\phi}\2)^a \1(\frac \p {\p\phi}\2)^b \2] 
+\end{split}
+\ee 
+
+After complexifying,
+
+\be
+\1\{ 
+\begin{split}
+g^{tt}&=-p+\frac{a^2\sin^2\theta}{\rho^2}=\frac{1}{\rho^2}(a^2\sin^2\theta-p\rho^2)\\
+g^{tR}&=g^{Rt}=-\sqrt{1-pf}-\frac{a^2\sin^2\theta}{\rho^2}=-\frac{1}{\rho^2}(a^2\sin^2\theta+\rho^2\sqrt{1-pf})
+\end{split}
+\2.
+\ee
+
+\be
+(g^{\prime\mu\nu})=\frac{1}{\rho^2}\left[\ba{cccc}a^2\sin^2\theta-p\rho^2&-(a^2\sin^2\theta+\rho^2\sqrt{1-pf})&0&a\\ \noalign{\medskip}-(a^2\sin^2\theta+\rho^2\sqrt{1-pf})&R^2+a^2-2Mr&0&-a\\ \noalign{\medskip}0&0&1&0\\ \noalign{\medskip}a&-a&0&\frac 1 {\sin^2\theta}\ea\right]
+\ee
+
+\subsection{Outgoing coordinates}
+
+\end{document}

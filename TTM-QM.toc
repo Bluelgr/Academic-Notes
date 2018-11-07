@@ -1,0 +1,4 @@
+\contentsline {section}{\numberline {1}Mathematical Foundations and Spins}{2}
+\contentsline {subsection}{\numberline {1.1}Quantum states, operators, and Hermitian properties}{2}
+\contentsline {subsection}{\numberline {1.2}Time evolution of states and expectation values}{3}
+\contentsline {subsection}{\numberline {1.3}Spin states, spin operators, and Pauli Matrices}{6}

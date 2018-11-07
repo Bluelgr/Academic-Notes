@@ -1,0 +1,129 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{extarrows}
+\usepackage{bm}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+
+\newcommand{\dif}{\,\mathrm{d}}
+\newcommand{\p}{\partial}
+\newcommand{\1}{\left}
+\newcommand{\2}{\right}
+
+\title{4-quantities in relativity}
+
+\begin{document}
+\maketitle
+
+\section{Mehcnics}
+\subsection*{Definitions}
+4-velocity:
+\be 
+\begin{split}
+U^a:=\1(\frac{\p}{\p\tau}\2)^a&=\frac{\dif t}{\dif\tau}\1(\frac{\p}{\p t}\2)^a+\frac{\dif x^i}{\dif \tau}\1(\frac{\p}{\p x^i}\2)^a\\
+&=\gamma Z^a+h^a{}_b U^b
+\end{split}
+\ee
+where $\gamma\equiv\dif t/\dif \tau=-U^a Z_a$, $Z^a\equiv(\p/\p t)^a$, and $h^a{}_b U^b$ is the space projection of $U^a$.\\
+
+3-velocity:
+\be 
+u^a:=\frac{\dif x^i}{\dif t}\1(\frac{\p}{\p x^i}\2)^a=\frac{\dif x^i/\dif\tau}{\dif t/\dif\tau}\1(\frac{\p}{\p x^i}\2)^a=\frac{h^a{}_b U^b}{\gamma}.
+\ee
+
+So,
+\be 
+U^a=\gamma (Z^a+u^a)
+\ee
+
+4-momentum:
+\be 
+P^a:=mU^a=\gamma m Z^a+\gamma m u^a=E Z^a+p^a
+\ee
+where $E:=\gamma m=-P^aZ_a$ and $p^a:=\gamma m u^a$.\\
+
+\be 
+\1.
+\begin{lgathered}
+P^aP_a=mU^amU_a=-m^2\\
+P^aP_a=(E Z^a+p^a)(E Z^a+p^a)=-E^2+p^2
+\end{lgathered}
+\2\}
+\implies
+E^2=m^2+p^2
+\ee
+
+4-acceleration:
+\be 
+A^a:=U^b\nabla_bU^a \implies A^aU_a=0\quad(\text{$A^a$ is orthogonal to $U^a$})
+\ee
+where $\nabla_a$ is the derivative operator compatible to the metric $g_{ab}$.\\
+
+3-acceleration:
+\be 
+a^a:=\frac{\dif^2x^i}{\dif t^2}\1(\frac{\p}{\p x^i}\2)^a
+\ee
+
+4-force:
+\be 
+F^a:=U^b\nabla_bP^a=U^b\nabla_b(mU^a)\xlongequal{\text{if $m$=const}}mU^b\nabla_bU^a =mA^a
+\ee
+
+\section{Electromagnetics}
+\subsection{Concepts}
+4-wave vector:
+\be 
+K^a=\omega Z^a+k^a
+\ee
+where $\omega=-K^aZ_a$.
+
+\be 
+0=K^aK_a=(\omega Z^a+k^a)(\omega Z^a+k^a)=-\omega^2+k^2 \quad \implies \omega^2=k^2
+\ee
+\\
+4-momentum of photons:
+\be
+P^a:=\hbar K^a=\hbar\omega Z^a+\hbar k^a=EZ^a+p^a
+\ee
+where
+\be 
+E=\hbar\omega, \qquad p^a=\hbar k^a
+\ee
+and
+\be 
+0=P^aP_a=(EZ^a+p^a)(EZ^a+p^a)=-E^2+p^2 \quad\implies E^2=p^2
+ 
+
+\subsection{Gravitational redshift}
+Let $\xi^a$ be the timelike killing vector of a stationary spacetime and $Z^a$ be a stationary observer,
+\be 
+\xi^a=\chi Z^a.
+\ee
+
+\be 
+\xi^a\xi_a=\chi^2Z^aZ_a=-\chi^2 \quad \implies \chi=\sqrt{-\xi^a\xi_a}
+\ee
+
+\be 
+\omega=-K^aZ_a=(-K^a\xi_a)\chi^{-1}
+\ee
+
+Due to the fact that $K^a$ is the tangent vector of null geodesics and $\xi^a$ is a killing vector, $(-K^a\xi_a)$ is a conservative quantity along the geodesics. Thus, 
+\be 
+\frac{\omega^\prime}{\omega}=\frac{\chi}{\chi^\prime} \quad\text{or}\quad \frac{\lambda^\prime}{\lambda}=\frac{\chi^\prime}{\chi}
+\ee
+so $\chi$ is called the \emph{redshift factor}.\\
+
+In Schwarzschild spacetime,
+\be 
+\chi^2=-\xi^a\xi_a=-g_{ab}\1(\frac{\p}{\p t}\2)^a\1(\frac{\p}{\p t}\2)^b=-g_{00}=1-\frac{2M}{r}
+\ee
+
+\be 
+\frac{\lambda^\prime}{\lambda}=\sqrt{\frac{1-2M/r^\prime}{1-2M/r}}
+\ee
+when $r^\prime>r$, $\lambda^\prime>\lambda$.
+\end{document}

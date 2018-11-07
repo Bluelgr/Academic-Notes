@@ -1,0 +1,81 @@
+\documentclass{article}
+
+\usepackage{amsmath,bm}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+
+\title{Green's function in Quantum Scattering Problem}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Generating Green's function}
+Schrodinger's equation:
+\be
+i\hbar\frac{\partial}{\partial t}\psi=\hat{H}\psi
+\ee
+ding tai:
+\be
+E\psi=\hat H\psi=(\frac{p^2}{2m}+V)\psi=(-\frac{\hbar^2}{2m}\nabla^2+V)\psi
+\ee
+In 3-dimensional coordinate biao xiang：
+\be
+(\nabla^2+k^2)\psi(\vec{r})=\frac{2\mu}{\hbar^2}V(r)\psi(\vec{r})
+\label{3D}
+\ee
+The right-hand side:
+\be
+\frac{2\mu}{\hbar^2}V(r)\psi(\vec{r})=\frac{2\mu}{\hbar^2}\int \delta(\vec{r}-\vec{r}')V(r')\psi(\vec{r}') d\vec{r}' 
+\label{righthand}
+\ee
+Here we assume
+\be
+\psi(\vec{r})=\frac{2\mu}{\hbar^2}\int G(\vec{r},\vec{r}')V(r')\psi(\vec{r}') d\vec{r}' 
+\label{assume}
+\ee
+Thus we bring (\ref{assume}) and (\ref{righthand}) into (\ref{3D}), we get
+\be
+\boxed{\bm{(\nabla^2+k^2)G(\vec{r},\vec{r}')=\delta(\vec{r}-\vec{r}')}}
+\label{Green}
+\ee
+The general form of $\psi(\vec{r})$ can be written as
+\be
+\psi(\vec{r})=\psi_i(\vec{r})+\frac{2\mu}{\hbar^2}\int G(\vec{r},\vec{r}')V(r')\psi(\vec{r}') d\vec{r}' 
+\ee
+where $\psi_i(\vec{r})$ satisfies
+\be
+(\nabla^2+k^2)\psi_i(\vec{r})=0
+\ee
+In scattering problem we choose $\psi_i(\vec{r})=e^{ikz}$, so
+\be
+\psi(\vec{r})=e^{ikz}+\frac{2\mu}{\hbar^2}\int G(\vec{r},\vec{r}')V(r')\psi(\vec{r}') d\vec{r}'
+\ee
+\section{Solving Green's function}
+\subsection{Fourier's transformation}
+In order to solve equation(\ref{Green}), we execute Fourier's transformation first,
+\be
+G(\vec{r}-\vec{r}')=\int \tilde{G}(\vec{q}) e^{i\vec{q}(\vec{r}-\vec{r}')} d^3 q
+\label{Fourier}
+\ee
+then we bring it into (\ref{Green}), we get
+\be
+\int (\nabla^2+k^2) e^{i\vec{q}(\vec{r}-\vec{r}')} \tilde{G}(\vec{q}) d^3 q=\delta(\vec{r}-\vec{r}')
+\ee
+i.e.
+\be
+\int (-q^2+k^2) e^{i\vec{q}(\vec{r}-\vec{r}')} \tilde{G}(\vec{q}) d^3 q=\frac{1}{(2\pi)^3}\int e^{i\vec{q}(\vec{r}-\vec{r}')}  d^3 q
+\ee
+So we have
+\be
+\fbox{$\displaystyle{\tilde{G}(\vec{q})=\frac{1}{(2\pi)^3}\frac{1}{(-q^2+k^2)}}$}
+\ee
+Bringing this into (\ref{Fourier}), we have
+\be
+G(\vec{r}-\vec{r}')=-\frac{1}{(2\pi)^3}\int e^{i\vec{q}(\vec{r}-\vec{r}')} \frac{1}{(q^2-k^2)} d^3 q
+\ee
+\subsection{Complex integral}
+
+\end{document}

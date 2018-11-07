@@ -1,0 +1,152 @@
+\documentclass{article}
+
+\usepackage{amsmath,bm,pifont}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+
+\begin{document}
+\title{Schwarzschild tunneling with HJ equation in PG-like coordinates}
+\author{Gui-Rong Liang}
+\maketitle
+\begin{abstract}
+Firstly I derive HJ equation from Lagrangian, then put it in the PG-like coordinates to calculate the emission rate of Hawking radiation. We will find some convenience of using this coordinate system during the process.
+\end{abstract}
+\section{From Lagrangian to HJ equation}
+The Lagrangian of a free particle in a curved spacetime is given as
+\be
+L=\frac m 2 g_{\mu\nu}\dot{x}^\mu\dot{x}^\nu ~.
+\ee
+It's easy to compute the covariant four-momentum
+\be
+P_\mu=\frac{\partial L}{\partial \dot x^\mu}=m g_{\mu\nu}\dot x^\nu,
+\ee
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+So we can get the Hamiltonian\footnote{We should reexpress the velocity in terms of the momentum as $\dot x^\mu=\frac 1 m g^{\mu\nu}P_\nu ~.$} of the particle
+\be
+H=P_\mu \dot x^\mu-L=\frac m 2 g_{\mu\nu}\dot x^\mu \dot x^\nu=\frac1{2m} g^{\mu\nu}P_\mu P_\nu ~.
+\ee
+The classical HJ equation can be generalized into the curved spacetime as
+\be
+\frac{\partial S}{\partial \tau}+H(\dot x^\mu,\frac{\partial S}{\partial x^\mu})=0
+\ee
+where $\tau$ denotes the proper time of the freely moving particle,and $\frac{\partial S}{\partial x^\mu}$ is a simple substitution of $P_\mu$.\\
+Thus,
+\be
+\frac{\partial S}{\partial\tau}+\frac1{2m}g^{\mu\nu} (\frac{\partial S}{\partial x^\mu}) (\frac{\partial S} {\partial x^\nu})=0
+\ee
+Note that due to the normalization condition, the Hamilton $H=-m/2$ is a conservative quantity itself, the equation above can be separated into
+\be
+\left\{\begin{split}
+&\frac 1 {2m} g^{\mu\nu} (\frac{\partial S}{\partial x^\mu}) (\frac{\partial S} {\partial x^\nu})+\frac m 2=0 \\
+&\frac{\partial S}{\partial\tau}=\frac m 2
+\end{split}\right.
+\ee
+Generally, the proper time $\tau$ of a particle does not apparently show up in a coordinate system, so we neglect the second separated equation; moreover, in tunneling process of Hawking radiation, we care only about the imaginary part of the action $S$, while the second equation just contributes a real factor.\\
+The first equation can be rearranged like
+\be
+g^{\mu\nu} (\frac{\partial S}{\partial x^\mu}) (\frac{\partial S} {\partial x^\nu})+m^2=0
+\label{hj}
+\ee
+or a simpler form
+\be
+\fbox{$\bm{\partial^\mu S~\partial_\mu S+m^2=0$}}
+\ee
+This is the standard Hamilton-Jaccobi equation of a free particle with mass $m$.
+\section{Schwarzschild tunneling analysis in PG-like coordinates}
+The line element of a Schwarzschild metric $g_{\mu\nu}$ is expressed as
+\be
+\mathrm ds^2=-f\mathrm dt^2+f^{-1}\mathrm dr^2+r^2\mathrm d\Omega^2,
+\ee
+where $f=1-2M/r$, and $\mathrm d\Omega^2=\mathrm d\theta^2+\sin^2\theta \mathrm d\phi^2$.\\
+When transformed into the PG-like coordinate family, it becomes
+\be
+\mathrm ds^2=-f\mathrm dT^2+2\sqrt{1-pf}\mathrm dT\mathrm dr+p\mathrm dr^2+r^2\mathrm d\Omega^2\\
+\ee
+or
+\be
+\mathrm ds^2=-\frac 1 p \mathrm dT^2+p(\mathrm dr^2+\frac 1 p \sqrt{1-pf})^2+r^2\mathrm d\Omega^2,
+\ee
+the transformation relationship is
+\be
+\mathrm dT=\mathrm dt+\frac{\sqrt{1-pf}}{f}\mathrm dr
+\label{trans}
+\ee
+where the single parameter $p$ symbolizing the coordinate choosing, is defined as $p=1/\tilde E^2$ , with $\tilde E$ representing energy per unit mass of the particle.\footnote{More about this coordinate system family, see Ref\cite{AJM} in detail.} \\
+We denote the new form of the metric as $g'_{\mu\nu}$, and get its covariant matrix form,
+\be
+(g'_{\mu\nu})=\left[\ba{cccc}-f&\sqrt{1-pf}&0&0\\\sqrt{1-pf}&p&0&0\\0&0&r^2&0\\0&0&0&r^2\sin^2\theta\ea\right]
+\ee
+and contravariant form,
+\be
+(g'^{\mu\nu})=\left[\ba{cccc}-p&\sqrt{1-pf}&0&0\\\sqrt{1-pf}&f&0&0\\0&0&\frac 1 {r^2}&0\\0&0&0&\frac 1 {r^2\sin^2\theta}\ea\right]
+\ee
+Taking the contravariant components into the equation (\ref{hj}), and considering the case of radial motions, we get the HJ equation in PG-like coordinate family\footnote{For radial motions, we neglect angular terms for the reason that \[\left\{\begin{split}
+&\frac{\partial S}{\partial \theta}=P_\theta=\frac{\partial L}{\partial \dot\theta}=m g'_{\theta\theta}\dot\theta=0\\
+&\frac{\partial S}{\partial \phi}=P_\phi=\frac{\partial L}{\partial \dot\phi}=m g'_{\phi\phi}\dot\phi=0.
+\end{split}\right.
+\]},
+\be
+-p(\frac{\partial S}{\partial T})^2+2\sqrt{1-pf}(\frac{\partial S}{\partial T})(\frac{\partial S}{\partial r})+f(\frac{\partial S}{\partial r})^2=-m^2.
+\label{hjpg}
+\ee
+It seems hard to separate the variants, but we will see one of them is a conservative quantity,
+\be
+\begin{split}
+\frac{\partial S}{\partial T}=P_T=\frac{\partial L}{\partial \dot T}&=m g'_{\scriptscriptstyle T \scriptscriptstyle T}\dot T+m g'_{\scriptscriptstyle T \scriptstyle r}\dot r=m(-f\dot T+\sqrt{1-pf}~\dot r) \\ &\stackrel{\displaystyle\text{\ding{172}}}{=}-mf~\dot t\stackrel{\displaystyle\text{\ding{173}}}{=}-m\tilde E\stackrel{\displaystyle\text{\ding{174}}}{=}-\omega,
+\end{split}
+\ee
+the equal sign \ding{172} is the result of substituting transformation relationship (\ref{trans}) into the equation, the equal sign \ding{173} is the expression of $\tilde E$ in the original coordinate system,\footnote{In the original coordinate system, $\tilde E=g_{\mu\nu}(\frac{\mathrm dx^\mu}{\mathrm dt})(\frac{\mathrm dx^\nu}{\mathrm d\tau})=g_{tt}\frac{\mathrm dt}{\mathrm d\tau}=f~\dot t$} and $\omega$ represents the total energy of the particle.\\
+So, equation (\ref{hjpg}) becomes
+\be
+-p~\omega^2-2\omega\sqrt{1-pf}(\frac{\partial S}{\partial r})+f(\frac{\partial S}{\partial r})^2=-m^2
+\ee
+Note that the definition of the parameter $p=1/\tilde E^2$ and the equal sign \ding{174} together give us a new relationship as $p~\omega^2=m^2$, which makes the equation above even simpler,
+\be
+(\frac{\partial S}{\partial r})(f\frac{\partial S}{\partial r}-2\omega\sqrt{1-pf})=0.
+\ee
+Neglecting the trivial solution, we get the partial differentiation of $S$ with respect to $r$,
+\be
+\partial_r S\equiv\frac{\partial S}{\partial r}=2~\omega\frac{\sqrt{1-pf}}{f}.
+\ee
+And the imaginary part of the action across the event horizon can be directly computed,\footnote{This can be achieved by calculating the residue, $Res(\frac{\sqrt{1-pf}}{f})|_{r=2M}=2\pi M$}
+\be
+ImS=-i\int_{r_{in}}^{r_{out}}2~\omega\frac{\sqrt{1-pf}}{f}~\mathrm dr=4\pi M
+\ee
+where $r_{in}=2M-\varepsilon$ and $r_{out}=2M+\varepsilon$, with $\varepsilon$ an infinitesimal.\\
+Considering the self-gravitation effect, the result above ought to make such replacements:
+\be
+\left\{
+\begin{split}
+\omega\rightarrow\int_0^\omega\mathrm d\omega'\\
+M\rightarrow M-\omega'
+\end{split}
+\right.
+\ee
+Thus, modification should be made as,
+\be
+\begin{split}
+ImS&=4\pi\int_0^\omega (M-\omega') \mathrm d\omega'\\
+&=4\pi\omega(M-\frac{\omega}{2})
+\end{split}
+\ee
+According to WKB approximation, the tunneling rate should be like
+\be
+\Gamma\propto e^{-2ImS}
+\ee
+So finally we have our result,
+\be
+\Gamma\propto e^{-8\pi\omega(M-\frac{\omega}{2})}
+\ee
+which well accorded with previous works, being consistent with the underlying unitary theory.
+
+\begin{thebibliography}{}
+\bibitem{AJM}Regular coordinate systems for Schwarzschild and other spherical spacetimes, Karl Martel and Eric Poisson
+\end{thebibliography}
+
+\end{document}
+

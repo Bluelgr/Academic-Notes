@@ -1,0 +1,25 @@
+\contentsline {section}{\numberline {1}Thermodynamics \& Statistical Mechanics}{2}
+\contentsline {section}{\numberline {2}Quantum mechanics \& Quantum Field Theory}{3}
+\contentsline {section}{\numberline {3}Fundamental Integral Representation of the Partition Function}{4}
+\contentsline {subsection}{\numberline {3.1}The Partition Function as Fundamental Integral}{4}
+\contentsline {subsection}{\numberline {3.2}Neutral Scalar Fields}{4}
+\contentsline {subsection}{\numberline {3.3}Charged Scalar Fields: Bose-Einstein Condensation}{4}
+\contentsline {subsection}{\numberline {3.4}Fermion Fields}{4}
+\contentsline {subsection}{\numberline {3.5}Massive Vector Fields}{4}
+\contentsline {subsection}{\numberline {3.6}The Electro-magnetic Fields}{4}
+\contentsline {section}{\numberline {4}The Partition Function in Perturbation Theory}{4}
+\contentsline {subsection}{\numberline {4.1}Expansion in Powers of the Interaction}{4}
+\contentsline {subsection}{\numberline {4.2}$\phi ^4$ Theory}{4}
+\contentsline {subsection}{\numberline {4.3}Yukawa Theory}{4}
+\contentsline {subsection}{\numberline {4.4}QED}{4}
+\contentsline {subsection}{\numberline {4.5}QCD}{4}
+\contentsline {section}{\numberline {5}Resummation Techniques}{4}
+\contentsline {subsection}{\numberline {5.1}IR Divergences \& Breakdown of Naive Perturbation Series}{4}
+\contentsline {subsection}{\numberline {5.2}1PI Effective Action}{4}
+\contentsline {subsection}{\numberline {5.3}2PI Effective Action (C-J-T Formalism)}{4}
+\contentsline {subsection}{\numberline {5.4}Restoration of Spontanously ?? Symmetries}{4}
+\contentsline {subsection}{\numberline {5.5}Symmetry Restoration in H\&H-F Approximation}{4}
+\contentsline {subsection}{\numberline {5.6}Fermions: the N-J-L Model}{4}
+\contentsline {subsection}{\numberline {5.7}Superfluidity \& Superconductivity}{4}
+\contentsline {subsection}{\numberline {5.8}Gauge Theories: Hard Thermal Loop \& Hard Dense Loop (Random Phase Approximation)}{4}
+\contentsline {subsection}{\numberline {5.9}The Function Renormalization Group}{4}

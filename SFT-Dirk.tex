@@ -27,10 +27,17 @@
 
 \newcommand{\m}{\mu}
 \newcommand{\n}{\nu}
+\newcommand{\al}{\alpha}
+\newcommand{\bet}{\beta}
+\newcommand{\lam}{\lambda}
+\newcommand{\sig}{\sigma}
+\newcommand{\ep}{\epsilon}
+\newcommand{\om}{\omega}
 \newcommand{\del}{\delta}
 
+
 \title{Notes on Statistical Field Theory}
-\author{Gui-Rong Liang}
+\author{Lecturer: Prof. Dr. Dirk H. Rischke\\Notes Taker: Gui-Rong Liang}
 
 \begin{document}
 \maketitle
@@ -40,9 +47,68 @@
 
 \sect{Thermodynamics \& Statistical Mechanics}
 Closed system, Volume $V$, in thermodynamic equilibrium\\
-Conserved quantities:\begin{enumerate} \item energy $E$
-\item particle no. $N$
-\end{enumerate}
+Conserved quantities: energy $E$, particle no. $N$.\\
+Comments: a) particle and anti-particle pairs can be created out of vacuum, only net particle no. or quantum numbers (e.g. net electric charge $N=N^+-N^-$) are conserved.\\
+b) different particle species, different conserved quantum numbers, $N_1, N_2, ..., N_M$.\\
+
+Thermodaynamics\\
+
+For closed system of volume $V$ and $M$ different conserved quantum numbers,
+\be
+\dif E=T\dif S-p\dif V+\sum_i^M\m_i \dif N_i.
+\ee
+
+Energy is an extensive quantity, it scales with volume $V$. If $V\rightarrow \al V$, then $E(\al S, \al V, \{\al N_i\})=\al E(S, V, \{N_i\})$. Now let $\al=1+\ep$, where $|\ep|<<1$, we have
+\bs
+E(S, V, \{N_i\})+\ep E(S, V, \{N_i\}) &=E(S+\ep S, V+\ep V, \{N_i+\ep N_i\})\\
+&=E(S, V, \{N_i\})+\ep\1[\frac{\p E}{\p S}\bigg|_{V,\{N_i\}}S+\frac{\p E}{\p V}\bigg|_{S,\{N_i\}}V+\sum_i\frac{\p E}{\p N_i}\bigg|_{S,V}N_i\2]\\
+&=E(S, V, \{N_i\})+\ep\1[TS-pV+\sum_i\m_iN_i\2],
+\end{split}\ee
+where in the first line we just plug in $\al=1+\ep$, in the second line we used the Taylor expansion and only kept the first-order term, and in the third line we used the partial thermodynamic relations. Comparing LHS and RHS, we immediately get
+\be
+E(S, V, \{N_i\})=TS-pV+\sum_i\m_iN_i.
+\ee
+This is the \textit{fundamental relation of thermodynamics}.\\
+By taking its total derivative we have
+\be
+\dif E=T\dif S+S\dif T-p\dif V-V\dif p+\sum_i^M(\m_i \dif N_i+N_i\dif \m_i) \implies 0= S\dif T-V\dif p+\sum_i^M N_i\dif \m_i,
+\ee
+where we cancel terms due to the first law. This is the \textit{Gibbs-Duham relation}.\\
+
+Statistical Mechanics\\
+
+micro-canonical partition function: $\Xi(E,V,\{N_i\})$ = numbers of all possible micro-states of the system.\\
+relation with thermodynamics: $S(E,V,\{N_i\})=\ln\Xi(E,V,\{N_i\})$\\
+microscopic density of states is
+\be
+\sig(E,V,\{N_i\})=\frac{\Xi(E,V,\{N_i\})}{\dif E}=\sum_{\ma R}\nolimits'\del(E-E_{\ma R}),
+\ee
+where $\frac{\Xi(E,V,\{N_i\})}{\dif E}$ denotes number of micro-states per energy interval, and $\ma R$ denotes all micro-states, and prime for given $V$ and $\{N_i\}$.\\
+Calculation of equation of state $S(E,V,\{N_i\})$ is possible if $\Xi(E,V,\{N_i\})$ is known, but generally this is very hard to compute.\\
+
+Canonical partition function: Laplace transform of $\sig(E,V,\{N_i\})$,
+\be
+Z(T,V,\{N_i\})=\int_0^\infty \dif E \, e^{E/T} \sig(E,V,\{N_i\})=\int_0^\infty \dif E \, e^{E/T}\sum_{\ma R}\nolimits'\del(E-E_{\ma R})=\sum_{\ma R}\nolimits'e^{E_{\ma R}/T}
+\ee
+relation to thermodynamics: $F(T,V,\{N_i\})=-T\ln Z(T,V,\{N_i\})$.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \sect{Quantum mechanics \& Quantum Field Theory}
 completeness relation:

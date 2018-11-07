@@ -1,0 +1,43 @@
+Winedt: 
+Ctrl+Shift+P Pdftexify
+Ctrl+Enter   自动补全命令
+
+Windows: 
+Alt+Tab  switch, use Tab to choose
+Alt+F4   Exit
+Ctrl+D   Delete document
+
+Texmaker: 
+F1  快速构建（compile + Pdfpreview）
+
+Texworks：
+Ctrl+T  Compile
+
+Office:
+Ctrl+Enter 换页
+Ctrl+N Creat
+Ctrl+O Open
+Ctrl+W Close
+Ctrl+F Find
+Ctrl+H Replace
+Ctrl+G 定位
+Ctrl+S Save
+Ctrl+Z Undo
+Ctrl+Y retrieve
+Ctrl+C Copy
+Ctrl+V Paste
+Ctrl+X Cut
+Ctrl+Shift+8  显示/隐藏 编辑标记
+Alt+Shift+Arrow 编号升降级
+Ctrl+Shift+Arrow 复选（左\右）
+Ctrl+Shift+Home\End 从当前复选至文首\文末
+Home\End 行首\行尾
+Ctrl+Home\End 文首\文末 
+Shift+F3 切换单词大小写
+
+Maple
+Ctrl+J
+Ctrl+K
+Tab
+Shift+Tab
+Ctrl+F4
