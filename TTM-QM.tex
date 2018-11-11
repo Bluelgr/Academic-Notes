@@ -149,7 +149,7 @@ A direct consequence of the unitarity leads to a much stronger version of conser
 \be
 \la A(t)|B(t)\ra = \la A(0) |\hat U^\dagger(t)\hat U(t)|B(0)\ra = \la A(0)|B(0)\ra,
 \ee
-which says the inner product of $|A\ra$ and $|B\ra$ does not change with time, or the inner product is conserved.\\
+which says the inner product of $|A\ra$ and $|B\ra$ does not change with time, or the inner product is conserved. Thus superficially conservation of orthogonality is a special case of conservation of overlap, we have seen that conservation of orthogonality can lead to conservation of overlap, thus they are equivalent.\\
 
 Time evolution is led by incremental changes, so it would be inspiring to study the evolution operator of an infinitesimal time interval $\epsilon$. Another property besides unitarity that an evolution operator should have is \textit{continuity}, which means that the state-vector changes smoothly, or to be more explicitly, when $\epsilon$ is very small, $\hat U(\epsilon)$ is close to the unit operator, only differing from it by something of order $\epsilon$, and when $\ep$ is taken to be zero, the state does not change. 
 \be
@@ -199,7 +199,7 @@ and due to the Hermitian property of $H$, it should be some kind of observable.\
 
 Now we're going to explore more on the evolution of states at an infinitesimal time interval $\epsilon$, we write
 \be
-|\Psi(\ep)\ra=\hat U(\ep) |\Psi(0)\ra = |\Psi(0)\ra-i\ep|\Psi(0)\ra,
+|\Psi(\ep)\ra=\hat U(\ep) |\Psi(0)\ra = |\Psi(0)\ra-i\ep H|\Psi(0)\ra,
 \ee
 and rearranging this we have
 \be
@@ -207,15 +207,51 @@ and rearranging this we have
 \ee
 where the LHS is nothing but the time derivative of the state $|\Psi\ra$ at time $t=0$, but since the evolution is assumed to be linear, this should hold at any time $t$, so we may write
 \be
-\frac{\p |\Psi\ra}{\p t}=-i H|\Psi\ra,
+\frac{\dif |\Psi\ra}{\dif t}=-i H|\Psi\ra,
 \ee
-where we wrote partial or total derivative make no difference. This equation tells us how an isolated (not contact with apparatus) state evolves with time, and it is called the \textit{generalized Schrodinger equation}.
+where we wrote partial or total derivative make no difference. This equation tells us how an isolated (not contact with apparatus) state evolves with time, and it is called the \textit{generalized Schrodinger equation}. This is a simple first-order differential equation, and its solution is given by
+\be
+|\Psi(t)\ra=e^{-iHt}|\Psi(0)\ra,
+\ee
+thus we may extract the explicit form of the evolution operator as $U(t)=e^{-iHt}$, and we check it by taking the time to be infinitesimal time interval $\ep$,
+\be
+U(t)=e^{-iH\ep}\approx 1-iH\ep,
+\ee
+which is consistent with our previous reasoning.
 
 As we proceed, we would discover that $H$ is nothing but the Hamiltonian operator, thus it has the dimension of energy. By checking the dimensionality of the time-dependent Schrodinger equation, we may fix it by a factor of $\hbar$, the Planck constant,
 \be
 i\hbar\frac{\p |\Psi\ra}{\p t}= H|\Psi\ra.
 \ee
 This is the standard form of the \textit{time-dependent Schrodinger equation}.\\
+
+Now that we have derived that $H$ is a Hermitian operator, we can expand our states in the basis of $H$'s eigenvectors, to fully solve the Schrodinger equation,
+\be
+|\Psi\ra=\sum_j\al_j|E_j\ra,
+\ee
+where $|E_i\ra$ satisfies
+\be
+H|E_i\ra=E_i|E_i\ra,
+\ee
+and $E_i$s are the eigenvalues of $H$, or energy.\\
+Using the time-dependent Schrodinger equation and due the fact that basis vector do not change with time, we have
+\be
+\sum_j\dot\al_j(t)|E_j\ra=-\frac i \hbar H\sum_j\al_j(t)|E_j\ra=-\frac i \hbar \sum_jE_j\al_j(t)|E_j\ra,
+\ee
+or regrouping
+\be
+\sum_j\bigg\{\dot\al_j(t)+\frac i \hbar E_j\al_j\bigg\}|E_j\ra=0,
+\ee
+thus every coefficient must be zero, and we have again the simplest differential equation,
+\be\frac{\dif \al_j(t)}{\dif t}=-\frac i \hbar E_j \al_j(t)\ee,
+and the solution is given by
+\be\al_j(t)=\al_j(0)e^{-\frac i\hbar E_j t}\ee.
+This equation contains the underlying assumption that Hamiltonian does not depend explicitly on time. And it's the first time for us to see the deep connection between energy and time.
+We may extract out coefficients at time zero as \be\al_j(0)=\la E_j|\Psi(0)\ra\ee, thus we can write the full solution fo the time-dependent Schrodinger equation as
+\be
+|\Psi(t)\ra=\sum_j\al_j(0)e^{-\frac i\hbar E_jt}|E_j\ra=\sum_j|E_j\ra\la E_j|\Psi(0)\ra e^{-\frac i\hbar E_jt},
+\ee
+which emphasizes that we're summing over the basis vectors, and implies that as long as we have the initial state $|\Psi(0)\ra$ and the Hamiltonian $H$ which governs the physical law of evolution, we can have state $|\Psi(t)\ra$ at any time as we want.\\
 
 The average, or expectation value, of an observable is the closest thing in quantum mechanics to a classical value. From a mathematical point of view, an average is defined by the equation
 \be
@@ -260,7 +296,9 @@ Just like in classical mechanics, the most obvious conserved quantity is the Ham
 \be
 \frac{\dif\bar H}{\dif t}=-\frac i \hbar\overline{[H,H]}=0,
 \ee
-which says energy is conserved in quantum mechanics.
+which says energy is conserved in quantum mechanics.\\
+
+All the above formalism in this subsection describes how state evolves with time during two measurements. But something different happens when an observation is made, during an experiment the state of a system jumps unpredictably to an eigenstate of the observable that was measured. This phenomenon is called \textit{the collapse of the wave function}. This implies that to examine the measurement process itself as a quantum mechanical evolution, we must consider the entire experimental setup, including the apparatus, as part of a single quantum system.
 
 \subsection{Spin states, spin operators, and Pauli Matrices}
 \textit{All possible spin states can be represented in a two dimensional vector space.}
