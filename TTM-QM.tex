@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\usepackage{amsmath,mathtools}
+\usepackage{amsmath,mathtools,amssymb}
 \usepackage{bm,extarrows,ulem}
 \usepackage{mathrsfs}
 \usepackage{geometry,graphicx,color}
@@ -34,6 +34,7 @@
 \newcommand{\ep}{\epsilon}
 \newcommand{\om}{\omega}
 \newcommand{\del}{\delta}
+\newcommand{\Del}{\Delta}
 
 
 \title{Notes on The Theoretical Minimum\\
@@ -46,13 +47,15 @@
 
 \newpage
 
-\section{Mathematical Foundations and Spins}
-\subsection{Quantum states, operators, and Hermitian properties}
+\section{Mathematical Foundations and Spin systems}
+\subsection{Basic concepts and fundamental principles}
+1. Quantum states, operators, Hermitian properties\\
+
 A quantum state is represented by a ket vector that can be decomposed using the orthogonal basis vectors,
 \be
 |A\ra=\sum_j \al_j|j\ra, \quad\text{with} \quad \al_j=\la j|A\ra,
 \ee
-where the coefficient $\al_j$ is a complex number. Thus
+where the coefficient $\al_j$ is a complex number, and is also called a wave function. Thus
 \be
 |A\ra=\sum_j |j\ra \la j|A\ra \implies  \sum_j |j\ra \la j|=1.
 \ee
@@ -123,7 +126,199 @@ we have
 \ee
 Even if eigenvectors of the same eigenvalue are not orthogonal, we can make it orthogonal by Gram-Schmidt procedure. Finally we can make all eigenvectors of an Hermitian operator orthogonal, thus they can be used as a basis for the vector space.\\
 
-\subsection{Time evolution of states and expectation values}
+Another inference is that if two operators $L$, $M$ has the same set of eigenvectors, they commute. We'll use the labels $\lam_i$ and $\m_\al$ to denote the eigenvalues of $L$ and $M$, and assume that there is a basis of state-vectors $|\lam_i,\m_\al\ra$ that are simultaneous eigenvectors of both observables.
+\bs
+L|\lam_i,\m_\al\ra&=\lam_i|\lam_i,\m_\al\ra\\
+M|\lam_i,\m_\al\ra&=\m_\al|\lam_i,\m_\al\ra,
+\end{split}\ee
+the by acting on any of the basis vector, which we omit the subscript later, by the two operators,
+\be
+LM|\lam,\m\ra=\lam\m|\lam,\m\ra=ML|\lam_i,\m_\al\ra \implies [L,M]|\lam,\m\ra=0,
+\ee
+since any vector is composed of the basis vectors, $[L,M]$ acting on any vector gives zero,
+\be [L,M]=0,\ee
+thus they commute. It turns out that he converse of this theorem is also true: if two observables commute, then there is a complete basis of simultaneous eigenvectors of the two observables. Moreover, one may need to specify a larger number of observables to completely label a basis, regardless of the number of observables that are needed, they must all commute, we call this collection \textit{a complete set of commuting observables}.\\
+
+2. The Uncertainty Principle\\
+
+Suppose the eigenvalues of the observable $A$ is called $a$, then the expectation value of $A$ is
+\be
+\la A\ra= \sum_a aP(a).
+\ee
+Roughly speaking this means that $P(a)$ is centered around the expectation value. What we will mean by "the uncertainty in $A$" is the so-called \textit{standard deviation} $\bar A$, which is computed by subtracting from $A$ its expectation value,
+\be
+\bar A=A-\la A\ra=A-\la A\ra I.
+\ee
+The eigenvectors of $\bar A$ are the same as those of $A$ and the eigenvalues of $\bar A$ is shifted from that of $A$ by the average value $\la A\ra$,
+\be
+\bar A=a-\la A\ra.  
+\ee
+The square if the uncertainty of $A$ is defined by
+\be
+(\Del A)^2:=\sum_a \bar A^2 P(a)=\sum_a (a-\la A\ra)^2 P(a)=\la \Psi| \bar A^2|\Psi\ra,
+\ee
+if the expectation value of $A$ is zero, then the uncertainty takes the simpler form
+\be
+(\Del A)^2=\la \Psi| A^2|\Psi\ra.
+\ee
+
+If $\vec X$ and $\vec Y$ are two vectors, then the \textit{Triangle Inequality} gives
+\be
+|\vec X|+|\vec Y|\geqslant |\vec X+\vec Y|,
+\ee
+by squaring and sorting it we have
+\be
+|\vec X||\vec Y|\geqslant \vec X\cdot\vec Y,
+\ee
+and by squaring it again we have
+\be
+|\vec X|^2|\vec Y|^2\geqslant |\vec X\cdot\vec Y|^2,
+\ee
+which is called the \textit{Cauchy-Schwarz} inequality.
+
+For complex vector spaces, the magnitude of the vectors are given by
+\bs
+|X|&=\sqrt{\la X|X\ra}\\
+|X+Y|&=\sqrt{(\la X|+\la Y|)(|X\ra+|Y\ra)},
+\end{split}\ee
+squaring them and using the Triangle Inequality we have
+\be
+2|X||Y|\geqslant |\la X|Y\ra+\la Y|X\ra|.
+\ee
+Now we take $|X\ra$ and $|Y\ra$ as follows,
+\bs
+|X\ra&=A|\Psi\ra\\
+|Y\ra&=iB|\Psi\ra,
+\end{split}\ee
+where $A$ and $B$ are any two observables and $|\Psi\ra$ is any ket. Now substitute it into the Triangle Inequality for complex vectors, to get
+\be
+2\sqrt{\la A^2\ra\la B^2\ra} \geqslant |\la \Psi|AB|\Psi\ra-\la \Psi|BA|\Psi\ra|=\la \Psi|[A,B]|\Psi\ra.
+\ee
+Let's suppose for the moment that $A$ and $B$ have expectation values of zero, so $A=\bar A$, and $\la A^2\ra=(\Del A)^2$, thus we rewrite the above inequality as 
+\be
+\Del A\Del B\geqslant \frac 1 2\la \Psi|[A,B]|\Psi\ra.
+\ee
+This is the general version of the uncertainty inequality. It says that the product of the uncertainties cannot be smaller than half the magnitude of the expectation value of the commutator. Or to be less quantitative, if the commutator of $A$ and $B$ is not zero, then both observables cannot simultaneously be certain. By the way, if the expectation values of $A$ and $B$ are not zero, we just use a trick to redefine two new operators in which the expectation values have been subtracted off, then the same relation holds as we expected.\\
+
+Later we will come to a specific version of the inequality --- \textit{Heisenberg's Uncertainty Principle}: The product of the uncertainties of the position and momentum of a particle cannot be less than half of Plank's constant.
+
+
+\subsection{Spin states, spin operators, and Pauli Matrices}
+\textit{All possible spin states can be represented in a two dimensional vector space.}
+
+\be
+|A\ra=\al_u|u\ra+\al_k|d\ra,
+\ee
+where the $u$ and $d$ represents for pointing up and down when we measure spin along z-axis, and the orthogonality means if we get up we never get down, vice versa.\\
+Now we choose A to be pointing left and right, considering that they're orthonormal, and it is equally likely to be up and down when measured along z, we write them as
+\be\1\{\begin{split}
+|r\ra&=\frac1 {\sqrt{2}}|u\ra+\frac1 {\sqrt{2}}|d\ra\\
+|l\ra&=\frac1 {\sqrt{2}}|u\ra- \frac1 {\sqrt{2}}|d\ra.
+\end{split}\2.\ee
+And when we represent forward and backward, we must further take into account the equal likelihood of left and right when measured along x-axis, so we take the following form,
+\be\1\{\begin{split}
+|f\ra&=\frac1 {\sqrt{2}}|u\ra+\frac i {\sqrt{2}}|d\ra\\
+|b\ra&=\frac1 {\sqrt{2}}|u\ra- \frac i {\sqrt{2}}|d\ra.
+\end{split}\2.\ee
+Notice that all the above choices have the same freedom by a phase factor $e^{i\theta}$.
+
+We will use $\sig$ to denote spin operator. Measuring along z-axis gives us
+\be\1\{\begin{split}
+\sig_z |u\ra&=|u\ra\\
+\sig_z |d\ra&=-|d\ra,
+\end{split}\2.\ee
+if we denote $|u\ra$ and $|d\ra$ as unit vectors as $\1(\ba{c}1\\0\ea\2)$ and $\1(\ba{c}0\\1\ea\2)$, we may figure out that
+\be
+\sig_z=\1(\ba{cc}1&0\\0&-1\ea\2).
+\ee
+Measuring along x-axis gives us
+\be\1\{\begin{split}
+\sig_x |r\ra&=|r\ra\\
+\sig_x |l\ra&=-|l\ra,
+\end{split}\2.\ee
+if we denote $|r\ra$ and $|l\ra$ as unit vectors as $\1(\ba{c}\frac1{\sqrt{2}}\\\frac1{\sqrt{2}}\ea\2)$ and $\1(\ba{c}\frac1{\sqrt{2}}\\-\frac1{\sqrt{2}}\ea\2)$, we may figure out that
+\be
+\sig_x=\1(\ba{cc}0&1\\1&0\ea\2).
+\ee
+Measuring along y-axis gives us
+\be\1\{\begin{split}
+\sig_y |f\ra&=|f\ra\\
+\sig_y |b\ra&=-|b\ra,
+\end{split}\2.\ee
+if we denote $|f\ra$ and $|b\ra$ as unit vectors as $\1(\ba{c}\frac1{\sqrt{2}}\\\frac i{\sqrt{2}}\ea\2)$ and $\1(\ba{c}\frac1{\sqrt{2}}\\-\frac i{\sqrt{2}}\ea\2)$, we may figure out that
+\be
+\sig_x=\1(\ba{cc}0&-i\\i&0\ea\2).
+\ee
+The matrix representations of $\sig_x$, $\sig_y$ and $\sig_z$ are called the \textit{Pauli Matrices}.\\
+It is easy and useful to verify the commutation relations of components of spins,
+\be
+[\sig_j,\sig_k]=2i\ep_{jkl}\sig_l.
+\ee
+
+Now we may treat $\sig_x$, $\sig_y$ and $\sig_z$ as three components of $\sig$, thus $\sig$ can be viewed as a general vector, and it can be projected onto a unit vector $\hat n$ point any direction in space, so as to measure spin along that direction.
+\be
+\sig_n=\vec\sig\cdot\hat n=\sig_xn_x+\sig_yn_y+\sig_zn_z=\1(\ba{cc}n_z&n_x-in_y\\n_x+in_y&-n_z\ea\2),
+\ee
+from the fact that
+\bs
+tr(\sig_n)&=0\\
+det(\sig_n)&=-1,
+\end{split}\ee
+we could immediately figure out that the two eigenvalues of $\sig_n$ are give by $\pm 1$. And we could work out its eigenvectors in a certain configuration, if $\hat n$ lies x-z plane, we may write
+\be\1\{\begin{split}
+n_z&=\cos\theta\\
+n_x&=\sin\theta\\
+n_y&=0,
+\end{split}\2.\ee
+thus 
+\be
+\sig_n=\1(\ba{cc}\cos\theta&\sin\theta\\\sin\theta&-\cos\theta\ea\2),
+\ee
+so the eigenvectors correspond to each eigenvalues are given by
+\be\1\{\begin{split}
+\lam_1=1, &\quad|\lam_1\ra=\1(\ba{c}\cos{\frac\theta 2}\\\sin{\frac\theta 2}\ea\2)\\
+\lam_2=-1, &\quad|\lam_1\ra=\1(\ba{c}-\sin{\frac\theta 2}\\\cos{\frac\theta 2}\ea\2).
+\end{split}\2.\ee
+Now suppose we prepare a $|u\ra$ state, and we measure the probabilities of $+1$ and $-1$ along the $\hat n$ direction, we get
+\be\1\{\begin{split}
+P(+1)=&\la u|\lam_1\ra\la\lam_1|u\ra=\cos^2{\frac{\theta}{2}}\\
+P(-1)=&\la u|\lam_2\ra\la\lam_2|u\ra=\sin^2{\frac{\theta}{2}}
+\end{split}\2.\ee
+Now we're ready to compute the average value of spin along the $n$ direction,
+\be
+\la \sig_n\ra=\sum_j \lam_j P(\lam_j)=\cos^2{\frac{\theta}{2}}-\sin^2{\frac{\theta}{2}}=\cos{\theta},
+\ee
+which agrees perfectly with our expectation.\\
+
+To proceed, we come to an important theorem,\\
+
+\textit{\textbf{The Spin-Polarization Principle:} Any state of a single spin is an eigenvector of some component of the spin.}\\
+
+In other words, given any state
+\be
+|A\ra=\al_u|u\ra+\al_d|d\ra,
+\ee
+there exists some direction $\hat n$, such that
+\be
+\vec\sig\cdot\vec n|A\ra= |A\ra.
+\ee
+In physics language, we say that the states of a spin are characterized by a \textit{polarization vector}, and along that polarization vector the component of spin is predictably $+1$, assuming of course that you know the state-vector.\\ It follows that the expectation value of the spin along the direction $\hat n$ can be expressed as
+\be
+\la\sig_n\ra=\la \vec\sig\cdot\vec n\ra=1.
+\ee\\
+
+In fact, any observable of a spin is represented by a $2\times2$ Hermitian matrix, and has the form
+\be
+\1(\ba{cc}r&w\\w^*&r'\ea\2),
+\ee
+the implication is that it takes exactly four real parameters to specify this observable. And, there is a neat way to write any spin observable in terms of the Pauli matrices, $\sig_x$, $\sig_y$, $\sig_z$, and the unit matrix $I$,
+\be S=a\sig_x+b\sig_y+c\sig_z+d I, \ee
+where $a$, $b$, $c$ and $d$ are real numbers.
+
+
+
+\section{Time evolution of quantum states}
+\subsection{Time evolution of isolated states and expectation values}
 
 In classical mechanics, if two identical isolated systems start out in different states, they stay in different states. It underlies the fact that information is never lost. The same is true in quantum mechanics, and even much stronger. The direct manifestation is that if two states are initially orthogonal, they remain orthogonal throughout the evolution, or \textit{conservation of orthogonality}.
 
@@ -191,11 +386,13 @@ or
 A^\dagger=-A,
 \ee
 which says $A$ is anti-Hermitian.\\
-We argue that any operator can be make up of two Hermitian operator $F$ and $H$, which serve as real and imaginary part individually, as $A=F-iH$, (just take $F$ and $H$ as they have the same eigenvectors as $A$, and eigenvalues as real and imaginary part of the eigenvalues of $A$), then it's easy to figure out that an anti-Hermitian operator has no real part, i.e, $A=-iH$, thus we have the form of the infinitesimal evolution operator as
+But it is easy to construct an Hermitian operator, which is more desired by us, out of the anti-Hermitian operator just by multiplying the imaginary unit on it, ie, 
+\be\ma H\equiv iA =(-i)(-A)= (iA)^\dagger = \ma H^\dagger,\ee
+thus we have the form of the infinitesimal evolution operator as
 \be
-U(\epsilon)=I-i\epsilon H,
+U(\epsilon)=I+\ep A=I+\epsilon (-i)(iA)=1-i\ep\ma H,
 \ee
-and due to the Hermitian property of $H$, it should be some kind of observable.\\}
+and due to the Hermitian property of $\ma H$, it should be some kind of observable.\\}
 
 Now we're going to explore more on the evolution of states at an infinitesimal time interval $\epsilon$, we write
 \be
@@ -298,109 +495,7 @@ Just like in classical mechanics, the most obvious conserved quantity is the Ham
 \ee
 which says energy is conserved in quantum mechanics.\\
 
-All the above formalism in this subsection describes how state evolves with time during two measurements. But something different happens when an observation is made, during an experiment the state of a system jumps unpredictably to an eigenstate of the observable that was measured. This phenomenon is called \textit{the collapse of the wave function}. This implies that to examine the measurement process itself as a quantum mechanical evolution, we must consider the entire experimental setup, including the apparatus, as part of a single quantum system.
-
-\subsection{Spin states, spin operators, and Pauli Matrices}
-\textit{All possible spin states can be represented in a two dimensional vector space.}
-
-\be
-|A\ra=\al_u|u\ra+\al_k|d\ra,
-\ee
-where the $u$ and $d$ represents for pointing up and down when we measure spin along z-axis, and the orthogonality means if we get up we never get down, vice versa.\\
-Now we choose A to be pointing left and right, considering that they're orthonormal, and it is equally likely to be up and down when measured along z, we write them as
-\be\1\{\begin{split}
-|r\ra&=\frac1 {\sqrt{2}}|u\ra+\frac1 {\sqrt{2}}|d\ra\\
-|l\ra&=\frac1 {\sqrt{2}}|u\ra- \frac1 {\sqrt{2}}|d\ra.
-\end{split}\2.\ee
-And when we represent forward and backward, we must further take into account the equal likelihood of left and right when measured along x-axis, so we take the following form,
-\be\1\{\begin{split}
-|f\ra&=\frac1 {\sqrt{2}}|u\ra+\frac i {\sqrt{2}}|d\ra\\
-|b\ra&=\frac1 {\sqrt{2}}|u\ra- \frac i {\sqrt{2}}|d\ra.
-\end{split}\2.\ee
-Notice that all the above choices have the same freedom by a phase factor $e^{i\theta}$.
-
-We will use $\sig$ to denote spin operator. Measuring along z-axis gives us
-\be\1\{\begin{split}
-\sig_z |u\ra&=|u\ra\\
-\sig_z |d\ra&=-|d\ra,
-\end{split}\2.\ee
-if we denote $|u\ra$ and $|d\ra$ as unit vectors as $\1(\ba{c}1\\0\ea\2)$ and $\1(\ba{c}0\\1\ea\2)$, we may figure out that
-\be
-\sig_z=\1(\ba{cc}1&0\\0&-1\ea\2).
-\ee
-Measuring along x-axis gives us
-\be\1\{\begin{split}
-\sig_x |r\ra&=|r\ra\\
-\sig_x |l\ra&=-|l\ra,
-\end{split}\2.\ee
-if we denote $|r\ra$ and $|l\ra$ as unit vectors as $\1(\ba{c}\frac1{\sqrt{2}}\\\frac1{\sqrt{2}}\ea\2)$ and $\1(\ba{c}\frac1{\sqrt{2}}\\-\frac1{\sqrt{2}}\ea\2)$, we may figure out that
-\be
-\sig_x=\1(\ba{cc}0&1\\1&0\ea\2).
-\ee
-Measuring along y-axis gives us
-\be\1\{\begin{split}
-\sig_y |f\ra&=|f\ra\\
-\sig_y |b\ra&=-|b\ra,
-\end{split}\2.\ee
-if we denote $|f\ra$ and $|b\ra$ as unit vectors as $\1(\ba{c}\frac1{\sqrt{2}}\\\frac i{\sqrt{2}}\ea\2)$ and $\1(\ba{c}\frac1{\sqrt{2}}\\-\frac i{\sqrt{2}}\ea\2)$, we may figure out that
-\be
-\sig_x=\1(\ba{cc}0&-i\\i&0\ea\2).
-\ee
-The matrix representations of $\sig_x$, $\sig_y$ and $\sig_z$ are called the \textit{Pauli Matrices}.\\
-It is easy and useful to verify the commutation relations of components of spins,
-\be
-[\sig_j,\sig_k]=2i\ep_{jkl}\sig_l.
-\ee
-
-Now we may treat $\sig_x$, $\sig_y$ and $\sig_z$ as three components of $\sig$, thus $\sig$ can be viewed as a general vector, and it can be projected onto a unit vector $\hat n$ point any direction in space, so as to measure spin along that direction.
-\be
-\sig_n=\vec\sig\cdot\hat n=\sig_xn_x+\sig_yn_y+\sig_zn_z=\1(\ba{cc}n_z&n_x-in_y\\n_x+in_y&-n_z\ea\2)
-\ee
-
-If $\hat n$ lies x-z plane, we may write
-\be\1\{\begin{split}
-n_z&=\cos\theta\\
-n_x&=\sin\theta\\
-n_y&=0,
-\end{split}\2.\ee
-thus 
-\be
-\sig_n=\1(\ba{cc}\cos\theta&\sin\theta\\\sin\theta&-\cos\theta\ea\2),
-\ee
-its eigenvalues and corresponding eigenvectors are given by
-\be\1\{\begin{split}
-\lam_1=1, &\quad|\lam_1\ra=\1(\ba{c}\cos{\frac\theta 2}\\\sin{\frac\theta 2}\ea\2)\\
-\lam_2=-1, &\quad|\lam_1\ra=\1(\ba{c}-\sin{\frac\theta 2}\\\cos{\frac\theta 2}\ea\2).
-\end{split}\2.\ee
-Now suppose we prepare a $|u\ra$ state, and we measure the probabilities of $+1$ and $-1$ along the $\hat n$ direction, we get
-\be\1\{\begin{split}
-P(+1)=&\la u|\lam_1\ra\la\lam_1|u\ra=\cos^2{\frac{\theta}{2}}\\
-P(-1)=&\la u|\lam_2\ra\la\lam_2|u\ra=\sin^2{\frac{\theta}{2}}
-\end{split}\2.\ee
-Now we're ready to compute the average value of spin along the $n$ direction,
-\be
-\la \sig_n\ra=\sum_j \lam_j P(\lam_j)=\cos^2{\frac{\theta}{2}}-\sin^2{\frac{\theta}{2}}=\cos{\theta},
-\ee
-which agrees perfectly with our expectation.\\
-
-To proceed, we come to an important theorem,\\
-
-\textit{\textbf{The Spin-Polarization Principle:} Any state of a single spin is an eigenvector of some component of the spin.}\\
-
-In other words, given any state
-\be
-|A\ra=\al_u|u\ra+\al_d|d\ra,
-\ee
-there exists some direction $\hat n$, such that
-\be
-\vec\sig\cdot\vec n|A\ra= |A\ra.
-\ee
-In physics language, we say that the states of a spin are characterized by a \textit{polarization vector}, and along that polarization vector the component of spin is predictably $+1$, assuming of course that you know the state-vector.\\ It follows that the expectation value of the spin along the direction $\hat n$ can be expressed as
-\be
-\la\sig_n\ra=\la \vec\sig\cdot\vec n\ra=1.
-\ee
-
-The energy of a spin in a magnetic field is given by
+Now it's more concrete to set the spin as an example. The energy of a spin in a magnetic field is given by
 \be
 H\sim \vec\sig\cdot\vec B=\sig_x B_x+\sig_y B_y+\sig_z B_z.
 \ee
@@ -415,7 +510,10 @@ Now we want to find out how the expectation value of the spin varies with time, 
 \dot{\la\sig_y\ra}&=-\frac i \hbar \la[\sig_y,H]\ra=-\frac{i\omega} 2\la[\sig_y,\sig_z]\ra=\om\la\sig_x\ra\\
 \dot{\la\sig_z\ra}&=-\frac i \hbar \la[\sig_z,H]\ra=-\frac{i\omega} 2\la[\sig_z,\sig_z]\ra=0
 \end{split}\ee
-This result implies that the 3-vector-operator $\vec\sig$ precesses like a gyroscope around the direction of the magnetic field. The precession is uniform, with angular velocity $\om$. To be specific, the expectation value for a $\sig_z$ measurement does not change with time, but the other two expectation values do change.
+This result implies that the 3-vector-operator $\vec\sig$ precesses like a gyroscope around the direction of the magnetic field. The precession is uniform, with angular velocity $\om$. To be specific, the expectation value for a $\sig_z$ measurement does not change with time, but the other two expectation values do change.\\
+
+All the above formalism in this subsection describes how state evolves with time during two measurements. But something different happens when an observation is made, during an experiment the state of a system jumps unpredictably to an eigenstate of the observable that was measured. This phenomenon is called \textit{the collapse of the wave function}. This implies that to examine the measurement process itself as a quantum mechanical evolution, we must consider the entire experimental setup, including the apparatus, as part of a single quantum system.
+
 
 
 
