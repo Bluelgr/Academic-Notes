@@ -1,0 +1,168 @@
+\documentclass{article}
+
+\usepackage{amsmath,mathtools,amssymb}
+\usepackage{bm,extarrows,ulem}
+\usepackage{mathrsfs}
+\usepackage{geometry,graphicx,color}
+\geometry{centering,scale=0.8}
+
+\newcommand{\sect}{\section}
+\newcommand{\subsec}{\subsection}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bs}{\be\begin{split}}
+
+\newcommand{\dif}{\,\mathrm{d}}
+\newcommand{\p}{\partial}
+\newcommand{\1}{\left}
+\newcommand{\2}{\right}
+\newcommand{\ma}{\mathcal}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\al}{\alpha}
+\newcommand{\bet}{\beta}
+\newcommand{\lam}{\lambda}
+\newcommand{\sig}{\sigma}
+\newcommand{\ep}{\epsilon}
+\newcommand{\om}{\omega}
+\newcommand{\del}{\delta}
+\newcommand{\Del}{\Delta}
+
+\title{Notes on Hydro\&CME\&HIC}
+\author{Gui-Rong Liang}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+\section{Hydrodyanmics}
+We start by Minkowski metric,
+\be
+\dif s^2=-\dif t^2+\dif z^2+\dif x_{\perp}^2,
+\ee 
+where $z$ is the direction of the moving particle, and $x_\perp$ denotes perpendicular coordinates i.e, $\dif x_{\perp}^2=\dif x_{1}^2+\dif x_{2}^2$.\\
+It is convenient to introduce proper time ($\tau$) and rapidity ($\eta$) coordinates in the longitudinal position plane:
+\be\1\{\begin{split}
+t&=\tau \cosh \eta\\
+z&=\tau \sinh \eta,
+\end{split}\2.\ee
+in this coordinates,
+\be
+\dif s^2=-\dif \tau^2+\tau^2 \dif\eta^2 +\dif x_{\perp}^2,
+\ee
+the covariant and contra-variant metric components are given by:
+\be\1\{\begin{split}
+g_{\m\n}&=\text{diag}\{-1,\tau^2,1,1\}\\
+g^{\m\n}&=\text{diag}\{-1,\tau^{-2},1,1\},
+\end{split}\2.\ee
+then we could find that the only non-vanishing component containing the derivative is 
+\be
+g_{\eta\eta,\tau}=2\tau,
+\ee
+thus the Christoffel symbol has only three terms left, which are
+\be
+\Gamma^\eta_{\ \eta\tau}=\Gamma^\eta_{\ \tau\eta}=\frac 1 2 g^{\eta\eta}g_{\eta\eta,\tau}=\frac 1 \tau, \qquad \Gamma^\tau_{\ \eta\eta}=\frac 1 2 g^{\tau\tau}(-g_{\eta\eta,\tau})=\tau.
+\ee
+In this coordinates we expand the covariant form of the conservation law of the energy-momentum tensor as 
+\be
+0=D_\n T^{\m\n}=\p_\n T^{\m\n}+\Gamma^\m_{\ \n\al}T^{\al\n}+\Gamma^\n_{\ \n\al}T^{\m\al}.
+\ee
+Here and after we assume that $T^{\m\n}$ has only the following terms: $T^{\tau\tau}$, $T^{\eta\eta}$, and $T^{x_1x_1}=T^{x_2x_2}=T^{xx}$ (, which holds well in the case of perfect fluid).\\
+We take $\m=\tau$ and get 
+\be
+0=\p_\tau T^{\tau\tau}+\Gamma^\tau_{\ \eta\eta}T^{\eta\eta}+\Gamma^\eta_{\ \eta\tau}T^{\tau\tau}\\
+=\frac \p {\p\tau} T^{\tau\tau}+\tau T^{\eta\eta}+\frac 1 \tau T^{\tau\tau},
+\ee
+or equivalently, we get the first constraint as
+\be
+\tau\frac \p {\p\tau} T^{\tau\tau}+\tau^2 T^{\eta\eta}+T^{\tau\tau}=0,
+\ee
+and then take $\m=\eta$ to get
+\be
+0=\p_\eta T^{\eta\eta}+\Gamma^\eta_{\ \eta\tau}T^{\tau\eta}+\Gamma^\n_{\ \n\eta}T^{\eta\eta}=\p_\eta T^{\eta\eta},
+\ee
+which means $T^{\eta\eta}$ does not depend on $\eta$.\\
+Moreover, the traceless condition is given by
+\be
+g_{\m\n}T^{\m\n}=0,
+\ee
+from which we get the second constraint as 
+\be
+-T^{\tau\tau}+\tau^2T^{\eta\eta}+2T^{xx}=0.
+\ee
+From the above two constraints we can express $T^{\eta\eta}$ and $T^{xx}$ in terms of $T^{\tau\tau}$,
+
+
+
+
+
+
+
+
+
+
+
+\section{Chiral Magnetic Effect}
+
+\subsection{Micellaneous}
+Chirality depends on the reference frame.
+
+\section{Heavy Ion Collisions}
+The Fourier series expansion is given by
+\be
+f(x)=\frac{a_0}{2} +\sum_{n=1}^{\infty}\1[a_n \cos nx +b_n \sin nx\2],
+\ee
+where the basis $\cos nx$ s and $\sin nx$ s are orthogonal under the relation,
+\be
+\langle f|g\rangle =\int_0^{2\pi} f^*(x) g(x) \dif x,
+\ee
+and the normalization integrals are given by
+\bs
+\langle \sin nx|\sin nx\rangle &=\pi \\
+\langle \cos nx|\cos nx\rangle &= (1+\delta_{0n})\pi.
+\end{split}\ee
+From the fundamental relations
+\be
+|f\rangle=\sum c_m|\phi_m\rangle \implies c_i=\frac{\langle\phi_i|f\rangle}{\langle\phi_i|\phi_i\rangle},
+\ee
+we can extract the Fourier coefficients as
+\be\1\{\begin{split}
+a_n&=\frac 1 \pi \int_0^{2\pi} f(x) \cos nx \dif x, \quad n=0, 1, 2,...,\\
+b_n&=\frac 1 \pi \int_0^{2\pi} f(x) \sin nx \dif x, \quad n=1, 2,...,
+\end{split}\2.\ee
+the factor $1/2$ attached to $a_0$ allows the formula for an to apply without change for $n = 0$.\\
+
+Now we apply it to the background particle azimuthal distributions $\frac{\dif \langle N_\pm\rangle}{\dif \phi}$, but before that, we can drop the $\sin$ terms due to the reflection symmetry of the reaction plane, and then we make a little modification to the original equation as,
+\be
+\frac{\dif \langle N_\pm\rangle}{\dif\phi}= \frac{\langle N_\pm\rangle}{2\pi}\1[1 + 2 \sum_{n=1}^{\infty} v_n \cos n(\phi-\Psi_{RP}) \2],
+\ee
+where $v_n=a_n/a_0$ and $a_0$ is easy to be verified as
+\be
+a_0=\frac 1 \pi \int_0^{2\pi} \frac{\dif \langle N_\pm\rangle(\phi)}{\dif\phi} \dif \phi =\frac 1 \pi (\langle N_\pm\rangle(2\pi)-\langle N_\pm\rangle(0)) =\frac {\langle N_\pm\rangle} \pi.
+\ee
+Now to construct the total particle azimuthal distribution, we add a CME term, which should be symmetric about the $\vec B$ field, orthogonal toe the reaction plane, taking a simple ansatz as a $\sin$ term.
+\be
+\frac{\dif N_\pm}{\dif\phi}= \frac{\langle N_\pm\rangle}{2\pi}\1[1 + 2 \sum_{n=1}^{\infty} v_n \cos n(\phi-\Psi_{RP}) \2] + \frac1 4 \Delta_\pm \sin(\phi-\Psi_{RP})
+\ee
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
