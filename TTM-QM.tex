@@ -1,7 +1,7 @@
 \documentclass{article}
 
 \usepackage{amsmath,mathtools,amssymb}
-\usepackage{bm,extarrows,ulem}
+\usepackage{bm,extarrows,ulem,cancel}
 \usepackage{mathrsfs}
 \usepackage{geometry,graphicx,color}
 \geometry{centering,scale=0.8}
@@ -51,7 +51,7 @@
 \subsection{Basic concepts and fundamental principles}
 1. Quantum states, operators, Hermitian properties\\
 
-A quantum state is represented by a ket vector that can be decomposed using the orthogonal basis vectors,
+A quantum state is represented by a ket vector that can be decomposed using the orthogonal basis vectors, in this subsection we mainly focus on discrete basis, thus 
 \be
 |A\ra=\sum_j \al_j|j\ra, \quad\text{with} \quad \al_j=\la j|A\ra,
 \ee
@@ -145,7 +145,7 @@ Suppose the eigenvalues of the observable $A$ is called $a$, then the expectatio
 \be
 \la A\ra= \sum_a aP(a).
 \ee
-Roughly speaking this means that $P(a)$ is centered around the expectation value. What we will mean by "the uncertainty in $A$" is the so-called \textit{standard deviation} $\bar A$, which is computed by subtracting from $A$ its expectation value,
+Roughly speaking this means that $P(a)$ is centered around the expectation value. What we will mean by "the uncertainty in $A$ is the so-called \textit{standard deviation} $\bar A$, which is computed by subtracting from $A$ its expectation value,
 \be
 \bar A=A-\la A\ra=A-\la A\ra I.
 \ee
@@ -247,7 +247,7 @@ Measuring along y-axis gives us
 \end{split}\2.\ee
 if we denote $|f\ra$ and $|b\ra$ as unit vectors as $\1(\ba{c}\frac1{\sqrt{2}}\\\frac i{\sqrt{2}}\ea\2)$ and $\1(\ba{c}\frac1{\sqrt{2}}\\-\frac i{\sqrt{2}}\ea\2)$, we may figure out that
 \be
-\sig_x=\1(\ba{cc}0&-i\\i&0\ea\2).
+\sig_y=\1(\ba{cc}0&-i\\i&0\ea\2).
 \ee
 The matrix representations of $\sig_x$, $\sig_y$ and $\sig_z$ are called the \textit{Pauli Matrices}.\\
 It is easy and useful to verify the commutation relations of components of spins,
@@ -314,6 +314,207 @@ In fact, any observable of a spin is represented by a $2\times2$ Hermitian matri
 the implication is that it takes exactly four real parameters to specify this observable. And, there is a neat way to write any spin observable in terms of the Pauli matrices, $\sig_x$, $\sig_y$, $\sig_z$, and the unit matrix $I$,
 \be S=a\sig_x+b\sig_y+c\sig_z+d I, \ee
 where $a$, $b$, $c$ and $d$ are real numbers.
+
+\subsection{States and Operators in Continuous basis}
+1. States and the inner product\\
+
+A particle at a fixed position $x_0$ (in one dimension) can be represented by a state vector $|x_0\ra$. In general, a state is a superposition of various position state, since position is continuous variable, we must turn the sum into integral,
+\be
+|\psi\ra=\int \dif x \ \psi(x)|x\ra,
+\ee
+where the coefficient, or wave function $\psi(x)$ is computed as
+\be
+\psi(x)=\la x|\psi\ra,
+\ee
+substituting the coefficient into the decomposition we have
+\be
+|\psi\ra=\int \dif x \ |x\ra \la x|\psi\ra,
+\ee
+from which we find an identity as
+\be
+I=\int \dif x \ |x\ra \la x|,
+\ee
+which implies summing over all projections $|x\ra \la x|$, we can recover the original state.\\
+Left multiplying the decomposition of state by a bra vector $|x'\ra$, we have
+\be
+\psi(x')=\la x'|\psi\ra=\int \dif x \ \psi(x)\ \la x'|x\ra,
+\ee
+from which we can see the inner product between basis is nothing but the Dirac-delta function,
+\be
+\la x'|x\ra=\delta(x'-x),
+\ee
+this is the orthonormalization relation of the basis vectors.\\
+
+Using the above relations we may naturally find the expression of inner product of states in the continuous position basis, just by inserting two different sets of the identity relations of $x$ and $x'$,
+\be
+\la \phi|\psi\ra = \int \dif x \int \dif x' \ \la \phi|x'\ra\la x'|x\ra\la x|\psi\ra=\int \dif x \int \dif x' \phi^*(x') \del(x'-x) \psi(x)=\int \dif x \ \phi^*(x)\psi(x),
+\ee
+thus the inner product of a state with itself is given by
+\be
+\la \psi|\psi\ra =\int \dif x \ \psi^*(x)\psi(x),
+\ee
+this will remind us of the expression of the probability, and due to the continuous property we will denote our corresponding concept as the "probability density", which is given by
+\be
+P(x):=\psi^*(x)\psi(x),
+\ee
+and the probability of state in an interval $[a,b]$ is given by
+\be
+P([a,b])=\int_a^b \dif x\ P(x)=\int_a^b \dif x\ \psi^*(x)\psi(x),
+\ee
+and because the total probability equal to $1$, our state here is normalized,
+\be
+\la \psi|\psi\ra =\int \dif x \ \psi^*(x)\psi(x)=\int  \dif x\ P(x)=1.\\
+\ee
+2. Linear Operators, eigenvectors and eigenvalues\\
+
+An operator is a machine which can turn a given state into a new state, in terms of the continuous basis, if the coefficients (or the wave function) of the new state is specified, the new state would be determined, thus the effect of the operator is made clear.
+
+Let's set an example. We want to define an operator $X$ which can turn a state $|\psi\ra$ in to a new state $|\bar\psi\ra$, now the state $|\psi\ra$ is given, so the definition of $X$ is clear only if we know what the new state $|\bar\psi\ra$ is. By ``the state $|\psi\ra$ is given", we mean in terms of any basis, we know exactly what the coefficients of the state $|\psi\ra$ are, here we choose the continuous position basis, where we know exactly the wave function $\psi(x)$. So the task now shifts from defining $X$ to giving the expression of $\bar\psi(x)$, and we define it to be $\bar\psi(x)=x\psi(x)$, thus we say we complete the definition of the operator $X$.
+
+By mathematical expressions, we write the definition of $X$ as
+\be
+X|\psi\ra=|\bar\psi\ra \quad\text{s.t.}\quad \bar\psi(x)=x\psi(x),
+\ee
+or in a more neat form,
+\be
+\la x|X|\psi\ra:=x\la x|\psi\ra.
+\ee
+Here we say that $x$ is a \textit{basis-dependent operator corresponding to $X$}. Note that an operator only acts on a state in the abstract vector space, while a basis-dependent operator acts on the wave function. Due to the fact that both the abstract state vector and the wave function can be multiplied by a number, sometimes we blur the distinction of the two concept and just write $X=x$, but this is not generally true. The clear relation between $X$ and $x$ can be seen by inserting an identity relation to the definition, as
+\be
+\int \dif x'\ X_{xx'} \psi(x')=\int \dif x' \ \la x|X|x'\ra\la x'|\psi\ra=\la x|X|\psi\ra=x\la x|\psi\ra=x \psi(x),
+\ee
+and by observing we have 
+\be\1\{\begin{split}
+&X_{xx'}= \la x|X|x'\ra=x\del(x-x')\\
+&x=\int \dif x'\ X_{xx'}=\int \dif x'\ \la x|X|x'\ra,
+\end{split}\2.\ee
+which clearly shows in position basis $X$ is a matrix with only non-zero diagonalized elements $x\del(x-x')$, and $x$ is the sum of the elements of the $x'$th column.\\
+
+Then by bearing the above in mind, we proceed to define a new operator $D$ as
+\be
+\la x|D|\psi\ra:=\frac\p{\p x}\la x|\psi\ra,
+\ee
+where the partial derivative $\frac\p{\p x}$ is the basis-dependent operator corresponding to $D$. Notice that now we CANNOT write $D=\frac\p{\p x}$, because $\frac\p{\p x}|\psi\ra$ is meaningless due to the basis-independence of $|\psi\ra$. The relation between $D$ and $\frac\p{\p x}$ can be seen by the similar process as in the case of $X$ and $x$, and here we directly list the results:
+\be\1\{\begin{split}
+D_{xx'}&= \la x|D|x'\ra=\del(x-x')\frac\p{\p x}\\
+\frac\p{\p x}&=\int \dif x'\ D_{xx'}=\int \dif x'\ \la x|D|x'\ra.
+\end{split}\2.\ee\\
+
+Operators with physical interests are Hermitian operators. A convenient way to judge the hermitian property is by using the inner product. The inner product is number, assuming $O$ is hermitian, we take the complex conjugate of the inner product,
+\be
+\la\phi|O|\psi\ra^*=\la\psi|O^\dagger|\phi\ra=\la\psi|O|\phi\ra,
+\ee
+finding that switching the left and right vector gives the complex conjugate of the original, and this will serve as the criteria for judging the hermitian property in the following.
+
+So are $X$ and $D$ hermitian? We first deal with $X$,
+\be\begin{split}
+\la\phi|X|\psi\ra^*&=\1[\int\dif x\ \la\phi|x\ra\la x|X|\psi\ra\2]^*=\1[\int\dif x\ \phi^*(x)\ x \psi(x)\2]^*\\
+&=\int\dif x\ \psi^*(x)\ x^* \phi(x)=\int\dif x\ \psi^*(x)\ x \phi(x)\\
+&=\la\psi|X|\phi\ra,
+\end{split}\ee
+where we used the fact that the position variable is real. Thus the position operator is indeed Hermitian.
+
+And next the $D$ operator,
+\be\begin{split}
+\la\phi|D|\psi\ra^*&=\1[\int\dif x\ \la\phi|x\ra\la x|D|\psi\ra\2]^*=\1[\int\dif x\ \phi^*(x)\  \frac\p{\p x}\psi(x)\2]^*\\
+&=\1[\cancel{\int_{-\infty}^{\infty} \dif x\ \psi^*(x)\ \phi(x)}-\int\dif x\ \frac\p{\p x}\psi^*(x)\ \phi(x)\2]^*=-\int\dif x\ \phi^*(x)\  \frac\p{\p x}\psi(x)\\
+&=-\la\psi|D|\phi\ra \implies D^\dagger=-D,
+\end{split}\ee
+where we have used the boundary condition that the wave functions vanish at infinity. Thus the $D$ operator is not Hermitian, but anti-Hermitian. But actually we still want to construct an Hermitian operator out of $D$, recall that the easiest way to construct an Hermitian operator out of an anti-Hermitian operator is multiplying it by $i$ or $-i$. So we define a new operator as
+\be
+P:=-i\hbar D,
+\ee
+and it's easy to check that $P$ is Hermitian,
+\be
+\la\phi|P|\psi\ra^*=[-i\hbar\la\phi|D|\psi\ra]^*=i\hbar[-\la\psi|D|\phi\ra]=\la\psi|P|\phi\ra,
+\ee
+and its basis-dependent counterpart is naturally given by $\hat p=-i\hbar\frac\p{\p x}$, which can act directly on the wave function,
+\be
+\hat p\psi(x)=-i\hbar\frac\p{\p x}\psi(x).
+\ee\\
+
+Next we explore the eigenvalues and eigenvectors of $X$ and $P$. Eigenvectors of an operator are, by definitions, vectors that acted by the operator gives the same vector multiplied by a number which is called the eigenvalue. For the $X$ operator, we are looking for a solution that satisfies,
+\be
+X|\psi\ra=x_0|\psi\ra,
+\ee
+where $x_0$ is a specific number. By definition, the LHS in $x$-basis is given by
+\be
+\la x|X|\psi\ra=x\la x|\psi\ra=x\psi(x),
+\ee
+and the RHS in the $x$-basis would be
+\be
+\la x|x_0|\psi\ra=x_0\la x|\psi\ra=x_0\psi(x).
+\ee
+So the equation we're going to solve is nothing but
+\be
+x\psi(x)=x_0\psi(x),
+\ee
+and when obtaining the expression for $\psi(x)$, we can easily recover the state vector by the superposition principle,$|\psi\ra=\int\dif x\ \psi(x)|x\ra$.\\
+By rearranging the equation to solve, we get
+\be
+(x-x_0)\psi(x)=0,
+\ee
+which says that $\psi(x)$ could be non-zero only when $x=x_0$, or equivalently, when $x\ne x_0$, $\psi(x)$ must be zero. We summarize this as follows,
+\be
+\psi(x)= \begin{cases}
+\text{(non-)zero}, & x=x_0 \\
+0, & x\ne x_0,
+\end{cases}
+\ee
+this reminds us of the Dirac-delta function $\delta(x-x_0)$, but we didn't strictly prove that $\psi(x)$ is indeed $\del(x-x_0)$. Since a straightforward proof is a little troublesome and will lead to some ambiguities (as I tried), we go around that and try to find another clever way. As all we want is a function that satisfies $x\psi(x)=x_0\psi(x)$, if we somehow happen to find such a function, we can say that it is the eigenfunction of the operator. The trick here is to use the relation between $X$ and $x$, as follows,
+\be
+x_0\del(x-x_0)=[x_0\del(x_0-x)]^*=\la x_0|X|x\ra^*=\la x|X|x_0\ra=x\del(x-x_0),
+\ee
+where we have used the Hermitian property of $X$, the realness of $x_0$ and $\del(x_0-x)$, and the evenness of $\del(x_0-x)$. Now we see that the Dirac-delta function $\del(x-x_0)$ indeed is a solution to the equation, so it is the eigenfunction, $\psi(x)=\delta(x-x_0)$, now we recover our eigenvector as
+\be
+|\psi\ra=\int\dif x\ \psi(x)|x\ra=\int\dif x\ \del(x-x_0) |x\ra =|x_0\ra,
+\ee
+and finally our eigen-equation will be
+\be
+X|x_0\ra=x_0|x_0\ra.
+\ee
+Since $x_0$ can be any value along the $x$-axis, this equation can be generalized to
+\be
+X|x\ra=x|x\ra,
+\ee
+which tells us the simple fact that any state representing a definite position is an eigenvector of the position operator $X$, and the eigenvalue is the position coordinte.\\
+
+Then we play around with $P$. Similarly the eigen-equation is given by
+\be
+P|\psi\ra=p_0|\psi\ra,
+\ee
+and in $x$-basis,
+\be
+p_0\psi(x)=p_0\la x|\psi\ra=\la x|p_0|\psi\ra=\la x|P|\psi\ra=-i\hbar\frac\p{\p x}\la x|\psi\ra=-i\hbar\frac\p{\p x}\psi(x),
+\ee
+which is nothing but a simple first-order equation. The solution is given by
+\be
+\psi(x)=e^{\frac i \hbar p_0 x},
+\ee
+and the eigenvector is constructed as
+\be
+|\psi\ra=\int\dif x\ \psi(x)|x\ra=\int\dif x\ e^{\frac i \hbar p_0 x} |x\ra \equiv|p_0\ra,
+\ee
+which is just the Fourier-transformation of the state $|x\ra$. So the eigen-equation will be recovered as
+\be
+P|p_0\ra=p_0|p_0\ra \quad\text{or}\quad P|p\ra=p|p\ra,
+\ee
+where the physical meaning of $p$ and the operator $P$ will be clear later when we take the classical limit. As an aside, here we get a commonly used relation by re-express the solution,
+\be
+\la x|p\ra=\la x|\psi\ra=\psi(x)=e^{\frac i \hbar p x}, \quad\text{and}\quad \la p|x\ra=e^{-\frac i \hbar p x}.
+\ee
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

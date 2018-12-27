@@ -1,0 +1,264 @@
+\documentclass{article}
+
+\usepackage{amsmath,mathtools,amssymb}
+\usepackage{bm,extarrows,ulem,cancel}
+\usepackage{mathrsfs}
+\usepackage{geometry,graphicx,color}
+\geometry{centering,scale=0.8}
+
+\newcommand{\sect}{\section}
+\newcommand{\subsec}{\subsection}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bs}{\be\begin{split}}
+
+\newcommand{\dif}{\,\mathrm{d}}
+\newcommand{\p}{\partial}
+\newcommand{\1}{\left}
+\newcommand{\2}{\right}
+\newcommand{\ma}{\mathcal}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\al}{\alpha}
+\newcommand{\bet}{\beta}
+\newcommand{\lam}{\lambda}
+\newcommand{\sig}{\sigma}
+\newcommand{\ep}{\epsilon}
+\newcommand{\om}{\omega}
+\newcommand{\del}{\delta}
+\newcommand{\Del}{\Delta}
+
+\title{Notes on Chirality by Kharzeev\\
+--- Fudan Summer School}
+\author{Gui-Rong Liang}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Chirality in Classical Mechanics}
+\section{Chirality in Quantum Mechanics}
+The relativistic relation is given by
+\be
+E^2=\vec p^2+m^2,
+\ee
+thus the the equation of the wave function will be 
+\be
+\hat H^2\psi=(\hat p^2+m^2)\psi,
+\ee
+when we make the following substitution:
+\be\1\{\begin{split}
+\hat H &\rightarrow i\p_t\\
+\hat p &\rightarrow -i\p_x,
+\end{split}\2.\ee
+we have the Klein-Gorden equation
+\be
+(\Box+m^2)\psi\equiv(\eta^{\m\n}\p_\m\p_\n+m^2)\psi=(\p_t^2-\p_x^2+m^2)\psi=0.
+\ee
+If we want a first-order equation, we must take the ``square root" of the above operator, since $\vec p$ and $m$ are the only two ingredients we can include, we assume the Hamiltonian to be
+\be
+H=\vec\al\cdot\vec p+\bet m,
+\ee
+where $\al$ is a vector to make the Hamiltonian a scalar and $\bet$ is a number.\\
+By taking the square of it and comparing it to the relativistic relation, we have
+\be\begin{split}
+\vec p^2+m^2=H^2&=(\al^i p_i+\bet m)(\al^j p_j+\bet m)\\
+&={\al^i}^2 p_i^2+(\al^i\al^j+\al^j\al^i)p_i p_j\big|_{i>j}+(\al^i\bet+\bet\al^i)p_i +\bet^2m^2,
+\end{split}\ee
+then we find that
+\be\1\{\begin{split}
+{\al^i}^2&=\bet^2=1\\
+\{\al^i,\al^j\}&\equiv\al^i\al^j+\al^j\al^i=0\\
+\{\al^i,\bet\}&\equiv\al^i\bet+\bet\al^i=0,
+\end{split}\2.\ee
+from the anti-commutation relations above, we may notice that $\al^i$ and $\bet$ cannot be numbers, but they have to be matrices. Further, we could figure the trace of these matrices as
+\be\1\{\begin{split}
+tr(\al^i)=tr(\bet^2\al^i)=tr(\bet\al^i\bet)=-tr(\bet^2\al^i)=-tr(\al^i)&\implies tr(\al^i)=0\\
+tr(\bet)=tr({\al^i}^2\bet)=tr(\al^i\bet\al^i)=-tr({\al^i}^{2}\bet)=-tr(\bet)&\implies tr(\bet)=0.
+\end{split}\2.\ee
+Since the trace is the sum of eigenvalues, the traceless property suggests that these matrices have equal-magnitude but opposite-sign eigenvalues, and they have even dimensions.\\
+
+The simplest (even) matrices are $2\times 2$, and they can be represented by superpositions of the three Pauli matrices $\sig^i$ and the unit matrix $I$. If we choose $\al^i\rightarrow\sig^i$ and $\bet\rightarrow I$, we could find the anti-commutation relation $\{\al^i,\bet\}=0$ cannot hold, which implies $2\times2$ matrices may not be possible. (This argument is not fully convincing, and to be proved more strictly in the future.) So the next lowest even-dimension matrices are $4\times4$.\\
+
+There are several representations of the $\al^i$ and $\bet$. The Pauli-Dirac representation is given by
+\be
+\al^i=\1(\ba{cc}O&\sig^i\\\sig^i&O\ea\2), \quad \bet=\1(\ba{cc}I&O\\O&-I\ea\2);
+\ee
+while the Weyl/Chiral representation is denoted as 
+\be
+\al^i=\1(\ba{cc}-\sig^i&O\\O&\sig^i\ea\2), \quad \bet=\1(\ba{cc}O&I\\I&O\ea\2).
+\ee
+Parallel, the state $\psi$ will be a column vector with four components, and its Hermitian conjugate a row vector with four components,
+\be
+\psi=\1(\ba{c}\psi_1\\\psi_2\\\psi_3\\\psi_4\ea\2), \quad \psi^\dagger=\1(\ba{cccc}\psi_1^*&\psi_2^*&\psi_3^*&\psi_4^*\ea\2).\\
+\ee
+
+Now that we have found a set of reasonable coeeficient matrices, we come back to our equation of wave function, which is now
+\be\label{al}
+(-i\al^j\p_j+\bet m)\psi=i\p_0\psi,
+\ee
+the complex conjugate is given by
+\be
+\psi^\dagger(i\overleftarrow{\p_j}\al^j+\bet m)=-i\p_0\psi^\dagger.
+\ee
+Multiplying the first equation by $\psi^\dagger$ on the left and second equation by $\psi$ on the right and subtracting them, we will have the continuity equation,
+\be
+i\frac\p{\p t}\1(\psi^\dagger\psi\2)=-i\1[\psi^\dagger\al^i(\p_j\psi)+(\p_j\psi^\dagger)\al^i\psi\2]=-i\p_j(\psi^\dagger\al^i\psi),
+\ee
+so the density and flow are given by
+\be\1\{\begin{split}
+\rho&=\psi^\dagger\psi\\
+j^i&=\psi^\dagger\al^i\psi.
+\end{split}\2.\ee
+We proceed to modify our equation into a more neat form. Multiplying equation \eqref{al} by $\bet$ on the left and bringing in the new symbols,
+\be
+\gamma^\m=(\bet,\bet \al^i), \qquad {\gamma^\m}^\dagger=(\bet, \al^i\bet)=\gamma^0 \gamma^\m \gamma^0
+\ee
+we get
+\be
+(-i\gamma^j\p_j+m)\psi=i\gamma^0\p_0\psi \quad\implies\quad (i\gamma^\m\p_\m-m)\psi=0,
+\ee
+where the mass $m$ should be understood as $4\times4$ matrix with diagonal elements $m$. This is the famous \textit{Dirac equation}.\\
+Take the complex conjugate we have
+\be
+\psi^\dagger (i\gamma^0 \gamma^\m \gamma^0\p_\m-m)=0.
+\ee
+By further introducing a new symbol as $\bar\psi=\psi^\dagger\gamma^0$, and left multiplying the Dirac equation by $\bar\psi$ and right multiplying the complex conjugate Dirac equation by $\gamma^0 \psi$ and subtracting them, we have
+\be
+\p_\m j^\m\equiv\p_\m (\bar\psi\gamma^\m\psi)=0,
+\ee
+where 
+\be\1\{\begin{split}
+j^0&=\psi^\dagger\gamma^0\gamma^0\psi=\psi^\dagger\psi\\
+j^i&=\psi^\dagger\gamma^0\gamma^i\psi=\psi^\dagger \al^i \psi,
+\end{split}\2.\ee
+which are consistent with the previous result.\\
+
+It is useful and convenient to introduce another symbol represented as
+\be
+\gamma^5\equiv i\gamma^0\gamma^1\gamma^2\gamma^3.
+\ee
+By using the well-known anti-commutation relations between $\gamma$ matrices
+\be
+\{\gamma^\m,\gamma^\n\}=2\eta^{\m\n},
+\ee
+we can easily prove the following properties of $\gamma^5$,
+\be\1\{\begin{split}
+&\{\gamma^5,\gamma^\m\}=0\\
+&(\gamma^5)^\dagger=\gamma^5, \quad (\gamma)^2=1.
+\end{split}\2.\ee
+We further introduce the left and right hand projection operator as
+\be
+P_{L,R}\equiv\frac1 2 (1\mp\gamma^5),
+\ee
+and can easily prove that
+\be\1\{\begin{split}
+&P_{L,R}\gamma^\m=\gamma^\m P_{R,L}\\
+&P_L P_R=P_R P_L=0\\
+&P_{L,R}^2=P_{L,R};
+\end{split}\2.\ee
+then we denote states acted by the projection operators as
+\be
+\psi_{L,R}\equiv P_{L,R} \psi,
+\ee
+and again be able to prove that
+\be
+\bar\psi_{L,R}\equiv\psi_{L,R}^\dagger\gamma^0=\bar\psi P_{R,L}.
+\ee
+Now we ready to separate our conserved current into left and right hand parts:
+\be\begin{split}
+j^\m&=\bar\psi\gamma^\m\psi=(\bar\psi_L+\bar\psi_R)\gamma^\m(\psi_L+\psi_L)\\
+&=\bar\psi_L\gamma^\m\psi_L+\bcancel{\bar\psi_L\gamma^\m\psi_R}+\bcancel{\bar\psi_R\gamma^\m\psi_L}+\bar\psi_R\gamma^\m\psi_R\\
+&\equiv j^\m_L+j^\m_R,
+\end{split}\ee
+where the cross terms vanish due to the following proof,
+\be
+\bar\psi_L\gamma^\m\psi_R=\bar\psi P_R\gamma^\m P_R \psi=\bar\psi \gamma^\m  P_L P_R \psi=0,\quad \text{etc},
+\ee
+and it's more intriguing to write the non-vanishing terms as
+\be
+j^\m_{L,R}\equiv \bar\psi_{L,R}\gamma^\m\psi_{L,R}=\bar\psi P_{R,L}\gamma^\m\psi_{L,R}=\bar\psi \gamma^\m P_{L,R} \psi_{L,R}=\bar\psi \gamma^\m \psi_{L,R}=\frac 1 2 \bar\psi \gamma^\m (1\mp\gamma^5)\psi,
+\ee
+thus it would be easy to recover the original current and even construct a new current as
+\be\1\{\begin{split}
+j^\m&= j^\m_L+j^\m_R=\bar\psi\gamma^\m\psi\\
+j^\m_A&= j^\m_R-j^\m_L=\bar\psi\gamma^\m\gamma^5\psi,
+\end{split}\2.\ee
+where the new current $j^\m_A$ is called the axial current or chiral current.\\
+
+Consider the Lagrangian of the Dirac equation,
+\be\begin{split}
+\ma L&=\bar\psi(i\gamma^\m \p_\m-m)\psi\\
+&=\bar\psi_L(i\gamma^\m \p_\m-m)\psi_L+\bar\psi_R(i\gamma^\m \p_\m-m)\psi_R+m(\bar\psi_L \psi_R+\bar\psi_R \psi_L),
+\end{split}\ee
+where the cross term between left and right hand only comes from the mass term. So when it is massless, there will be no mixing of the left and right.\\
+
+
+
+
+
+Then we work in Pauli-Dirac representation and first explore the solution of the Dirac equation in the particle's rest frame, where the momentum is set to be zero, thus the equation becomes
+\be
+i\frac\p{\p t}\psi=\1(\ba{cc}m&O\\O&-m\ea\2)  \psi,
+\ee
+so the first two components are proportional to $e^{-imt}$ and energy $E=m$ which is positive, and the second two components are proportional to $e^{imt}$ and energy $E=-m$ which is negative.
+
+Then we explore the solution in the moving frame where the momentum is not zero, now we have the eigenvector equation,
+\be
+H\1(\ba{c}\psi_A\\\psi_B\ea\2)=\1(\ba{cc}m&\vec\sig\cdot\vec p\\\vec\sig\cdot\vec p&-m\ea\2) \1(\ba{c}\psi_A\\\psi_B\ea\2)=E\1(\ba{c}\psi_A\\\psi_B\ea\2),
+\ee
+the two equations are
+\be\1\{\begin{split}
+(\vec\sig\cdot\vec p)\psi_B=(E-m)\psi_A\\
+(\vec\sig\cdot\vec p)\psi_A=(E+m)\psi_B,
+\end{split}\2.\ee
+which suggests that the positive part and the negative part are not independent.\\
+Now that $\psi_A$ is a two-component vector, assume $\psi_A$ has two solutions
+\be\1\{\begin{split}
+\psi_A^{(1)}\sim\chi^{(1)}=\1(\ba{c}1\\0\ea\2)\\
+\psi_A^{(2)}\sim\chi^{(2)}=\1(\ba{c}0\\1\ea\2),
+\end{split}\2.\ee
+then we have
+\be
+\psi_B^{(s)}=\frac{\vec\sig\cdot\vec p}{E+m}\psi_A^{(s)}, \qquad\psi_A^{(s)}\sim\chi^{(s)}.
+\ee
+When $p<<m$, $\psi_B\sim0$, it decouples with $\psi_A$;\\
+when $p>>m$, $\frac{\vec p}{E+m}\rightarrow \hat e_p$, where $\hat e_p$ is the unit vector along the direction of $\vec p$, so $\psi_B=(\vec\sig\cdot\hat e_p) \chi^{(s)}$, it does not decouple with $\psi_A$, and $(\vec\sig\cdot\hat e_p)$ is the projection of the spin along the momentum.
+
+Then we consider the massless case where $m=0$, now the Hamiltonian is given by 
+\be
+H=\1(\ba{cc}O&\vec\sig\cdot\vec p\\\vec\sig\cdot\vec p&O\ea\2),
+\ee
+and then we can easily construct a matrix which commutes with the Hamiltonian as
+\be
+\vec\Sigma\cdot\vec p =\1(\ba{cc}\vec\sig\cdot\vec p&O\\O&\vec\sig\cdot\vec p\ea\2).
+\ee
+From $[\vec\Sigma\cdot\vec p,H]=0$, we see that $\vec\Sigma\cdot\vec p$ is a conserved quantity in the massless case, which we call chirality.
+
+
+
+
+
+
+
+
+
+\section{Chirality in Gauge Theories}
+\section{Chiral Magnetic Effect (CME) and Anomaly-induced transport}
+\section{CME in Heavy-ion Collisions}
+\section{Chiral Matters}
+
+
+
+
+\end{document}
