@@ -1,0 +1,72 @@
+\documentclass{article}
+
+\usepackage{amsmath,mathtools,amssymb}
+\usepackage{bm,extarrows,ulem,cancel}
+\usepackage{mathrsfs}
+\usepackage{geometry,graphicx,color}
+\geometry{centering,scale=0.8}
+\usepackage[all,pdf]{xy}
+\usepackage{pstricks,pstricks-add}
+\usepackage{lmodern} % to use \dj%
+\usepackage[T1]{fontenc} % to use \dj%
+
+\newcommand{\sect}{\section}
+\newcommand{\subsec}{\subsection}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bs}{\be\begin{split}}
+
+\newcommand{\dif}{\,\mathrm{d}}
+\newcommand{\p}{\partial}
+\renewcommand{\1}{\left}
+\renewcommand{\2}{\right}
+\newcommand{\ma}{\mathcal}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\al}{\alpha}
+\newcommand{\bet}{\beta}
+\newcommand{\lam}{\lambda}
+\newcommand{\sig}{\sigma}
+\newcommand{\ep}{\epsilon}
+\newcommand{\om}{\omega}
+\newcommand{\del}{\delta}
+\newcommand{\Del}{\Delta}
+\renewcommand{\th}{\theta}
+
+
+\title{Thermodynamics}
+\author{Gui-Rong Liang}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+\section{Criteria for spontaneous change}
+The 2nd law gave the Clausius inequality for spontaneous change
+\be
+\dif S>\dj q/T_{sur},
+\ee
+and the 1st law gave us $\dif U=\dj q+\dj w$.\\
+Putting the two together, assuming only $pV$ work, gives us the following general criterion for spontaneous change:
+\be
+\fbox{$\dif U+p_{ext}\dif V-T_{sur}\dif S<0$}.
+\ee
+Equilibrium is when there is no possible change of state that would satisfy this inequality.
+
+
+
+
+
+
+
+\end{document}

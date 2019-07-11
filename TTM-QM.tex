@@ -5,6 +5,9 @@
 \usepackage{mathrsfs}
 \usepackage{geometry,graphicx,color}
 \geometry{centering,scale=0.8}
+\usepackage[all,pdf]{xy}
+\usepackage{pstricks,pstricks-add}
+
 
 \newcommand{\sect}{\section}
 \newcommand{\subsec}{\subsection}
@@ -19,8 +22,8 @@
 
 \newcommand{\dif}{\,\mathrm{d}}
 \newcommand{\p}{\partial}
-\newcommand{\1}{\left}
-\newcommand{\2}{\right}
+\renewcommand{\1}{\left}
+\renewcommand{\2}{\right}
 \newcommand{\ma}{\mathcal}
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
@@ -35,10 +38,11 @@
 \newcommand{\om}{\omega}
 \newcommand{\del}{\delta}
 \newcommand{\Del}{\Delta}
+\renewcommand{\th}{\theta}
 
 
 \title{Notes on The Theoretical Minimum\\
---- Quantum Mechanics}
+--- Elementary and Advanced Quantum Mechanics}
 \author{Gui-Rong Liang}
 
 \begin{document}
@@ -192,11 +196,11 @@ Now we take $|X\ra$ and $|Y\ra$ as follows,
 \end{split}\ee
 where $A$ and $B$ are any two observables and $|\Psi\ra$ is any ket. Now substitute it into the Triangle Inequality for complex vectors, to get
 \be
-2\sqrt{\la A^2\ra\la B^2\ra} \geqslant |\la \Psi|AB|\Psi\ra-\la \Psi|BA|\Psi\ra|=\la \Psi|[A,B]|\Psi\ra.
+2\sqrt{\la A^2\ra\la B^2\ra} \geqslant |\la \Psi|AB|\Psi\ra-\la \Psi|BA|\Psi\ra|=|\la \Psi|[A,B]|\Psi\ra|.
 \ee
 Let's suppose for the moment that $A$ and $B$ have expectation values of zero, so $A=\bar A$, and $\la A^2\ra=(\Del A)^2$, thus we rewrite the above inequality as 
 \be
-\Del A\Del B\geqslant \frac 1 2\la \Psi|[A,B]|\Psi\ra.
+\Del A\Del B\geqslant \frac 1 2|\la \Psi|[A,B]|\Psi\ra|.
 \ee
 This is the general version of the uncertainty inequality. It says that the product of the uncertainties cannot be smaller than half the magnitude of the expectation value of the commutator. Or to be less quantitative, if the commutator of $A$ and $B$ is not zero, then both observables cannot simultaneously be certain. By the way, if the expectation values of $A$ and $B$ are not zero, we just use a trick to redefine two new operators in which the expectation values have been subtracted off, then the same relation holds as we expected.\\
 
@@ -341,7 +345,7 @@ Left multiplying the decomposition of state by a bra vector $|x'\ra$, we have
 \ee
 from which we can see the inner product between basis is nothing but the Dirac-delta function,
 \be
-\la x'|x\ra=\delta(x'-x),
+\la x'|x\ra=\delta(x-x'),
 \ee
 this is the orthonormalization relation of the basis vectors.\\
 
@@ -365,7 +369,7 @@ and because the total probability equal to $1$, our state here is normalized,
 \be
 \la \psi|\psi\ra =\int \dif x \ \psi^*(x)\psi(x)=\int  \dif x\ P(x)=1.\\
 \ee
-2. Linear Operators, eigenvectors and eigenvalues\\
+2. Linear Operators $X$ and $P$, their eigenvectors, eigenvalues and relations\\
 
 An operator is a machine which can turn a given state into a new state, in terms of the continuous basis, if the coefficients (or the wave function) of the new state is specified, the new state would be determined, thus the effect of the operator is made clear.
 
@@ -477,7 +481,7 @@ Since $x_0$ can be any value along the $x$-axis, this equation can be generalize
 \be
 X|x\ra=x|x\ra,
 \ee
-which tells us the simple fact that any state representing a definite position is an eigenvector of the position operator $X$, and the eigenvalue is the position coordinte.\\
+which tells us the simple fact that any state representing a definite position is an eigenvector of the operator $X$, and the eigenvalue is the position coordinate; thus the operator $X$ is called the position operator, and the wave function in the position representation $\psi(x)$ is the projection of the state-vector onto the eigenvectors of position.\\
 
 Then we play around with $P$. Similarly the eigen-equation is given by
 \be
@@ -485,13 +489,13 @@ P|\psi\ra=p_0|\psi\ra,
 \ee
 and in $x$-basis,
 \be
-p_0\psi(x)=p_0\la x|\psi\ra=\la x|p_0|\psi\ra=\la x|P|\psi\ra=-i\hbar\frac\p{\p x}\la x|\psi\ra=-i\hbar\frac\p{\p x}\psi(x),
+p_0\psi(x)=p_0\la x|\psi\ra=\la x|p_0|\psi\ra=\la x|P|\psi\ra=-i\hbar\frac\dif{\dif x}\la x|\psi\ra=-i\hbar\frac\dif{\dif x}\psi(x),
 \ee
 which is nothing but a simple first-order equation. The solution is given by
 \be
-\psi(x)=e^{\frac i \hbar p_0 x},
+\psi(x)=Ae^{\frac i \hbar p_0 x},
 \ee
-and the eigenvector is constructed as
+where $A$ will be normalized as $\frac 1 {\sqrt{2\pi}}$. The eigenvector is constructed as
 \be
 |\psi\ra=\int\dif x\ \psi(x)|x\ra=\int\dif x\ e^{\frac i \hbar p_0 x} |x\ra \equiv|p_0\ra,
 \ee
@@ -499,10 +503,60 @@ which is just the Fourier-transformation of the state $|x\ra$. So the eigen-equa
 \be
 P|p_0\ra=p_0|p_0\ra \quad\text{or}\quad P|p\ra=p|p\ra,
 \ee
-where the physical meaning of $p$ and the operator $P$ will be clear later when we take the classical limit. As an aside, here we get a commonly used relation by re-express the solution,
+where the physical meaning of $p$ and the operator $P$ will be clear later when we take the classical limit, but actually you may already guess that they are momentum operators. As an aside, here we get a commonly used relation by re-express the solution,
 \be
-\la x|p\ra=\la x|\psi\ra=\psi(x)=e^{\frac i \hbar p x}, \quad\text{and}\quad \la p|x\ra=e^{-\frac i \hbar p x}.
+\la x|p\ra=\la x|\psi\ra=\psi(x)=\frac 1 {\sqrt{2\pi}}e^{\frac i \hbar p x}, \quad\text{and}\quad \la p|x\ra=\frac 1 {\sqrt{2\pi}}e^{-\frac i \hbar p x},
 \ee
+where the left equation represents the a momentum eigenfunction in the position basis, with $p$ fixed and $x$ changeable; the right equation represents the converse case.
+
+To this end, we really see that the eigenfunction of the $P$ operator in the position basis has the form of a wave, and that's why we call it a ``wave function". Moreover, the wave length is given by
+\be
+\lambda=\frac{2\pi\hbar}{p},
+\ee
+which is the famous de Broglie's relation between the momentum and the wavelength. An implication of this formula is the fact that to probe objects of ever smaller size one needs particles of ever larger momentum, that's why we need increasingly powerful particle accelerators.\\
+
+Now that we have an Hermitian operator $P$ and its eigenvectors $|p\ra$, we can decompose the state vector $|\psi\ra$ in this basis, just parallel to do it in the position basis,
+\be
+|\psi\ra=\int \dif x \ \tilde\psi(p)|p\ra,\quad\text{where}\quad \tilde\psi(p)=\la p|\psi\ra,
+\ee
+and the identity is subtracted as
+\be
+|\psi\ra=\int \dif p \ |p\ra \la p|\psi\ra \implies I=\int \dif p \ |p\ra \la p|.
+\ee
+Next we want to find the relation between $\tilde\psi(p)$ and $\psi(x)$, that is to say, if we knew one of them, we could calculate the other, so as to know the probability of the given interval of the other, e.g, in $p$-basis, $P(p)=\tilde\psi^*(p)\tilde\psi(p)$.\\
+We simultaneously solve the relation using the Dirac's elegant bra-and-ket's notation,
+\be\left\{\begin{split}
+&\tilde\psi(p)=\la p|\psi\ra=\int\dif x\ \la p|x\ra \la x|\psi\ra=\frac 1 {\sqrt{2\pi}}\int\dif x\ e^{-\frac i\hbar p x} \psi(x)\\
+&\psi(x)=\la x|\psi\ra=\int\dif p\ \la x|p\ra \la p|\psi\ra=\frac 1 {\sqrt{2\pi}}\int\dif p\ e^{\frac i\hbar p x} \psi(p),
+\end{split}\right.\ee
+which are reciprocal \textit{Fourier transformations} of one another.\\
+
+Now that we know the exact form of $X$ and $P$, we may find their commutator and hence we know the uncertainty principle of them. Their commutator is computed as,
+\be\begin{split}
+\la x |[X,P]|\psi\ra=\la x|XP|\psi\ra-\la x|PX|\psi\ra&=\int\dif x'\ \la x|X|x'\ra\la x'|P|\psi\ra-\int\dif x'\ \la x|P|x'\ra\la x'|X|\psi\ra\\
+&= -i\hbar\int\dif x'\ x'\delta(x'-x) \frac\dif{\dif x'} \psi(x')+i\hbar\int\dif x'\ \delta(x'-x)\frac\dif{\dif x} \big(x'\psi(x')\big)\\
+&=i\hbar\1(\frac\dif{\dif x} \bigg(x\psi(x)\bigg)-x\frac\dif{\dif x} \psi(x)\2)\\
+&=i\hbar\psi(x)=\la x|i\hbar|\psi\ra,
+\end{split}\ee
+thus we find the commutator is nothing but a complex number,
+\be
+[X,P]=i\hbar.
+\ee
+And according to the uncertainty principle,
+\be
+\Del A\Del B\geqslant \frac 1 2|\la \Psi|[A,B]|\Psi\ra|,
+\ee
+we have the uncertainty between $X$ and $P$,
+\be
+\Del X\Del P\geqslant \frac 1 2|\la \Psi|[X,P]|\Psi\ra|=\frac 1 2 |i\hbar\la\psi|\psi\ra|=\frac \hbar 2,
+\ee
+this is the famous \textit{Heisenberg's uncertainty principle}, which means you cannot measure the position and $P$ in the same time, with $\frac \hbar2 $ the limitation.
+
+As a qualitative illustration of the Heisenberg's uncertainty principle, we knew previously the wave function of an eigenstate of $X$ is highly concentrated about some point $x_0$, the probability is perfectly localized, and so is true for the eigenstate of $P$. But what about the probability of $P$ eigenstate in the $X$-basis? It's just
+\be
+\psi_p^*(x)\psi_p(x)=\la p|x\ra\la x|p\ra = \1(\frac 1 {\sqrt{2\pi}}e^{-\frac i \hbar p x}\2)\1(\frac 1 {\sqrt{2\pi}}e^{\frac i \hbar p x}\2)=\frac 1 {2\pi}.
+\ee
+The result is completely uniform, with no peaks anywhere on the $x$ axis. Evidently, a state with definite $p_0$ is completely uncertain in its position, vice versa.
 
 
 
@@ -510,16 +564,8 @@ where the physical meaning of $p$ and the operator $P$ will be clear later when 
 
 
 
-
-
-
-
-
-
-
-
-\section{Time evolution of quantum states}
-\subsection{Time evolution of isolated states and expectation values}
+\section{Symmetry operations of quantum states and conserved quantities}
+\subsection{Time evolution of isolated states and the Hamiltonian}
 
 In classical mechanics, if two identical isolated systems start out in different states, they stay in different states. It underlies the fact that information is never lost. The same is true in quantum mechanics, and even much stronger. The direct manifestation is that if two states are initially orthogonal, they remain orthogonal throughout the evolution, or \textit{conservation of orthogonality}.
 
@@ -547,26 +593,11 @@ A direct consequence of the unitarity leads to a much stronger version of conser
 \ee
 which says the inner product of $|A\ra$ and $|B\ra$ does not change with time, or the inner product is conserved. Thus superficially conservation of orthogonality is a special case of conservation of overlap, we have seen that conservation of orthogonality can lead to conservation of overlap, thus they are equivalent.\\
 
-Time evolution is led by incremental changes, so it would be inspiring to study the evolution operator of an infinitesimal time interval $\epsilon$. Another property besides unitarity that an evolution operator should have is \textit{continuity}, which means that the state-vector changes smoothly, or to be more explicitly, when $\epsilon$ is very small, $\hat U(\epsilon)$ is close to the unit operator, only differing from it by something of order $\epsilon$, and when $\ep$ is taken to be zero, the state does not change. 
-\be
-U(\epsilon)=I-i\epsilon H,
-\ee
-where the $-i$ and the operator $H$ is arbitrary and conventional. By plugging its Hermitian conjugate form
-\be
-U^\dagger(\epsilon)=I+i\epsilon H^\dagger
-\ee
-into the unitarity equation and expanding it to the first power, we have
-\be
-I=U^\dagger(\epsilon)U(\epsilon)=(I+i\epsilon H^\dagger)(I-i\epsilon H)=I+i\epsilon (H^\dagger-H),
-\ee
-or
-\be
-H^\dagger=H.
-\ee
-This Hermitian property of  $H$ has the great significance that $H$ is an observable and has a complete set of orthonormal eigenvalues and eigenvectors.\\
+Time evolution is led by incremental changes, so it would be inspiring to study the evolution operator of an infinitesimal time interval $\epsilon$. Another property besides unitarity that an evolution operator should have is \textit{continuity}, which means that the state-vector changes smoothly.
 
-{\color{blue}Here I want to explain the above ansatz in more detail, which is due to my own understanding and I think is more natural.\\
-The most general form of a state obtained by acting the infinitesimal evolution operator on the initial state, considering continuity, takes the form as
+When $\epsilon$ is very small, $\hat U(\epsilon)$ is close to the unit operator, only differing from it by something of order $\epsilon$, and when $\ep$ is taken to be zero, the state does not change. 
+
+Or to be clearer, the most general form of a state obtained by acting the infinitesimal evolution operator on the initial state, considering continuity, takes the form as
 \be
 U(\ep)|\Psi\ra=|\Psi\ra+\ep|\Theta\ra,
 \ee
@@ -593,37 +624,100 @@ thus we have the form of the infinitesimal evolution operator as
 \be
 U(\epsilon)=I+\ep A=I+\epsilon (-i)(iA)=1-i\ep\ma H,
 \ee
-and due to the Hermitian property of $\ma H$, it should be some kind of observable.\\}
+and due to the Hermitian property of $H$, it has the great significance that $H$ is an observable and has a complete set of orthonormal eigenvalues and eigenvectors.\\
 
 Now we're going to explore more on the evolution of states at an infinitesimal time interval $\epsilon$, we write
 \be
-|\Psi(\ep)\ra=\hat U(\ep) |\Psi(0)\ra = |\Psi(0)\ra-i\ep H|\Psi(0)\ra,
+|\Psi(\ep)\ra=\hat U(\ep) |\Psi(0)\ra = |\Psi(0)\ra-i\ep\ma H|\Psi(0)\ra,
 \ee
 and rearranging this we have
 \be
-\frac{|\Psi(\ep)\ra-|\Psi(0)\ra}{\ep}=-iH|\Psi(0)\ra,
+\frac{|\Psi(\ep)\ra-|\Psi(0)\ra}{\ep}=-i\ma H|\Psi(0)\ra,
 \ee
 where the LHS is nothing but the time derivative of the state $|\Psi\ra$ at time $t=0$, but since the evolution is assumed to be linear, this should hold at any time $t$, so we may write
 \be
-\frac{\dif |\Psi\ra}{\dif t}=-i H|\Psi\ra,
+\frac{\dif |\Psi\ra}{\dif t}=-i\ma H|\Psi\ra,
 \ee
 where we wrote partial or total derivative make no difference. This equation tells us how an isolated (not contact with apparatus) state evolves with time, and it is called the \textit{generalized Schrodinger equation}. This is a simple first-order differential equation, and its solution is given by
 \be
-|\Psi(t)\ra=e^{-iHt}|\Psi(0)\ra,
+|\Psi(t)\ra=e^{-i\ma Ht}|\Psi(0)\ra,
 \ee
 thus we may extract the explicit form of the evolution operator as $U(t)=e^{-iHt}$, and we check it by taking the time to be infinitesimal time interval $\ep$,
 \be
-U(t)=e^{-iH\ep}\approx 1-iH\ep,
+U(\ep)=e^{-i\ma H\ep}\approx 1-i\ma H\ep,
 \ee
-which is consistent with our previous reasoning.
+which is consistent with our previous reasoning. From this exponential form we now know why we call it unitary, and a unitary operator has another property that its eigenvalues are eigenvalues of the phase operator, in this case, $\ma H$.
 
-As we proceed, we would discover that $H$ is nothing but the Hamiltonian operator, thus it has the dimension of energy. By checking the dimensionality of the time-dependent Schrodinger equation, we may fix it by a factor of $\hbar$, the Planck constant,
+Next we want to compare it with classical mechanics to see the meaning of $\ma H$ clearly. The average, or expectation value, of an observable is the closest thing in quantum mechanics to a classical value. From a mathematical point of view, an average is defined by the equation
 \be
-i\hbar\frac{\p |\Psi\ra}{\p t}= H|\Psi\ra.
+\la\lam \ra = \sum_i \lam_i P(\lam_i).
+\ee
+If we expand a quantum state $|\Psi\ra$ in the orthonormal basis of eigenvectors of $L$,
+\be
+|\Psi\ra=\sum_i\al_i|\lam_i\ra,
+\ee
+we try to compute the following quantity,
+\be
+\la L \ra\equiv\la \Psi|L|\Psi\ra=\sum_i\sum_{j}\la \lam_j| \al^*_j \lam_i \al_i|\lam_i\ra=\sum_i  \lam_i (\al^*_i\al_i)= \sum_i \lam_i P(\lam_i)=\la \lam \ra,
+\ee
+that's why we use the notation $\la L\ra$ to denote the average. Let's see how this changes with time,
+\bs
+\frac\dif{\dif t}\la L \ra=\frac\dif{\dif t}\la \Psi(t)|L|\Psi(t)\ra&=\la \dot\Psi(t)|L|\Psi(t)\ra+\la \Psi(t)|L|\dot\Psi(t)\ra\\
+&= i  \la \Psi(t)|(\ma HL-L\ma H)|\Psi(t)\ra= i \la [\ma H,L]\ra,
+\end{split}\ee
+where in the second row we used the generalized Schrodinger equation, and the notation for a commutator. Note that the $i$ before the commutator is important, since the commutator itself is always imaginary.\\
+Equivalently we rewrite it in a shorthand form:
+\be\label{dl}
+\frac{\dif L}{\dif t}=- i  [L,\ma H],
+\ee
+where letters denote their average value. This is a very interesting and important equation. It relates the time derivative of the expectation value of an observable $L$ to the expectation value of another observable $[L,\ma H]$. If we assume that the probabilities are nice, narrow, bell-shaped curves, this equation tells us how the peaks of the curves move with time. Equations like this are the closest thing in quantum mechanics to the equations of classical physics.\\
+
+The equation tells us the expectation value of an observable $\la Q\ra$  does not change with time if it commutes with the $\ma H$,
+\be
+\frac{\dif\bar Q}{\dif t}=-\frac i \hbar\overline{[Q,\ma H]} =0.
+\ee
+Moreover if $Q$ commutes with the Hamiltonian, the expectation values of all powers of $Q$, and even all functions of $Q$ are conserved.\\
+As a special case, the most obvious conserved quantity is $\ma H$ itself, since it commutes with itself,
+\be
+\frac{\dif\bar{\ma H}}{\dif t}=-i \overline{[\ma H,\ma H]}=0,
+\ee
+which says it is a conserved quantity, and we define it to be the energy, since it is conserved in the most general state, considering only the unitarity and continuity of the evolution operator, regardless of any vector basis or specific physical situations.
+
+The only thing to be noticed is the fact that energy has the dimension of energy, by checking the dimensionality of the time-dependent Schrodinger equation, we may fix $\ma H$ by a factor of $\hbar$, the Planck constant, i.e, to define the true Hamiltonian operator as $H:=\hbar \ma H$, and we have
+\be
+i\hbar\frac{\dif |\Psi\ra}{\dif t}= H|\Psi\ra.
 \ee
 This is the standard form of the \textit{time-dependent Schrodinger equation}.\\
 
-Now that we have derived that $H$ is a Hermitian operator, we can expand our states in the basis of $H$'s eigenvectors, to fully solve the Schrodinger equation,
+Recall that in classical mechanics, the time derivative of a physical quantity is given by its Poisson Bracket with the Hamiltonian,
+\be
+\frac{\dif L}{\dif t}=\{L, H\}.
+\ee
+Due to their similarity, we may identify a correspondence between the commutators and the Poisson Brackets,
+\be
+[L,H] \iff  i \hbar\{L, H\}.
+\ee
+{\color{blue}Actually they have the same mathematical structures (like anti-symmetric, Bianchi identity) called the Lie Algebra, which would be explored later if we have time.}\\
+In classical physics, commutators between ordinary observables are zero. But if we want to apply \eqref{dl} to classical physics, we must assume the commutators are not zero but a very small value of the order of $\hbar$. Vice versa, the classical limit is the limit at which $\hbar$ is negligibly small, thus the $i\hbar\{L,H\}$ goes back to the vanishing commutator.\\
+
+Now it's more concrete to set the spin as an example. The energy of a spin in a magnetic field is given by
+\be
+H\sim \vec\sig\cdot\vec B=\sig_x B_x+\sig_y B_y+\sig_z B_z.
+\ee
+If the magnetic field lies along the z-axis, the Hamiltonian is proportional to $\sig_z$, in the following expression we'll absorb all the irrelevant numerical constants into a single constant $\omega$, so
+\be 
+H=\frac{\hbar\omega}{2} \sig_z,
+\ee
+where we kept $\frac\hbar 2$ for later convenience.\\
+Now we want to find out how the expectation value of the spin varies with time, we can get
+\be\begin{split}
+\dot{\la\sig_x\ra}&=-\frac i \hbar \la[\sig_x,H]\ra=-\frac{i\omega} 2\la[\sig_x,\sig_z]\ra=-\om\la\sig_y\ra\\
+\dot{\la\sig_y\ra}&=-\frac i \hbar \la[\sig_y,H]\ra=-\frac{i\omega} 2\la[\sig_y,\sig_z]\ra=\om\la\sig_x\ra\\
+\dot{\la\sig_z\ra}&=-\frac i \hbar \la[\sig_z,H]\ra=-\frac{i\omega} 2\la[\sig_z,\sig_z]\ra=0
+\end{split}\ee
+This result implies that the 3-vector-operator $\vec\sig$ precesses like a gyroscope around the direction of the magnetic field. The precession is uniform, with angular velocity $\om$. To be specific, the expectation value for a $\sig_z$ measurement does not change with time, but the other two expectation values do change.\\
+
+Now that we have defined that $H$ is a Hermitian operator, we can expand our states in the basis of $H$'s eigenvectors, to fully solve the Schrodinger equation,
 \be
 |\Psi\ra=\sum_j\al_j|E_j\ra,
 \ee
@@ -651,69 +745,401 @@ We may extract out coefficients at time zero as \be\al_j(0)=\la E_j|\Psi(0)\ra\e
 \ee
 which emphasizes that we're summing over the basis vectors, and implies that as long as we have the initial state $|\Psi(0)\ra$ and the Hamiltonian $H$ which governs the physical law of evolution, we can have state $|\Psi(t)\ra$ at any time as we want.\\
 
-The average, or expectation value, of an observable is the closest thing in quantum mechanics to a classical value. From a mathematical point of view, an average is defined by the equation
-\be
-\la\lam \ra = \sum_i \lam_i P(\lam_i).
-\ee
-If we expand a quantum state $|\Psi\ra$ in the orthonormal basis of eigenvectors of $L$,
-\be
-|\Psi\ra=\sum_i\al_i|\lam_i\ra,
-\ee
-we try to compute the following quantity,
-\be
-\la L \ra\equiv\la \Psi|L|\Psi\ra=\sum_i\sum_{j}\la \lam_j| \al^*_j \lam_i \al_i|\lam_i\ra=\sum_i  \lam_i (\al^*_i\al_i)= \sum_i \lam_i P(\lam_i)=\la \lam \ra,
-\ee
-that's why we use the notation $\la L\ra$ to denote the average. Let's see how this changes with time,
-\bs
-\frac\dif{\dif t}\la L \ra=\frac\dif{\dif t}\la \Psi(t)|L|\Psi(t)\ra&=\la \dot\Psi(t)|L|\Psi(t)\ra+\la \Psi(t)|L|\dot\Psi(t)\ra\\
-&=\frac i \hbar \la \Psi(t)|(HL-LH)|\Psi(t)\ra=\frac i \hbar\la [H,L]\ra,
-\end{split}\ee
-where in the second row we used the Schrodinger equation, and the notation for a commutator. Note that the $i$ before the commutator is important, since the commutator itself is always imaginary.\\
-Equivalently we rewrite it in a shorthand form:
-\be\label{dl}
-\frac{\dif L}{\dif t}=-\frac i \hbar [L,H],
-\ee
-where letters denote their average value. This is a very interesting and important equation. It relates the time derivative of the expectation value of an observable $L$ to the expectation value of another observable $[L,H]$. If we assume that the probabilities are nice, narrow, bell-shaped curves, this equation tells us how the peaks of the curves move with time. Equations like this are the closest thing in quantum mechanics to the equations of classical physics.\\
-Recall that in classical mechanics, the time derivative of a physical quantity is given by its Poisson Bracket with the Hamiltonian,
-\be
-\frac{\dif L}{\dif t}=\{L,H\}.
-\ee
-Due to their similarity, we may identify a correspondence between the commutators and the Poisson Brackets,
-\be
-[L,H] \iff i\hbar\{L,H\}.
-\ee
-{\color{blue}Actually they have the same mathematical structures (like anti-symmetric, Bianchi identity) called the Lie Algebra, which would be explored later if we have time.}\\
-In classical physics, commutators between ordinary observables are zero. But if we want to apply \eqref{dl} to classical physics, we must assume the commutators are not zero but a very small value of the order of $\hbar$. Vice versa, the classical limit is the limit at which $\hbar$ is negligibly small, thus the $i\hbar\{L,H\}$ goes back to the vanishing commutator.\\
-
-Similar to classical mechanics, the equation tells us the expectation value of an observable $\la Q\ra$  does not change with time if it commutes with the Hamiltonian,
-\be
-\frac{\dif\bar Q}{\dif t}=-\frac i \hbar\overline{[Q,H]} =0.
-\ee
-Moreover if $Q$ commutes with the Hamiltonian, the expectation values of all powers of $Q$, and even all functions of $Q$ are conserved.\\
-Just like in classical mechanics, the most obvious conserved quantity is the Hamiltonian itself, since it commutes with itself,
-\be
-\frac{\dif\bar H}{\dif t}=-\frac i \hbar\overline{[H,H]}=0,
-\ee
-which says energy is conserved in quantum mechanics.\\
-
-Now it's more concrete to set the spin as an example. The energy of a spin in a magnetic field is given by
-\be
-H\sim \vec\sig\cdot\vec B=\sig_x B_x+\sig_y B_y+\sig_z B_z.
-\ee
-If the magnetic field lies along the z-axis, the Hamiltonian is proportional to $\sig_z$, in the following expression we'll absorb all the irrelevant numerical constants into a single constant $\omega$, so
-\be 
-H=\frac{\hbar\omega}{2} \sig_z,
-\ee
-where we kept $\frac\hbar 2$ for later convenience.\\
-Now we want to find out how the expectation value of the spin varies with time, we can get
-\be\begin{split}
-\dot{\la\sig_x\ra}&=-\frac i \hbar \la[\sig_x,H]\ra=-\frac{i\omega} 2\la[\sig_x,\sig_z]\ra=-\om\la\sig_y\ra\\
-\dot{\la\sig_y\ra}&=-\frac i \hbar \la[\sig_y,H]\ra=-\frac{i\omega} 2\la[\sig_y,\sig_z]\ra=\om\la\sig_x\ra\\
-\dot{\la\sig_z\ra}&=-\frac i \hbar \la[\sig_z,H]\ra=-\frac{i\omega} 2\la[\sig_z,\sig_z]\ra=0
-\end{split}\ee
-This result implies that the 3-vector-operator $\vec\sig$ precesses like a gyroscope around the direction of the magnetic field. The precession is uniform, with angular velocity $\om$. To be specific, the expectation value for a $\sig_z$ measurement does not change with time, but the other two expectation values do change.\\
-
 All the above formalism in this subsection describes how state evolves with time during two measurements. But something different happens when an observation is made, during an experiment the state of a system jumps unpredictably to an eigenstate of the observable that was measured. This phenomenon is called \textit{the collapse of the wave function}. This implies that to examine the measurement process itself as a quantum mechanical evolution, we must consider the entire experimental setup, including the apparatus, as part of a single quantum system.
+
+\subsection{General symmetry transformations of states and wave functions}
+Time evolution is a special case of symmetry transformations. Symmetry transformations are operations that you can do to the system, which don't change the phenomenon or the description of it, e.g, EOM. In this subsection, we are going to discuss more general properties of symmetry transformations and some specific cases like space translations and rotations.\\
+
+A general symmetry transformation operator $V$ has two properties. The first is that it preserves orthogonality, which gives it the property of unitarity,
+\be
+\la \phi|V^\dagger V|\psi\ra=\la \phi|\psi\ra \ \implies\ V^\dagger V=I.
+\ee
+The second is that it preserves time-evolution, which means that a state $|\psi(0)\ra$ and its transformed state $|\psi'(0)\ra=V|\psi(0)\ra$ together evolves with time, and the resulting new state $|\psi'(t)\ra$ is just the transformed version of $|\psi(t)\ra$,
+\be
+\begin{gathered} \xymatrix{
+|\psi(0)\ra \ar[r]^{U(t)} \ar[d]_{V} &|\psi(t)\ra \ar[d]^{V} \\
+|\psi'(0)\ra \ar[r]_{U(t)} & |\psi'(t)\ra, \\
+} \end{gathered}
+\ee
+in mathematical language,
+\be
+U(t)V|\psi(0)\ra = VU(t)|\psi(0)\ra \ \implies\  [V,U(t)]=0
+\ee
+thus it indicates that it commutes with the time-evolution operator $U$, where we use the fact that $|\psi(0)\ra$ is arbitrary. Now that we know that $U(t)=e^{-\frac i \hbar H t}$, expanding it gives us
+\be
+[V,H]=0.
+\ee
+So we conclude here that \textit{symmetry transformation is a unitary operation that commutes with the Hamiltonian, thus it is conserved.}\\
+Moreover, if the symmetry transformation is continuous, we can expand it as before, $V=I-i\ep G$, where $G$ is a Hermitian operator called the \textit{generator}, which means the operation can be built up by incremental changes with it. Having the generator in hand we get a stronger result as
+\be
+[G,H]=0.
+\ee
+Thus the generator itself commutes with the Hamiltonian and is conserved. By saying that finding all the symmetries, we mean finding all the conserved quantities, as the above equation indicates.\\
+
+As a special case, we take \textit{the space translation of the wave function} as the first example. By saying ``wave function" rather than ``states", we meant we've already choose a set of basis, so in below, an operator means it's in the basis-dependent form.
+
+An infinitesimal space translation operator $V_x(\ep)$ takes the original wave function $\psi(x)$ to its nearest point,
+\be
+V_x(\ep)\psi(x)=\psi(x-\ep)=\psi-\ep\frac{\p\psi}{\p x},
+\ee
+so we may extract its form as
+\be
+V_x(\ep)=I-\ep\frac{\p}{\p x}=I-i\ep\frac{\hat p_x}{\hbar},
+\ee
+where $\frac{\hat p_x}{\hbar}$ serves as its generator. To judge whether $V_x$ is a symmetry transformation, we see that whether the generator $\hat p_x$ commutes with the Hamiltonian. For a free particle, the Hamiltonian is given as
+\be
+H=\frac{\hat p_x^2}{2m}+\frac{\hat p_y^2}{2m}+\frac{\hat p_z^2}{2m},
+\ee
+we see that it complies with 
+\be
+[\hat p_x,H]=0,
+\ee
+since $\hat p_x$ commutes with itself and it commutes with $\hat p_y$ and $\hat p_z$. So $V_x$ is indeed a translation symmetry under the condition of a free particle.\\
+
+As another case, we discuss the \textit{space rotation of the wave function}. The wave function has a particular form on a circular wire, as $\psi(\theta)$. \\
+
+\psset{linewidth=0.4pt}
+\begin{pspicture}(-7,-2.5)(7,2.5)
+   \psaxes[labels=none,ticks=none]{->}(0,0)(-2,-2)(2,2)
+   \pscircle[linewidth=0.8pt](0,0){1.5}
+   \pswedge[linewidth=0.8pt](0,0){1.5}{0}{60}
+   \pswedge[linewidth=0.8pt](0,0){0.5}{0}{60}
+   \uput[30](0.5;30){$\th$}
+\end{pspicture}
+
+An infinitesimal rotation operator $R_\th(\ep)$ makes the wave function moves around the circle at an infinitesimal angle $\th$ anti-clockwise.
+\be
+R_\th(\ep)\psi(\th)=\psi(\th-\ep)=\psi-\ep\frac{\p \psi}{\p \th},
+\ee
+so the infinitesimal change is 
+\be
+\del\psi=-\ep\frac{\p\psi}{\p\th}=-i\frac{\ep}{\hbar}\1(-i\hbar\frac{\p\psi}{\p\th}\2)\equiv-i\frac \ep \hbar L\psi,
+\ee
+where $L\equiv-i\hbar\frac{\p}{\p\th}$ serves as the generator of the rotation, which we will see is the angular momentum operator. Since the Hamiltonian is expressed in terms of the angular momentum as:
+\be
+H=\frac{L^2}{2I},
+\ee
+where $I$ is the rotation inertia, so the angular momentum commutes with the Hamiltonian $[L,H]=0$, thus it is a conserved quantity and $R_\th$ is a rotation symmetry.\\
+Next we want to explore the eigenvalues and eigenvectors of the angular momentum operator. The eigen-equation is 
+\be
+-i\hbar\frac{\p}{\p\th}\psi(\th)\equiv L\psi(\th)=l\psi(\th),
+\ee
+where $l$ is its eigenvalue (of $z$-component of angular momentum), and the eigenfunction is solved as
+\be
+\psi(\th)=e^{i\frac l\hbar \th}.
+\ee
+Note that in this form we have an additional constraint, which physically says that the function must have a single value at each point, or mathematically it has the periodic property,
+\be
+e^{i\frac l\hbar 2\pi}=e^{i\frac l\hbar 0}=1 \ \implies\  l=m\hbar,
+\ee
+where $m$ is an integer. But sometimes we drop the $\hbar$ and say that the angular momentum must be an integer $m$.
+
+\subsection{Symmetry operations and Energy degeneracy} 
+
+In the rotation symmetry case we discussed above, we see that the hamiltonian, or the energy, depends only on the magnitude of the angular momentum, but not on the direction of it, so in this case we have
+\be
+E(m)=E(-m),
+\ee
+which says that the energies are the same in both anti-clockwise and clockwise cases of angular momentum $m$, or the energy level $m$ is \textit{degenerate}. \textit{Degeneracy} means there are more than one state at the same energy level. Symmetry sometimes implies degeneracy, but sometimes only one symmetry is not enough to tell. 
+
+In the above case, it seems that rotation symmetry leads to the degeneracy of energy level $m$, but the degeneracy will be broken by a magnetic field pointing outwards or inwards the plane. It'll raise the energy a little bit of the angular momentum in one direction, and lower the energy a little bit of the other direction. Note that the magnetic field however does not violate the rotation symmetry, yet with its existence the degeneracy is gone. To conclude, the wave function has the rotation symmetry, and the magnetic field also has the rotation symmetry, but the energy level is not degenerate. So the rotation symmetry itself is not enough to tell the degeneracy of energy levels, we need one more symmetry which is discrete---\textit{reflection symmetry}.
+
+In this case the reflection is about $x$-axis, we will denote the operator as $M$ which represents the ``mirror reflection", to avoid the confusion with the rotation operator $R$. The mirror reflection typically acts on the wave function as
+\be
+M\psi(\th)=\psi(-\th).
+\ee
+Here we explore the commutator of $M$ with $L$ and $H$. Note that each wave function can be decomposed in terms of the eigenfunctions of $L$, so for simplicity, we make the operator act on the eigenfuctions of $L$.
+\be\1\{\begin{split}
+&[M,L] e^{im\th}=MLe^{im\th}-LMe^{im\th}=me^{-im\th}-(-me^{-im\th})=2me^{-im\th}\\
+&[M,L^2] e^{im\th}=ML^2e^{im\th}-L^2Me^{im\th}=m^2e^{-im\th}-(-m)^2e^{-im\th}=0,
+\end{split}\2.\ee
+so $M$ commutes with the Hamiltonian, thus it's a symmetry operation; but it doesn't commute with $L$.\\
+Consequently, if we consider the existence of the magnetic field, we have to add to the Hamiltonian an extra term which is proportional to the product of $B$ and $L$, 
+\be
+H=\frac{L^2}{2I}+\gamma BL,
+\ee
+in this case the reflection operation will not commute with the Hamiltonian, thus it's not a symmetry.\\
+To conclude, in the case without the magnetic field, both the rotation symmetry and the mirror symmetry is guaranteed, thus we have the degeneracy; but in the case with the existence of the magnetic field, the mirror symmetry is broken, thus degeneracy is also gone. \\
+
+The reflection operation leads to the inversion of the magnetic field, turning pointing outwards into inwards, since the magnetic field is generated by the electric current, which is the actual ingredient we want reflection.
+\begin{pspicture}(0,-5)(16,5)
+\psline{->}(4,0)(12,0)
+\psarc[arrowscale=2]{->}(8,2){1.5}{0}{360}\psarc[arrowscale=2]{<-}(8,-2){1.5}{0}{360}
+\psdots[linecolor=blue,dotstyle=*,dotsize=3pt](8,2)(7,2)(9,2)(8,1)(8,3)(8.6,2.6)(8.6,1.4)(7.4,2.6)(7.4,1.4)
+\psdots[linecolor=red,dotstyle=x,dotsize=5pt](8,-2)(7,-2)(9,-2)(8,-1)(8,-3)(8.6,-2.6)(8.6,-1.4)(7.4,-2.6)(7.4,-1.4)
+\rput(8,-4){\textit{Reflection of the magnetic field about the $x$-axis}}
+\rput(12,0.3){$x$}
+\end{pspicture}
+
+Actually we have a more accurate statement which says,\\
+
+\textit{Symmetry operations that don't commute with each other imply degeneracy.}\\
+
+In mathematical language, ``symmetry operations that don't commute with each other" should be written as
+\be\1\{\begin{split}
+&[A,H]=0\\
+&[B,H]=0\\
+&[A,B]=iC,
+\end{split}\2.\ee
+where $A$ and $B$ are generators of the corresponding symmetry. $C$ is a new operator, with its Hermitian property guaranteed by the factor of $i$ in front of it. It's easy to prove that $C$ also commutes with the Hamiltonian,
+\be
+[C,H]=0,
+\ee
+thus it's also a symmetry. By the same procedure we create $C$, we could create more symmetry generators as,
+\be
+[A,C]=D, \quad  [B,D]=...
+\ee
+We keep doing this until we don't get something new, but rarely we might never end. Regardless of endless case, we have a collection of symmetry generators, $\{A,B,C,D,...\}$, which form a closed system called a group, with the group multiplication defined as the commutation. With this definition of multiplication, the generator group is called a \textit{Lie algebra}.\\
+
+Next we're going to explore an important case of energy degeneracy led by non-commutating symmetry operations --- three components of the 3-dimensional rotation.
+
+If a system has rotation invariance, all the three components $L_x, L_y, L_z$ should commute with the Hamiltonian $H$,
+\be
+[L_i, H]=0, \quad i=x,y,z.
+\ee
+But do the three components commute with each other? \\
+In order to figure out this more easily, we firstly express one components $L_z$ in terms of $x-y$ coordinates. $L_z$ is the generator of a rotation of a particle in 2-dimension. The rotation is led by infinitesimal changes in $x-y$ coordinates as
+\be\1\{\begin{split}
+&x'=x\cos{\ep}+y\sin{\ep}=x+\ep y \\
+&y'=-x\sin\ep +y\cos\ep=y-\ep x,
+\end{split}\2.\ee
+thus the variation of the coordinates are
+\be\1\{\begin{split}
+&\del x=\ep y \\
+&\del y=-\ep x,
+\end{split}\2.\ee
+and the wave function is changed by
+\be\begin{split}
+\del \psi&=\frac{\p\psi}{\p x}\del x+\frac{\p\psi}{\p y}\del y\\
+&=\ep y\frac{\p\psi}{\p x}-\ep x\frac{\p\psi}{\p y}\\
+&=-i\frac{\ep}{\hbar}(x \hat p_y-y \hat p_x)\psi,
+\end{split}\ee
+and in the last subsection we denote $\del\psi$ as $-i\frac{\ep}{\hbar}L_z\psi$, so 
+\be
+L_z=xp_y-yp_x,
+\ee
+which is consistent with the classical definition
+\be
+(L)_z=(x\times p)_z.
+\ee
+By the same reasoning, we give the expression of the two other components:
+\be\1\{\begin{split}
+&L_x=yp_z-zp_y \\
+&L_y=zp_x-xp_z.
+\end{split}\2.\ee
+Then we can calculate the commutator of two of the components, say, $L_x$ and $L_y$,
+\be
+[L_x,L_y]=[yp_z-zp_y,zp_x-xp_z]=-i\hbar yp_x+i\hbar xp_y=i\hbar L_z,
+\ee
+where we have used the fact that $[x_i,p_j]=i\hbar \del_{ij}$. Thus we find the commutator of two symmetry generators will give a new symmetry generator, as we stated. Actually the commutators of the three components of angular momentum can be summarized as 
+\be
+[L_i,L_i]=i\hbar \ep_{ijk}L_k,
+\ee
+where $\ep_{ijk}$ is the Levi-Civita symbol. For convenience, we sometimes just drop the $\hbar$ in below.
+
+Next we arbitrarily pick one of the components, say $L_z$, and  work with eigenvalues and eigenvectors of it. The eigen-function of $L_z$ is given by
+\be
+L_z|m\ra=m|m\ra.
+\ee
+But now let's temporarily forget the fact that ``$m$"s are integers, and explore what possible values ``$m$"s can have. As a trick, we may convert the question in another way: suppose we already have an ``$m$", how to find other values of ``$m$"? Here Dirac suggest the clever tools of raising and lowering operators of $L_z$:
+\be\1\{\begin{split}
+&L_+=L_x+iL_y \\
+&L_-=L_x-iL_y.
+\end{split}\2.\ee
+It's straightforward to compute their commutators with $L_z$,
+\be\1\{\begin{split}
+&[L_+,L_z]=-L_+ \\
+&[L_-,L_z]=L_-.
+\end{split}\2.\ee
+Now let's take one of the commutators to act on an eigenstate of $L_z$,
+\be
+-L_+|m\ra=[L_+,L_z]|m\ra=mL_+|m\ra-L_zL_+|m\ra,
+\ee
+by sorting the equation we have
+\be
+L_z\ L_+|m\ra=(m+1)\ L_+|m\ra,
+\ee
+this equation implies that $L_+|m\ra$ is also an eigenstate of $L_z$, and its corresponding eigenvalue is $m+1$, so we denote this eigenstate as
+\be
+L_+|m\ra\equiv |m+1\ra,
+\ee
+and the similar procedure goes with $L_-$,
+\be
+L_-|m\ra\equiv |m-1\ra,
+\ee
+where we actually omit the normalization factor in front of the state by setting it to be $1$. From these we see that the effect of $L_\pm$ is to raise or lower the energy eigenstate by one unit, thus generating spectrum of energy from a single energy eigenstate.
+
+Since $L_z$ is symmetric when converted upside-down, thus the spectrum has no difference with that of $-L_z$, hence the spectrum is symmetric about the zero point in $m$-axis. There are two possibilities satisfying this symmetry: ``$m$"s are all integers or half integers, which represent orbital or spin angular momentum when truncated at certain maximum and minimum values. As an aside, the eigenstates of $L_x$ or $L_y$ are just linear combination of the ``$|m\ra$"s, which is an obvious fact.\\
+
+\psset{linewidth=0.4pt}
+\begin{pspicture}(0,-4)(16,4)
+\psaxes(5,0)(5,-3.5)(5,3.5) \psaxes(11,0)(11,-3.5)(11,3.5)
+\psdots[linecolor=red,dotsize=5pt](5,0)(5,1)(5,2)(5,3)(5,-1)(5,-2)(5,-3)(11,0.5)(11,-0.5)
+\rput(5,3.8){$m$}\rput(11,3.8){$m$}\rput(5,-4){\textit{{\color{red}Integer eigenvalues}}}\rput(11,-4){\textit{{\color{red}Half-integer eigenvalues}}}
+\end{pspicture}\\
+
+Each state point in the spectrum axis has the same energy, thus we call these states \textit{``multiplets"}. There are $2l+1$ states of the angular momentum characterized by $l$, the maximum value of and the minus minimum value of $L_z$, and there're $2$ states of the spin characterized by $\frac 1 2$.\\
+
+We will firstly prove that different states in multiplets, say $|m\ra$ and $|m-1\ra$, have the same energy, without showing explicitly what value the energy is, and after that we calculate the energy value of all the multiplets.\\
+Since the Hamiltonian is proportional to the squared angular momentum, the eigenstate of the angular momentum is also the eigenstate of the Hamiltonian, thus it has a definite energy, we set it to be $E$,
+\be
+H|m\ra=E|m\ra,
+\ee
+and we calculate the energy of the lower level by one unit, $|m-1\ra$,
+\be
+H|m-1\ra=HL_-|m\ra=L_-H|m\ra=L_-E|m\ra=E|m-1\ra,
+\ee
+where we used the fact that $[H,L_-]=0$. Hence we find that $|m-1\ra$ has the same energy with $|m\ra$. And by the same reasoning, every state in the multiplets has the same energy $E$. This degeneracy follows from that the $L_x$ and $L_y$ symmetries don't commute.\\
+Next we are going to find what exact value does $E$ have. We expand the squared angular momentum as
+\be\begin{split}
+L^2&= L_z^2+L_x^2+L_y^2\\
+&=\underbrace{L_z^2+(L_x-iL_y)(L_x+iL_y)}_{\text{classical terms}}\underbrace{-i[L_x,L_y]}_{\text{quantum correction}}\\
+&=L_z^2+L_z+L_-L_+,
+\end{split}\ee
+and we apply it to the state $|l\ra$, where $l$ is the maximum of $m$,
+\be\begin{split}
+L^2|l\ra&=L_z^2|l\ra+L_z|l\ra+L_-\underbrace{L_+|l\ra}_0\\
+&=(\underbrace{l^2}_{\text{classical}}+\underbrace{l}_{\text{quantum}})\quad |l\ra=l(l+1)|l\ra,
+\end{split}\ee
+where we used the fact that $L_+|l\ra=0$, which means the spectrum is truncated at the highest $m$, and we see that the eigenvalue of $L^2$ is $l(l+1)$, differing from that of a classical operator by a factor of $l$.\\
+Next we apply the same operator on a lowest level $|l-1\ra$,
+\be
+L^2|l-1\ra=L^2L_-|l\ra=L_-L^2|l\ra=l(l+1)L_-|l\ra=l(l+1)|l-1\ra,
+\ee
+where we used that $[L^2, L_\pm]=0$ following from $[L^2,L_i]=0$. Here we didn't use directly the form of $L^2$ as $L_z^2+L_z+L_-L_+$ because we didn't get the normalization factor of $L_+$ acting on $|l-1\ra$, or more generally $|m\ra$. From here we see that when you find a multiplet like this, going from $l$ to minus $l$, such that there's no more above it or no more below it, you find not only eigenvectors of $L_z$ with eigenvalues $m$, but you also find the eigenvectors of the squared angular momentum $L^2$ with eigenvalue $l(l+1)$ where $l$ is just the maximum value of $m$; so for each one of these little $l$s, there are $2l+1$ states and they all have the same squared angular momentum, and hence the energy, expect a factor considering units.
+
+\section{Quantum field theory}
+\subsection{Quantum mechanical harmonic oscillators and ladder operators}
+The Hamiltonian of a harmonic oscillator is given by
+\be\begin{split}
+H&=\frac {p^2} 2 +\frac{ \om^2 x^2 }2\\
+&=\frac 1 2 \bigg\{(p+i\om x)(p-i\om x)-i\om [x,p]\bigg\}\\
+&=\hbar \om \1(\frac{p+i\om x}{\sqrt{2\om\hbar}}\2) \1(\frac{p-i\om x}{\sqrt{2\om\hbar}}\2) +\frac{\hbar\om} 2 \\
+&\equiv \hbar\om\ a^+ a^- +\frac{\hbar\om} 2\\
+&\equiv \hbar\om\ \1(N+\frac 1 2\2),
+\end{split}\ee
+where we set the mass to be $1$ and the ``spring constant'' to be $\om^2$, and we used the commutation relation $[x,p]=i\hbar$, and induced two new symbols $a^\pm$.\\
+We see that there's constant $\frac{\hbar\om} 2$ appears in the expression, we call it the ``zero point energy'', or the ground state energy, it's there even when the harmonic oscillator is in its ground state. Classically, the ground state energy of a harmonic oscillator is zero; but quantum mechanically, the position and the momentum cannot simultaneously be zero, thus the energy being square of them got to be a little energy. It's the Heisenberg uncertainty principle which tells you that you can't have zero energy in the ground state.
+
+Since $\frac{\hbar\om} 2$ is nothing but a constant we may add anytime and it doesn't affect the eigenvectors of the Hamiltonian, we can drop it for a while until the last and then we restore it. So we list the Hamiltonian and the ladder operator, as well as a useful tool which is the commutator of the ladder operators, as below,
+\be\1\{\begin{split}
+&H=\hbar\om\ a^+ a^-\equiv \hbar\om N\\
+&a^\pm=\frac{p\pm i\om x}{\sqrt{2\om\hbar}}\\
+&[a^-,a^+]=1,
+\end{split}\2.\ee
+where the $a^+$ and $a^-$ are Hermitian conjugates of each other, since $p$ and $x$ are Hermitian operators.
+
+Next we explore the eigenvectors and eigenvalues of the Hamiltonian or the number operator $N$. The eigen-equation is given by
+\be
+a^+a^-|n\ra\equiv N|n\ra=n|n\ra,
+\ee
+where $|n\ra$ is its eigenvector and $n$ its eigenvalue. According to the commutation relation of the ladder operators, we have
+\be
+a^+|n\ra=a^+[a^-,a^+]|n\ra=a^+a^-a^+|n\ra-a^+a^+a^-|n\ra-=Na^+|n\ra-a^+N|n\ra=Na^+|n\ra-na^+|n\ra,
+\ee
+by moving the last term to the left, we get
+\be
+N\ a^+|n\ra=(n+1)\ a^+|n\ra,
+\ee
+which tells us that the raising operator $a^+$ acting on the state $|n\ra$ gives us a new eigenvector of $N$ with an eigenvalue one unit up, $n+1$. And the same reasoning goes with the lowering operator $a_-$, it takes the level one unit down, except that it cannot go infinitely down, since the Hamiltonian is always positive, there's a ground state $|0\ra$ exerted by $a^-$ gives $0$,
+\be
+a^-|0\ra=0.
+\ee
+With the proper normalization factor, we write the effect that $a^\pm$ act on $|n\ra$ as
+\be\1\{\begin{split}
+a^+|n\ra&=\sqrt{n+1}\ |n+1\ra\\
+a^-|n\ra&=\sqrt{n}\ |n-1\ra,
+\end{split}\2.\ee
+which automatically guarantees that $a^+a^-|n\ra=n|n\ra$ and $a^-|0\ra=0$. Every other state can be built up by acting $a^+$s on the ground state $|0\ra$. 
+
+Next we're going to demonstrate what explicitly the ground state is, by solving the differential equation it satisfies. We work in $x$-basis, where the ground state wave function is denoted by $\la x|0\ra \equiv \psi_0(x)$, and $x$ and $p$ operators are in their basis-dependent form. Instead of solving the Schrodinger's equation directly, we may find a clever way to solve another equation which nothing but $\la x|a^-|0\ra=0$, in $x$-basis, the equation is given by
+\be
+\1(-i\hbar\frac{\dif}{\dif x}-i\om x\2)\psi_0(x)=0 \ \implies\ \1(\frac{\dif}{\dif x}+\frac\om\hbar x\2)\psi_0(x)=0,
+\ee
+we propose an ansatz in the form of 
+\be
+\psi_0(x)\sim e^{f(x)},
+\ee
+thus the differential equation becomes
+\be
+f'(x)+\frac\om\hbar x=0,
+\ee
+so the unknown function is given by
+\be
+f=-\frac\om{2\hbar} x^2 +C,
+\ee
+and the ground state function is proportional to 
+\be
+\psi_0(x)\sim e^{-\frac\om{2\hbar} x^2}.
+\ee
+This is a bell-shaped even function with no nodes, which goes to zero when $x$ approached infinity, as we aspired. picture to be added
+
+We check this solution by inserting it into the time-independent Schrodinger's equation,
+\be
+-\frac{\hbar^2}{2}\frac{\dif^2}{\dif x^2} \psi(x) +\frac 1 2 \om^2 x^2 \psi(x)= E\psi(x),
+\ee
+for convenience, we list the first and second order derivative of $\psi_0(x)$ as follows
+\be\1\{\begin{split}
+\psi_0'(x)&=-\frac\om\hbar x e^{-\frac\om{2\hbar} x^2}=-\frac\om\hbar x \psi_0(x)\\
+\psi_0''(x)&=-\frac\om\hbar e^{-\frac\om{2\hbar} x^2}+\frac{\om^2}{\hbar^2} x^2 e^{-\frac\om{2\hbar} x^2}=\1(\frac{\om^2}{\hbar^2} x^2-\frac\om\hbar\2)\psi_0(x),
+\end{split}\2.\ee
+thus the LHS of the SEQ is given by
+\be
+\1(-\frac 1 2 \om^2 x^2+\frac{\hbar\om}{2}+\frac 1 2 \om^2 x^2\2)\psi_0(x)=\frac{\hbar\om}{2}\psi_0(x),
+\ee
+joining it with RHS, we see that
+\be
+E_0=\frac{\hbar\om}{2},
+\ee
+which is the zero point energy, as we desired.
+
+Excitation states' wave functions can be obtained by acting the raising operator onto the ground state function, with each result the same order the coefficient in front of the $\psi_0(0)$ has as the excitation level. For example, the first excitation state can be gained by
+\be
+\psi_1(x)=a^+\psi_0(x)=\1(-i\hbar\frac{\dif}{\dif x}+i\om x\2)\psi_0(x),
+\ee
+but we already knew
+\be
+\1(-i\hbar\frac{\dif}{\dif x}-i\om x\2)\psi_0(x)=0,
+\ee
+thus the first excitation wave function is
+\be
+\psi_1(x)=2i\om x\psi_0(x)=2i\om xe^{-\frac\om{2\hbar} x^2},
+\ee
+without considering the proper factor in front of it. This is an odd function with one nodes, which also shrinks to zero at infinity. picture to be added
+
+The following second excitation wave function is straightforward, 
+\be
+\psi_2(0)=(a^+)^2\psi_0(x)=a^+\psi_1(x)=\1(-i\hbar\frac{\dif}{\dif x}+i\om x\2)(2i\om x\psi_0(x))=(2\om x^2-\hbar)\psi_0(x),
+\ee
+which becomes even again and has two nodes. picture to be added
+
+As more and more raising operator acting on the ground state function, the resulting function becomes more and more wiggled. With the most wiggled part concentrated at the origin which represents the high momentum, and the larger amplitude away from the origin represents the big potential energy, and finally damps down to zero at infinity. This picture resembles much as the classical picture of a harmonic oscillator vibrating back and forth in a given potential.  picture to be added
+
+\subsection{Creation/Annihilation operators and the quantum field operators}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\section{Entanglement}
 
 
 

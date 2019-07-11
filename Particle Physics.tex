@@ -1,0 +1,187 @@
+\documentclass{article}
+
+\usepackage{amsmath,mathtools,amssymb}
+\usepackage{bm,extarrows,ulem,cancel}
+\usepackage{mathrsfs}
+\usepackage{geometry,graphicx,color}
+\geometry{centering,scale=0.8}
+\usepackage[all,pdf]{xy}
+\usepackage{pstricks,pstricks-add}
+
+
+\newcommand{\sect}{\section}
+\newcommand{\subsec}{\subsection}
+
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\bea}{\begin{eqnarray}}
+\newcommand{\eea}{\end{eqnarray}}
+\newcommand{\ba}{\begin{array}}
+\newcommand{\ea}{\end{array}}
+\newcommand{\bs}{\be\begin{split}}
+
+\newcommand{\dif}{\,\mathrm{d}}
+\newcommand{\p}{\partial}
+\renewcommand{\1}{\left}
+\renewcommand{\2}{\right}
+\newcommand{\ma}{\mathcal}
+\newcommand{\la}{\langle}
+\newcommand{\ra}{\rangle}
+
+\newcommand{\m}{\mu}
+\newcommand{\n}{\nu}
+\newcommand{\al}{\alpha}
+\newcommand{\bet}{\beta}
+\newcommand{\lam}{\lambda}
+\newcommand{\sig}{\sigma}
+\newcommand{\ep}{\epsilon}
+\newcommand{\om}{\omega}
+\newcommand{\del}{\delta}
+\newcommand{\Del}{\Delta}
+\renewcommand{\th}{\theta}
+
+
+\title{Particle Phyics}
+\author{Gui-Rong Liang}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+
+
+\subsection{Decay rates}
+The \textit{decay rate} of a certain kind of particle is denoted by $\Gamma$, which refers to the probability that this kind of particles decay per unit time. 
+
+For example, there are $N(t)$ particles at time $t$, then the number of particles that will decay in the next time interval $\dif t$ is given by $N(t)\Gamma\dif t$. This number is of course minus the change of the present particle number,
+\be
+\dif N(t)=-N(t)\Gamma\dif t,
+\ee
+the solution of which gives the decay function of the particles,
+\be
+N(t)=N(0)e^{-\Gamma t}.
+\ee
+From this function we can calculate the \textit{average lifetime} of this kind of particles. Each particle that'll decay in the next time interval has lifetime $t$, and the number of these particles is $N(t)\Gamma\dif t$ as given above, so the total lifetime of these particle is $tN(t)\Gamma\dif t$, since decay happens at anytime throughout history, this amount should be integrated from the starting time to infinity, and the outcome would be the total amount of lifetime of all particles. The average lifetime of all particles is the total amount of lifetime of all particles divided by the total number of particles,
+\be
+\tau=\frac{\int_0^\infty tN(t)\Gamma\dif t}{N(0)}=\Gamma\int_0^\infty te^{-\Gamma t}\dif t=\Gamma\1(\cancel{t\frac{e^{-\Gamma t}}{-\Gamma}\bigg|_0^\infty}-\int_0^\infty\frac{e^{-\Gamma t}}{-\Gamma}\dif t\2)=\int_0^\infty e^{-\Gamma t}\dif t=\frac1\Gamma.
+\ee
+So we may rewrite the exponential decay function as
+\be
+N(t)=N(0)e^{-t/\tau},
+\ee
+where $\tau$ can be treated as a measurement of the decay time. When the time goes to this average, i.e, $t=\tau$, the rest amount of particles is $1/e\approx 0.368$ of the original.
+
+Also from this decay function, we can compute the \textit{half-life} of the particles, which refers to the time that a pile of particles decay to its half amount,
+\be
+\frac1 2=\frac{N(t_{1/2})}{N(0)}=e^{-t_{1/2}/\tau} \quad\implies\quad t_{1/2}=\tau\ln 2\approx 0.693\ \tau.
+\ee
+To summarize the above two lifetimes and the leftover amount, we list as
+\be\begin{split}
+t=0.69\ \tau &\quad\longrightarrow\quad N(t)=\phantom{5}0.5\ N(0)\\
+t=\tau\phantom{0.69\ } &\quad\longrightarrow\quad N(t)=0.37\ N(0).
+\end{split}\ee
+These are important data facts that one should bare in mind.
+
+\subsection{Cross sections}
+
+The cross section is the quantity that reflects the effective target area that can influence the bullet particle's moving trajectory.
+
+It concerns two basic parameters --- the impact parameter denoted by $b$ as an input variable, which is the distance the particle's original trajectory line away from the scattering center; the scattering angle denoted by $\th$ as an output variable, which is the angle between the outgoing particle trajectory line and the original. So the scattering angle is a function of the impact parameter, $\th(b)$, and usually the less the impact parameter is, the larger the scattering angle is.
+
+figure to be added.
+
+If the particle injects in between $b$ and $b+\dif b$, it'll go out between $\th$ and $\th+\dif\th$. More generally, if it goes through an infinitesimal area $\dif\sig$, it'll scatter in the solid angle $\dif\Omega$ (figure to be added). Natually, as $\dif\sig$ goes up, $\dif\Omega$ should also become larger; the ratio between them is called the differential cross section $D(\th)$,
+\be
+\dif\sig=D(\th)\dif\Omega.
+\ee
+From the geometrical relations, we have
+\be
+\dif\sig=|b\dif b\dif\phi|, \quad \dif\Omega=|\sin\th\dif\th\dif\phi|,
+\ee
+which are all positive values, correspondingly, 
+\be
+D(\th)=\frac{\dif\sig}{\dif\Omega}=\1| \frac b{\sin\th} \1(\frac{\dif b}{\dif\th}\2)\2|.
+\ee
+This is a general relation in all scattering cases.
+
+Lastly, the total cross section is the integral of differential cross sections over all solid angles,
+\be
+\sig=\int\dif\sig=\int D(\th)\dif\Omega.
+\ee\\
+
+The \textbf{hard-sphere scattering} refers to the elastic scattering process of a particle by a hard sphere. From the figure (to be added), we have the following geometric relations,
+\be
+b=R\sin\th, \quad 2\al+\th=\pi \quad\implies\quad b=R\sin\1(\frac\pi 2 -\frac\th 2\2)=R\cos\1(\frac\th 2\2) \quad\implies\quad \th=2\arccos\1(\frac b R\2).
+\ee
+This is the classical hard-sphere scattering relation between $\th$ and $b$, which is indicated in Figure \ref{hard-sph}.
+\begin{figure}[h]
+\centering
+\includegraphics{hard-sph}
+\caption{Hard-sphere scattering function}
+\label{hard-sph}
+\end{figure}\\
+
+
+
+In hard-sphere case, the differential relation is simply
+\be
+\frac{\dif b}{\dif\th}=-\frac R 2\sin{\1(\frac\th 2\2)},
+\ee
+thus the differential cross section is 
+\be
+D(\th)=\frac{Rb\sin{(\th/2)}}{2\sin\th}=\frac{R^2}2\frac{\cos(\th/2)\sin(\th/2)}{\sin\th}=\frac{R^2}4.
+\ee
+The total cross section is given by,
+\be
+\sig=\int\frac{R^2}4\dif\Omega=\pi R^2.
+\ee
+This result is, as we expected, the transverse plane of the sphere, within which the injection particle is scattered, and outside which the particle just passes through.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
