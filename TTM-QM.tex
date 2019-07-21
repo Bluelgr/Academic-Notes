@@ -42,7 +42,7 @@
 
 
 \title{Notes on The Theoretical Minimum\\
---- Elementary and Advanced Quantum Mechanics}
+--- Quantum Mechanics, Advanced Quantum Mechanics, and Quantum Field Theory}
 \author{Gui-Rong Liang}
 
 \begin{document}
@@ -316,8 +316,8 @@ In fact, any observable of a spin is represented by a $2\times2$ Hermitian matri
 \1(\ba{cc}r&w\\w^*&r'\ea\2),
 \ee
 the implication is that it takes exactly four real parameters to specify this observable. And, there is a neat way to write any spin observable in terms of the Pauli matrices, $\sig_x$, $\sig_y$, $\sig_z$, and the unit matrix $I$,
-\be S=a\sig_x+b\sig_y+c\sig_z+d I, \ee
-where $a$, $b$, $c$ and $d$ are real numbers.
+\be S=a I+b_1\sig_x+b_2\sig_y+b_3\sig_z=a I+\vec b\cdot\vec \sig, \ee
+with $a$ and $b_i$ real numbers.
 
 \subsection{States and Operators in Continuous basis}
 1. States and the inner product\\
@@ -564,7 +564,7 @@ The result is completely uniform, with no peaks anywhere on the $x$ axis. Eviden
 
 
 
-\section{Symmetry operations of quantum states and conserved quantities}
+\section{Symmetry Operations of Quantum States and Conserved Quantities}
 \subsection{Time evolution of isolated states and the Hamiltonian}
 
 In classical mechanics, if two identical isolated systems start out in different states, they stay in different states. It underlies the fact that information is never lost. The same is true in quantum mechanics, and even much stronger. The direct manifestation is that if two states are initially orthogonal, they remain orthogonal throughout the evolution, or \textit{conservation of orthogonality}.
@@ -826,13 +826,9 @@ Next we want to explore the eigenvalues and eigenvectors of the angular momentum
 \ee
 where $l$ is its eigenvalue (of $z$-component of angular momentum), and the eigenfunction is solved as
 \be
-\psi(\th)=e^{i\frac l\hbar \th}.
+\psi(\th)=e^{i\frac l\hbar \th} \psi(0)\equiv e^{im \th} \psi(0),
 \ee
-Note that in this form we have an additional constraint, which physically says that the function must have a single value at each point, or mathematically it has the periodic property,
-\be
-e^{i\frac l\hbar 2\pi}=e^{i\frac l\hbar 0}=1 \ \implies\  l=m\hbar,
-\ee
-where $m$ is an integer. But sometimes we drop the $\hbar$ and say that the angular momentum must be an integer $m$.
+where $m$ is multiples of $\hbar$ by $l$. Note that in this form we have an additional constraint, which says that rotating the function by the angle of $2\pi$, physical observables should stay the same, for bosons the wave function also stays the same, for fermions the wave function may differ by a phase factor of $-1$, thus corresponding to the fact that $m$ must be an integer or half-integer, which we will discuss later.
 
 \subsection{Symmetry operations and Energy degeneracy} 
 
@@ -933,7 +929,7 @@ Then we can calculate the commutator of two of the components, say, $L_x$ and $L
 \ee
 where we have used the fact that $[x_i,p_j]=i\hbar \del_{ij}$. Thus we find the commutator of two symmetry generators will give a new symmetry generator, as we stated. Actually the commutators of the three components of angular momentum can be summarized as 
 \be
-[L_i,L_i]=i\hbar \ep_{ijk}L_k,
+[L_i,L_j]=i\hbar \ep_{ijk}L_k,
 \ee
 where $\ep_{ijk}$ is the Levi-Civita symbol. For convenience, we sometimes just drop the $\hbar$ in below.
 
@@ -969,7 +965,7 @@ L_-|m\ra\equiv |m-1\ra,
 \ee
 where we actually omit the normalization factor in front of the state by setting it to be $1$. From these we see that the effect of $L_\pm$ is to raise or lower the energy eigenstate by one unit, thus generating spectrum of energy from a single energy eigenstate.
 
-Since $L_z$ is symmetric when converted upside-down, thus the spectrum has no difference with that of $-L_z$, hence the spectrum is symmetric about the zero point in $m$-axis. There are two possibilities satisfying this symmetry: ``$m$"s are all integers or half integers, which represent orbital or spin angular momentum when truncated at certain maximum and minimum values. As an aside, the eigenstates of $L_x$ or $L_y$ are just linear combination of the ``$|m\ra$"s, which is an obvious fact.\\
+Since $L_z$ is symmetric when converted upside-down, thus the spectrum has no difference with that of $-L_z$, hence the spectrum is symmetric about the zero point in $m$-axis. There are two possibilities satisfying this symmetry: ``$m$"s are all integers or half integers, which represent orbital or spin angular momentum when truncated at certain maximum and minimum values. 
 
 \psset{linewidth=0.4pt}
 \begin{pspicture}(0,-4)(16,4)
@@ -978,7 +974,25 @@ Since $L_z$ is symmetric when converted upside-down, thus the spectrum has no di
 \rput(5,3.8){$m$}\rput(11,3.8){$m$}\rput(5,-4){\textit{{\color{red}Integer eigenvalues}}}\rput(11,-4){\textit{{\color{red}Half-integer eigenvalues}}}
 \end{pspicture}\\
 
-Each state point in the spectrum axis has the same energy, thus we call these states \textit{``multiplets"}. There are $2l+1$ states of the angular momentum characterized by $l$, the maximum value of and the minus minimum value of $L_z$, and there're $2$ states of the spin characterized by $\frac 1 2$.\\
+Next we rotate the wave function by an angle of $2\pi$, when ``$m$"s are integers, we have
+\be
+R(2\pi)\psi(\th)=\psi(\th+2\pi)=e^{i2\pi m}\psi(\th)=\psi(\th),
+\ee
+the wave function does not change, and neither are the physical quantities, as we expected, thus we call the particles that has the kind of wave functions, the bosons.
+
+when ``$m$"s are half-integers as $m=n+1/2$, where $n$ is an integer, we have
+\be
+R(2\pi)\psi(\th)=\psi(\th+2\pi)=e^{i2\pi m}\psi(\th)=e^{i2\pi (n+\frac 1 2)}\psi(\th)=-\psi(\th),
+\ee
+the wave function changes by a minus sign, but the physical quantities still do not change since they contain product of conjugates of wave functions, also as we expected. But in these cases we call the particles that has this kind of wave functions, the fermions. Note that for fermions, if we want the wave function itself to be unchanged under rotation, the minimal angle would be $4\pi$.
+
+Experimentally if we want test this phase factor of $-1$ of fermion wave function caused by rotation by $2\pi$, we choose the spin direction to denote the direction of the wave function $\psi(x,\sig)$, and align it to the magnetic field. Then we rotate the magnetic field slowly by the angle of $2\pi$, and interfere it with the original wave function, we can see the interference pattern differs from that of two wave function not rotated at all.\\
+
+
+
+Each state point in the spectrum axis has the same energy, thus we call these states \textit{``multiplets"}. There are $2l+1$ states of the angular momentum characterized by $l$, the maximum value of and the minus minimum value of $L_z$, and there're $2$ states of the spin characterized by $\frac 1 2$. 
+
+As an aside, the eigenstates of $L_x$ or $L_y$ are just linear combination of the ``$|m\ra$"s, which is an obvious fact.\\
 
 We will firstly prove that different states in multiplets, say $|m\ra$ and $|m-1\ra$, have the same energy, without showing explicitly what value the energy is, and after that we calculate the energy value of all the multiplets.\\
 Since the Hamiltonian is proportional to the squared angular momentum, the eigenstate of the angular momentum is also the eigenstate of the Hamiltonian, thus it has a definite energy, we set it to be $E$,
@@ -1008,7 +1022,7 @@ L^2|l-1\ra=L^2L_-|l\ra=L_-L^2|l\ra=l(l+1)L_-|l\ra=l(l+1)|l-1\ra,
 \ee
 where we used that $[L^2, L_\pm]=0$ following from $[L^2,L_i]=0$. Here we didn't use directly the form of $L^2$ as $L_z^2+L_z+L_-L_+$ because we didn't get the normalization factor of $L_+$ acting on $|l-1\ra$, or more generally $|m\ra$. From here we see that when you find a multiplet like this, going from $l$ to minus $l$, such that there's no more above it or no more below it, you find not only eigenvectors of $L_z$ with eigenvalues $m$, but you also find the eigenvectors of the squared angular momentum $L^2$ with eigenvalue $l(l+1)$ where $l$ is just the maximum value of $m$; so for each one of these little $l$s, there are $2l+1$ states and they all have the same squared angular momentum, and hence the energy, expect a factor considering units.
 
-\section{Quantum field theory}
+\section{Non-relativistic Quantum Fields}
 \subsection{Quantum mechanical harmonic oscillators and ladder operators}
 The Hamiltonian of a harmonic oscillator is given by
 \be\begin{split}
@@ -1045,12 +1059,26 @@ which tells us that the raising operator $a^+$ acting on the state $|n\ra$ gives
 \be
 a^-|0\ra=0.
 \ee
-With the proper normalization factor, we write the effect that $a^\pm$ act on $|n\ra$ as
+Thus, we write the effect that $a^\pm$ act on $|n\ra$ as
+\be\1\{\begin{split}
+a^+|n\ra&=c_n\ |n+1\ra\\
+a^-|n\ra&=d_n\ |n-1\ra,
+\end{split}\2.\ee
+and by using the orthonormal relation 
+\be
+\la n|m\ra=\del_{nm},
+\ee
+the normalization factor can be computed as
+\be\begin{split}
+c_n^2&=\la n+1|c_n^2|n+1\ra=\la n|a^-a^+|n\ra=\la n|a^+a^-|n\ra+\la n|[a^-,a^+]|n\ra=n+1\quad\implies\quad c_n=\sqrt{n+1}\\
+d_n^2&=\la n-1|d_n^2|n-1\ra=\la n|a^+a^-|n\ra=\la n|n|n\ra=n\quad\implies\quad d_n=\sqrt{n},
+\end{split}\ee
+so we can write 
 \be\1\{\begin{split}
 a^+|n\ra&=\sqrt{n+1}\ |n+1\ra\\
 a^-|n\ra&=\sqrt{n}\ |n-1\ra,
 \end{split}\2.\ee
-which automatically guarantees that $a^+a^-|n\ra=n|n\ra$ and $a^-|0\ra=0$. Every other state can be built up by acting $a^+$s on the ground state $|0\ra$. 
+which are consistent with the fact that $a^+a^-|n\ra=n|n\ra$ and $a^-|0\ra=0$. Every other state can be built up by acting $a^+$s on the ground state $|0\ra$. 
 
 Next we're going to demonstrate what explicitly the ground state is, by solving the differential equation it satisfies. We work in $x$-basis, where the ground state wave function is denoted by $\la x|0\ra \equiv \psi_0(x)$, and $x$ and $p$ operators are in their basis-dependent form. Instead of solving the Schrodinger's equation directly, we may find a clever way to solve another equation which nothing but $\la x|a^-|0\ra=0$, in $x$-basis, the equation is given by
 \be
@@ -1115,7 +1143,325 @@ which becomes even again and has two nodes. picture to be added
 
 As more and more raising operator acting on the ground state function, the resulting function becomes more and more wiggled. With the most wiggled part concentrated at the origin which represents the high momentum, and the larger amplitude away from the origin represents the big potential energy, and finally damps down to zero at infinity. This picture resembles much as the classical picture of a harmonic oscillator vibrating back and forth in a given potential.  picture to be added
 
-\subsection{Creation/Annihilation operators and the quantum field operators}
+\subsection{Many-harmonic-oscillator system and quantum field operators}
+Consider a system containing many harmonic oscillators, each at its energy eigenstate, this state can be represented as
+\be
+|n_1, n_2,...,n_i,...\ra,
+\ee
+if we want to raise or lower the energy of the $i$th harmonic oscillator, we may make use of the ladder operator as
+\be\begin{split}
+a_i^+|n_1, n_2,...,n_i,...\ra&=\sqrt{n_i+1}|n_1, n_2,...,n_i+1,...\ra\\
+a_i^-|n_1, n_2,...,n_i,...\ra&=\phantom{+}\sqrt{n_i}\phantom{10}|n_1, n_2,...,n_i-1,...\ra.
+\end{split}\ee
+Next we're going to generalize this set of notations to the many-particle system in an arbitrary potential $V(x)$. The energy eigenstate wave functions by solving the Schrodinger's equation are given by $\psi_i(x)$ (schematic picture to be added), their orthogonality relations are given by
+\be\1\{\begin{split}
+\int\dif x\  \psi_i^*(x)\psi_j(x)=\int\dif x\ \la i|x\ra \la x|j\ra=\la i|j\ra=\del_{ij}\\
+\sum_i \psi_i^*(x)\psi_i(y)=\sum_i \la y|i\ra\la i|x\ra =\la y|x\ra=\del(x-y).
+\end{split}\2.\ee
+Suppose we have $n_i$ bosonic particles in the $i$th state, the state of the system is denoted by the same notation as the above many-SHO system as,
+\be
+|n_1, n_2,...,n_i,...\ra,
+\ee
+and we replace the raising/lowering operator to a set of new operators called the creation/annihilation operator,
+\be\1\{\begin{split}
+a^+_i &\quad\rightarrow\quad a_i^\dag\\
+a^-_i &\quad\rightarrow\quad a_i,
+\end{split}\2.\ee
+meaning that when it acts on a state, it creates/annihilates a particle at the corresponding energy eigenstate,
+\be\begin{split}
+a_i^\dag|n_1, n_2,...,n_i,...\ra&:=\sqrt{n_i+1}|n_1, n_2,...,n_i+1,...\ra\\
+a_i|n_1, n_2,...,n_i,...\ra&:=\phantom{+}\sqrt{n_i}\phantom{10}|n_1, n_2,...,n_i-1,...\ra,
+\end{split}\ee
+where the normalization factor is a convention satisfying
+\be\begin{split}
+a_i^\dag a_i|n_1, n_2,...,n_i,...\ra&=n_i|n_1, n_2,...,n_i+1,...\ra\\
+a_i|n_1, n_2,...,0\ ,...\ra&=0,
+\end{split}\ee
+where we denote $a_i^\dag a_i\equiv N_i$ as the occupation operator, and the commutator is easily computed as
+\be
+[a_i,a_j^\dag]=\del_{ij},
+\ee
+the similar          result as before.\\
+Specially, when the creation/annihilation operator acts on a single particle state, it gives 
+\be\begin{split}
+a_i^\dag|0\ra&=|i\ra\\
+a_i|j\ra&=\del_{ij}|0\ra,
+\end{split}\ee
+where $|i\ra$ is the $i$th energy eigenstate, and in $x$-basis,
+\be
+\la x|i\ra=\psi_i(x).
+\ee
+Next, importantly, we introduce two field operators defined as 
+\be\1\{\begin{split}
+\hat\Psi^\dag(x)&:=\sum_i a_i^\dag\psi_i^*(x) \\
+\hat\Psi(x)&:=\sum_i  a_i\psi_i(x).
+\end{split}\2.\ee
+Note that these``field operators" are actually ``operator fields", meaning that at each point $x$ in the space there's an operator $\Psi^\dag$ and $\Psi$. Then we are going to see what effects these operators have, firstly by acting the $\hat\Psi^\dag(x)$ on a vacuum state,
+\be
+\hat\Psi^\dag(x)|0\ra=\sum_i  \psi_i^*(x)a_i^\dag|0\ra=\sum_i |i\ra\la i|x\ra=|x\ra,
+\ee
+it means that we created a particle at point $x$! By the similar reasoning, $\hat\Psi(x)$ will annihilate a particle at point $x$,
+\be
+\hat\Psi(x)|y\ra=\sum_i \psi_i(x)a_i \sum_j|j\ra\la j|y\ra=\sum_{ij}  \psi_i(x) \del_{ij}|0\ra\psi_j^*(y) =\sum_i  \psi_i(x) \psi_i^*(y)|0\ra=\del(x-y)|0\ra,
+\ee
+which means if this particle is located at $x$, the operator annihilates it and gives a vacuum state (though with a divergent factor), and if this particle is at another position $y$, the operator just kills it to give $0$. Instead of creating/annihilating a particle at definite energy as $a_i^\dag$ and $a_i$, $\Psi^\dag(x)$ and $\Psi(x)$ creates/annihilates a particle at definite position.
+
+The only non-vanishing commutation relation is computed as
+\be\begin{split}
+[\Psi(x),\Psi^\dag(y)]&=\1[\sum_i a_i\psi_i(x),\sum_j a_j^\dag\psi_i^*(y)\2]\\
+&=\sum_{ij}\psi_i(x)\psi_i^*(y)[a_i,a_j^\dag]\\
+&=\sum_{ij}\psi_i(x)\psi_j^*(y)\del_{ij}\\
+&=\sum_{i}\psi_i(x)\psi_i^*(y)=\del(y-x).
+\end{split}\ee
+Next we are going to look at an interesting quantity composed of the creation and annihilation operators,
+\be
+\hat N\equiv \int \dif x\ \Psi^\dag(x)\Psi(x)=\int \dif x \sum_i \psi_i^*(x)a_i^\dag\sum_j  \psi_j(x)a_j=\sum_{ij}\del_{ij}a_i^\dag a_j=\sum_i a_i^\dag a_i=\sum_i N_i,
+\ee
+where we get nothing but the total number of particle at all energy levels, or in all field; thus $\Psi(x)^\dag\Psi(x)$ represents the particle number density at the given point $x$. This is to be compared with the equation that
+\be
+1=\int \dif x\ \psi^*(x)\psi(x),
+\ee
+where the $\psi(x)$ is the normal quantum wave function; the $1$ here represents the total probability, or incidentally also represents the particle number. The similar form by substituting the wave function to the field operator is inspiring in the next few cases.
+
+In quantum mechanics, the average value of a observable is given by the integral of the corresponding Hermitian operator sandwiched by the wave function and its complex conjugate, for example, the average energy is 
+\be
+\la H\ra=\int \dif x\ \psi^*(x) H\psi(x);
+\ee
+in quantum field theory, the corresponding operator has the similar structure except that replacing the wave function by the field operator, e.g,
+\be\begin{split}
+\hat H_{field}&=\int\dif x\ \Psi^\dag(x) \hat H_{par}\Psi(x)\\
+&=\int\dif x\ \sum_i \psi_i^*(x)a^\dag_i \hat H_{par}\sum_j \psi_j(x) a_j\\
+&=\int\dif x\ \sum_{ij} \psi_i^*(x) a_i^\dag \ep_j \psi_j(x) a_j\\
+&=\sum_{ij} \del_{ij}a_i^\dag a_j \ep_j=\sum_i a_i^\dag a_i \ep_i=\sum_i \hat N_i\ep_i
+\end{split}\ee
+where we have used the time-independent Schrodinger's equation, i.e, the eigen-equation of energy $\hat H_{par}\psi_i(x)=\ep_i\psi_i(x)$. The result is as we expected. And the same goes with the field momentum operator
+\be\begin{split}
+\hat P_{field}&=\int \dif x\ \Psi^\dag(x) \hat P_{par}\Psi(x)= -i\hbar \int \dif x\ \Psi^\dag(x)\frac{\p}{\p x}\Psi(x)\\
+&=\int\dif x\ \sum_i \psi_i^*(x)a^\dag_i \hat P_{par}\sum_j \psi_j(x) a_j\\
+&=\int\dif x\ \sum_i \psi_i^*(x)a^\dag_i p_j\sum_j \psi_j(x) a_j\\
+&=\sum_i a_i^\dag a_i p_i=\sum_i N_i p_i
+\end{split}\ee
+Next we're going to develop the field operator of free particles, i.e, without any potential energy $V(x)$. In this case, the Hamiltonian is written as $H=p^2/{2m}$, the momentum operator commutes with the Hamiltonian, thus the momentum eigenfunctions are the same with the energy eigenfunctions. The momentum eigenfunction in $x$-basis is nothing but the plane wave $e^{ipx}/\sqrt{2\pi}$, thus the sum in the definition of the creation/annihilation operator becomes an integral,
+\be\1\{\begin{split}
+\Psi^\dag(x)&=\frac 1{\sqrt{2\pi}}\int\dif p\ a^\dag(p)\ e^{-ipx} \\
+\Psi(x)&=\frac 1{\sqrt{2\pi}}\int\dif p\ a(p)\ e^{ipx},
+\end{split}\2.\ee
+with $a^\dag_p$ and $a_p$ meaning creating/annihilating a particle at the corresponding momentum. The creation/annihilation operator in position and momentum basis are just Fourier transformations of each other, so the inverse relation is given by
+\be\1\{\begin{split}
+a^\dag(p)&=\frac 1{\sqrt{2\pi}}\int\dif x\ \Psi^\dag(p)\ e^{ipx} \\
+a(p)&=\frac 1{\sqrt{2\pi}}\int\dif x\ \Psi(p)\ e^{-ipx},
+\end{split}\2.\ee\\
+
+To proceed, let's study the Hamiltonian of a free particle field, which is given by
+\be
+H=mc^2\int\dif x\ \Psi^\dag(x)\Psi(x)+\int\dif x\ \Psi^\dag(x)  \1(-\frac{\nabla^2}{2m}\2)\Psi(x),
+\ee
+where the first term is the rest mass energy of the field, and the second term is the kinetic energy of the field. 
+
+Recall that the Hamiltonian governs the time-evolution of the state, or to say, to update the state; so if in this updating process a certain quantity is unchanged, we say that this quantity is conserved. Let's study the first term, which is proportional to the total particle number in the field,
+\be\begin{split}
+\int\dif x\ \Psi^\dag(x)\Psi(x)&=\frac 1 {2\pi}\int\dif x\int\dif p\ a^\dag(p) \ e^{-ipx} \int\dif q\ a(q)\ e^{iqx}\\
+&=\int\dif p\ a^\dag(p)\int\dif q\ a(q)\ \1(\frac 1 {2\pi}\int\dif x\ e^{i(q-p)x}\2)\\
+&=\int\dif p\ a^\dag(p)\int\dif q\ a(q)\ \del(q-p)\\
+&=\int\dif p\ a^\dag(p)\ a(p).
+\end{split}\ee
+When this term acts on a state, it finds a particle at momentum $p$ and annihilates it and then creates a particle at the same momentum, in this way, the momentum is conserved. The working ingredient here is the integral of the exponential gives the Dirac-delta function
+\be
+\frac 1 {2\pi} \int\dif x\ e^{i(q-p)x}=\del(q-p),
+\ee
+so we can say that the delta function is the delta function of momentum conservation.
+
+Then we can generate this type of terms to any term has the following form:
+\be
+\int\dif x\ \Psi_A^\dag(x)\Psi_B^\dag(x)\Psi_A(x)\Psi_B(x),
+\ee
+where different letters denote different type of particles. And this term means that two particles $A$ and $B$ disappear and they reappear, i.e, they scatter off each other. The integral over space guarantees that wherever the scattering happens, this term always takes it into account. No matter how many particle type creation/annihilation operators there in a term, the integral will always contain the working ingredient term
+\be
+\frac 1 {2\pi} \int\dif x\ e^{i(q_A+q_B-p_A-p_B)x}=\del(q_A+q_B-p_A-p_B),
+\ee
+the total momentum will always be conserved.
+
+As another example, let's consider
+\be
+\int\dif x\ \Psi_A^\dag(x)\Psi_B^\dag(x)\Psi_C(x),
+\ee
+which describes a decaying process --- a particle $C$ becomes particles $A$ and $B$, and the same momentum conservation ingredient is still the same. But note that this term is not Hermitian so if it's in the Hamiltonian we must add its Hermitian conjugate which represents the inverse process --- particles $B$ and $C$ becomes $A$. And usually a coupling constant denoted by $g$ reflecting the strength of the process, mostly measured in the experiments, is given in front of the term. So we may rewrite the term as
+\be
+g\int\dif x\ \1(\Psi_A^\dag(x)\Psi_B^\dag(x)\Psi_C(x)+\Psi_C^\dag(x)\Psi_B(x)\Psi_A(x)\2).
+\ee
+
+If we further expand the evolution operator to the second order, we will have the $H^2$ term. Considering the decay process in the above, we will find terms as
+\be\1\{\begin{split}
+&g\int\dif x\ \Psi_A^\dag(x)\Psi_B^\dag(x)\Psi_C(x)\Psi_C^\dag(x)\Psi_B(x)\Psi_A(x)\\
+&g\int\dif x\ \Psi_C^\dag(x)\Psi_B(x)\Psi_A(x)\Psi_A^\dag(x)\Psi_B^\dag(x)\Psi_C(x),
+\end{split}\2.\ee
+where the first term represents $A$ and $B$ combined to form $C$ then $C$ decays into $A$ and $B$ again, just like a scattering process of $A$ and $B$, except for that it doesn't happen at a point, but with $C$ as the intermediate particle; the second term represents $C$ becomes $C$ again, with $A$ and $B$ being the temporary particles.\\
+
+Then we study the second term of the free particle field Hamiltonian,
+\be\begin{split}
+H&=\int\dif x\ \Psi^\dag(x)  \1(-\frac{\nabla^2}{2m}\2)\Psi(x)\\
+&=\frac 1 {2\pi}\int\dif x\ \int\dif p\   a^\dag(p) \ e^{-ipx} \1(-\frac{1}{2m}\frac{\p^2}{\p x^2}\2)\int\dif q\ a(q)\ e^{iqx}\\
+&=\frac 1 {2\pi}\int\dif x\ \int\dif p\   a^\dag(p) \ e^{-ipx} \1(\frac{q^2}{2m}\2)\int\dif q\ a(q)\ e^{iqx}\\
+&=\frac{1}{2m}\int\dif p\ p^2a^\dag(p)\ a(p),
+\end{split}\ee
+which also preserves the conservation of momentum.
+
+\subsection{Exchange properties for bosons and fermions}
+Previously we talked a little bit about bosons and fermions in terms of the phase factor caused by rotating their single particle wave function. Now we come to the second property of these two species of particles, or to say, another equivalent definition of them.
+
+For identical particles, if we exchange the positions, or to be more precise the states of them, the physical properties of the system should remain the same, which is intuitive since they are ``identical''. But the wave function describing the system may differ by a phase factor since this does not affect the physical observables. According to the different phase factors, particles can be divided into two kinds --- fermions and bosons. In the following, we will discuss the classification both in quantum mechanical sense and quantum field sense.\\
+
+Quantum mechanically, a state of a system consists of two particle at position $x$ and $y$ is denoted as $|x,y\ra$, naturally the corresponding wave function is given by $\psi(x,y)=\la x,y|\psi\ra$. We denote the ``swopping operator" as $S$, when it acts on the state of the system, it just switches the positions of the two particles,
+\be S|x,y\ra=|y,x\ra, \ee
+and when acting twice the operator on the state, it must turn back into the original state, thus the square of the swopping operator must be the unit operator,
+\be S^2|x,y\ra=S|y,x\ra=|x,y\ra \quad\implies\quad S^2=I, \ee
+which mathematically says that the eigenvalues of $S$ would be $\pm 1$.
+The identical particles' state described by the eigenvector corresponding to the eigenvalue $1$ are called bosons; and particles are called fermions if their state corresponds to the eigenvalue of $-1$,
+\be\begin{split}
+S|x,y\ra&=|y,x\ra=\phantom{-}|x,y\ra, \quad\quad\text{Bosons};\\
+S|x,y\ra&=|y,x\ra=-|x,y\ra, \quad\quad\text{Fermions}.
+\end{split}\ee
+Pauli exclusion principle goes naturally out of this definition for fermions, if two particles are put in the same state (here the same positon), the equation goes like \be |x,x\ra=-|x,x\ra\implies|x,x\ra=0,\ee which says there is no such a state existed, or, you can't put two particles in the same position. Naturally these can also be represented by wave functions, which we won't bother writing and will directly use it below.
+
+If we refer the state of a particle as the energy level, without considering the spin degree of freedom, let's see how we construct boson and fermion systems and how Pauli exclusion principle works. For convenience, we will work in wave function representation here. If two particles are independent of each other, naming they don't have interactions, the wave function of the two-particle system can be written as the product of the single particle wave function of the two particles, \be \psi(x,y)=\psi_1(x)\psi_2(y), \ee with $1$ and $2$ representing two energy levels, same or different. If the two particles are in the same energy level, say $0$, the wave function is then symmetric under exchanging the two particles,
+\be S\psi(x,y)=\psi(y,x)=\psi_0(y)\psi_0(x)=\psi_0(x)\psi_0(y)=\psi(x,y), \ee
+in this sense the particles must be bosons. If the two particles are in different energy levels, swopping the two particles doesn't give the minus or the original wave function at all,
+\be S\psi(x,y)=\psi(y,x)=\psi_1(y)\psi_2(x) \ne \pm\psi_1(x)\psi_2(y)=\pm \psi(x,y). \ee
+But we may construct new wave functions by superposition of the original and the swopped ones, with plus or minus operation giving symmetric or anti-symmetric wave function,
+\be\1\{\begin{split}
+\psi_S(x,y):=\psi(x,y)+S\psi(x,y)&=\psi_1(x)\psi_2(y)+\psi_1(y)\psi_2(x)\\
+\psi_A(x,y):=\psi(x,y)-S\psi(x,y)&=\psi_1(x)\psi_2(y)-\psi_1(y)\psi_2(x),
+\end{split}\2.\ee
+and it is easy to verify their symmetric/anti-symmetric property by acting the swopping operator on,
+\be\1\{\begin{split}
+S\psi_S(x,y)=S\psi(x,y)+S^2\psi(x,y)&=S\psi(x,y)+\psi(x,y)=\phantom{-}\psi_S(x,y)\\
+S\psi_A(x,y)=S\psi(x,y)-S^2\psi(x,y)&=S\psi(x,y)-\psi(x,y)=-\psi_A(x,y).
+\end{split}\2.\ee
+Thus the symmetric wave function describes a system of two bosons, and the anti-symmetric wave function describes a system of two fermions. For the boson system, if we put two particles in the same position or energy level, the wave function just doubles; but for the fermions system, if we do the same thing, the wave function just goes to zero,
+\be\1\{\begin{split}
+\psi'_S(x,y)&=\psi_1(x)\psi_1(y)+\psi_1(y)\psi_1(x)=2\psi_1(x)\psi_1(y)\\
+\psi_S(x,x)&=\psi_1(x)\psi_2(x)+\psi_1(x)\psi_2(x)=2\psi_1(x)\psi_2(x)\\
+\psi'_A(x,y)&=\psi_1(x)\psi_1(y)-\psi_1(y)\psi_1(x)=0\\
+\psi_A(x,x)&=\psi_1(x)\psi_2(x)-\psi_1(x)\psi_2(x)=0,
+\end{split}\2.\ee
+with the primed wave function denoting putting particles in the same energy level and $\psi(x,x)$ denoting putting particle in the same position. The zero wave function for fermions says that the probability for finding such a state is $0$, or to say, this kind of situation where two particles are in the same state cannot happen at all. This is also a natural manifestation of the Pauli exclusion principle, and this kind of symmetric and anti-symmetric wave functions occurs frequently in particle physics multiplets, thus one should get familiar with them.
+
+The above logic goes the same with the system having more than two particles, denoted as the multiple-particle state $|x_1,x_2,x_3,...\ra$ and system with states denoted by both position and spin $|x_1,\sig_1;x_2,\sig_2;x_3,\sig_3;...\ra$.\\
+
+In quantum field theory, the state of a system of two particles is generated by acting two creation operators on the vacuum state, $|x,y\ra=\Psi^\dag(x)\Psi^\dag(y)|0\ra$. From the swopping properties, we can obtain the commutation relations for boson fields and the anti-commutation relations for fermion fields,
+\be\begin{split}
+\Psi_B^\dag(x)\Psi_B^\dag(y)|0\ra&=\phantom{-}\Psi_B^\dag(y)\Psi_B^\dag(x)|0\ra \quad\implies\quad \1[\Psi_B^\dag(x),\Psi_B^\dag(y)\2]=0 \quad\quad\text{\ Bosons};\\
+\Psi_F^\dag(x)\Psi_F^\dag(y)|0\ra&=-\Psi_F^\dag(y)\Psi_F^\dag(x)|0\ra \quad\implies\quad \1\{\Psi_F^\dag(x),\Psi_F^\dag(y)\2\}=0\quad\quad\text{Fermions}.
+\end{split}\ee
+And still, mathematical consistency of the Pauli exclusion principle goes well with creation operators' representation,
+\be
+\1\{\Psi_F^\dag(x),\Psi_F^\dag(x)\2\}=2\Psi_F^\dag(x)\Psi_F^\dag(x)=0 \quad\implies\quad \Psi_F^\dag(x)\Psi_F^\dag(x)|0\ra=0,
+\ee
+meaning that you cannot create two particles at the same point from the vacuum.
+
+Now that the relation of fermion field operators are given by anti-commutators, we go further to derive the anti-commutator for annihilation and creation operators, by acting it on the vacuum state
+\be\begin{split}
+\1\{\Psi_F(x),\Psi_F^\dag(y)\2\}|0\ra&=\Psi_F(x)\Psi_F^\dag(y)|0\ra+\cancel{\Psi_F^\dag(y)\Psi_F(x)|0\ra}=\Psi_F(x)|y\ra=\del(x-y)|0\ra,
+\end{split}\ee
+and on single particle state $|y\ra$ as
+\be
+\1\{\Psi_F(x),\Psi_F^\dag(y)\2\}|y\ra=\cancel{\Psi_F(x)\Psi_F^\dag(y)|y\ra}+\Psi_F^\dag(y)\Psi_F(x)|y\ra=\del(x-y)\Psi_F^\dag(y)|0\ra=\del(x-y)|y\ra,
+\ee
+thus we may conclude 
+\be
+\1\{\Psi_F(x),\Psi_F^\dag(y)\2\}=\del(x-y).
+\ee
+Yet this anti-commutator acting on $|x\ra$ will result in some subtitles which are not important, so we just ignore it.
+
+The creation/annihilation operators of fermions of a certain energy level also takes the anti-commutation relations, which are given as
+\be
+\{a_F,a_F^\dag\}=1 \Longleftrightarrow \{a_F^\dag, a_F\}=1,
+\ee
+this is easy to be proved by acting this to the no-particle state or 1-particle state on that given energy level,
+\be\begin{split}
+\{a_F,a_F^\dag\}|0\ra&=a_Fa_F^\dag |0\ra+\cancel{a_F^\dag a_F|0\ra}=a_F|1\ra=|0\ra\\
+\{a_F,a_F^\dag\}|1\ra&=\cancel{a_Fa_F^\dag |1\ra}+a^\dag a_F|1\ra=a_F^\dag|0\ra=|1\ra.
+\end{split}\ee
+Observing the anti-commutation relations, we see that from the algebraic structure, there's no clear distinction between the creation and annihilation operator; they are totally symmetric in mathematical sense. On contrast, the commutation relations of boson creation and annihilation operators show a clear unequal footing of them,
+\be [a_B,a_B^\dag]=1 \Longleftrightarrow [a_B^\dag,a_B]=-1. \ee
+This is basically due to the physical fact of the following. For fermions the 0-particle state and the 1-particle state are the only two possible state on a certain energy level, thus they are treated as equal --- acting the creation operator twice on the 0-particle state will give zero, as well as acting the annihilation operator twice on the 1-particle state, the particle number axis can turn upside-down without any difference to be seen. But for bosons the 0-particle state is the ground state, above it, there are 1-particle, 2-particle, ... states etc, hence there is no reason we can treat them equal, to illustrate more explicitly, for a state which number of particles is given, one can always act the creation operators on it and never get zero, but acting the annihilation operators on for finite number of times, one can finally get zero; you turn upside-down the particle number axis, it's not as same as before, i.e, it's asymmetric. (Figures of boson and fermion particle number axis and the effect of creation/annihilation operators are to be added.)
+
+One last thing, we recover the anti-commutation relation of the field operators from the generalized anti-commutation relation of the annihilation/creation operators of two energy levels $i$ and $j$,
+\be \{a_i,a_j^\dag\}=\del_{ij}. \ee
+The approach is by simply using the definition of the field operators,
+\be\begin{split}
+\1\{\Psi_F(x),\Psi_F^\dag(y)\2\}&=\1\{\sum_i a_i \psi_i(x),\sum_j a_j^\dag \psi_j^*(y)\2\}\\
+&=\sum_{ij}\psi_i(x)\psi_j^*(y)\1\{a_i,a_j^\dag\2\}=\sum_{ij}\psi_i(x)\psi_j^*(y)\del_{ij}=\sum_i\psi_i(x)\psi_i^*(y)=\del(x-y),
+\end{split}\ee
+which is consistent with the result when we act the field anti-commutator on single-particle states $|0\ra$ and $|y\ra$.
+
+
+\section{Relativistic Quantum Mechanics and Quantum Field Theory}
+\subsection{Dirac equation in one-dimension and chirality}
+When dealing the case of particle moving very fast, comparable with the speed of light, we need a relativistic version of the quantum mechanics. In special relativity, the relation between the energy, momentum and the mass is given by
+\be\label{ener}
+E^2=p^2+m^2
+\ee
+When we replace the quantity to the corresponding operators as
+\be\1\{\begin{split}
+E &\quad\rightarrow \quad i\frac{\p}{\p t}\\
+p &\quad\rightarrow -i\frac{\p}{\p x},
+\end{split}\2.\ee
+we have 
+\be
+\frac{\p^2\psi}{\p t^2}-\frac{\p^2\psi}{\p x^2}=m^2\psi,
+\ee
+which is the Klein-Gorden equation. But instead of a second order differential equation, we want a first order one, which is relevantly more difficult.\\
+
+To begin with, we consider a massless particle moving with the speed of light in one dimension, the energy relations reads as
+\be
+E=\pm p,
+\ee
+which represent right/left moving particles. With the substitution we have
+\be
+i\frac{\p\psi}{\p t}=\mp i\frac{\p\psi}{\p x} \quad\text{or}\quad \frac{\p\psi}{\p t}\pm\frac{\p\psi}{\p x}=0,
+\ee
+the solution has the form of $\psi(x\mp t)$ describes a right/left moving wave function with the speed of light $1$. Dirac treat the right/left moving property as a degree of freedom, thus any wave function has two components representing right/left moving just as the spin. In this treatment, the above equations can be composed into a single one in matrix version
+\be
+i\frac{\p}{\p t}\binom{\psi_1}{\psi_2}=-i\1(\ba{cc}1&0\\0&-1\ea\2)\frac{\p}{\p x}\binom{\psi_1}{\psi_2},
+\ee
+in this way, the Hamiltonian is given in terms of $p$ as
+\be
+H=\al p,
+\ee
+where $\al$ is the third Pauli matrix. When it acts on the right-moving state, it gives the eigenvalue of $1$; when it acts on the left-moving state, it gives the eigenvalue of $-1$,
+\be\1\{\begin{split}
+\1(\ba{cc}1&0\\0&-1\ea\2)\binom{\psi_1}{0}&=\phantom{-}\binom{\psi_1}{0}\\
+\1(\ba{cc}1&0\\0&-1\ea\2)\binom{0}{\psi_2}&=-\binom{0}{\psi_2}.
+\end{split}\2.\ee
+Then we add a mass term to this Hamiltonian,
+\be
+H=\al p+\bet m,
+\ee
+the new symbol $\bet$ denoting also a matrix due to the consistency of the matrix form. If we square it, we should recover the energy relation of the massive particle eq \eqref{ener}, which requires
+\be\1\{\begin{split}
+&\al^2=1\\
+&\bet^2=1\\
+&\al\bet+\bet\al=0,
+\end{split}\2.\ee
+and we know the $\bet$ matrix which satisfies this can be any of others Pauli matrices. We set it to be 
+\be 
+\bet=\1(\ba{cc}0&1\\1&0\ea\2).
+\ee
+Now we apply this new first order Hamiltonian to a two-component state to get
+\be
+i\frac{\p}{\p t}\psi=-i\al\frac{\p}{\p x}\psi+\bet m\psi,
+\ee
+or explicitly in its matrix form
+\be
+i\frac{\p}{\p t}\binom{\psi_1}{\psi_2}=-i\1(\ba{cc}1&0\\0&-1\ea\2)\frac{\p}{\p x}\binom{\psi_1}{\psi_2}+m\1(\ba{cc}0&1\\1&0\ea\2)\binom{\psi_1}{\psi_2},
+\ee
+which can be separately written as 
+\be\1\{\begin{split}
+i\frac{\p\psi_1}{\p t}+i\frac{\p\psi_1}{\p x}&=m\psi_2\\
+i\frac{\p\psi_2}{\p t}+i\frac{\p\psi_2}{\p x}&=m\psi_1.
+\end{split}\2.\ee
+We see that when we introduce the mass term, the two components of the state couple with each other, they're not independent any more. Or to say inversely, the coupling of the two components of the state gives the mass of the particle, which makes the particle move slower than the light. This is consistent with physical significance of a massive particle --- the right moving particle can be transformed into the left moving particle in a reference frame which moves faster than the particle, while the massless particle moving in the speed of light doesn't have this property since no reference frame can move faster than the light. 
 
 
 
@@ -1125,21 +1471,6 @@ As more and more raising operator acting on the ground state function, the resul
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Entanglement}
 
 
 
