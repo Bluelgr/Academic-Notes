@@ -563,7 +563,7 @@ The result is completely uniform, with no peaks anywhere on the $x$ axis. Eviden
 
 
 
-
+\newpage
 \section{Symmetry Operations of Quantum States and Conserved Quantities}
 \subsection{Time evolution of isolated states and the Hamiltonian}
 
@@ -1022,6 +1022,7 @@ L^2|l-1\ra=L^2L_-|l\ra=L_-L^2|l\ra=l(l+1)L_-|l\ra=l(l+1)|l-1\ra,
 \ee
 where we used that $[L^2, L_\pm]=0$ following from $[L^2,L_i]=0$. Here we didn't use directly the form of $L^2$ as $L_z^2+L_z+L_-L_+$ because we didn't get the normalization factor of $L_+$ acting on $|l-1\ra$, or more generally $|m\ra$. From here we see that when you find a multiplet like this, going from $l$ to minus $l$, such that there's no more above it or no more below it, you find not only eigenvectors of $L_z$ with eigenvalues $m$, but you also find the eigenvectors of the squared angular momentum $L^2$ with eigenvalue $l(l+1)$ where $l$ is just the maximum value of $m$; so for each one of these little $l$s, there are $2l+1$ states and they all have the same squared angular momentum, and hence the energy, expect a factor considering units.
 
+\newpage
 \section{Non-relativistic Quantum Fields}
 \subsection{Quantum mechanical harmonic oscillators and ladder operators}
 The Hamiltonian of a harmonic oscillator is given by
@@ -1527,11 +1528,74 @@ Besides, since $\al$ is the velocity, it's vector quantity; it's not spin, which
 \text{Chirality:}&\quad\quad \vec\sig\cdot\vec p.
 \end{split}\ee
 
+\newpage
+\section{Particle physics}
+\be
+\begin{gathered} \xymatrix@R=8ex@C=2ex{
+\text{Particles} \ar@{<->}[rd] \ar@{<->}[rr]& &\text{Fields} \ar@{<->}[ld] \\
+&\text{Forces}& \\
+} \end{gathered}
+\ee
 
+\subsection{Spin multiplets and isospin}
+If we put two half-spin particles together  to make a composite particle, what's the possible total spin and $z$-component of spin could it have?\\
+Intuitively, there're four ways to align the spin of the two particles, with each particle spinning up or down along the $z$-axis, we pictorially denote them as
+\be
+|\uparrow\uparrow\ \ra,\quad |\downarrow\downarrow\ \ra,\quad |\uparrow\downarrow\ \ra,\quad |\downarrow\uparrow\ \ra.
+\ee
+We see that the maximum spin along the $z$-axis is $1$ when the two particle spins are parallel and pointing up, so there're some of the states which correspond to the total spin of $S=1$. But for $S=1$, there're only three possible values for $S_z$, namely $S_z=1$ corresponds to $|\uparrow\uparrow\ \ra$,$S_z=-1$ corresponds to $|\downarrow\downarrow\ \ra$, and $S_z=0$ corresponds to one of the left two or some combination of them, so there's one independent state left there which does not belong to this multiplets, what total spin does it belong to? The natural answer is $S=0$. \\
+We give the $S=1$ multiplets as follows:
+\be
+|\uparrow\uparrow\ \ra,\quad |\downarrow\downarrow\ \ra,\quad \frac{1}{\sqrt{2}}\big(\ |\uparrow\downarrow\ \ra+ |\downarrow\uparrow\ \ra\ \big),
+\ee
+which are all symmetric under exchange of particles. And since they all correspond to the same spin  angular momentum,  they can be converted to each other by rotation. \\
+The total spin $S=0$ state is given by
+\be
+\frac{1}{\sqrt{2}}\big(\ |\uparrow\downarrow\ \ra- |\downarrow\uparrow\ \ra\ \big),
+\ee
+it is anti-symmetric under exchange, and if we only consider the conservation of spin angular momentum, this $0$ spin state could have the possibility to decay or vanish.\\
 
+Next we state the possibility of putting three half-spin particles together to make a composite, then this composite particle would have $2^3=8$ independent states, we may easily know  that $4$ of them correspond to the total spin $S=\frac 3 2$, and what about the left $4$ states? They correspond to $2$ distinct ways of making $S=\frac 1 2$ particles. We conclude this as
+\be
+\begin{gathered}
+\xymatrix@R=3ex@C=1ex{
+8=&4&+&2&\times& 2.\\
+ &S=\frac 3 2\ar[u]&&S=\frac 1 2\ar[u]&& 2\ \text{ways of}\ ``S=\frac1 2"\ar[u]\\
+}\end{gathered}
+\ee
 
+A concept in quark physics that is parallel to the ordinary spin is called the isospin, it's also a two-component quantity with each one called up --- ``u'', and down --- ``d". Here we state that the isospin is an approximate concept since we ignore the mass and the electric charge difference of the up and down quarks. The isospin of up and down quarks is given by $I=\frac1 2$, and we assign each one a ``third component of the isospin" with $I_3=\frac1 2$ to up quark and $I_3=-\frac1 2"$ to down quark, with their anti-quarks the opposite $I_3$. We denote the analog of isospin and ordinary spin as below
+\be\begin{split}
+(\uparrow, \downarrow) &\quad\longrightarrow\quad \text{spin}\\
+(u, d) &\quad\longrightarrow\quad \text{isospin}
+\end{split}\ee
 
+In this sense, we can compose quark-antiquark pairs to form a meson only of the up and down and their antiquarks to give isospin multiplets. The $I=1$ multiplets are called the pions, the states of which are classified by their $I_3$ and charge as,
+\be
+\pi^+(I_3=1):|u\bar d\ra, \quad\pi^-(I_3=-1):|\bar u d\ra, \quad\pi^0(I_3=0):\frac1 {\sqrt{2}}\big(\ |u\bar u\ra-|d\bar d\ra\ \big),
+\ee
+with their mass close to each other, about $140$MeV. And the $I=0$ state is named as the $\eta$ particle,
+\be
+\eta(I_3=0): \frac1 {\sqrt{2}}\big(\ |u\bar u\ra+|d\bar d\ra\ \big),
+\ee
+with its mass a little heavier than the pions, about $500$MeV. By the way, the $\eta$ and the $\pi^0$ are entangled through the isospin.
 
+Then we come to particles composed with three quarks which are called the hadrons. The most commonly seen hadrons are nucleons, i.e, protons and neutrons, they are made of up and down quarks and have the same ordinary spin $S=\frac1 2$ and isospin $I=\frac1 2$, we list them below
+\be
+p(I_3=\frac1 2): uud, \quad n(I_3=-\frac1 2)=udd,
+\ee
+they have the similar mass about $m_{p,n}\sim 940$ MeV.
+
+Then the less commonly seen hadrons made up of three up or down quarks are isospin $I=\frac3 2$ particles, called $\Delta_{\frac3 2}$, they are listed by their electric charge $Q$ and the third component of isospin $I_3$ below,
+\be\begin{split}
+&uuu:\quad Q=2,\quad I_3=\frac3 2\\
+&uud:\quad Q=1,\quad I_3=\frac1 2\\
+&udd:\quad Q=0,\quad I_3=-\frac1 2\\
+&ddd:\quad Q=-1,\quad I_3=-\frac3 2,
+\end{split}\ee
+the mass the $\Delta$ particles are about $m_\Delta\sim 1200$ MeV. By the way, the parameters like the mass that we describe particles with, are dependent on frequencies and wavelength of the interactions that engage in, thus they are given the name ``the running constant".
+
+\subsec{Group theory of rotations}
 
 
 

@@ -396,7 +396,9 @@ The resulting EOM is,
 \be
 \frac{\dif^2 \phi}{\dif t^2} - \frac{\dif^2 \phi}{\dif x^2}+\frac{\p V}{\p \phi} =0.
 \ee
-If we go back to the conventional units by restoring the factor of $c$, and consider the case without the source term by setting $V(\phi)=0$, we get the familiar wave equation,
+We list several choices of $V(\phi)$ to give explicitly different EOMs.
+
+In the first case, we consider the equation without the source term by setting $V(\phi)=0$, and meanwhile we go back to the conventional units by restoring the factor of $c$, we get the familiar wave equation,
 \be
 \frac 1 {c^2} \frac{\dif^2 \phi}{\dif t^2} - \frac{\dif^2 \phi}{\dif x^2}=0,
 \ee
@@ -408,7 +410,24 @@ Another basic example is to choose $V(\phi) = \frac{\mu^2}{2} \phi^2$, where $\m
 \ee
 and this is the analog version of the Simple Harmonic Oscillator, called Klein-Gordon equation.
 
-Its general solution is linear combination of the form $\phi=e^{-i \omega t} e^{i k x}$, taking which into the equation gives the constraint relation $\omega=\pm\sqrt{k^2+\mu^2}$, a solution is given when $k$ is determined.
+Since the above cases are all concerned with linear terms (with only first powers of $\phi$ and its derivatives), their general solutions are linear combination of the basics forms like $\phi=e^{-i \omega t} e^{i k x}$, taking which into the equation gives the constraint relation $\omega=\pm\sqrt{k^2+\mu^2}$, a solution is given when $k$ is determined.
+
+A third example is to choose $V(\phi)=\frac{\mu^2}{2} \phi^2+g\phi^3$, containing a $\phi$ to the third power, then the EOM is given by
+\be
+\frac{\dif^2 \phi}{\dif t^2} - \frac{\dif^2 \phi}{\dif x^2}=-\mu^2 \phi -3g\phi^2,
+\ee
+which is non-linear in $\phi$, and this form reflects the interaction phenomenom.\\
+
+If the Lagrangian contains two fields $\phi$ and $\psi$, then there may or may not be a mix term representing the interaction (like scattering) between them,
+\be
+\ma L=\ma L(\phi,\p_\m\phi)+\ma L(\psi,\p_\m\psi)+\ma L_{int}(\phi,\psi,\p_\m\phi,\p_\m\psi),
+\ee
+where the last term is the interaction term, we set an example to choose it to be $\ma L_{int}=\phi\psi^2$, then the extra terms in separate EOM of $\phi$ and $\psi$ are given by
+\be\1\{\begin{split}
+&\frac{\p\ma L_{int}}{\p \phi}=\psi^2\\
+&\frac{\p\ma L_{int}}{\p \psi}=2\phi\psi,
+\end{split}\2.\ee
+which says the EOM of $\phi$ has the contribution from $\psi$ and the EOM of $\psi$ has the contribution from $\phi$, the two fields talk to each other.\\
 
 Then it's easy to generalize all the above set to $(3+1)$ dimensions, where we will use the metric $\eta_{\m\n} = \text{diag}\{-1,1,1,1\}$ to raise and lower indices, 
 \be
