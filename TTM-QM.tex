@@ -1596,7 +1596,42 @@ Then the less commonly seen hadrons made up of three up or down quarks are isosp
 the mass the $\Delta$ particles are about $m_\Delta\sim 1200$ MeV. By the way, the parameters like the mass that we describe particles with, are dependent on frequencies and wavelength of the interactions that engage in, thus they are given the name ``the running constant".
 
 \subsec{Group theory of rotations}
+We know from elementary physics that a vector in $3D$ is represented by a $3$-component vector, thus the rotation is represented by a $3\times 3$ matrix, then the resulting vector is given by
+\be
+v'_i=R_{ij}(\th,\hat n) V_j,
+\ee
+where  the $\hat n$ is the axis along which the vector rotates and the $\th$ is the rotation angle. Or this can be simply denoted by 
+\be V'=RV. \ee
+From physical experience we know that rotation reserves the length of the vector, which can give an important property of the rotation matrix which we will derive as follows:
+\be\begin{split}
+&V_jV_j=V_i'V_i'=R_{ij}V_jR_{ik}V_k=R_{ij}R_{ik}V_jV_k \quad\implies\quad R_{ij}R_{ik}=\del_{jk}  \\
+&\quad\implies\quad R_{ji}^TR_{ik}=\del_{jk}\quad\implies\quad R^TR=I \quad\implies\quad R^T=R^{-1},
+\end{split}\ee
+where the implication of summation over repeated index is used, and this result says the $R$ matrix is an orthogonal matrix.
 
+A particle which has $S=1$ has three spin $S_z$ components denoted the probability amplitude of $S_z=1,0,-1$, as $\1( \al_1, \al_2, \al_3\2)^T$, which just behaves like a ordinary vector. So if we want to rotate its direction of spin, we just rotate it by a $3\times3$ rotation matrix, in this sense we called a particle with $S=1$ a vector quantity.
+
+Another kind of quantity is called the spinor quantity, it has $S=\frac1 2$ thus it is a $2$-component complex vector denoted as $(\al_1,\al_2)^T$. Now that it is complex  it has four free parameters, but not all of them are independent. One of the constraints is the fact that the total probability should be equal to one: $\al_1^*\al_1+\al_2^*\al_2=1$, while the second extra parameter is the phase factor which doesn't account for any physical difference. With these two conditions, the spinor quantity has only two independent parameters, which are as we expected consistent with the number of parameters needed to indicate a direction in space, say the longitude and the latitude.
+If we want rotate the spinor we need a $2\times2$ complex matrix, which should again preserve the length, or the probability of the spinor, as $\al_1'^*\al_1'+\al_2'^*\al_2'=\al_1^*\al_1+\al_2^*\al_2=1$. This gives the similar property as that of the rotation matrix, which is not called the orthogonality, but unitarity, denoted as $U^\dag U=I$. Note that the unitary equation is a matrix equation thus it contains four constraints, each one for each matrix elements, thus we reduce the independent parameters of the rotation matrix to $8-4=4$. And yet there's an additional constraint which states that the determinant of the unitary matrix is $1$, $det(U)=1$, which implies that this is a ``genuine" rotation, not the inversion of it (det(U)=-1). In this sense, there're $4-1=3$ independent parameters for the rotation, which again coincides with our intuition that we need $2$ parameters to indicated the axis and $1$ parameter to indicate the angle that rotated around the axis. This kind of unitary rotation is called the $SU(2)$, where $S$ means ``Special", i.e, the determinant is one, and $U$ means unitarity, and $2$ means $2\times 2$ complex matrix. The $SU(2)$ symmetry group is a $2\times 2$ complex representation of the rotation  group, i.e, it's isomorphic to rotation in $3D$ space, while not every $SU(N)$ is like so. By the way, the interchange group is a subgroup of the rotation group, eg, $\1(\begin{array}{cc}0&i\\i&0\\\end{array}\2)$ interchange  the two components of a spinor, its determinant is one and it belongs to the $SU(2)$ group.\\
+
+Next we build the unitary rotation by incremental changes and induce the generator, the process is much similar to those of  continuous time and space symmetry transformations. An infinitesimal unitary rotation is built up by
+\be
+U=I-i\ep T
+\ee,
+where $-i$ is due to convention and $\ep$ is an infinitesimal quantity, and $T$ is called the generator.\\
+From the unitarity we may easily derive that the generator $T$ is Hermitian,
+\be
+U^\dag U=I \quad\implies\quad T^\dag=T,
+\ee
+which means that it's an observable, and actually it's the angular momentum in $2\times 2$ complex representation.\\
+And further since the determinant of the unitary matrix is one, we may find another fact that $T$ is traceless,
+\be
+U=I-i\ep T=\1(\ba{cc}1-i\ep T_{11}&-iT_{12}\\-iT_{21}&i-iT_{22}\\\ea\2) \implies 1=det(U)=1-i\ep(T_{11}+T_{22})=1-i\ep\ tr(T) \implies tr(T)=0,
+\ee
+where we neglect the higher-order terms of $\ep$. In $2\times 2$ complex matrix space, there're $3$ independent traceless hermitian matrices, which are nothing but the Pauli matrices. Thus the generator can be built up by linear combinations of the Pauli matrices as
+\be T=\sum_i a_i \sig_i. \ee
+
+Then we come to the quark color symmetries. Quarks have three colors denoted by R, G and B, just like the ordinary spin, the color of a quark can be any linear combination of these three, thus it'll appear as a complex $3$-component vector, as $(\al_1,\al_2,\al_3)^T$. A rotation group in color space is called $SU(3)$ symmetry group, it's not an ordinary rotation isomorphic to rotation in $3D$ as $SU(2)$, but a new rotation that is hard to visualize. Just like $SU(2)$, there're two constraints for free parameters of an element of $SU(3)$, the unitarity and the unit determinant, thus they will reduce the number of independent parameters to $9\times 2-9-9=8$, corresponding to the mathematical structure of $8$ independent types of gluons. $SU(3)$ symmetry is implied in the Lagrangian of the color fields, i.e, every possible term in QCD Lagrangian should be invariant under $SU(3)$ transformation; this is parallel to every term in QED Lagrangian is invariant under $SU(1)$, which is there simply a phase factor and leads to the consequence that the number of fields and their complex conjugate fields must be the same.
 
 
 
