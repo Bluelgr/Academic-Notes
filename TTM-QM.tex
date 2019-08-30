@@ -1633,9 +1633,39 @@ where we neglect the higher-order terms of $\ep$. In $2\times 2$ complex matrix 
 
 Then we come to the quark color symmetries. Quarks have three colors denoted by R, G and B, just like the ordinary spin, the color of a quark can be any linear combination of these three, thus it'll appear as a complex $3$-component vector, as $(\al_1,\al_2,\al_3)^T$. A rotation group in color space is called $SU(3)$ symmetry group, it's not an ordinary rotation isomorphic to rotation in $3D$ as $SU(2)$, but a new rotation that is hard to visualize. Just like $SU(2)$, there're two constraints for free parameters of an element of $SU(3)$, the unitarity and the unit determinant, thus they will reduce the number of independent parameters to $9\times 2-9-9=8$, corresponding to the mathematical structure of $8$ independent types of gluons. $SU(3)$ symmetry is implied in the Lagrangian of the color fields, i.e, every possible term in QCD Lagrangian should be invariant under $SU(3)$ transformation; this is parallel to every term in QED Lagrangian is invariant under $SU(1)$, which is there simply a phase factor and leads to the consequence that the number of fields and their complex conjugate fields must be the same.
 
-
-
-
+\subsection{Gauge symmetry and covariant deriviatives}
+If a complex changed scalar field $\phi$, and its complex conjugate transform as
+\be\1\{\begin{split}
+\phi &\rightarrow \Phi=e^{i\th(x)} \phi\\
+\phi^* &\rightarrow \Phi=e^{-i\th(x)} \phi^*,
+\end{split}\2.\ee
+where $x$ represents for $4D$ spacetime coordinates. Then the ordinary derivative of the new fields are given by
+\be\1\{\begin{split}
+\p_\m\Phi&=\1(\p_\m\phi+i\phi\p_\m\th\2)e^{i\th(x)} \\
+\p_\m\Phi^*&=\1(\p_\m\phi-i\phi\p_\m\th\2)e^{-i\th(x)},
+\end{split}\2.\ee
+thus the new inner product will be the old inner product plus some extra term, which is of course not invariant. Here we could introduce a gauge field (in this case the e-m field) and the covariant derivative to eliminate the extra terms. The transformations of the gauge field and the covariant derivative are given as follows
+\be\1\{\begin{split}
+A_\m&\rightarrow A_\m'=A_\m-\p_\m\th \\
+\p_\m&\rightarrow D_\m =\p_\m+iA_\m,
+\end{split}\2.\ee
+and hence naturally the covariant derivative of the complex conjugate field is given by $D_\m\phi^*=\p_\m-iA_\n\th$. With this definition, we could calculate the covariant derivatives of the new field and its complex field as,
+\be\1\{\begin{split}
+D_\m \Phi&=\p_\m \Phi +iA'\Phi =\1(\p_\m\phi+i\phi\p_\m\th\2)e^{i\th(x)}+i\1(A_\m-\p_\m\th\2)\phi e^{i\th(x)}=\1(\p_\m\phi+iA_\m\phi\2)e^{i\th(x)}=D_\m\phi e^{i\th(x)}\\
+D_\m \Phi^*&=\p_\m \Phi^* -iA'\Phi^* =....=D_\m\phi^* e^{-i\th(x)},
+\end{split}\2.\ee
+only differing from the original derivative by a phase, thus can be canceled in the inner product, explicitly as
+\be
+D_\m \Phi^*D_\m \Phi=D_\m \phi^*D_\m \phi.
+\ee
+Thus we reserve the gauge invariance of the kinetic term. And next the potential term is easy to be kept invariant only if it's a function of $\phi^*\phi$, so if the Lagrangian has the following form as
+\be \ma L=D_\m \phi^*D_\m \phi-V(\phi^*\phi), \ee
+it'll be invariant under the gauge transformation.\\
+But we still have to add the gauge field term involving $F_{\m\n}=\p_\m A_\n-\p_\n A_\m$, note that it's itself gauge invariant as
+\be F'_{\m\n}=\p_\m A'_\n-\p_\n A'_\m=\p_\m A_\n-\p_\m\p_\n\th-\p_\n A_\m+\p_\n\p_\m\th=\p_\m A_\n-\p_\n A_\m=F_{\m\n}, \ee
+so the only thing to do is to make a scalar out of it as $F_{\m\n}F^{\m\n}$. Therefore we have a Lagrangian which has the local gauge symmetry, as
+\be \ma L=D_\m \phi^*D_\m \phi-V(\phi^*\phi)+\frac 1 4 F_{\m\n}F^{\m\n}, \ee
+where the factor of $\frac 1 4$ is due to convention (referring to classical field theory). Note that it's usually common to assign a mass to a field by a quadratic term of it, we may try to make a term as $\frac {m^2} 2 A^\m A_\m$ to make the gauge particle have the mass, but this term is itself not invariant under gauge transformation (also see the classical field theory), so it's not possible to add such a term; this is consistent with fact that photons don't have mass. But mass of a gauge field can be given by another mechanism known as the \textit{Spontaneous Symmetry Breaking}, as we will talk later.
 
 
 
