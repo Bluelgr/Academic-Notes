@@ -1538,7 +1538,11 @@ Besides, since $\al$ is the velocity, it's vector quantity; it's not spin, which
 \ee
 
 \subsec{Basics concepts of the Standard Model}
-From the group symmetry point of view, the standard model of particle physics has the symmetry of \be SU(3)\times SU(2) \times U(1).\ee The U(1) symmetry accounts for the electro-magnetic interaction, and the group has $1$ generator corresponding to $1$ gauge field (photon); the SU(2) symmetry accounts for the weak interaction and has $3$ generator corresponding to $3$ gauge fields ($W^\pm$ and $Z$); the SU(3) symmetry accounts for the strong interaction and has $8$ generator corresponding to $8$ gauge fields (gluon). Every gauge field will have three features: 1, it has a source; 2, it has a conservation law corresponding to a symmetry; 3, it has a coupling constant which is the quantum amplitude.
+From the group symmetry point of view, the standard model of particle physics has the symmetry of \be SU(3)\times SU(2) \times U(1).\ee The U(1) symmetry accounts for the electro-magnetic interaction, and the group has $1$ generator corresponding to $1$ gauge field (photon); the SU(2) symmetry accounts for the weak interaction and has $3$ generator corresponding to $3$ gauge fields ($W^\pm$ and $Z$); the SU(3) symmetry accounts for the strong interaction and has $8$ generator corresponding to $8$ gauge fields (gluon). Every gauge field will have three features: 1, it has a source; 2, it has a conservation law corresponding to a symmetry; 3, it has a coupling constant which is the quantum amplitude.\\
+
+As we know the electric charge is the coupling constant of e-m interaction amplitude, its square is the quantum probability for that process to happen. The fine-structure constant is $\al=\frac{e^2}{4\pi}\sim \frac 1{137}$, it means you will need about $137$ electrons to have one of them emit a photon. The fine structure constant governs everything about the magnitude of the an atom (in natural units $1eV^{-1}=10^{-7}m$), like the atom diameter ($10^{-10}m\sim 1KeV^{-1}$), the time for light to pass an atom called the transit time ($10^{-18}s$), the electron orbital time ($10^{-16}s$), and the atom decay time ($10^{-9}s$).\\
+
+Analog to e-m interaction amplitude, the strong interaction amplitude is approximately the same order $g_s\sim \frac1 {20}$, and it controls the magnitude of every size of a hadron. The nuclei diameter $\sim 10^{-15}m$, the transit time $\sim 10^{-23}m$, the quark orbital time $\sim 10^{-23}s$, the hadron decay time or the oscillation period between hadrons and mesons $\sim 10^{-23}s$. We see from these numbers that there're no hierarchy scales among them.\\
 
 \subsection{U(1) Gauge symmetry in QED}
 \subsubsection{Global and local phase transformation symmetry and covariant derivatives}
@@ -1604,17 +1608,21 @@ Intuitively, there're four ways to align the spin of the two particles, with eac
 |\uparrow\uparrow\ \ra,\quad |\downarrow\downarrow\ \ra,\quad |\uparrow\downarrow\ \ra,\quad |\downarrow\uparrow\ \ra.
 \ee
 We see that the maximum spin along the $z$-axis is $1$ when the two particle spins are parallel and pointing up, so there're some of the states which correspond to the total spin of $S=1$. But for $S=1$, there're only three possible values for $S_z$, namely $S_z=1$ corresponds to $|\uparrow\uparrow\ \ra$,$S_z=-1$ corresponds to $|\downarrow\downarrow\ \ra$, and $S_z=0$ corresponds to one of the left two or some combination of them, so there's one independent state left there which does not belong to this multiplets, what total spin does it belong to? The natural answer is $S=0$. \\
-We give the $S=1$ multiplets as follows:
+Actually these four states are the direct product of the single two-component states, denoted as $2\otimes 2$, and can be treated as four components of a bigger column vector $(\al_{\uparrow\uparrow}, \al_{\downarrow\downarrow}, \al_{\uparrow\downarrow}, \al_{\downarrow\uparrow})^T$. This vector can also be rotated by a $4\times 4$ matrix called the $4$-dimensional representation of SU(2). A meaningful fact about this 4-component rotation is that with a certain combination of the states, the rotation doesn't change one of the component while varying the other three; thus the matrix can be separate into blocks in which one of them is unity. We denote this decomposition as $2\otimes 2=1+3$, and schematically write it as follows:
+\be
+\1(\ba{c}\al_{\frac 1{\sqrt{2}}(\uparrow\downarrow-\downarrow\uparrow)}\\\al_2\\\al_3\\\al_4\\\ea\2)=\1(\ba{cccc}1&0&0&0\\0&U_{22}&U_{23}&U_{24}\\0&U_{32}&U_{33}&U_{34}\\0&U_{42}&U_{43}&U_{44}\\\ea\2) \1(\ba{c}\al_{\frac 1{\sqrt{2}}(\uparrow\downarrow-\downarrow\uparrow)}\\\al_{\frac 1{\sqrt{2}}(\uparrow\downarrow+\downarrow\uparrow)}\\\al_{\uparrow\uparrow}\\\al_{\downarrow\downarrow}\\\ea\2).
+\ee \\
+We call the three states which can be converted by SU(2) rotation to each other as the $S=1$ multiplets, they are
 \be
 |\uparrow\uparrow\ \ra,\quad |\downarrow\downarrow\ \ra,\quad \frac{1}{\sqrt{2}}\big(\ |\uparrow\downarrow\ \ra+ |\downarrow\uparrow\ \ra\ \big),
 \ee
-which are all symmetric under exchange of particles. And since they all correspond to the same spin  angular momentum,  they can be converted to each other by rotation. \\
-The total spin $S=0$ state is given by
+which are all symmetric under exchange of particles, and this set of multiplets is simply denoted by the number ``3". An intuitive picture of this rotation is that SU(2) rotates the direction of the total spin S, thus changing its $z$-component $S_z$, but remain the length of S\\
+The only one state that is invariant under the SU(2) rotation correspond to the total spin $S=0$ and is called a singlet,
 \be
 \frac{1}{\sqrt{2}}\big(\ |\uparrow\downarrow\ \ra- |\downarrow\uparrow\ \ra\ \big),
 \ee
-it is anti-symmetric under exchange, and if we only consider the conservation of spin angular momentum, this $0$ spin state could have the possibility to decay or vanish.\\
-
+it is anti-symmetric under exchange, and is denoted by the number ``1". By the way, if we only consider the conservation of spin angular momentum, this $0$ spin state could have the possibility to decay or vanish.\\
+ The singlets are of great significance in standard model, they are the states which are ``neutral''; the U(1) singlet is electric-neutral, and the SU(3) singlet is color-neutral.\\
 
 A concept in quark physics that is parallel to the ordinary spin is called the isospin, it's also a two-component quantity with each one called up --- ``u'', and down --- ``d". Here we state that the isospin is an approximate concept since we ignore the mass and the electric charge difference of the up and down quarks. The isospin of up and down quarks is given by $I=\frac1 2$, and we assign each one a ``third component of the isospin" with $I_3=\frac1 2$ to up quark and $I_3=-\frac1 2"$ to down quark, with their anti-quarks the opposite $I_3$. We denote the analog of isospin and ordinary spin as below
 \be\begin{split}
@@ -1656,21 +1664,62 @@ Then the less commonly seen hadrons made up of three up or down quarks are isosp
 \end{split}\ee
 the mass the $\Delta$ particles are about $m_\Delta\sim 1200$ MeV. By the way, the parameters like the mass that we describe particles with, are dependent on frequencies and wavelength of the interactions that engage in, thus they are given the name ``the running constant".
 
+\newpage
 \subsubsection{The weak interaction mechanism}
+There are three generations of quarks and leptons as the table below.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{3g-particles}
+\caption{Three generations of elementary particles}
+\end{figure}\\
+In each generation, the left particle is one unit more electric charge than the right one, e.g, the up quark has the charge of $\frac2 3$ while the down quark has the charge of $-\frac1 3$, and the $\n_e$ neutrino has charge $0$ while the electron has charge $-1$.\\
+The different types in a single generation can be converted to each other via intermediate particles, which behave like particle/anti-particle pairs in that generation. Quarks can be converted by strong interaction particles like mesons (e.g, $\pi^+\leftrightarrow u\bar d$), or by weak interaction particles like $W$ bosons (e.g, $W^+\leftrightarrow u\bar d$); leptons can only be converted by weak interaction particles as $W$ bosons (e.g, $W^+\leftrightarrow e^+\bar \n_e$). Here we only concern weak conversions, and considering the charge conservation, we draw the conversion picture in the first generation as an example.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{w-convert}
+\caption{Conversion within a generation by weak interactions}
+\end{figure}\\
+We focus on conversion between the electron and the neutrino, and list all the possible processes as below.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{w-1st}
+\caption{Possible conversions within the first generation}
+\end{figure}\\
+Then we use only the first one as an example to illustrate that $W$ bosons behave like a particle/anti-particle pair.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{w-pair}
+\caption{Illustration of the $W$ boson as particle/anti-particle pair}
+\end{figure}\\
+Additionally, conversions from leptons in one generation to another generation through $W$ bosons are possible. We list the only decay channel of muon particles as below.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{w-gener}
+\caption{The only decay channel of a muon}
+\end{figure}\\
+Moreover, since the $W$ bosons are involved within both the quarks and leptons, the conversions between them are also possible. We list the primary decay channel of the pions as below.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=0]{w-pi}
+\caption{Primary decay channel of the pions}
+\end{figure}\\
+In the above process, the pion mass is about $140MeV$ and the mass of the muon is about $100MeV$, which is consistent with the energy difference between initial and final states, where the rest of the energy goes to the neutrino and the kinetic energy of the particles.\\
+Finally, we have the beta-decay of the proton process which we will leave in the below question.\\
 
-As we know the electric charge is the coupling constant of e-m interaction amplitude, its square is the quantum probability for that process to happen. The fine-structure constant is $\al=\frac{e^2}{4\pi}\sim \frac 1{137}$, it means you will need about $137$ electrons to have one of them emit a photon. The fine structure constant governs everything about the magnitude of the an atom (in natural units $1eV^{-1}=10^{-7}m$), like the atom diameter ($10^{-10}m\sim 1KeV^{-1}$), the time for light to pass an atom called the transit time ($10^{-18}s$), the electron orbital time ($10^{-16}s$), and the atom decay time ($10^{-9}s$).\\
-The weak coupling constant is of the same order with that of electric interaction, then why is the weak force so weak? That has something to do with the propagator and  the mass of it. Consider the following proton decay as an example.\\
+The weak coupling constant is of the same order with that of electric interaction, then why is the weak force so weak? That has something to do with the propagator and  the mass of it. Consider the following proton decay as an example.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.3,angle=-90]{pdecay}
 \caption{Beta Decay of proton}
 \end{figure}\\
+
 There are two vertices, so the decay amplitude will be proportional to the squared coupling constant $g_W^2$ which is of the same order with the fine structure constant $\al\sim e^2$. What additionally matters here is the propagator $\Delta$ corresponding to the intermediate $W^-$, it is a function of the spacetime distance (the proper time) between the emission and the absorption points, and it depends crucially on  the mass of the propagator. An then we give the propagator versus distance diagram regarding to massless and massive case as follows.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.3,angle=-90]{weak-pro}
 \caption{Propagator versus distance diagram}
 \end{figure}\\ 
+
 The blue line indicates the relation between the propagator and the distance, which is dominated by the power decay thought  the entire distance; while the red line denotes the  massive  case, which at some point according to the dimensional analysis to be the order of $\frac 1 m$ (or $\frac{\hbar}{mc}$ in normal units) begins to decay at an exponential rate.\\
 In experiment, we can't measure the distance that propagator runs directly, but we can detect the momentum of the $W^-$ particle, which is given by $p_{W^-}=p_n-p_p$ and is related to the distance through the Fourier transformation, and then test the amplitude for that given momentum, to judge whether we give the right form of the postulate of the propagator.\\
 The Fourier transformation of the red line is calculated to be as $\tilde\Delta(k)=\frac 1 {k^2+m_W^2}\leq\frac 1 {m_W^2}$, where $k$ is the momentum, and when it is low, it gives the large amplitude which is easy to detect. Thus we have the final amplitude combining the effect from both the coupling constant and the propagator, largest to be $\frac{g_W^2}{m_W^2}\equiv G_F$, which is usually pretty small, let alone the probability per unit time to be $\frac{g_W^4}{m_W^4}$. The crucial ingredient here is the mass of the $W$ boson is so large, as about $100$ times of that of a proton. That accounts for the reason why the weak force is so weak, and also accounts for the lifetime of the $W$ is so long since it's inverse proportional to the decay rate, and generally is $k$-dependent as $\frac{(k^2+m_W^2)}{g_W^2}$.\\
