@@ -1538,10 +1538,10 @@ Besides, since $\al$ is the velocity, it's vector quantity; it's not spin, which
 \ee
 
 \subsec{Basics concepts of the Standard Model}
-From the group symmetry point of view, the standard model of particle physics has the symmetry of $SU(3)\times SU(2) \times U(1)$. The U(1) symmetry accounts for the electro-magnetic interaction, and the group has $1$ generator corresponding to $1$ gauge field (photon); the SU(2) symmetry accounts for the weak interaction and has $3$ generator corresponding to $3$ gauge fields ($W^\pm$ and $Z$); the SU(3) symmetry accounts for the strong interaction and has $8$ generator corresponding to $8$ gauge fields (gluon). Every gauge field will have three features: 1, it has a source; 2, it has a conservation law corresponding to a symmetry; 3, it has a coupling constant which is the quantum amplitude.
+From the group symmetry point of view, the standard model of particle physics has the symmetry of \be SU(3)\times SU(2) \times U(1).\ee The U(1) symmetry accounts for the electro-magnetic interaction, and the group has $1$ generator corresponding to $1$ gauge field (photon); the SU(2) symmetry accounts for the weak interaction and has $3$ generator corresponding to $3$ gauge fields ($W^\pm$ and $Z$); the SU(3) symmetry accounts for the strong interaction and has $8$ generator corresponding to $8$ gauge fields (gluon). Every gauge field will have three features: 1, it has a source; 2, it has a conservation law corresponding to a symmetry; 3, it has a coupling constant which is the quantum amplitude.
 
 \subsection{U(1) Gauge symmetry in QED}
-\subsubsection{Global phase transformation symmetry}
+\subsubsection{Global and local phase transformation symmetry and covariant derivatives}
 If a complex changed scalar field $\phi$, and its complex conjugate transforms as
 \be\1\{\begin{split}
 \phi &\rightarrow \Phi=e^{i\th} \phi\\
@@ -1553,8 +1553,7 @@ A^\m \rightarrow A^\m,
 \ee
 then the Lagrangian which has the form 
 \be \ma L=\p_\m \phi^*\p_\m \phi-V(\phi^*\phi)+F_{\m\n}F^{\m\n} \ee
-will have the symmetry under the transformation. This is called the global U(1) symmetry.
-\subsubsection{Local phase transformation symmetry  and covariant derivatives}
+will have the symmetry under the transformation. This is called the global U(1) symmetry.\\
 If the above scalar field and its complex conjugate transform with a phase factor dependent on the spacetime coordinate $x$,
 \be\1\{\begin{split}
 \phi &\rightarrow \Phi=e^{i\th(x)} \phi\\
@@ -1590,8 +1589,16 @@ where the factor of $\frac 1 4$ is due to convention (referring to classical fie
 
 
 
-\subsection{From Spin multiplets to Isospin and to SU(2) for weak interaction}
-If we put two half-spin particles together  to make a composite particle, what's the possible total spin and $z$-component of spin could it have?\\
+\subsection{SU(2) symmetry in Spin multiplets, Isospin, and in weak interaction}
+\subsubsection{From Spin Multiplets to Isospin}
+We know that a spin state of a half-spin particle can be in terms of its $S_z$ component denoted as
+\be |S_z\ra=\al_\uparrow|\uparrow\ra+\al_\downarrow|\downarrow\ra. \ee
+If we denote the up and down state as unit vectors as $|\uparrow\ra=(1,0)^T$, $|\downarrow\ra=(0,1)^T$, then a general state can be represented as a column vector as $|S_z\ra=(\al_\uparrow,\al_\downarrow)^T$. If we want to rotate the direction of the spin, we must act a operator on it as $|S'_z\ra=U(\th)|S_z\ra$, in matrix form it's denoted as
+\be
+\1(\ba{c}\al'_\uparrow\\\al'_\downarrow\ea\2)=\1(\ba{cc}U_{11}&U_{12}\\U_{21}&U_{22}\ea\2)\1(\ba{c}\al_\uparrow\\\al_\downarrow\ea\2).
+\ee
+Since the rotation must preserve the length and not reverse, it will be unitary and the determinant  is one, i.e, $U^\dag U=I$, $det(U)=1$, and since the complex vector that it rotates has two components, we call the rotation like this an element of SU(2).\\
+What if we put two half-spin particles together  to make a composite particle, then what's the possible total spin and $z$-component of spin could it have? And what is its rotation properties? \\
 Intuitively, there're four ways to align the spin of the two particles, with each particle spinning up or down along the $z$-axis, we pictorially denote them as
 \be
 |\uparrow\uparrow\ \ra,\quad |\downarrow\downarrow\ \ra,\quad |\uparrow\downarrow\ \ra,\quad |\downarrow\uparrow\ \ra.
@@ -1608,14 +1615,6 @@ The total spin $S=0$ state is given by
 \ee
 it is anti-symmetric under exchange, and if we only consider the conservation of spin angular momentum, this $0$ spin state could have the possibility to decay or vanish.\\
 
-Next we state the possibility of putting three half-spin particles together to make a composite, then this composite particle would have $2^3=8$ independent states, we may easily know  that $4$ of them correspond to the total spin $S=\frac 3 2$, and what about the left $4$ states? They correspond to $2$ distinct ways of making $S=\frac 1 2$ particles. We conclude this as
-\be
-\begin{gathered}
-\xymatrix@R=3ex@C=1ex{
-8=&4&+&2&\times& 2.\\
- &S=\frac 3 2\ar[u]&&S=\frac 1 2\ar[u]&& 2\ \text{ways of}\ ``S=\frac1 2"\ar[u]\\
-}\end{gathered}
-\ee
 
 A concept in quark physics that is parallel to the ordinary spin is called the isospin, it's also a two-component quantity with each one called up --- ``u'', and down --- ``d". Here we state that the isospin is an approximate concept since we ignore the mass and the electric charge difference of the up and down quarks. The isospin of up and down quarks is given by $I=\frac1 2$, and we assign each one a ``third component of the isospin" with $I_3=\frac1 2$ to up quark and $I_3=-\frac1 2"$ to down quark, with their anti-quarks the opposite $I_3$. We denote the analog of isospin and ordinary spin as below
 \be\begin{split}
@@ -1633,7 +1632,16 @@ with their mass close to each other, about $140$MeV. And the $I=0$ state is name
 \ee
 with its mass a little heavier than the pions, about $500$MeV. By the way, the $\eta$ and the $\pi^0$ are entangled through the isospin.
 
-Then we come to particles composed with three quarks which are called the hadrons. The most commonly seen hadrons are nucleons, i.e, protons and neutrons, they are made of up and down quarks and have the same ordinary spin $S=\frac1 2$ and isospin $I=\frac1 2$, we list them below
+Next we state the possibility of putting three half-spin particles together to make a composite, then this composite particle would have $2^3=8$ independent states, we may easily know  that $4$ of them correspond to the total spin $S=\frac 3 2$, and what about the left $4$ states? They correspond to $2$ distinct ways of making $S=\frac 1 2$ particles. We conclude this as
+\be
+\begin{gathered}
+\xymatrix@R=3ex@C=1ex{
+8=&4&+&2&\times& 2.\\
+ &S=\frac 3 2\ar[u]&&S=\frac 1 2\ar[u]&& 2\ \text{ways of}\ ``S=\frac1 2"\ar[u]\\
+}\end{gathered}
+\ee
+
+The parallel is that we come to particles composed with three quarks which are called the hadrons. The most commonly seen hadrons are nucleons, i.e, protons and neutrons, they are made of up and down quarks and have the same ordinary spin $S=\frac1 2$ and isospin $I=\frac1 2$, we list them below
 \be
 p(I_3=\frac1 2): uud, \quad n(I_3=-\frac1 2)=udd,
 \ee
