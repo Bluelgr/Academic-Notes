@@ -27,6 +27,7 @@
 \newcommand{\ma}{\mathcal}
 \newcommand{\la}{\langle}
 \newcommand{\ra}{\rangle}
+\newcommand{\rar}{\quad\implies\quad}
 
 \newcommand{\m}{\mu}
 \newcommand{\n}{\nu}
@@ -42,7 +43,7 @@
 
 
 \title{Notes on The Theoretical Minimum\\
---- Quantum Mechanics, Advanced Quantum Mechanics, and Quantum Field Theory}
+--- Elementary and Advanced Quantum Mechanics,\\ Quantum Field Theory and Particle Physics}
 \author{Gui-Rong Liang}
 
 \begin{document}
@@ -1557,7 +1558,7 @@ A^\m \rightarrow A^\m,
 \ee
 then the Lagrangian which has the form 
 \be \ma L=\p_\m \phi^*\p_\m \phi-V(\phi^*\phi)+F_{\m\n}F^{\m\n} \ee
-will have the symmetry under the transformation. This is called the global U(1) symmetry.\\
+will have the symmetry under the transformation. This is called the global U(1) symmetry. The electron and positron are called the complex conjugate representations of U(1) group.\\
 If the above scalar field and its complex conjugate transform with a phase factor dependent on the spacetime coordinate $x$,
 \be\1\{\begin{split}
 \phi &\rightarrow \Phi=e^{i\th(x)} \phi\\
@@ -1566,7 +1567,7 @@ If the above scalar field and its complex conjugate transform with a phase facto
 meaning that it transforms locally. In this case we want to know whether the symmetry invariance is still kept. To go on with it, the ordinary derivative of the new fields are given by
 \be\1\{\begin{split}
 \p_\m\Phi&=\1(\p_\m\phi+i\phi\p_\m\th\2)e^{i\th(x)} \\
-\p_\m\Phi^*&=\1(\p_\m\phi-i\phi\p_\m\th\2)e^{-i\th(x)},
+\p_\m\Phi^*&=\1(\p_\m\phi^*-i\phi^*\p_\m\th\2)e^{-i\th(x)},
 \end{split}\2.\ee
 thus the new inner product will be the old inner product plus some extra term, which is of course not invariant. Here we could introduce a gauge field (in this case the e-m field) and the covariant derivative to eliminate the extra terms. The transformations of the gauge field and the covariant derivative are given as follows
 \be\1\{\begin{split}
@@ -1575,8 +1576,8 @@ A_\m&\rightarrow A_\m'=A_\m-\p_\m\th \\
 \end{split}\2.\ee
 and hence naturally the covariant derivative of the complex conjugate field is given by $D_\m\phi^*=\p_\m-iA_\n\th$. With this definition, we could calculate the covariant derivatives of the new field and its complex field as,
 \be\1\{\begin{split}
-D_\m \Phi&=\p_\m \Phi +iA'\Phi =\1(\p_\m\phi+i\phi\p_\m\th\2)e^{i\th(x)}+i\1(A_\m-\p_\m\th\2)\phi e^{i\th(x)}=\1(\p_\m\phi+iA_\m\phi\2)e^{i\th(x)}=D_\m\phi e^{i\th(x)}\\
-D_\m \Phi^*&=\p_\m \Phi^* -iA'\Phi^* =....=D_\m\phi^* e^{-i\th(x)},
+D_\m \Phi&=\p_\m \Phi +iA'\Phi =\1(\p_\m\phi+i\phi\p_\m\th\2)e^{i\th(x)}+i\1(A_\m-\p_\m\th\2)\phi e^{i\th(x)}=\1(\p_\m\phi+iA_\m\phi\2)e^{i\th(x)}=(D_\m\phi) e^{i\th(x)}\\
+D_\m \Phi^*&=\p_\m \Phi^* -iA'\Phi^* =....=(D_\m\phi^*) e^{-i\th(x)},
 \end{split}\2.\ee
 only differing from the original derivative by a phase, thus can be canceled in the inner product, explicitly as
 \be
@@ -1589,19 +1590,143 @@ But we still have to add the gauge field term involving $F_{\m\n}=\p_\m A_\n-\p_
 \be F'_{\m\n}=\p_\m A'_\n-\p_\n A'_\m=\p_\m A_\n-\p_\m\p_\n\th-\p_\n A_\m+\p_\n\p_\m\th=\p_\m A_\n-\p_\n A_\m=F_{\m\n}, \ee
 so the only thing to do is to make a scalar out of it as $F_{\m\n}F^{\m\n}$. Therefore we have a Lagrangian which has the local gauge symmetry, as
 \be \ma L=D_\m \phi^*D_\m \phi-V(\phi^*\phi)+\frac 1 4 F_{\m\n}F^{\m\n}, \ee
-where the factor of $\frac 1 4$ is due to convention (referring to classical field theory). Note that it's usually common to assign a mass to a field by a quadratic term of it, we may try to make a term as $\frac {m^2} 2 A^\m A_\m$ to make the gauge particle have the mass, but this term is itself not invariant under gauge transformation (also see the classical field theory), so it's not possible to add such a term; this is consistent with fact that photons don't have mass. But mass of a gauge field can be given by another mechanism known as the \textit{Spontaneous Symmetry Breaking}, as we will talk later.
+where the factor of $\frac 1 4$ is due to convention (referring to classical field theory). Note that it's usually common to assign a mass to a field by a quadratic term of it, we may try to make a term as $\frac {m^2} 2 A^\m A_\m$ to make the gauge particle have the mass, but this term is itself not invariant under gauge transformation (also see the classical field theory), so it's not possible to add such a term; this is consistent with fact that photons don't have mass. In another way,\\
+
+\textit{Gauge invariance is the symmetry which prohibits the photon from having a mass.}\\
+
+ But mass of a gauge field can be given by another mechanism known as the \textit{Spontaneous Symmetry Breaking}, as we will talk later.
+ 
+\subsubsection{Spontaneous Symmetry Breaking and the mass of a field}
+The concept of discrete Spontaneous Symmetry Breaking.\\
+We begin with the case of a real scalar field which has only the simplest form, the kinetic term minus the potential term.
+\be
+\ma L=\p_\m \phi\p_\m \phi-V(\phi),
+\ee
+If there's no potential term, the Lagrangian with only the gradient terms would indicate the field doesn't have mass, just like photons.\\ %Now we are going to see how these type of particles can gain mass.%
+We know that a field state will stay at the stationary point of the potential, which has the lowest value of the potential term. If the potential term has a symmetric form where two lowest points $\phi=\pm f$ exist (see Figure \ref{vphi1}), the field would not be preferable to any of these two point, but it'll randomly pick on of them to stay in. This is the phenomenon of \textit{spontaneous symmetry breaking} (SSB). The contrary concept is, we name it, the explicit symmetry breaking, corresponding to the case where there are also two local lowest point in potential term but one is lower than the other. And since the two points are not connected or joint somehow, we say that this spontaneous symmetry breaking is discrete.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{vphi1}
+\caption{\label{vphi1}Symmetric potential term about real $\phi$-axis}
+\end{figure}\\
+
+Consider a field which at a far left place the field locates at $\phi=-f$ while at a far right place locates at $\phi=f$, these field will influence their neighborhood and thus spread away out. Then what happens at the place where these two different values of field meet? The points at this place doesn't know whether they should have the value $\phi=-f$ or $\phi=f$ due to the difference of their neighbors, thus creating a phenomenon called the \textit{domain wall} (see Figure \label{dw}), indicating that it's very hard to transit from the state in one side of this wall to the state in another side. The domain wall is a signature of the discrete spontaneous symmetry breaking.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{domainwall}
+\caption{\label{dw}Schematic picture of the Domain Wall}
+\end{figure}\\
+
+Then we move to the case of continuous symmetry breaking, in which the Goldstone bosons replace the domain walls, and Higgs mechanism gives rise to the mass to photon-like particles (Z bosons).\\
+In this case we consider a complex scalar field which has only the global U(1) phase symmetry. The Lagrangian is written as
+\be
+\ma L=\p_\m \phi^*\p_\m \phi-V(\phi^*\phi),
+\ee
+where the kinetic term and the potential term have the same phase symmetry. The potential term $V(\phi^*\phi)$ is function in the complex $\phi$-plane where the axis are $\phi_R$ and $\phi_I$.\\
+
+If the potential has the simple form of $V(\phi^*\phi)=\phi^*\phi$, it'll has the shape as in Figure \ref{vphi2}, which is trivial.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{vphi2}
+\caption{\label{vphi2}$V(\phi^*\phi)=\phi^*\phi$ diagram}
+\end{figure}\\
+
+If the potential has the form of $V(\phi^*\phi)=-a(\phi^*\phi)+b(\phi^*\phi)^2$, it'll has the shape as in Figure \ref{vphi3}, which is symmetric about the vertical axis and has continuous circle of minimums, thus it has the continuous symmetry. If the field resits itself at some point of that continuous minimal circle, we say that this is the continuous symmetry breaking.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{vphi3}
+\caption{\label{vphi3}$V(\phi^*\phi)=-a(\phi^*\phi)+b(\phi^*\phi)^2$ diagram}
+\end{figure}\\
+
+If the field at some place far left is at $a$ in the ground state circle, and at some other place far right is at $b$ in the ground state circle, then the field between them will gradually change to each other, varying continuously by a phase factor. In this case, the domain wall no longer exists, see Figure \ref{gp}.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{groundphase}
+\caption{\label{gp}Continuous phase varying in ground state circle}
+\end{figure}\\
+
+Now that the potential has the rotation symmetry in the complex $\phi$-plane, it is more convenient to express the Lagrangian in terms of polar coordinates
+\be\1\{\begin{split}
+\phi&=\rho e^{i\al} \\
+\phi^*&=\rho e^{-i\th},
+\end{split}\2.\ee
+thus the derivatives of them will be
+\be\1\{\begin{split}
+\p_\m\phi&=\1(\p_\m \rho+i\rho\p_\m\al\2)e^{i\al} \\
+\p_\m\phi^*&=\1(\p_\m \rho-i\rho\p_\m\al\2)e^{-i\al},
+\end{split}\2.\ee
+and the Lagrangian is written as
+\be
+\ma L=\p_\m\rho\p^\m\rho+\rho^2\p_\m\al\p^\m\al-V(\rho^2).
+\ee
+In the ground state circle, the field has the value $\rho=f$, thus $\p\rho=0$ and $V(\rho)=const$ which can be dropped out; the only left term $f^2\p_\m\al\p^\m\al$ can be rewritten in terms of a newly-defined field $\bet\equiv f\al$, hence the Lagrangian can be written as
+\be \ma L=\p_\m\bet\p^\m\bet, \ee
+which contains only the gradient term and behaves like a field with no mass.\\
+By varying $\al$ (or $\bet$), the field $\phi$ varies only within the ground state circle which costs very little energy, and this will give a Goldstone boson. If $\phi$ vibrates with respect to $\rho$, which costs bigger energy, this will give rise to a massive particle known as the Higgs.\\
+At this time we want to check what will happen if we induce a gauge field $A_\m$. In this situation, the ordinary derivatives should naturally replaced by the covariant derivative, which are computed in the ground state case as
+\be
+\phi=fe^{i\al} \rar \p\phi=if\p\al e^{i\al} \rar D\phi=ife^{i\al}(\p\al+A) \rar D\phi^*=-ife^{-i\al}(\p\al+A),
+\ee
+where we neglect the summation indices and only abbreviate them as squares. Thus we have the squared covariant term as
+\be D\phi^*D\phi=f^2 (\p\al+A)^2. \ee
+Thus we have the Lagrangian as 
+\be
+\ma L=f^2 (\p\al+A)^2+F^2,
+\ee
+where we have neglected the potential term which is nothing but a constant.\\
+Here we may find an interesting fact
+
 
 
 
 \subsection{SU(2) symmetry in Spin multiplets, Isospin, and in weak interaction}
-\subsubsection{From Spin Multiplets to Isospin}
-We know that a spin state of a half-spin particle can be in terms of its $S_z$ component denoted as
+\subsubsection{Group theory of orthogonal and unitary rotations}
+We know from elementary physics that a vector in $3D$ is represented by a $3$-component vector, thus the rotation is represented by a $3\times 3$ matrix, then the resulting vector is given by
+\be
+V'_i=R_{ij}(\th,\hat n) V_j,
+\ee
+where  the $\hat n$ is the axis along which the vector rotates and the $\th$ is the rotation angle. Or this can be simply denoted by 
+\be V'=RV. \ee
+From physical experience we know that rotation reserves the length of the vector, which can give an important property of the rotation matrix which we will derive as follows:
+\be\begin{split}
+&V_jV_j=V_i'V_i'=R_{ij}V_jR_{ik}V_k=R_{ij}R_{ik}V_jV_k \quad\implies\quad R_{ij}R_{ik}=\del_{jk}  \\
+&\quad\implies\quad R_{ji}^TR_{ik}=\del_{jk}\quad\implies\quad R^TR=I \quad\implies\quad R^T=R^{-1},
+\end{split}\ee
+where the implication of summation over repeated index is used, and this result says the $R$ matrix is an orthogonal matrix.
+
+A particle which has $S=1$ has three spin $S_z$ components denoted the probability amplitude of $S_z=1,0,-1$, as $\1( \al_1, \al_2, \al_3\2)^T$, which just behaves like a ordinary vector. So if we want to rotate its direction of spin, we just rotate it by a $3\times3$ rotation matrix, in this sense we called a particle with $S=1$ a vector quantity.\\
+
+Another kind of quantity is called the spinor quantity. We know that a spin state of a half-spin particle can be in terms of its $S_z$ component denoted as
 \be |S_z\ra=\al_\uparrow|\uparrow\ra+\al_\downarrow|\downarrow\ra. \ee
-If we denote the up and down state as unit vectors as $|\uparrow\ra=(1,0)^T$, $|\downarrow\ra=(0,1)^T$, then a general state can be represented as a column vector as $|S_z\ra=(\al_\uparrow,\al_\downarrow)^T$. If we want to rotate the direction of the spin, we must act a operator on it as $|S'_z\ra=U(\th)|S_z\ra$, in matrix form it's denoted as
+If we denote the up and down state as unit vectors as $|\uparrow\ra=(1,0)^T$, $|\downarrow\ra=(0,1)^T$, then a general state can be represented as a complex column vector as $|S_z\ra=(\al_\uparrow,\al_\downarrow)^T$. If we want to rotate the direction of the spin, we must act a operator on it as $|S'_z\ra=U(\th)|S_z\ra$, in matrix form it's denoted as
 \be
 \1(\ba{c}\al'_\uparrow\\\al'_\downarrow\ea\2)=\1(\ba{cc}U_{11}&U_{12}\\U_{21}&U_{22}\ea\2)\1(\ba{c}\al_\uparrow\\\al_\downarrow\ea\2).
 \ee
-Since the rotation must preserve the length and not reverse, it will be unitary and the determinant  is one, i.e, $U^\dag U=I$, $det(U)=1$, and since the complex vector that it rotates has two components, we call the rotation like this an element of SU(2).\\
+Now that the matrix is complex  it has four free parameters, but not all of them are independent. One of the constraints is the fact that the total probability should be equal to one: $\al_1^*\al_1+\al_2^*\al_2=1$, while the second extra parameter is the phase factor which doesn't account for any physical difference. With these two conditions, the spinor quantity has only two independent parameters, which are as we expected consistent with the number of parameters needed to indicate a direction in space, say the longitude and the latitude.\\
+
+If we want rotate the spinor, the matrix should preserve the length, or the probability of the spinor, as $\al_1'^*\al_1'+\al_2'^*\al_2'=\al_1^*\al_1+\al_2^*\al_2=1$. This gives the similar property as that of the rotation matrix, which is not called the orthogonality, but unitarity, denoted as $U^\dag U=I$. Note that the unitary equation is a matrix equation thus it contains four constraints, each one for each matrix elements, thus we reduce the independent parameters of the rotation matrix to $8-4=4$. And yet there's an additional constraint which states that the determinant of the unitary matrix is $1$, $det(U)=1$, which implies that this is a ``genuine" rotation, not the inversion of it (det(U)=-1). In this sense, there're $4-1=3$ independent parameters for the rotation, which again coincides with our intuition that we need $2$ parameters to indicated the axis and $1$ parameter to indicate the angle that rotated around the axis. This kind of unitary rotation is called the $SU(2)$, where $S$ means ``Special", i.e, the determinant is one, and $U$ means unitarity, and $2$ means what we rotate is a $2$-component complex vector. The $SU(2)$ symmetry group is a $2\times 2$ complex representation of the rotation  group, i.e, it's isomorphic to rotation in $3D$ space, while not every $SU(N)$ is like so. By the way, the interchange group is a subgroup of the rotation group, eg, $\1(\begin{array}{cc}0&i\\i&0\\\end{array}\2)$ interchange  the two components of a spinor, its determinant is one and it belongs to the $SU(2)$ group.\\
+
+Next we build the unitary rotation by incremental changes and induce the generator, the process is much similar to those of  continuous time and space symmetry transformations. An infinitesimal unitary rotation is built up by
+\be
+U=I-i\ep T
+\ee,
+where $-i$ is due to convention and $\ep$ is an infinitesimal quantity, and $T$ is called the generator.\\
+From the unitarity we may easily derive that the generator $T$ is Hermitian,
+\be
+U^\dag U=I \quad\implies\quad T^\dag=T,
+\ee
+which means that it's an observable, and actually it's the angular momentum in $2\times 2$ complex representation.\\
+And further since the determinant of the unitary matrix is one, we may find another fact that $T$ is traceless,
+\be
+U=I-i\ep T=\1(\ba{cc}1-i\ep T_{11}&-iT_{12}\\-iT_{21}&i-iT_{22}\\\ea\2) \implies 1=det(U)=1-i\ep(T_{11}+T_{22})=1-i\ep\ tr(T) \implies tr(T)=0,
+\ee
+where we neglect the higher-order terms of $\ep$. In $2\times 2$ complex matrix space, there're $3$ independent traceless hermitian matrices, which are nothing but the Pauli matrices. Thus the generator can be built up by linear combinations of the Pauli matrices as
+\be T=\sum_i a_i \sig_i. \ee
+
+Then we come to the quark color symmetries. Quarks have three colors denoted by R, G and B, just like the ordinary spin, the color of a quark can be any linear combination of these three, thus it'll appear as a complex $3$-component vector, as $(\al_1,\al_2,\al_3)^T$. A rotation group in color space is called $SU(3)$ symmetry group, it's not an ordinary rotation isomorphic to rotation in $3D$ as $SU(2)$, but a new rotation that is hard to visualize. Just like $SU(2)$, there're two constraints for free parameters of an element of $SU(3)$, the unitarity and the unit determinant, thus they will reduce the number of independent parameters to $9\times 2-9-9=8$, corresponding to the mathematical structure of $8$ independent types of gluons. $SU(3)$ symmetry is implied in the Lagrangian of the color fields, i.e, every possible term in QCD Lagrangian should be invariant under $SU(3)$ transformation; this is parallel to every term in QED Lagrangian is invariant under $SU(1)$, which is there simply a phase factor and leads to the consequence that the number of fields and their complex conjugate fields must be the same.
+
+\subsubsection{From Spin Multiplets to Isospin}
+
 What if we put two half-spin particles together  to make a composite particle, then what's the possible total spin and $z$-component of spin could it have? And what is its rotation properties? \\
 Intuitively, there're four ways to align the spin of the two particles, with each particle spinning up or down along the $z$-axis, we pictorially denote them as
 \be
@@ -1732,47 +1857,43 @@ Why can't we knock out a virtual particle?
 \includegraphics[scale=0.3,angle=-90]{pnw}
 \caption{Proton-Neutron Decay Equilibrium}
 \end{figure}\\
-The proton-neutron oscillation has a frequency. If we want to detect the intermediate particle $W^+$, we have to use the wave of the same frequency to knock it out, but in this sense the knocked-out particle can't be called an ``intermediate" particle but a ``final" particle, thus the detection will make it another process, not the original one. So in this sense, the intermediate or the virtual particle is undetectable.
+The proton-neutron oscillation has a frequency. If we want to detect the intermediate particle $W^+$, we have to use the wave of the same frequency to knock it out, but in this sense the knocked-out particle can't be called an ``intermediate" particle but a ``final" particle, thus the detection will make it another process, not the original one. So in this sense, the intermediate or the virtual particle is undetectable.\\
 
 
 \newpage
-\subsec{Group theory of rotations}
-We know from elementary physics that a vector in $3D$ is represented by a $3$-component vector, thus the rotation is represented by a $3\times 3$ matrix, then the resulting vector is given by
+\subsection{SU(3) in QCD}
+A single flavor of quark can have three colors, assigned as R, G, and B, or linear superpositions of them. Just like the spin, we can denote them as three-component vector $(q_1, q_2, q_3)^T$, and their anti-quark components as $(q^*_1, q^*_2, q^*_3)^T$. if we want to rotate them in color space we must act a $3\times 3$ matrix on them, so they'll transform as 
+\be\1\{\begin{split}
+q_j &\rightarrow q'_i=U_{ij}\ q_j\\
+q^*_j &\rightarrow q'^*_i=U^*_{ij}\ q^*_j,
+\end{split}\2.\ee
+where the $U_{ij}$ is called an element of SU(3) group, and the $q_i$ and $q^*_i$ are called the complex conjugate representations of SU(3), denoted as $``3"$ and $``\bar 3"$. Their generators differ from each other a minus sign, as $T=-\bar T$.\\
+The SU(3) gauge field (gluon) is transformed as if it was a direct product of the anti-quark vector and the quark vector,
 \be
-v'_i=R_{ij}(\th,\hat n) V_j,
+A_{ij} \longleftrightarrow q^*_i q_j.
 \ee
-where  the $\hat n$ is the axis along which the vector rotates and the $\th$ is the rotation angle. Or this can be simply denoted by 
-\be V'=RV. \ee
-From physical experience we know that rotation reserves the length of the vector, which can give an important property of the rotation matrix which we will derive as follows:
-\be\begin{split}
-&V_jV_j=V_i'V_i'=R_{ij}V_jR_{ik}V_k=R_{ij}R_{ik}V_jV_k \quad\implies\quad R_{ij}R_{ik}=\del_{jk}  \\
-&\quad\implies\quad R_{ji}^TR_{ik}=\del_{jk}\quad\implies\quad R^TR=I \quad\implies\quad R^T=R^{-1},
-\end{split}\ee
-where the implication of summation over repeated index is used, and this result says the $R$ matrix is an orthogonal matrix.
+Below we show some schematic pictures involving the gluons.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{gluons}
+\caption{Gluons behave like quark/anti-quark pairs}
+\end{figure}\\
 
-A particle which has $S=1$ has three spin $S_z$ components denoted the probability amplitude of $S_z=1,0,-1$, as $\1( \al_1, \al_2, \al_3\2)^T$, which just behaves like a ordinary vector. So if we want to rotate its direction of spin, we just rotate it by a $3\times3$ rotation matrix, in this sense we called a particle with $S=1$ a vector quantity.
+To proceed, we talk about composite particles. Mesons are composed of quark/anti-quark pairs $q\bar q$, they are direct products of the $3$ and $\bar 3$, and can be decomposed to a singlet and an octet as $3\otimes \bar 3=1+8$. The singlet which has a great significance, is denoted as $R\bar R+ G\bar G+B\bar B$, it's colorless (or color-neutral), meaning that it's invariant under the SU(3) group, just like the $S=0$ state for a two half-spin composite particle; the other $8$ states are called the $8D$ representations of SU(3) and can be transformed to each other, meanwhile $8$ is the number of generators of SU(3), each of which corresponds to a member of $8D$ representations. By the way, the color property of a gluon is just like a meson, it has an octet denoted as the $``8"$.\\
 
-Another kind of quantity is called the spinor quantity, it has $S=\frac1 2$ thus it is a $2$-component complex vector denoted as $(\al_1,\al_2)^T$. Now that it is complex  it has four free parameters, but not all of them are independent. One of the constraints is the fact that the total probability should be equal to one: $\al_1^*\al_1+\al_2^*\al_2=1$, while the second extra parameter is the phase factor which doesn't account for any physical difference. With these two conditions, the spinor quantity has only two independent parameters, which are as we expected consistent with the number of parameters needed to indicate a direction in space, say the longitude and the latitude.
-If we want rotate the spinor we need a $2\times2$ complex matrix, which should again preserve the length, or the probability of the spinor, as $\al_1'^*\al_1'+\al_2'^*\al_2'=\al_1^*\al_1+\al_2^*\al_2=1$. This gives the similar property as that of the rotation matrix, which is not called the orthogonality, but unitarity, denoted as $U^\dag U=I$. Note that the unitary equation is a matrix equation thus it contains four constraints, each one for each matrix elements, thus we reduce the independent parameters of the rotation matrix to $8-4=4$. And yet there's an additional constraint which states that the determinant of the unitary matrix is $1$, $det(U)=1$, which implies that this is a ``genuine" rotation, not the inversion of it (det(U)=-1). In this sense, there're $4-1=3$ independent parameters for the rotation, which again coincides with our intuition that we need $2$ parameters to indicated the axis and $1$ parameter to indicate the angle that rotated around the axis. This kind of unitary rotation is called the $SU(2)$, where $S$ means ``Special", i.e, the determinant is one, and $U$ means unitarity, and $2$ means $2\times 2$ complex matrix. The $SU(2)$ symmetry group is a $2\times 2$ complex representation of the rotation  group, i.e, it's isomorphic to rotation in $3D$ space, while not every $SU(N)$ is like so. By the way, the interchange group is a subgroup of the rotation group, eg, $\1(\begin{array}{cc}0&i\\i&0\\\end{array}\2)$ interchange  the two components of a spinor, its determinant is one and it belongs to the $SU(2)$ group.\\
+A baryon is composed of three quarks. But firstly the two quark direct product can be decomposed as $3\otimes 3=\bar 3+6$; and then we make the direct product with the third quark, with the first part being the familiar $\bar 3\otimes 3=1+8$, the same as mesons, and the second part being $6\otimes 3=8+10$. Again the most important ingredient is the singlet, which is colorless, denoted as $RGB$.\\
 
-Next we build the unitary rotation by incremental changes and induce the generator, the process is much similar to those of  continuous time and space symmetry transformations. An infinitesimal unitary rotation is built up by
-\be
-U=I-i\ep T
-\ee,
-where $-i$ is due to convention and $\ep$ is an infinitesimal quantity, and $T$ is called the generator.\\
-From the unitarity we may easily derive that the generator $T$ is Hermitian,
-\be
-U^\dag U=I \quad\implies\quad T^\dag=T,
-\ee
-which means that it's an observable, and actually it's the angular momentum in $2\times 2$ complex representation.\\
-And further since the determinant of the unitary matrix is one, we may find another fact that $T$ is traceless,
-\be
-U=I-i\ep T=\1(\ba{cc}1-i\ep T_{11}&-iT_{12}\\-iT_{21}&i-iT_{22}\\\ea\2) \implies 1=det(U)=1-i\ep(T_{11}+T_{22})=1-i\ep\ tr(T) \implies tr(T)=0,
-\ee
-where we neglect the higher-order terms of $\ep$. In $2\times 2$ complex matrix space, there're $3$ independent traceless hermitian matrices, which are nothing but the Pauli matrices. Thus the generator can be built up by linear combinations of the Pauli matrices as
-\be T=\sum_i a_i \sig_i. \ee
+A final color-composite particle is the gluon ball which is composed of two gluons as $gg$, it's decomposed in the way as $8\otimes 8=1+63$. The singlet is again colorless.\\
 
-Then we come to the quark color symmetries. Quarks have three colors denoted by R, G and B, just like the ordinary spin, the color of a quark can be any linear combination of these three, thus it'll appear as a complex $3$-component vector, as $(\al_1,\al_2,\al_3)^T$. A rotation group in color space is called $SU(3)$ symmetry group, it's not an ordinary rotation isomorphic to rotation in $3D$ as $SU(2)$, but a new rotation that is hard to visualize. Just like $SU(2)$, there're two constraints for free parameters of an element of $SU(3)$, the unitarity and the unit determinant, thus they will reduce the number of independent parameters to $9\times 2-9-9=8$, corresponding to the mathematical structure of $8$ independent types of gluons. $SU(3)$ symmetry is implied in the Lagrangian of the color fields, i.e, every possible term in QCD Lagrangian should be invariant under $SU(3)$ transformation; this is parallel to every term in QED Lagrangian is invariant under $SU(1)$, which is there simply a phase factor and leads to the consequence that the number of fields and their complex conjugate fields must be the same.
+Baryons, mesons, and glue balls are three ingredients of hadrons, and all free/unconfined particles transform as color singlets $``1"$. Singlet states are always anti-symmetric like $\ep_{ij}\phi_i\psi_j$ and $\ep_{ijk}q_iq_jq_k$. If you make color singlets, then you will not get fraction charged particles.\\
+
+What if we hit a meson very hard and try to kick out a single quark?\\
+Firstly the quark and the anti-quark are separated, and they still interact with each other via the gluons. Gluons, unlike the charge-neutral photons, are not color-neutral, thus they attract each other and form a flux tube, where the energy is stored in. As you draw the quark and anti-quark farer and farer, the flux tube will become longer and longer but not thiner, the uniform energy per unit length is kept fixed, thus the total energy stored in is proportional to the distance between them $E\sim l$. At some time, the pair will stop flying away and begin to pull together. If you hit a quark very very hard inside a meson to keep it from flying back, then suddenly at a point between them a new quark/anti-quark pair is created out of vacuum, thus a meson becomes two mesons, each of which is still color-neutral; similarly to proceed, if the quark is flying even faster, then many pair form in between, and we have a whole bunch of mesons, called a jet.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{jet}
+\caption{Breaking of the gluon flux tube and formation of a jet}
+\end{figure}\\
 
 
 
