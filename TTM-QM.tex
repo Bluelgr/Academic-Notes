@@ -1624,7 +1624,10 @@ In this case we consider a complex scalar field which has only the global U(1) p
 \ee
 where the kinetic term and the potential term have the same phase symmetry. The potential term $V(\phi^*\phi)$ is function in the complex $\phi$-plane where the axis are $\phi_R$ and $\phi_I$.\\
 
-If the potential has the simple form of $V(\phi^*\phi)=\phi^*\phi$, it'll has the shape as in Figure \ref{vphi2}, which is trivial.
+If the potential has the simple form of $V(\phi^*\phi)=\phi^*\phi$, the Lagrangian is re-expressed in terms of the real and imaginary part as
+\be \ma L=(\p\phi_R)^2+(\p\phi_I)^2-(\phi_R^2+\phi_I^2)=\ma L_R+\ma L_I, \ee
+where the motion of the real and imaginary field look like indepedent.
+The potential $V(\phi^*\phi)=\phi^*\phi$ has the shape as in Figure \ref{vphi2}, which is the most trivial case.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.3]{vphi2}
@@ -1662,7 +1665,7 @@ and the Lagrangian is written as
 In the ground state circle, the field has the value $\rho=f$, thus $\p\rho=0$ and $V(\rho)=const$ which can be dropped out; the only left term $f^2\p_\m\al\p^\m\al$ can be rewritten in terms of a newly-defined field $\bet\equiv f\al$, hence the Lagrangian can be written as
 \be \ma L=\p_\m\bet\p^\m\bet, \ee
 which contains only the gradient term and behaves like a field with no mass.\\
-By varying $\al$ (or $\bet$), the field $\phi$ varies only within the ground state circle which costs very little energy, and this will give a Goldstone boson. If $\phi$ vibrates with respect to $\rho$, which costs bigger energy, this will give rise to a massive particle known as the Higgs.\\
+By varying $\al$ (or $\bet$), the field $\phi$ varies only within the ground state circle which costs very little energy, and this will give a Goldstone boson. Since in this way, the $\phi=\rho e^{i\al}$ itself transforms like a gauge transformation, thus the corresponding particle is called a Goldstone boson for a U(1) symmetry. If $\phi$ vibrates with respect to $\rho$, which costs bigger energy, this will give rise to a massive particle known as the Higgs. The above two mechanism give significance to  both the $\rho$ and $\al$ parts of the field.\\
 At this time we want to check what will happen if we induce a gauge field $A_\m$. In this situation, the ordinary derivatives should naturally replaced by the covariant derivative, which are computed in the ground state case as
 \be
 \phi=fe^{i\al} \rar \p\phi=if\p\al e^{i\al} \rar D\phi=ife^{i\al}(\p\al+A) \rar D\phi^*=-ife^{-i\al}(\p\al+A),
@@ -1670,11 +1673,57 @@ At this time we want to check what will happen if we induce a gauge field $A_\m$
 where we neglect the summation indices and only abbreviate them as squares. Thus we have the squared covariant term as
 \be D\phi^*D\phi=f^2 (\p\al+A)^2. \ee
 Thus we have the Lagrangian as 
-\be
+\be\label{ggg}
 \ma L=f^2 (\p\al+A)^2+F^2,
 \ee
 where we have neglected the potential term which is nothing but a constant.\\
-Here we may find an interesting fact
+But at present we didn't tell how the gauge field $A_\m$ transform, or to say, in the general transformation $A\rightarrow A'=A-\p\th$, we didn't assign a specific function to $\th(x)$. Here we may define it to be $\th=\al$, then the transformed gauge field would be $A'=A-\p\al$. By inserting it into eq \eqref{ggg}, we may find an interesting fact that it cancels the derivative term of $\al$, thus the Lagrangian is given by
+\be
+\ma L'=f^2 (\p\al+A')^2+F^2=f^2 A^2+F^2.
+\ee
+By inspecting the form of the new Lagrangian, we find that the first term $f^2 A^2$ just behaves like a mass term, with $f^2$ playing the role of the mass of the gauge  field $A$. In this sense, we say that the SSB gives the gauge field the mass. Furthermore, since the gauge transformation $\al\rightarrow \al+\th$ doesn't change energy, the system stays in the ground state, but it kills the angular degree of freedom --- the field sits in a fixed point and the slowing varying $\al$ no longer exits, so the Goldstone boson disappears, we say that it's eaten by the gauge field. To conclude,\\
+
+\textit{The SSB with the gauge transformation has simultaneously two effects: the first is that it gives the mass to the gauge field, the second is that it kills the Goldstone boson.}\\
+
+Next we are gong to elaborate what a mass is in sense of a field. Firstly let's take a closer look at the relativistic relations of photons and massive particles. The relativistic relations are also the dispersion relations, since they're relations between the frequency and the wave number. The relation of photons is given by
+\be E=cp \quad\text{or}\quad \omega=ck. \ee
+We see that it's the frequency is linearly proportional to the wave number, so there's so dispersion --- the wave of different wave number/momentum will travel independently as if they never meet. And an obvious mathematical fact we want to mention is that when $k \rightarrow 0 (p \rightarrow 0, \lambda \rightarrow \infty)$, $\omega \rightarrow 0$.\\
+The relation of massive particles is
+\be E=\sqrt{p^2+m^2} \quad\text{or}\quad \omega=\sqrt{k^2+m^2}. \ee
+We that it's a quadratic relation and when $p\rightarrow 0$, $E\rightarrow m$. We plot the above two relations in the diagrams below.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{E-p}
+\caption{Linear and quadratic relations between $E$ and $p$}
+\end{figure}\\
+
+From the above mathematical facts and diagrams we can say that the rest mass is  the value of energy when the momentum goes to zero. In the linear case, when momentum goes to zero the energy also goes to zero, so the rest mass for a photon is zero. (That's why we say the ``rest" mass of a photon although the photon is never at rest, since we treat this as the definition.) In the quadratic case, when momentum goes to zero the energy goes to the value $m$ which we call it a mass.\\
+Next we explain what it mean by ``the momentum goes to zero" for a field. The momentum is nothing but the wave number in quantum regime, the wave number is inverse proportional to the wave length. The wave length for a field reflects to what extent the field value varies with respect to space distance. For example, a very small wave length depicts intuitively, when you shift the space coordinates by a small distance, the field value changes dramatically, so that it goes back and forth and already went through several wavelength; a very large wave length reflects that when you displace some distance, you will almost see no change of the field value. In this sense,  ``the momentum goes to zero" corresponds to ``the wave length goes to infinity", which depicts the fact that the field throughout all space changes simultaneously. By ``changing" simultaneously, the field can oscillate simultaneously, or shift to another value simultaneously, or even sits there with no change at all. In the oscillation situation the varying field will have a non-zero frequency, which depends on the curvature of the potential  energy of the field at the equilibrium point, and this corresponds to the non-zero energy with zero momentum, i.e, the rest mass. In the shifting and unchanging situation the field will not have a frequency, thus it corresponds to the massless case. To summarize it as follows.
+
+\textit{The mass is the energy you can get when you disturb the homogeneous field everywhere and change it simultaneously.}\\
+
+We illustrate these two cases in the following pictures.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{omega-k}
+\caption{Non-zero and zero frequency when the field varies simultaneously}
+\end{figure}\\
+
+The oscillation field will correspond to the Higgs boson, and the shifting field (by the phase factor) will correspond to the Goldstone boson, as depicted below.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{higgs-goldstone}
+\caption{Higgs boson and Goldstone boson mechanism in terms of the field varying}
+\end{figure}\\
+
+With this mechanism, the Goldstone boson eaten by the gauge boson would fix the phase of the field so that it could only oscillate in the radial $\rho$ direction, thus it would result in the mass of the Higgs boson. In the standard model, a bunch of particles' mass can only be given by SSB with gauge fixing; other particles beyond the standard model like the dark matter particles, do not gain the mass from SSB but other mechanism which we may not know, but these particles are still not seen in the laboratories. 
+
+
+
+
+
+
+
 
 
 
