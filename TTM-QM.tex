@@ -1397,7 +1397,7 @@ The approach is by simply using the definition of the field operators,
 \end{split}\ee
 which is consistent with the result when we act the field anti-commutator on single-particle states $|0\ra$ and $|y\ra$.
 
-
+\newpage
 \section{Relativistic Quantum Mechanics and Quantum Field Theory}
 \subsection{Dirac equation in one-dimension and the negative energy problem}
 When dealing the case of particle moving very fast, comparable with the speed of light, we need a relativistic version of the quantum mechanics. In special relativity, the relation between the energy, momentum and the mass is given by
@@ -1425,16 +1425,16 @@ i\frac{\p\psi}{\p t}=\mp i\frac{\p\psi}{\p x} \quad\text{or}\quad \frac{\p\psi}{
 \ee
 the solution has the form of $\psi(x\mp t)$ describes a right/left moving wave function with the speed of light $1$. Dirac treat the right/left moving property as a degree of freedom, thus any wave function has two components representing right/left moving just as the spin. In this treatment, the above equations can be composed into a single one in matrix version
 \be
-i\frac{\p}{\p t}\binom{\psi_1}{\psi_2}=-i\1(\ba{cc}1&0\\0&-1\ea\2)\frac{\p}{\p x}\binom{\psi_1}{\psi_2},
+i\frac{\p}{\p t}\binom{\psi_R}{\psi_L}=-i\1(\ba{cc}1&0\\0&-1\ea\2)\frac{\p}{\p x}\binom{\psi_R}{\psi_L},
 \ee
 in this way, the Hamiltonian is given in terms of $p$ as
 \be
-H=\al p,
+H=\al p \quad\text{with}\quad \al=\1(\ba{cc}1&0\\0&-1\ea\2),
 \ee
 where $\al$ is the third Pauli matrix. When it acts on the right-moving state, it gives the eigenvalue of $1$; when it acts on the left-moving state, it gives the eigenvalue of $-1$,
 \be\1\{\begin{split}
-\1(\ba{cc}1&0\\0&-1\ea\2)\binom{\psi_1}{0}&=\phantom{-}\binom{\psi_1}{0}\\
-\1(\ba{cc}1&0\\0&-1\ea\2)\binom{0}{\psi_2}&=-\binom{0}{\psi_2}.
+\1(\ba{cc}1&0\\0&-1\ea\2)\binom{\psi_R}{0}&=\phantom{-}\binom{\psi_R}{0}\\
+\1(\ba{cc}1&0\\0&-1\ea\2)\binom{0}{\psi_L}&=-\binom{0}{\psi_L}.
 \end{split}\2.\ee
 Then we add a mass term to this Hamiltonian,
 \be
@@ -1456,12 +1456,12 @@ i\frac{\p}{\p t}\psi=-i\al\frac{\p}{\p x}\psi+\bet m\psi,
 \ee
 or explicitly in its matrix form
 \be
-i\frac{\p}{\p t}\binom{\psi_1}{\psi_2}=-i\1(\ba{cc}1&0\\0&-1\ea\2)\frac{\p}{\p x}\binom{\psi_1}{\psi_2}+m\1(\ba{cc}0&1\\1&0\ea\2)\binom{\psi_1}{\psi_2},
+i\frac{\p}{\p t}\binom{\psi_R}{\psi_L}=-i\1(\ba{cc}1&0\\0&-1\ea\2)\frac{\p}{\p x}\binom{\psi_R}{\psi_L}+m\1(\ba{cc}0&1\\1&0\ea\2)\binom{\psi_R}{\psi_L},
 \ee
 which can be separately written as 
 \be\1\{\begin{split}
-i\frac{\p\psi_1}{\p t}+i\frac{\p\psi_1}{\p x}&=m\psi_2\\
-i\frac{\p\psi_2}{\p t}+i\frac{\p\psi_2}{\p x}&=m\psi_1.
+i\frac{\p\psi_R}{\p t}+i\frac{\p\psi_R}{\p x}&=m\psi_L\\
+i\frac{\p\psi_L}{\p t}-i\frac{\p\psi_L}{\p x}&=m\psi_R.
 \end{split}\2.\ee
 We see that when we introduce the mass term, the two components of the state couple with each other, they're not independent any more. Or to say inversely, the coupling of the two components of the state gives the mass of the particle, which makes the particle move slower than the light. This is consistent with physical significance of a massive particle --- the right moving particle can be transformed into the left moving particle in a reference frame which moves faster than the particle, while the massless particle moving in the speed of light doesn't have this property since no reference frame can move faster than the light. 
 
@@ -1491,24 +1491,37 @@ or to be summarized as
 \be \{\al_i,\al_j\}=2\del_{ij}. \ee
 There are three matrices which can satisfy all the above conditions, Pauli matrices; thus we naturally attribute $\al$ matrices as $\al_i=\sig_i$, hence the Hamiltonian is given by \be H=\vec\sig\cdot\vec p. \ee Since the Pauli matrices are attached to the spin, this equation would serve as the origin of the spin. we don't see spin in 1-dimension, we only see spin-like things as the left/right moving property; spin is truly seen in 3-dimension. Additionally, in this form the energy is proportional to the component of the spin along the direction of motion. But we know the component of the spin is always $\pm 1$, so in one case the spin is pointing along the momentum giving positive energy, and in the other case the spin is opposite to the momentum giving the negative energy. Again, we restate that, for a massless particle with positive energy, the spin is always locked to the direction of the momentum.
 
-And then we follow the old steps to add the mass term multiplied by a matrix which has the same dimension with that of $\al_i$,
+And then we follow the old steps to add the mass term multiplied by a matrix which has the same dimension with that of $\sig_i$,
 \be H=\vec\sig\cdot\vec p+\bet m, \ee
 and make it to satisfy
 \be H^2=p^2+m^2, \ee
 which additionally requires the $\bet$ matrix to satisfy
 \be\1\{\begin{split}
 \bet^2&=1\\
-\{\bet,\al_i\}&=0.
+\{\bet,\sig_i\}&=0.
 \end{split}\2.\ee
-But unfortunately, there's not a forth $2\times 2$ matrix beyond the three Pauli matrices which could both squares to be $1$ and anti-commutes with the $\al_i$s. Nor can we find four $3\times 3$ matrices which can simultaneously meet all the requirements. The minimal dimension we can find such four matrices will be $4\times 4$. Incidentally, there are many representations of Dirac matrices, we just have to pick one and stick with it. Thus the wave function would have two more degrees of freedom, in total four components, together known as a \textbf{spinor}. But note that these four components have nothing to do with the $3+1$ dimensional spacetime, their existence is just a mathematical result. In 4D spinor space, we rewrite the Hamiltonian once more as 
+But unfortunately, there's not a forth $2\times 2$ matrix beyond the three Pauli matrices which could both squares to be $1$ and anti-commutes with the $\sig_i$. Nor can we find four $3\times 3$ matrices which can simultaneously meet all the requirements. The minimal dimension we can find such four matrices will be $4\times 4$. These matrices are called \textbf{Dirac matrices}. Incidentally, there are many representations of Dirac matrices, we just have to pick one and stick with it. Thus the wave function would have two more degrees of freedom, in total four components, together known as a \textbf{spinor}. But note that these four components have nothing to do with the $3+1$ dimensional spacetime, their existence is just a mathematical result. In 4D spinor space, we rewrite the Hamiltonian once more as 
 \be H=\vec\al\cdot\vec p+\bet m, \ee
-and one set of $4\times 4$ matrices called the Pauli representation of the Dirac matrices are given as
+and one set of $4\times 4$ matrices called the \textbf{Pauli representation} of the Dirac matrices are given as
 \be 
 \vec\al=\1(\ba{cc}\vec\sig&O\\O&-\vec\sig\ea\2) \quad\quad \bet=\1(\ba{cc}O&I\\I&O\ea\2),
 \ee
-where $O$, $I$ and $\vec\sig$ are themselves $2\times 2$ matrices. One can check them by squaring the Hamiltonian to give the energy-momentum relation.
+where $O$, $I$ and $\vec\sig$ are themselves $2\times 2$ matrices. One can check them by squaring the Hamiltonian to give the energy-momentum relation.\\
+Now we apply this $3D$ Hamiltonian to the four-component state to get
+\be
+i\frac{\p}{\p t}\psi=-i\al_j\frac{\p}{\p x^j}\psi+\bet m\psi,
+\ee
+or explicitly in its block-matrix form
+\be
+i\frac{\p}{\p t}\binom{\psi_R}{\psi_L}=-i\1(\ba{cc}\sig_j&O\\O&-\sig_j\ea\2)\frac{\p}{\p x^j}\binom{\psi_R}{\psi_L}+ m\1(\ba{cc}0&I\\I&0\ea\2)\binom{\psi_R}{\psi_L},
+\ee
+where $\psi_R$ and $\psi_L$ are two-component vector states. Then this equation can be separately written as 
+\be\1\{\begin{split}
+i\1(\frac{\p\psi_R}{\p t}+\sig_j\frac{\p\psi_R}{\p x^j}\2)&=m\psi_L\\
+i\1(\frac{\p\psi_L}{\p t}-\sig_j\frac{\p\psi_L}{\p x^j}\2)&=m\psi_R.
+\end{split}\2.\ee
 
-A property describes the relations between the direction of the spin and the momentum is called the \textbf{chirality}. A particle with the spin and the momentum in the same direction is \textit{right-handed}, a right-handed particle has both positive energy and negative energy components; a particle with the spin and the momentum in the opposite direction is \textit{left-handed}, a left-handed particle has also both positive energy and negative energy components. To leave the negative energy away for the moment, we restate that for positive energy particles, they can be classified into right-handed and left-handed ones. When the two chiral components are coupled together by the $\bet$ matrix, the mass term of the particle comes out; or to say, the effect of the mass of a Dirac particle is to make transition of the two chiral particles; this is consistent with the fact that one can choose a reference frame which moves faster than the massive particle and sees the momentum pointing in the opposite direction (with spin direction unchanged), thus from his point of view the right-handedness becomes left-handedness. In this sense, we conclude that for massive particles, chirality depends on the reference frame. On contrast, for a massless particle the chirality is conserved, it stays right-handed or left-handed forever, which is also consistent with the fact that nothing can move faster than light and change the direction of  the momentum.
+A property describes the relations between the direction of the spin and the momentum is called the \textbf{chirality}. A particle with the spin and the momentum in the same direction is \textit{right-handed}, a right-handed particle has both positive energy and negative energy components; a particle with the spin and the momentum in the opposite direction is \textit{left-handed}, a left-handed particle has also both positive energy and negative energy components. To leave the negative energy away for the moment, we restate that for positive energy particles, they can be classified into right-handed and left-handed ones. When the two chiral components are coupled together by the $\bet$ matrix, the mass term of the particle comes out; or to say, the effect of the mass of a Dirac particle is to make transition of the two chiral particles; this is consistent with the fact that one can choose a reference frame which moves faster than the massive particle and sees the momentum pointing in the opposite direction (with spin direction unchanged), thus from his point of view the right-handedness becomes left-handedness. In this sense, we conclude that for massive particles, chirality depends on the reference frame, and a particle at rest is a mixture of the LH and RH. On contrast, for a massless particle the chirality is conserved, it stays right-handed or left-handed forever, which is also consistent with the fact that nothing can move faster than light and change the direction of  the momentum. Besides, chirality are also well-defined and useful in context of high-energy particles where the momentum is large enough.\\
 
 Next we're going to leave the dot product away and study the $\vec\al$ matrices alone. It's physical meaning, or to say, its expectation value in any state, is the velocity of the particle! This seems very bizarre, but we will prove it conversely, by using the commutator of the position with the Hamiltonian,
 \be
@@ -1719,7 +1732,56 @@ The oscillation field will correspond to the Higgs boson, and the shifting field
 \caption{Higgs boson and Goldstone boson mechanism in terms of the field varying}
 \end{figure}\\
 
-With this mechanism, the Goldstone boson eaten by the gauge boson would fix the phase of the field so that it could only oscillate in the radial $\rho$ direction, thus it would result in the mass of the Higgs boson. In the standard model, a bunch of particles' mass can only be given by SSB with gauge fixing; other particles beyond the standard model like the dark matter particles, do not gain the mass from SSB but other mechanism which we may not know, but these particles are still not seen in the laboratories. 
+With this mechanism, the Goldstone boson eaten by the gauge boson would fix the phase of the field so that it could only oscillate in the radial $\rho$ direction, thus it would result in the mass of the Higgs boson. In the standard model, a bunch of particles' mass can only be given by SSB with gauge fixing; other particles beyond the standard model like the dark matter particles, do not gain the mass from SSB but other mechanism which we may not know, but these particles are still not seen in the laboratories.\\
+
+\subsubsection{The mass of a fermion field and chirality transition}
+In this subsection, we are going to explain how the fermion field gets the mass. But before that we firstly introduce some facts. In the last section we talk about Dirac particles which can be decomposed in terms of chirality into left-handedness and right-handedness, they are both carrying charge and in some sense mirror reflections of each other. However, mirror symmetry does not always hold. It holds for e-m force, strong force, but not for  the weak force. The weak interaction is always left-handed. If we use Dirac equation for electrons as a model, it is as if the LH particles carry charge while the RH particles don't; of course the charge here should actually refer to that associated with weak interactions.\\
+We list the right- and left-handed component equations for the Dirac field,
+\be\1\{\begin{split}
+i\1(\frac{\p\psi_R}{\p t}+\sig_j\frac{\p\psi_R}{\p x^j}\2)&=m\psi_L\\
+i\1(\frac{\p\psi_L}{\p t}-\sig_j\frac{\p\psi_L}{\p x^j}\2)&=m\psi_R,
+\end{split}\2.\ee
+Suppose here only the LH particle is charged while the RH ones don't, then these equations do not hold at all, since the charge conservation is violated on two sides of the equators. In the mathematical way, the charged field gets multiplied by a phase factor $e^{i\th}$ under the U(1) gauge transformation, while the uncharged field doesn't change, as follows
+\be\1\{\begin{split}
+\psi_L &\rightarrow \psi'_L=e^{i\th}\psi_L\\
+\psi_R &\rightarrow \psi'_L=\psi_R,
+\end{split}\2.\ee
+then the equations obviously does not have the same form as the unchanged ones. But notice a fact that if the mass is zero, the right side of the equators vanish, then everything is fine with the case that only one handedness is charged. We conclude it as follows.\\
+
+\textit{In the sense of only one handedness is charged, charge conservation law would not permit the mixing of left- and right-handedness, or would forbid the mass of the particle.}\\
+
+Then how to coordinate the conflict between the single handed charge and the mass of the particle? Or, how in this single handed charged world, a particle can have a mass? We resolve it by inducing a complex scalar field, i.e, charged boson field $\phi$ and play a trick to the original equations. First we drop the mass $m$ of the particle and couple the two handedness of the fields with the scalar field and its complex conjugate, with a coupling constant $g$, as follows,
+\be\1\{\begin{split}
+i\1(\frac{\p\psi_R}{\p t}+\sig_j\frac{\p\psi_R}{\p x^j}\2)&=g\phi^*\psi_L\\
+i\1(\frac{\p\psi_L}{\p t}-\sig_j\frac{\p\psi_L}{\p x^j}\2)&=g\phi\psi_R.
+\end{split}\2.\ee
+Then it is easy to check that under the gauge transformation of
+\be\1\{\begin{split}
+\phi &\rightarrow \phi'=e^{i\th}\phi\\
+\phi^* &\rightarrow \phi'^*=e^{-i\th}\phi\\
+\psi_L &\rightarrow \psi'_L=e^{i\th}\psi_L\\
+\psi_R &\rightarrow \psi'_L=\psi_R,
+\end{split}\2.\ee
+the equations are kept the same form as the original, thus it is consistent with the U(1) symmetry. The charge conservation in transition between handedness is guaranteed by emitting a charge particle. Note that the real weak interactions are transformed in SU(2) group, so the above analysis is just a simplified version. We schematically draw the pictures for the two equations.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{LR}
+\caption{The left- and right- handed particle conversion through emitting a charged particle}
+\end{figure}\\
+The strength of emitting the scalar field $\phi$ denoted by $g$ is called the Yukawa coupling constant. It has a great significance in explaining the mass of particles.\\
+
+The SSB for the Higgs field $\phi=\rho e^{i\al}$ fixes its radial value to $f+H$, where $H$ is a small quantity reflects oscillation that can be neglected, thus gives the gauge particle W/Z boson the mass $f$, and gauge transformation locks the phase $\al$ to $0$. In this way, the factor in front of the fermion field becomes $g\phi^*=g\phi=gf$, which serves as the mass of the particle. Then we have a spectrum of values of $g$, which correspond to different particles. The mass of a W/Z boson is about 100GeV, thus if we measure the mass of a certain particle, we have that corresponding coupling constant $g$. The electron mass is about $0.5$MeV, which makes the $g_e$ very small; the top quark mass is about $1.5-2$ times the mass of W/Z bosons, thus $g_t$ would be order $1$.\\
+Meanwhile, the Yukawa coupling constant is also the emission amplitude for chirality transition, which would have the chance to serve as a good experimental confirmation about the theory. If the probability for the emission to occur is measured to be $m_F^2/f^2$, where $m_F$ is the mass of the corresponding fermion, then it would be a consistency with the theory of Higgs mechanism and chirality transition.\\
+
+In standard model, all of the neutrinos are left-handed, and all the anti-neutrinos are right-handed. They were thought to be massless, but they aren't because of the neutrinos oscillations, yet their masses are extremely small. (Beyond the SM, there're right-handed neutrinos, but they have very big masses, which we're not going to talk about.) Neutrinos get their masses by transitions between LH neutrinos and RH anti-neutrinos: $\n_L\leftrightarrow\bar\n_R$.
+
+The mass of a fermion is the thing which switches LH and RH: $p_L\leftrightarrow p_R$; but particles that get their masses by mixing LH particles and RH anti-particles $p_L\leftrightarrow \bar p_R$ are called the \textbf{Majorana Particles}. In this sense, neutrinos are Majorana particles, but electrons are not, since an electron carries the charge and if it transits to a positron it'll violate the charge conservation law. So Majorana particles can only be  part of those particles who have no electric charges. 
+
+Actually there're different saying about the type of neutrinos. Some says there's only one type of neutrinos $\n$ and it's both LH and RH, while others say there're only LH neutrinos $\n$ and RH anti-neutrinos $\bar\n$. Both sayings are right and equivalent, the point is that different types of neutrinos can mix and form massive Majorana particles which are their own anti-particles, because they're superpositions of $\n$ and $\bar\n$. By the way, $\n$ and $\bar\n$ interact differently with Z bosons, they have the opposite weak charges.\\
+
+To conclude the mechanism for particles' mass, all mass of particles in standard model can be traced back to $f$, the shift of ground state of Higgs field and SSB. They couldn't have mass if the Higgs field is not shifted, i.e, if $f\rightarrow 0$, all particles would become massless, except for the Higgs particle itself. The gauge bosons normally don't have mass, the only known way to give them mass is the phenomenon of SSB associated with Higgs field, their mass is typically proportional to the W/Z bosons' mass $f$. All fermions, because of the peculiar property that weak interaction is purely left-handed, can only get their mass by the shift of the compensate charged scalar Higgs fields.
+
+All particles that have energies low enough to be detected, get their mass from the same origin --- a small amount of SSB. Yet, there may higher-energy particles ($m>f$) that we haven't discovered which mass are not gain with this mechanism, for example probably the dark matter particles. An imaginable case that can allow mass to be bigger than $f$ is that in weak interactions, both LH and RH particles are charged, thus we don't need an extra scalar field to compensate the charge conservation, the original Dirac equation with a mass term exists, the mass $m$ would be nothing to do with $f$, thus it could be arbitrarily big.
 
 
 
@@ -1731,6 +1793,8 @@ With this mechanism, the Goldstone boson eaten by the gauge boson would fix the 
 
 
 
+
+\newpage
 \subsection{SU(2) symmetry in Spin multiplets, Isospin, and in weak interaction}
 \subsubsection{Group theory of orthogonal and unitary rotations}
 We know from elementary physics that a vector in $3D$ is represented by a $3$-component vector, thus the rotation is represented by a $3\times 3$ matrix, then the resulting vector is given by
