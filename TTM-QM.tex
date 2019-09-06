@@ -1575,10 +1575,10 @@ Then we rename the matrices as
 \end{split}\2.\ee
 and using these Gamma matrices we write the equation as
 \be
-(i\gamma^0\p_0+i\gamma^j\p_j-m)\psi)=(i\gamma^\m\p_\m-m)\psi= 0,
+(i\gamma^0\p_0+i\gamma^j\p_j-m)\psi=0 \rar (i\gamma^\m\p_\m-m)\psi= 0,
 \ee
 where summation over repeated indices is implied. This is the standard modern form of the Dirac equation.\\
-The Dirac Lagrangian with this notation is given by multiplying the LHS of the above by a newly defined vector $\bar\psi\equiv\psi^\dag$ as
+The Dirac Lagrangian with this notation is given by multiplying the LHS of the above by a newly defined vector $\bar\psi\equiv\psi^\dag\bet$ as
 \be
 \ma L=\bar\psi (i\gamma^\m\p_\m-m)\psi.
 \ee
@@ -1590,7 +1590,40 @@ where the RHS is again zero, so we have
 \be
 \frac{\p\ma L}{\p\bar\psi}=(i\gamma^\m\p_\m-m)\psi=0.
 \ee
-The mathematical mechanism of $\bar\psi$ is that it can be converted back to $\psi^\dag$ by right multiplying $\bet$ as $\bar\psi\bet=\psi^\dag$, thus it compensate the $\bet$ we already multiplied in.
+The mathematical mechanism of $\bar\psi$ is that it can be converted back to $\psi^\dag$ by right multiplying $\bet$ as $\bar\psi\bet=\psi^\dag$, thus it compensate the $\bet$ we already multiplied in.\\
+We know from the previous lectures that a derivative term in the Lagrangian would have the effect of absorbing a particle at one spacetime point and emitting it at another point, thus making the particle move; while the non-derivative term means absorbing the particle at a point and emitting it at the same point, thus giving it some properties like the mass and charge.\\
+
+Then we analysis each term of the Dirac Lagrangian. By comparing the two forms of it, we have the first term as 
+\be\begin{split}
+&i\bar\psi\gamma^\m\p_\m\psi=i\psi^\dag\bet(\bet\p_0+\bet\al_j\p_j)\psi=i\psi^\dag(\p_0+\al_j\p_j)\psi\\
+=&i(\psi_L^\dag,\psi_R^\dag)\binom{\p_0\psi_L}{\p_0\psi_R}+i(\psi_L^\dag,\psi_R^\dag)\1(\ba{cc}\sig_j&O\\O&-\sig_j\ea\2)\binom{\p_j\psi_L}{\p_j\psi_R}\\
+=&i(\psi_L^\dag\p_0\psi_L+\psi_R^\dag\p_0\psi_R)+i(\psi_L^\dag\sig_j\p_j\psi_L-\psi_R^\dag\sig_j\p_j\psi_R)\\
++&i(\psi_L^\dag\p_0\psi_L+\psi_L^\dag\sig_j\p_j\psi_L)+i(\psi_R^\dag\p_0\psi_R-\psi_R^\dag\sig_j\p_j\psi_R),
+\end{split}\ee
+where $\psi_L$ and $\psi_R$ themselves are two-component vectors. We see from this form that the LH and RH component of the field doesn't mix with each other. The technical reason is the $\bet$ in $\bar\psi$ and the $\bet$ in $\gamma^\m$ cancel each other, thus the net effect is without the $\bet$ matrix which could flip the handedness.\\
+The second term is expanded as
+\be
+m\bar\psi\psi=m\psi^\dag\bet\psi=m(\psi_L^\dag,\psi_R^\dag)\1(\ba{cc}O&I\\I&O\ea\2)\binom{\psi^\dag}{\psi_R}=m(\psi_L^\dag\psi_R+\psi_R^\dag\psi_L),
+\ee
+it mixes the LH and RH components. The matrix that characterize chirality is defined as $\gamma^5\equiv\gamma^0\gamma^1\gamma^2\gamma^3$, it squares to unity $(\gamma^5)^2=I$, thus it has a positive eigenvalue $+1$ denoting the RH state and $-1$ corresponding to the LH state. By the way, the quantity $\bar\psi\gamma^\m\psi$ is a $4$-vector, and the $\bar\psi\psi$ is a scalar.\\
+
+But in the weak interaction context, only the LH part is charged, thus we have to modify the mass term as 
+\be
+g\phi\bar\psi\psi=g\psi_L^\dag\phi\psi_R+g\psi_R^\dag\psi_L\phi,
+\ee
+where the $\phi$ transforms as $\psi_L$, and $\phi^*$ the opposite. When SSB occurs, the field $\phi$ sits in $f+H$, the term becomes
+\be
+g\phi\bar\psi\psi=gf\phi\bar\psi\psi+gH\phi\bar\psi\psi,
+\ee
+where the first term gives the fermion mass, and the second term describes fermion emitting a Higgs or Higgs decaying into particle/anti-particle pairs, as following figures depicts. (Move this to SSB chapter.)
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.2,angle=-90]{FH}
+\caption{Interaction between Fermions and Higgs in context of weak interactions}
+\end{figure}\\
+
+
+
 
 
 
@@ -1674,7 +1707,17 @@ We begin with the case of a real scalar field which has only the simplest form, 
 \ma L=\p_\m \phi\p_\m \phi-V(\phi),
 \ee
 If there's no potential term, the Lagrangian with only the gradient terms would indicate the field doesn't have mass, just like photons.\\ %Now we are going to see how these type of particles can gain mass.%
-We know that a field state will stay at the stationary point of the potential, which has the lowest value of the potential term. If the potential term has a symmetric form where two lowest points $\phi=\pm f$ exist (see Figure \ref{vphi1}), the field would not be preferable to any of these two point, but it'll randomly pick on of them to stay in. This is the phenomenon of \textit{spontaneous symmetry breaking} (SSB). The contrary concept is, we name it, the explicit symmetry breaking, corresponding to the case where there are also two local lowest point in potential term but one is lower than the other. And since the two points are not connected or joint somehow, we say that this spontaneous symmetry breaking is discrete.
+We know that a field state will stay at the stationary point of the potential, which has the lowest value of the potential term. Consider a potential term takes the form of a ``Mexican hat" as
+\be
+V(\phi)=-\frac{\m^2}{2}\phi^2+\frac{\lambda}{4}\phi^4,
+\ee
+where the parameter $\m$ has the dimension of mass, and the $\lambda$ which is dimensionless called a quartic coupling constant. The potential has a symmetric form where two lowest points exists,
+they're calculated as
+\be
+V'(\phi)=-\m^2\phi+\lambda\phi^3=0 \rar \phi^2=\frac{\m^2}{\lambda}\equiv f^2 \rar f=\pm\frac{\m}{\sqrt{\lambda}},
+\ee
+where $f$ is dominated by $\m$, while $\lambda$ is less important. By the way, for symmetry we only pick even powers of the field, and powers beyond the fourth would make the theory non re-normalizable, so we just neglect higher-power terms.\\
+The figure of this potential is shown below (see Figure \ref{vphi1}), the stable field would not be preferable to any of these two lowest point, but it'll randomly pick on of them to stay in. This is the phenomenon of \textit{spontaneous symmetry breaking} (SSB). The contrary concept is, we name it, the explicit symmetry breaking, corresponding to the case where there are also two local lowest point in potential term but one is lower than the other. And since the two points are not connected or joint somehow, we say that this spontaneous symmetry breaking is discrete.
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.3,angle=-90]{vphi1}
@@ -2068,6 +2111,17 @@ Firstly the quark and the anti-quark are separated, and they still interact with
 \includegraphics[scale=0.5]{jet}
 \caption{Breaking of the gluon flux tube and formation of a jet}
 \end{figure}\\
+
+\subsec{The Grand Unification}
+\subsubsection{The screening effect and the running coupling constant}
+We know the electric charge serves as the scattering amplitude in QED, but actually they're not constant, but a function of the distance between two of them.\\
+The Column's law tells us the force between two charge are given by
+\be
+F=\frac{e^2}{R^2},
+\ee
+but actually this is only an asymptotic result in case of large space separation. The charge you feel at a large distance is not the  same as the numerical value of charge you put into the Lagrangian, which is called the bare electric charge. In short distance, they increases due to the decrease of the \textit{vacuum polarization}. \\
+In vacuum, the virtual electron/positron pairs pop up and annihilate everywhere. When you put two charges into the vacuum, the virtual particle in between that has the opposite charge would get a little closer to it, while the same charged particle would move away a little bit. But unlike the polarization in dielectric, the $e/e^+$ pair's separation depends on their energy --- when the energy of them is large, their separation gets smaller.
+
 
 
 
