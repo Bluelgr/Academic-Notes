@@ -1542,8 +1542,66 @@ Besides, since $\al$ is the velocity, it's vector quantity; it's not spin, which
 \text{Chirality:}&\quad\quad \vec\sig\cdot\vec p.
 \end{split}\ee
 
+\subsection{The Dirac Lagrangian and the Covariant Dirac equation}
+Next we are going to write the Lagrangian of the Dirac equation. To start from the 3D Dirac equation,
+\be
+i\p_0\psi=-i\al_j\p_j\psi+\bet m\psi,
+\ee
+where we used the spacetime indices to denote the derivatives. By moving terms we have
+\be
+(i\p_0+i\al_j\p_j-\bet m)\psi=0,
+\ee
+The Dirac Lagrangian is given by multiplying the LHS of the above by the Hermitian conjugate of the  the Dirac field $\psi^\dag$ as
+\be
+\ma L=\psi^\dag(i\p_0+i\al_j\p_j-\bet m)\psi.
+\ee
+Then the Dirac equation is recovered by EL equation with respect to $\psi^\dag$ as 
+\be
+\frac{\p\ma L}{\p\psi^\dag}=\p_\m\frac{\p\ma L}{\p(\p_\m\psi^\dag)},
+\ee
+where the RHS vanishes since there's no derivative terms with respect to $\psi^\dag$, and we have
+\be
+\frac{\p\ma L}{\p\psi^\dag}=(i\p_0+i\al_j\p_j-\bet m)\psi=0.
+\ee
+Next we try to make the Dirac equation and its Lagrangian a more neat and modern way. We multiply the Dirac equation by the matrix $\bet$ on the left and get
+\be
+(i\bet\p_0+i\bet\al_j\p_j- m)\psi=0,
+\ee
+where we used the fact that $\bet^2=I$ on the mass term.
+Then we rename the matrices as
+\be\1\{\begin{split}
+\gamma^0&\equiv\bet\\
+\gamma^j&\equiv\bet\al_j,
+\end{split}\2.\ee
+and using these Gamma matrices we write the equation as
+\be
+(i\gamma^0\p_0+i\gamma^j\p_j-m)\psi)=(i\gamma^\m\p_\m-m)\psi= 0,
+\ee
+where summation over repeated indices is implied. This is the standard modern form of the Dirac equation.\\
+The Dirac Lagrangian with this notation is given by multiplying the LHS of the above by a newly defined vector $\bar\psi\equiv\psi^\dag$ as
+\be
+\ma L=\bar\psi (i\gamma^\m\p_\m-m)\psi.
+\ee
+The Dirac equation can be gain through the Euler-Lagrangian equation with respect to $\bar\psi$ as
+\be
+\frac{\p\ma L}{\p\bar\psi}=\p_\m\frac{\p\ma L}{\p(\p_\m\bar\psi)},
+\ee
+where the RHS is again zero, so we have
+\be
+\frac{\p\ma L}{\p\bar\psi}=(i\gamma^\m\p_\m-m)\psi=0.
+\ee
+The mathematical mechanism of $\bar\psi$ is that it can be converted back to $\psi^\dag$ by right multiplying $\bet$ as $\bar\psi\bet=\psi^\dag$, thus it compensate the $\bet$ we already multiplied in.
+
+
+
+
+
+
+
+
+
 \newpage
-\section{Particle physics}
+\section{The Standard Model of Particle Physics}
 \be
 \begin{gathered} \xymatrix@R=8ex@C=2ex{
 \text{Particles} \ar@{<->}[rd] \ar@{<->}[rr]& &\text{Fields} \ar@{<->}[ld] \\
