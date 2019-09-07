@@ -1397,6 +1397,27 @@ The approach is by simply using the definition of the field operators,
 \end{split}\ee
 which is consistent with the result when we act the field anti-commutator on single-particle states $|0\ra$ and $|y\ra$.
 
+\subsection{Particle-wave Duality}
+A wave has certain characteristic quantities attached to it, they can be divided into spatial quantities and temporal quantities, and these kinds are related by the speed of the wave. The simplest relation would be
+\be
+v=\frac{\lambda}{T},
+\ee
+with $\lambda$ its wavelength as the spatial quantity, and the $T$ as its period as the temporal quantity.\\
+Another pair of temporal quantities are the frequency and the phase frequency, their definition and relation with the above equation are given as
+\be\1\{\begin{split}
+f:=&\frac 1 T=\frac v \lambda\\
+\omega:=&2\pi f=\frac {2\pi v} \lambda.
+\end{split}\2.\ee
+The frequency means how many wavelength pass through a fixed point in space per unit time, so the definition is straightforward: the numerator $1$ denotes $1$ wavelength, it's dimensionless, and the denominator $T$ is the time that a wavelength pass through a point; when you wait time $T$, the number of wavelength goes through is $1$, their ratio gives the frequency. And $v/\lambda$ can also be understood: $v$ is distance of the wave passes the point per unit time, when it's divided by the wavelength, it just counts the number of wavelengths passes through that point per unit time.\\
+The phase frequency means how much phase of a space point varies when a unit time passes. It's just $2\pi$ times the frequency, since when a wavelength passes through, a full cycle in phase space is completed.
+
+
+
+
+
+
+
+
 \newpage
 \section{Relativistic Quantum Mechanics and Quantum Field Theory}
 \subsection{Dirac equation in one-dimension and the negative energy problem}
@@ -1502,7 +1523,7 @@ which additionally requires the $\bet$ matrix to satisfy
 \end{split}\2.\ee
 But unfortunately, there's not a forth $2\times 2$ matrix beyond the three Pauli matrices which could both squares to be $1$ and anti-commutes with the $\sig_i$. Nor can we find four $3\times 3$ matrices which can simultaneously meet all the requirements. The minimal dimension we can find such four matrices will be $4\times 4$. These matrices are called \textbf{Dirac matrices}. Incidentally, there are many representations of Dirac matrices, we just have to pick one and stick with it. Thus the wave function would have two more degrees of freedom, in total four components, together known as a \textbf{spinor}. But note that these four components have nothing to do with the $3+1$ dimensional spacetime, their existence is just a mathematical result. In 4D spinor space, we rewrite the Hamiltonian once more as 
 \be H=\vec\al\cdot\vec p+\bet m, \ee
-and one set of $4\times 4$ matrices called the \textbf{Pauli representation} of the Dirac matrices are given as
+and one set of $4\times 4$ matrices called the \textbf{Weyl representation} of the Dirac matrices are given as
 \be 
 \vec\al=\1(\ba{cc}\vec\sig&O\\O&-\vec\sig\ea\2) \quad\quad \bet=\1(\ba{cc}O&I\\I&O\ea\2),
 \ee
@@ -1516,12 +1537,23 @@ or explicitly in its block-matrix form
 i\frac{\p}{\p t}\binom{\psi_R}{\psi_L}=-i\1(\ba{cc}\sig_j&O\\O&-\sig_j\ea\2)\frac{\p}{\p x^j}\binom{\psi_R}{\psi_L}+ m\1(\ba{cc}0&I\\I&0\ea\2)\binom{\psi_R}{\psi_L},
 \ee
 where $\psi_R$ and $\psi_L$ are two-component vector states. Then this equation can be separately written as 
-\be\1\{\begin{split}
+\be\label{lheq}\1\{\begin{split}
 i\1(\frac{\p\psi_R}{\p t}+\sig_j\frac{\p\psi_R}{\p x^j}\2)&=m\psi_L\\
 i\1(\frac{\p\psi_L}{\p t}-\sig_j\frac{\p\psi_L}{\p x^j}\2)&=m\psi_R.
 \end{split}\2.\ee
 
-A property describes the relations between the direction of the spin and the momentum is called the \textbf{chirality}. A particle with the spin and the momentum in the same direction is \textit{right-handed}, a right-handed particle has both positive energy and negative energy components; a particle with the spin and the momentum in the opposite direction is \textit{left-handed}, a left-handed particle has also both positive energy and negative energy components. To leave the negative energy away for the moment, we restate that for positive energy particles, they can be classified into right-handed and left-handed ones. When the two chiral components are coupled together by the $\bet$ matrix, the mass term of the particle comes out; or to say, the effect of the mass of a Dirac particle is to make transition of the two chiral particles; this is consistent with the fact that one can choose a reference frame which moves faster than the massive particle and sees the momentum pointing in the opposite direction (with spin direction unchanged), thus from his point of view the right-handedness becomes left-handedness. In this sense, we conclude that for massive particles, chirality depends on the reference frame, and a particle at rest is a mixture of the LH and RH. On contrast, for a massless particle the chirality is conserved, it stays right-handed or left-handed forever, which is also consistent with the fact that nothing can move faster than light and change the direction of  the momentum. Besides, chirality are also well-defined and useful in context of high-energy particles where the momentum is large enough.\\
+A property describes the relations between the direction of the spin and the momentum is called the \textbf{chirality}. A particle with the spin and the momentum in the same direction is \textit{right-handed}, a right-handed particle has both positive energy and negative energy components; a particle with the spin and the momentum in the opposite direction is \textit{left-handed}, a left-handed particle has also both positive energy and negative energy components. To leave the negative energy away for the moment, we restate that for positive energy particles, they can be classified into right-handed and left-handed ones. When the two chiral components are coupled together by the $\bet$ matrix, the mass term of the particle comes out; or to say, the effect of the mass of a Dirac particle is to make transition of the two chiral particles; this is consistent with the fact that one can choose a reference frame which moves faster than the massive particle and sees the momentum pointing in the opposite direction (with spin direction unchanged), thus from his point of view the right-handedness becomes left-handedness.\\ In this sense, we conclude that for massive particles, chirality depends on the reference frame, and a particle at rest is a mixture of the LH and RH. To see this clearly, we choose a reference frame where the momentum $\vec p=0$, in this way we have $H=\bet m$, then the spatial derivative terms vanish, from equation \eqref{lheq} we have
+\be\1\{\begin{split}
+i\frac{\p\psi_R}{\p t}&=m\psi_L\\
+i\frac{\p\psi_L}{\p t}&=m\psi_R.
+\end{split}\2.\ee
+If we add or subtract these two equations and define two new states as $\psi_\pm=\psi_R\pm\psi_L$, we have
+\be\1\{\begin{split}
+i\frac{\p\psi_+}{\p t}=i\frac{\p}{\p t}(\psi_R+\psi_L)&=m(\psi_R+\psi_L)=\phantom{-}m\psi_+\\
+i\frac{\p\psi_-}{\p t}=i\frac{\p}{\p t}(\psi_R-\psi_L)&=m(\psi_L-\psi_R)=-m\psi_-.
+\end{split}\2.\ee
+Since the $i\p/\p t$ is the Hamiltonian operator, when it acts on a state it gives the energy as the eigenvalue, so for $\psi_+$ we have $E(\psi_+)=\omega(\psi_+)=m>0$ which is a positive energy, and for $\psi_-$ we have $E(\psi_-)=\omega(\psi_-)=-m<0$ which is a negative energy. Therefore for both the positive and negative energy states of a rest particle, they are mixtures of the LH and RH.\\
+On contrast, for a massless particle the chirality is conserved, it stays right-handed or left-handed forever, which is also consistent with the fact that nothing can move faster than light and change the direction of  the momentum. Besides, chirality are also well-defined and useful in context of high-energy particles where the momentum is large enough.\\
 
 Next we're going to leave the dot product away and study the $\vec\al$ matrices alone. It's physical meaning, or to say, its expectation value in any state, is the velocity of the particle! This seems very bizarre, but we will prove it conversely, by using the commutator of the position with the Hamiltonian,
 \be
@@ -1871,7 +1903,7 @@ the equations are kept the same form as the original, thus it is consistent with
 \end{figure}\\
 The strength of emitting the scalar field $\phi$ denoted by $g$ is called the Yukawa coupling constant. It has a great significance in explaining the mass of particles.\\
 
-The SSB for the Higgs field $\phi=\rho e^{i\al}$ fixes its radial value to $f+H$, where $H$ is a small quantity reflects oscillation that can be neglected, thus gives the gauge particle W/Z boson the mass $f$, and gauge transformation locks the phase $\al$ to $0$. In this way, the factor in front of the fermion field becomes $g\phi^*=g\phi=gf$, which serves as the mass of the particle. Then we have a spectrum of values of $g$, which correspond to different particles. The mass of a W/Z boson is about 100GeV, thus if we measure the mass of a certain particle, we have that corresponding coupling constant $g$. The electron mass is about $0.5$MeV, which makes the $g_e$ very small; the top quark mass is about $1.5-2$ times the mass of W/Z bosons, thus $g_t$ would be order $1$.\\
+The SSB for the Higgs field $\phi=\rho e^{i\al}$ fixes its radial value to $f+H$, where $H$ is a small quantity reflects oscillation that we neglected here \textit{(collisions of two fermion fields will stop the oscillation of Higgs field)}, thus gives the gauge particle W/Z boson the mass $f$, and gauge transformation locks the phase $\al$ to $0$. In this way, the factor in front of the fermion field becomes $g\phi^*=g\phi=gf$, which serves as the mass of the particle. Then we have a spectrum of values of $g$, which correspond to different particles. The mass of a W/Z boson is about 100GeV, thus if we measure the mass of a certain particle, we have that corresponding coupling constant $g$. The electron mass is about $0.5$MeV, which makes the $g_e$ very small; the top quark mass is about $1.5-2$ times the mass of W/Z bosons, thus $g_t$ would be order $1$.\\
 Meanwhile, the Yukawa coupling constant is also the emission amplitude for chirality transition, which would have the chance to serve as a good experimental confirmation about the theory. If the probability for the emission to occur is measured to be $m_F^2/f^2$, where $m_F$ is the mass of the corresponding fermion, then it would be a consistency with the theory of Higgs mechanism and chirality transition.\\
 
 In standard model, all of the neutrinos are left-handed, and all the anti-neutrinos are right-handed. They were thought to be massless, but they aren't because of the neutrinos oscillations, yet their masses are extremely small. (Beyond the SM, there're right-handed neutrinos, but they have very big masses, which we're not going to talk about.) Neutrinos get their masses by transitions between LH neutrinos and RH anti-neutrinos: $\n_L\leftrightarrow\bar\n_R$.
