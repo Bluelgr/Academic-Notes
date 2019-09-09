@@ -1397,7 +1397,8 @@ The approach is by simply using the definition of the field operators,
 \end{split}\ee
 which is consistent with the result when we act the field anti-commutator on single-particle states $|0\ra$ and $|y\ra$.
 
-\subsection{Particle-wave Duality}
+\section{Particle-wave Duality}
+\subsection{Property of waves and waves packets}
 A wave has certain characteristic quantities attached to it, they can be divided into spatial quantities and temporal quantities, and these kinds are related by the speed of the wave. The simplest relation would be
 \be
 v=\frac{\lambda}{T},
@@ -1409,10 +1410,173 @@ f:=&\frac 1 T=\frac v \lambda\\
 \omega:=&2\pi f=\frac {2\pi v} \lambda.
 \end{split}\2.\ee
 The frequency means how many wavelength pass through a fixed point in space per unit time, so the definition is straightforward: the numerator $1$ denotes $1$ wavelength, it's dimensionless, and the denominator $T$ is the time that a wavelength pass through a point; when you wait time $T$, the number of wavelength goes through is $1$, their ratio gives the frequency. And $v/\lambda$ can also be understood: $v$ is distance of the wave passes the point per unit time, when it's divided by the wavelength, it just counts the number of wavelengths passes through that point per unit time.\\
-The phase frequency means how much phase of a space point varies when a unit time passes. It's just $2\pi$ times the frequency, since when a wavelength passes through, a full cycle in phase space is completed.
+The phase frequency means how much phase of a space point varies when a unit time passes. It's just $2\pi$ times the frequency, since when a wavelength passes through, a full cycle in phase space is completed. The phase frequency is used more often than the frequency, thus we always call $\omega$ the frequency.\\
+
+A pair of spatial quantities are the wave number and the phase wave number, they're given as 
+\be\1\{\begin{split}
+\tilde k:=&\frac 1 \lambda\\
+k:=&2\pi \tilde k=\frac {2\pi} \lambda.
+\end{split}\2.\ee
+The wave number counts how many wavelength passes through a point per unit space, so the definition is natural as a wavelength passes  through, the number of wavelength is ``$1$", thus the numerator is dimensionless. The phase wave number shows how much phase of a certain space point it goes through when a unit length on the wave passes, thus the definition is also natural: when a wavelength passes through, the phase varies by completing a circle which is $2\pi$. The wave number is already somehow abandoned and we just call $k$ the wave number.\\
+
+By comparison, the temporal quantity $\omega$ is connected with the spatial quantity $k$ as 
+\be \omega=vk, \ee
+which is also easy to understand intuitively: the phase change per unit time is equal to the distance it travels per unit time multiplying the phase change in unit spatial distance. This equation is usually called the dispersion relation, since generally to each wave number $k$ (or wavelength $\lambda$), there is a specific velocity attached. Thus the velocity is a function of $k$, and so is the frequency $\omega$,
+\be \omega(k)=v(k)k.  \ee
+Since $\omega(k)$ and $v(k)$ are not independent, if we happen to know one of them, we can calculate the other by this equation. In most cases by certain physical laws, we somehow know the $\omega(k)$ first, and because the velocity here is attached to a specific wavenumber, it's called the phase velocity, \be v_p(k)=\frac{\omega(k)}k. \ee
+A monochromatic wave has a single $k$ hence the single $\omega(k)$, and due to its periodic property, it's always written as $\sin(k x-\omega t)$, $\cos(k x-\omega t)$, or $e^{i(k x-\omega t)}$. Note that in these forms, the argument $k x-\omega t$ has the dimension of the phase: $k$ is the phase change per unit space and $x$ is just the space, $\omega$ is the phase change per unit time and $t$ is just the time. Since the wave as a whole travels at a constant velocity, you can just pick a point on it and see its velocity, the point you are tracing has a constant phase so that the wave function value doesn't change when it's moving. So for this specific point, we have \be k x-\omega t=const. \rar k x=\omega t+const,\ee
+then we have its velocity just as \be v=\frac{\dif x}{\dif t}=\frac{\omega}{k}=v_p, \ee which is nothing but the phase velocity, so in this sense the name of the phase velocity is clear: it's the ``constant phase velocity".\\
+Usually a general wave packet $p(k x-\omega t)$ is composed of waves of a spectrum of frequencies, and it can be Fourier decomposed to 
+\be
+p(x,t)=\int_{-\infty}^{\infty}\dif k\ A(k) e^{i(k x-\omega(k) t)},
+\ee
+where $A(k)$ is the amplitude of each wavenumber, and $\omega(k)$ is a function of $k$.\\
+When it forms a stable wave packet, it has a velocity as a whole, which we call it a group velocity. To assume the wave packet is almost monochromatic, so that the amplitude $A(k)$ is sharply peaked around a central wavenumber $k_0$. In this region, the frequency can be expanded as 
+\be \omega (k)\approx \omega _{0}+(k-k_{0})\omega '_{0}, \ee
+where
+\be \omega _{0}=\omega (k_{0}) \quad\text{and}\quad  \omega '_{0}=\left.{\frac {\partial \omega (k)}{\partial k}}\right|_{k=k_{0}}. \ee
+Then, after some algebra,
+\be p(x,t)=e^{i(k_{0}x-\omega _{0}t)}\int _{-\infty }^{\infty }dk\,A(k)e^{i(k-k_{0})(x-\omega '_{0}t)}. \ee
+There are two factors in this expression. The first factor, $e^{i(k_{0}x-\omega _{0}t)}$, describes a perfect monochromatic wave with wavenumber $k_0$, with peaks and troughs moving at the phase velocity $\omega _{0}/k_{0}$ within the envelope of the wave packet.
+The other factor,
+\be \int _{-\infty }^{\infty }dk\,A(k)e^{i(k-k_{0})(x-\omega '_{0}t)},\ee
+gives the envelope of the wave packet. This envelope function depends on position and time only through the combination $(x-\omega '_{0}t)$. This combination is kept constant at a point when the packet travels, $(x-\omega '_{0}t)=const$.
+Therefore, the envelope of the wave packet travels at velocity
+\be v_g=\frac{\dif x}{\dif t}={\displaystyle \omega '_{0}=(d\omega /dk)_{k=k_{0}}~,} \ee
+which explains the group velocity formula. And yet there's still a simplified version of analyzing this, if we just take two waves with slightly different wave numbers $k$ and $k'$, as $\sin(k x-\omega(k) t)$, and $\sin(k' x-\omega'(k') t)$. When they form an envelope, any point on it must have a constant phase, and this phase is the phase difference of the two component wave, as $(k' x-\omega'(k') t)-(k x-\omega t)=constant\ phase$. The place where this constant phase is $0$, is the place where the two waves reinforce each other, and where this phase is $\pi$, there the two waves cancel each other. Thus the group velocity is easily calculated as
+\be
+v_g=\frac{\dif x}{\dif t} =\frac{\omega'-\omega}{k'-k}=\frac{\dif\omega}{\dif k}.
+\ee
+Combining the expressions of the group and phase velocity, we can have the relation between them, which is derived as
+\be\begin{split}
+v_g&=\frac{\dif\omega(k)}{\dif k}=\frac{\dif (v_p(k) k)}{\dif k}=\boxed{v_p(k)+k\frac{\dif v_p(k)}{\dif k}}=v_p+\frac{\omega}{ v_p}\frac{\dif v_p}{\dif \omega}v_g\\
+\rar v_g&=\frac{v_p}{1-\frac{\omega}{ v_p}\frac{\dif v_p}{\dif \omega}}.
+\end{split}\ee
+So if $\frac{\dif v_p}{\dif \omega}=0$, i.e, the phase velocity is irrelevant to the frequency, the group velocity is equal to the phase velocity, then there's no dispersion; if $\frac{\dif v_p}{\dif \omega}<0$, i.e, the phase velocity decreases as the frequency increases, the group velocity is smaller than the phase velocity, and this case is called the normal dispersion; if $\frac{\dif v_p}{\dif \omega}>0$, i.e, the phase velocity increases as the frequency increases, the group velocity is greater than the phase velocity, and this case is called the a-normal dispersion.
+
+\subsection{Wave properties of particles and different dispersion relations}
+Previously we said that generally we know the dispersion relation $\omega(k)$ first and then we can calculate the phase and group velocity. This is possibly due to the fact that in quantum mechanics, the energy and momentum is associated with the frequency and the wave number by the particle-wave duality relations as 
+\be\1\{\begin{split}
+E&=\hbar \omega=2\pi\hbar f=hf\\
+p&=\hbar k=\frac{2\pi\hbar}{\lambda}=\frac{h}{\lambda},
+\end{split}\2.\ee
+and we have the relations between the energy and the momentum in different contexts.\\
+
+In non-relativistic case, for a free particle dual to a Schrodinger wave, the energy relation and the resulting dispersion relation is given by
+\be
+E=\frac{p^2}{2m} \rar \omega=\frac{\hbar k^2}{2m},
+\ee
+thus we have the phase and the group velocity as
+\be\1\{\begin{split}
+v_p&=\frac{\omega}{k}=\frac{\hbar k}{2m}=\frac{p}{2m}\\
+v_g&=\frac{\dif\omega}{\dif k}=\frac{\hbar k}{m}=\frac{p}{m}.
+\end{split}\2.\ee
+We see that the group velocity is consistent with the particle's velocity $p/m$ while the phase velocity isn't.\\
+The above relation can also be written in terms of $f$ and $\lambda$ as
+\be
+hf=\frac{h^2}{2m\lam^2} \rar f=\frac h{2m} \lam^{-2} \rar v_p=\frac h{2m} \lam^{-1}.
+\ee\\
 
 
+If the energy is somehow shifted by a constant $C$, then the relations would be
+\be
+E=\frac{p^2}{2m}+C \rar \omega=\frac{\hbar k^2}{2m}+\frac{C}{\hbar},
+\ee
+and the resulting two velocities are
+\be\1\{\begin{split}
+v_p&=\frac{\omega}{k}=\frac{\hbar k}{2m}+\frac{C}{\hbar k}=\frac{p}{2m}+\frac{C}{p}\\
+v_g&=\frac{\dif\omega}{\dif k}=\frac{\hbar k}{m}=\frac{p}{m}.
+\end{split}\2.\ee
+We see that the phase velocity depends on $C$ while the group velocity doesn't, and the group velocity still coincides with the particle's velocity.
+In this sense we may guess that the phase velocity is somehow unphysical and doesn't influence the real particle's motion. To explicitly see this, we recall that a time-dependent field operator is given as
+\be
+\psi=\int \dif k\ a_k e^{i(kx-\omega t)},
+\ee
+when the energy is shifted by a constant, the new field operator would be
+\be
+\psi \rightarrow \psi'=\int \dif k\ a_k e^{i(kx-(\omega+C) t)}=e^{-iCt}\psi,
+\ee
+which is nothing but a phase change of the original field thus would not change the physics. So we concluded that the change of the phase velocity does not influence the physics and it's unmeasurable.\\
 
+For a relativistic massive particle, the energy-momentum relation and  the dispersion relation are given as
+\be E=\sqrt{p^2+m^2} \rar \omega=\sqrt{k^2+m^2/\hbar^2},
+\ee
+where we choose the speed of light $c=1$. So the resulting velocities are
+\be\1\{\begin{split}
+v_p&=\frac{\omega}{k}=\sqrt{1+m^2/(\hbar k)^2}=\sqrt{1+m^2/p^2}>1\\
+v_g&=\frac{\dif\omega}{\dif k}=\frac 1{\sqrt{1+m^2/(\hbar k)^2}}=\frac{k}{\omega}<1.
+\end{split}\2.\ee
+We see that the unphysical phase velocity is greater than the speed of light, while the group velocity still keeps slower than the light.\\
+
+For a relativistic massless particle like a photon, the energy relation and the dispersion is given as
+\be
+E=p \rar \omega=k,
+\ee
+so we have
+\be v_g=v_p=1, \ee
+where the group and the phase velocity is the same, all equal to the speed of light.\\
+
+\subsection{The wave equations}
+The simplest wave equations are
+\be\1\{\begin{split}
+\frac{\p\psi(x,t)}{\p x}=-\frac{\p\psi(x,t)}{\p t} \quad\Longleftrightarrow\quad \frac{\p\psi(x,t)}{\p x}+\frac{\p\psi(x,t)}{\p t}=0 \quad\Longleftrightarrow\quad \1(\frac\p{\p x}+\frac\p{\p t}\2) \psi(x,t)=0\\
+\frac{\p\psi(x,t)}{\p x}=\frac{\p\psi(x,t)}{\p t} \quad\Longleftrightarrow\quad \frac{\p\psi(x,t)}{\p x}-\frac{\p\psi(x,t)}{\p t}=0 \quad\Longleftrightarrow\quad \1(\frac\p{\p x}-\frac\p{\p t}\2) \psi(x,t)=0.
+\end{split}\2.\ee
+In order to explicitly solve them, we induce a pair of new variables $(\xi,\eta)$ instead of the old pair $(x,t)$, their transformation relations are given by
+\be\1\{\begin{split}
+\xi&=x+t\\
+\eta&=x-t
+\end{split}\2.
+\rar
+\1\{\begin{split}
+x&=\frac{\xi+\eta}2\\
+t&=\frac{\xi-\eta}2
+\end{split}\2.
+\rar
+\1\{\begin{split}
+\frac{\p}{\p \xi}&=\frac{\p x}{\p \xi}\frac{\p}{\p x}+\frac{\p t}{\p \xi}\frac{\p}{\p t}=\frac 1 2\1(\frac\p{\p x}+\frac\p{\p t}\2)\\
+\frac{\p}{\p \eta}&=\frac{\p x}{\p \eta}\frac{\p}{\p x}+\frac{\p t}{\p \eta}\frac{\p}{\p t}=\frac 1 2\1(\frac\p{\p x}-\frac\p{\p t}\2),
+\end{split}\2.
+\ee
+thus the equations we want to solve become
+\be\1\{\begin{split}
+\frac{\p}{\p \xi}\ \psi(\xi,\eta)&=0\\
+\frac{\p}{\p \eta}\ \psi(\xi,\eta)&=0.
+\end{split}\2.\ee
+The first equation doesn't contain $\eta$ and the second doesn't contain $\xi$, so the solutions have the form of 
+\be\1\{\begin{split}
+\psi(\xi,\eta)&=\psi(\eta)=\psi(x-t)\\
+\psi(\xi,\eta)&=\psi(\xi)=\psi(x+t).
+\end{split}\2.\ee
+We can check them by differentiate them with respect to $x$ and $t$,
+\be\1\{\begin{split}
+\frac{\p\psi(x-t)}{\p x}+\frac{\p\psi(x-t)}{\p x}&=\frac{\p\psi(x-t)}{\p (x-t)}\frac{\p (x-t)}x+\frac{\p\psi(x-t)}{\p (x-t)}\frac{\p (x-t)}t=\frac{\p\psi(x-t)}{\p (x-t)}-\frac{\p\psi(x-t)}{\p (x-t)}=0\\
+\frac{\p\psi(x+t)}{\p x}-\frac{\p\psi(x+t)}{\p x}&=\frac{\p\psi(x+t)}{\p (x+t)}\frac{\p (x+t)}x-\frac{\p\psi(x+t)}{\p (x+t)}\frac{\p (x+t)}t=\frac{\p\psi(x+t)}{\p (x+t)}-\frac{\p\psi(x+t)}{\p (x+t)}=0.
+\end{split}\2.\ee
+The first equation will describe a right-moving function, there are three ways to prove it. The first approach is that if we choose a point on the curve and observe its motion, we see that its function values doesn't change so that its argument would keep a constant as $x-t=const$, in this way we may find its velocity as $v=\frac{\dif x}{\dif t}=1>0$, so its traveling to the right. The same reasoning goes with the second equation which describes a left-moving function.\\
+
+The second way is to intuitively understand the equation $\frac{\p\psi(x,t)}{\p x}=-\frac{\p\psi(x,t)}{\p t}$, to see why the partial derivatives differ by a minus sign describes a right-moving wave. We draw the picture as follows.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{waveeq}
+\caption{Intuitively understand the first-order partial differential equations of the wave function}
+\end{figure}\\
+
+The third way is to treat the partial derivative as the quantum operators, with $i\frac\p{\p t}$ the frequency operator and $-i\frac\p{\p x}$ the wave number operator. And if the solution of the first equation is one of  its eigenfunctions, it'll give $\omega=k$, which means $v_g=\frac{\dif\omega}{\dif k}=1>0$, it's right-moving. And the second equation will give $\omega=-k$, then it's left-moving. The picture is drawn as follows.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=-90]{lrmove}
+\caption{$\om$-$k$ diagram for left- and right-movers}
+\end{figure}\\
+
+The second-order differential equation which can describe both the left- and right- moving particles is given by
+\be
+\frac{\p^2\psi}{\p x^2}-\frac{\p^2\psi}{\p t^2}=0 \quad\Longleftrightarrow\quad \1(\frac\p{\p x}+\frac\p{\p t}\2)\1(\frac\p{\p x}-\frac\p{\p t}\2) \psi(x,t)=0 \quad\Longleftrightarrow\quad \frac{\p^2}{\p \xi\p\eta}\ \psi(\xi,\eta)=0.
+\ee
+It's easy to see  the solution is given by linear combination of function of only $\xi$ and function of only $\eta$ as
+\be
+\psi(\xi,\eta)=\psi_1(\xi)+\psi_2(\eta)=\psi_1(x+t)+\psi_2(x-t).
+\ee
 
 
 
@@ -1436,13 +1600,13 @@ we have
 \ee
 which is the Klein-Gorden equation. But instead of a second order differential equation, we want a first order one, which is relevantly more difficult.\\
 
-To begin with, we consider a massless particle moving with the speed of light in one dimension, the energy relations reads as
+To begin with, we consider a massless particle moving with the speed of light in one dimension, the energy relations and the dispersion relation read as
 \be
-E=\pm p,
+E=\pm p \quad\Longleftrightarrow\quad \om=\pm k
 \ee
-which can represent right moving particles with $p$ itself positive, or left moving particles with $p$ itself negative; thus no matter which direction the particle is moving, the energy can either be positive or negative (noting the two $\pm$ signs). We stick with right-moving particles, and with the substitution we have
+which can represent right moving particles with the plus sign, or left moving particles with the minus sign; and no matter which direction the particle is moving, the momentum and the wave number itself can be positive or negative. We stick with right-moving particles, and with the substitution we have
 \be
-i\frac{\p\psi}{\p t}=\mp i\frac{\p\psi}{\p x} \quad\text{or}\quad \frac{\p\psi}{\p t}\pm\frac{\p\psi}{\p x}=0, explanation\ in\ below\ should\ be\ modified!!
+i\frac{\p\psi}{\p t}=\mp i\frac{\p\psi}{\p x} \quad\text{or}\quad \frac{\p\psi}{\p t}\pm\frac{\p\psi}{\p x}=0,
 \ee
 the solution has the form of $\psi(x\mp t)$ describes a right/left moving wave function with the speed of light $1$. Dirac treat the right/left moving property as a degree of freedom, thus any wave function has two components representing right/left moving just as the spin. In this treatment, the above equations can be composed into a single one in matrix version
 \be
@@ -1452,12 +1616,22 @@ in this way, the Hamiltonian is given in terms of $p$ as
 \be
 H=\al p \quad\text{with}\quad \al=\1(\ba{cc}1&0\\0&-1\ea\2),
 \ee
-where $\al$ is the third Pauli matrix. When it acts on the right-moving state, it gives the eigenvalue of $1$; when it acts on the left-moving state, it gives the eigenvalue of $-1$,
+where $\al$ is the third Pauli matrix. When it acts on the right-moving state, it gives the eigenvalue of $1$, which can also mean the spin is pointing right if we treat $\al$ as $\sig_x$; when it acts on the left-moving state, it gives the eigenvalue of $-1$,  which can also mean the spin is pointing left,
 \be\1\{\begin{split}
 \1(\ba{cc}1&0\\0&-1\ea\2)\binom{\psi_R}{0}&=\phantom{-}\binom{\psi_R}{0}\\
-\1(\ba{cc}1&0\\0&-1\ea\2)\binom{0}{\psi_L}&=-\binom{0}{\psi_L}.
+\1(\ba{cc}1&0\\0&-1\ea\2)\binom{0}{\psi_L}&=-\binom{0}{\psi_L},
 \end{split}\2.\ee
-Then we add a mass term to this Hamiltonian,
+In this sense, the spin naturally arises by mixing the right- and left- moving particles, and what's more, the spin is locked with the moving direction. Thus if we treat the $\al p$ as a quantity known as the handedness, it is the same with the left- and right- moving particles! We call this property of states satisfying
+\be 
+H\psi=\al p\psi \quad\Longleftrightarrow\quad i\frac{\p}{\p t}\psi=-i\al\frac{\p}{\p x}\psi \quad\Longleftrightarrow\quad \frac{\p}{\p t}\psi+\al\frac{\p}{\p x}\psi=0,
+\ee
+the right-handedness. And on the contrary the states satisfying 
+\be 
+H\psi=-\al p\psi \quad\Longleftrightarrow\quad i\frac{\p}{\p t}\psi=i\al\frac{\p}{\p x}\psi \quad\Longleftrightarrow\quad \frac{\p}{\p t}\psi-\al\frac{\p}{\p x}\psi=0
+\ee
+are left-handed.\\
+
+Then we proceed to construct the Hamiltonian, by adding a mass term as,
 \be
 H=\al p+\bet m,
 \ee
@@ -1553,7 +1727,20 @@ i\frac{\p\psi_+}{\p t}=i\frac{\p}{\p t}(\psi_R+\psi_L)&=m(\psi_R+\psi_L)=\phanto
 i\frac{\p\psi_-}{\p t}=i\frac{\p}{\p t}(\psi_R-\psi_L)&=m(\psi_L-\psi_R)=-m\psi_-.
 \end{split}\2.\ee
 Since the $i\p/\p t$ is the Hamiltonian operator, when it acts on a state it gives the energy as the eigenvalue, so for $\psi_+$ we have $E(\psi_+)=\omega(\psi_+)=m>0$ which is a positive energy, and for $\psi_-$ we have $E(\psi_-)=\omega(\psi_-)=-m<0$ which is a negative energy. Therefore for both the positive and negative energy states of a rest particle, they are mixtures of the LH and RH.\\
-On contrast, for a massless particle the chirality is conserved, it stays right-handed or left-handed forever, which is also consistent with the fact that nothing can move faster than light and change the direction of  the momentum. Besides, chirality are also well-defined and useful in context of high-energy particles where the momentum is large enough.\\
+On contrast, for a massless particle the chirality is conserved, it stays right-handed or left-handed forever, which is also consistent with the fact that nothing can move faster than light and change the direction of  the momentum. To see this conservation, we write
+\be
+\label{lheq}\1\{\begin{split}
+i\1(\frac{\p\psi_R}{\p t}+\sig_j\frac{\p\psi_R}{\p x^j}\2)&=0\\
+i\1(\frac{\p\psi_L}{\p t}-\sig_j\frac{\p\psi_L}{\p x^j}\2)&=0
+\end{split}\2.
+\rar
+\1\{\begin{split}
+\1(H-\vec\sig\cdot\vec p\2)\psi_R&=0\\
+\1(H+\vec\sig\cdot\vec p\2)\psi_L&=0,
+\end{split}\2.
+\ee
+which satisfies with the handedness equations we discussed in one dimension.\\
+Besides, chirality are also well-defined and useful in context of high-energy particles where the momentum is large enough.\\
 
 Next we're going to leave the dot product away and study the $\vec\al$ matrices alone. It's physical meaning, or to say, its expectation value in any state, is the velocity of the particle! This seems very bizarre, but we will prove it conversely, by using the commutator of the position with the Hamiltonian,
 \be
@@ -1573,6 +1760,12 @@ Besides, since $\al$ is the velocity, it's vector quantity; it's not spin, which
 \text{Spin:}&\quad\quad \vec\Sigma=\1(\ba{cc}\vec\sig&O\\O&\vec\sig\ea\2)\\
 \text{Chirality:}&\quad\quad \vec\sig\cdot\vec p.
 \end{split}\ee
+A photon injects into a vacuum and creates a hole in the Dirac negative sea and an electron, both of which have positive energy $\ep$, or $\om$ and momentum $p$, or $k$.
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3,angle=0]{diracsea}
+\caption{A photon injects into a vacuum and creates an electron/positron pair}
+\end{figure}
 
 \subsection{The Dirac Lagrangian and the Covariant Dirac equation}
 Next we are going to write the Lagrangian of the Dirac equation. To start from the 3D Dirac equation,
